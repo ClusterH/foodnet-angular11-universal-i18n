@@ -9,3 +9,8 @@ export interface Restaurants {
   restaurant_discount?: number;
   restaurant_description?: string;
 }
+
+export interface Locations {
+  id?: number;
+  cities?: string;
+}

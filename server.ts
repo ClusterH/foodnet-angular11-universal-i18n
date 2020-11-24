@@ -13,7 +13,6 @@ import { existsSync, readFileSync } from 'fs';
 import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
 import { NgxRequest, NgxResponse } from '@gorniv/ngx-universal';
 
-// import { existsSync } from 'fs';
 import * as proxy from 'http-proxy-middleware';
 import { environment } from 'src/environments/environment';
 

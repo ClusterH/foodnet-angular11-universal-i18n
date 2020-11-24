@@ -11,7 +11,7 @@
           <div style="display: inline; margin-left: 10px;">{{texts}}</div>
         </ng-template>
       </p-autoComplete>
-      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d">Search</button>
+      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d" [disabled]="!texts">Search</button>
     </div>
 
     <div class="tip_content">
@@ -64,7 +64,7 @@
                 <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
               </label>
             </h4>
-            <p class="card-text">{{restaurant.restaurant_description}}</p>
+            <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@
                 <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
               </label>
             </h4>
-            <p class="card-text">{{restaurant.restaurant_description}}</p>
+            <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@
                   [hidden]="restaurant.restaurant_rating === 0">{{restaurant.restaurant_rating}}/5</span>
               </label>
             </h4>
-            <p class="card-text">{{restaurant.restaurant_description}}</p>
+            <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@
               <h4 class="card-title">
                 <strong class="text-bold">{{item.type}}</strong>
               </h4>
-              <p class="card-text">{{item.description}}</p>
+              <p class="card-text block-with-text">{{item.description}}</p>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@
   </section>
   <section class="d-flex flex-column align-items-center justify-content-around pt-4 w-100" *ngIf="isBrowser">
     <h5 class="key-strength-title" i18n="@@home-section5-a">
-      Our key strengths
+      Users said
     </h5>
     <div class="col-md-6 col-sm-8 slide-section">
       <p-carousel [value]="slides" [autoplayInterval]="3000" [circular]="true" dotsContainerClass="p-carousel-dot-icon">
@@ -167,10 +167,12 @@
   <section class="m-0 home-banner-footer p-0">
     <img src="./assets/images/banner_foot.svg" alt="banner footer" class="img-fluid p-0 m-0">
     <div class="banner-footer-artice">
-      <h2>Szeretnél megjelenni az oldalon?</h2>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
-      <button type="button" class="btn btn-warning text-white">
-        Jelentkezés
+      <h2 i18n="@@home-section6-a">Do you want to appear on the site?</h2>
+      <p i18n="@@home-section6-b">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+        the industry's standard dummy text
+        ever.</p>
+      <button type="button" class="btn btn-warning text-white" i18n="@@home-section6-c">
+        Apply
       </button>
     </div>
   </section>

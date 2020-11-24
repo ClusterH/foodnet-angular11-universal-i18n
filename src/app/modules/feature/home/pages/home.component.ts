@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-// import { Meta, Title } from '@angular/platform-browser';
-// import { environment } from '../../../../environments/environment';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HomeService } from '../services/home.service';
 import { CookieService } from '@gorniv/ngx-universal';
 
-import { Restaurants } from '../models/home.model';
+import { Restaurants, Locations } from '../models/home.model';
 import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -17,7 +15,7 @@ import { takeUntil } from 'rxjs/operators';
   providers: [HomeService]
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   bigCityRestaurant_1: Restaurants;
   bigCityRestaurant_2: Restaurants;
   bigCityRestaurant_3: Restaurants;
@@ -31,7 +29,7 @@ export class HomeComponent implements OnInit {
   features: any;
   strengths: any;
   slides: any;
-  locations: any;
+  locations: Locations[];
   texts: string[];
   results: string[];
   display: boolean = true;
@@ -132,31 +130,31 @@ export class HomeComponent implements OnInit {
         description: $localize`:@@home-section4-f:Here will be the strength 1`,
       },
       {
-        type: 'Erősség #2',
-        description: 'Ide kibontanánk 1-2 mondatban, hogy miért is erősségünk ez.',
+        type: $localize`:@@home-section4-c:Strength #2`,
+        description: $localize`:@@home-section4-g:Here will be the strength 2`,
       },
       {
-        type: 'Erősség #3',
-        description: 'Ide kibontanánk 1-2 mondatban, hogy miért is erősségünk ez.',
+        type: $localize`:@@home-section4-d:Strength #3`,
+        description: $localize`:@@home-section4-h:Here will be the strength 3`,
       },
       {
-        type: 'Erősség #4',
-        description: 'Ide kibontanánk 1-2 mondatban, hogy miért is erősségünk ez.',
+        type: $localize`:@@home-section4-e:Strength #4`,
+        description: $localize`:@@home-section4-i:Here will be the strength 4`,
       },
     ];
     this.slides = [
       {
-        description: "“Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.”",
+        description: $localize`:@@home-section5-b-1:“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”`,
         name: "evapizza21",
         image: './assets/icons/user-avatar1.svg',
       },
       {
-        description: "“Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.”",
+        description: $localize`:@@home-section5-b-2:“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”`,
         name: "evapizza21",
         image: './assets/icons/user-avatar2.svg',
       },
       {
-        description: "“Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.”",
+        description: $localize`:@@home-section5-b-3:“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”`,
         name: "evapizza21",
         image: './assets/icons/user-avatar3.svg',
       },
@@ -166,11 +164,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     const lang = this.cookieService.get('language') || 'en';
 
+    const location_list = this.homeService.getLocations(lang);
+
     const bigCity1 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][0], `${lang}/`);
     const bigCity2 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][1], `${lang}/`);
     const bigCity3 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][2], `${lang}/`);
 
-    forkJoin([bigCity1, bigCity2, bigCity3]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([bigCity1, bigCity2, bigCity3]) => {
+    forkJoin([location_list, bigCity1, bigCity2, bigCity3]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([location_list, bigCity1, bigCity2, bigCity3]) => {
+      this.locations = location_list.locations;
+
       this.bigCityRestaurant_1 = bigCity1.restaurants;
       this.bigCityRestaurant_2 = bigCity2.restaurants;
       this.bigCityRestaurant_3 = bigCity3.restaurants;
@@ -191,3 +193,4 @@ export class HomeComponent implements OnInit {
     });
   }
 }
+

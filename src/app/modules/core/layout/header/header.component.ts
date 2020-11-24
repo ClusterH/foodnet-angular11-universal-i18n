@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   locations: any;
   texts: string[];
   results: string[];
-  // langs: any;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -28,8 +27,8 @@ export class HeaderComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
     console.log(this.selectedLanguage, this.cookieService.get('language'));
 
-    this.languages = [{ name: 'en', label: 'En' }, { name: 'ro', label: 'Ro' }, { name: 'hu', label: 'Hu' }];
-    this.selectedLanguage = this.cookieService.get('language') ? this.languages.find(country => country.name === this.cookieService.get('language')) : { name: 'en', label: 'En' };
+    this.languages = [{ name: 'en', label: 'EN' }, { name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }];
+    this.selectedLanguage = this.cookieService.get('language') ? this.languages.find(country => country.name === this.cookieService.get('language')) : { name: 'en', label: 'EN' };
     console.log(this.selectedLanguage, this.cookieService.get('language'));
 
     this.locations = [
@@ -58,14 +57,9 @@ export class HeaderComponent implements OnInit {
         "cities": "Brădești en"
       }
     ];
-
-
-    // this.langs = ["HU", "EN", "RO"];
   }
 
   ngOnInit(): void {
-    // localStorage.setItem('currentLang', this.selectedLanguage.name);
-
     this.router.events.subscribe(event => {
       console.log('event===>>>', event);
       if (event instanceof NavigationEnd) {

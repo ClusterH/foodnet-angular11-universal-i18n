@@ -34,44 +34,62 @@
         </context-group>
       </trans-unit><trans-unit id="home-section2-eye-catching-address" datatype="html">
         <source>An eye-catching address</source><target state="final">An eye-catching address</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="home-section2-about-purechase" datatype="html">
         <source>about the purchase</source><target state="final">about the purchase</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="home-section2-b" datatype="html">
         <source>Here we would give a little description of why it would be worth it for him, what are the benefits, in 2-3 lines.</source><target state="final">Here we would give a little description of why it would be worth it for him, what are the benefits, in 2-3 lines.</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">34</context></context-group></trans-unit><trans-unit id="home-section2-c" datatype="html">
         <source> Shop <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
             &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></source><target state="final"> Shop <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
             &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="home-section2-d" datatype="html">
         <source>Reading about it</source><target state="final">Reading about it</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">42</context></context-group></trans-unit><trans-unit id="home-section3.1-a" datatype="html">
         <source>Târgu Mureș</source><target state="final">Târgu Mureș</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">54</context></context-group></trans-unit><trans-unit id="home-section3.1-b" datatype="html">
         <source> All restaurants in Târgu Mureș </source><target state="final"> All restaurants in Târgu Mureș </target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit><trans-unit id="home-section3.2-a" datatype="html">
         <source>Miercurea Ciuc</source><target state="final">Miercurea Ciuc</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">79</context></context-group></trans-unit><trans-unit id="home-section3.2-b" datatype="html">
         <source> All restaurants in Miercurea Ciuc </source><target state="final"> All restaurants in Miercurea Ciuc </target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">99</context></context-group></trans-unit><trans-unit id="home-section3.3-a" datatype="html">
         <source>Odorheiu Secuiesc</source><target state="final">Odorheiu Secuiesc</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">104</context></context-group></trans-unit><trans-unit id="home-section3.3-b" datatype="html">
         <source> All restaurants in Odorheiu Secuiesc </source><target state="final"> All restaurants in Odorheiu Secuiesc </target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">125</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
         <source>Our key strengths</source><target state="final">Our key strengths</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section6-a" datatype="html">
+        <source>Do you want to appear on the site?</source><target state="final">Do you want to appear on the site?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section6-b" datatype="html">
+        <source>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</source><target state="final">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">171,173</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section6-c" datatype="html">
+        <source> Apply </source><target state="final"> Apply </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">175,176</context>
         </context-group>
       </trans-unit><trans-unit id="home-section1-d" datatype="html">
         <source>Search</source><target state="final">Search</target>
@@ -90,7 +108,7 @@
           <context context-type="linenumber">9,12</context>
         </context-group>
       </trans-unit><trans-unit id="home-section5-a" datatype="html">
-        <source> Our key strengths </source><target state="final"> Our key strengths </target>
+        <source> Users said </source><target state="final"> Users said </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">149,150</context>
@@ -122,7 +140,99 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
-      
+      <trans-unit id="home-section4-b">
+        <source>Strength #1</source>
+        <target>Strength #1</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">131</context></context-group></trans-unit>
+      <trans-unit id="home-section4-c">
+        <source>Strength #2</source>
+        <target>Strength #2</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">135</context></context-group></trans-unit>
+      <trans-unit id="home-section4-d">
+        <source>Strength #3</source>
+        <target>Strength #3</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">139</context></context-group></trans-unit>
+      <trans-unit id="home-section4-e">
+        <source>Strength #4</source>
+        <target>Strength #4</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">143</context></context-group></trans-unit>
+      <trans-unit id="home-section4-f">
+        <source>Here will be the strength 1</source>
+        <target>Here will be the strength 1</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">132</context></context-group></trans-unit>
+      <trans-unit id="home-section4-g">
+        <source>Here will be the strength 2</source>
+        <target state="final">Here will be the strength 2</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">136</context></context-group></trans-unit>
+      <trans-unit id="home-section4-h">
+        <source>Here will be the strength 3</source>
+        <target state="final">Here will be the strength 3</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">140</context></context-group></trans-unit>
+      <trans-unit id="home-section4-i">
+        <source>Here will be the strength 4</source>
+        <target state="final">Here will be the strength 4</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">144</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-1">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target state="final">“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">149</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-2">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target state="final">“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">154</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-3">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target state="final">“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">159</context></context-group></trans-unit>
+      <trans-unit id="footer-a">
+        <source>Job advertisement</source>
+        <target state="final">Job advertisement</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-b">
+        <source>Customer service</source>
+        <target state="final">Customer service</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-c">
+        <source>Contact</source>
+        <target state="final">Contact</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-d">
+        <source>Company information</source>
+        <target state="final">Company information</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-e">
+        <source>Coronavirus information</source>
+        <target state="final">Coronavirus information</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-f">
+        <source>Blog</source>
+        <target state="final">Blog</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-g">
+        <source>Allergens</source>
+        <target state="final">Allergens</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-h">
+        <source>FAQ</source>
+        <target state="final">FAQ</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-i">
+        <source>Website Terms of Use</source>
+        <target state="final">Website Terms of Use</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-j">
+        <source>Cookie</source>
+        <target state="final">Cookie</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-k">
+        <source>ÁSZF EN</source>
+        <target state="final">ÁSZF EN</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-l">
+        <source>Adatkezelési tájékoztató EN</source>
+        <target state="final">Adatkezelési tájékoztató EN</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+
     </body>
   </file>
 </xliff>

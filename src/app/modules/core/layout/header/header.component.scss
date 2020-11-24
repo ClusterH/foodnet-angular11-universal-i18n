@@ -84,6 +84,63 @@
     }
   }
 }
+
+:host {
+  ::ng-deep {
+    .p-dropdown {
+      width: 120px;
+      border-radius: 8px;
+      .p-dropdown-panel {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+
+        .p-dropdown-items {
+          padding-bottom: 0 !important;
+          p-dropdownitem {
+            .p-dropdown-item {
+              padding: 0.5rem 0 !important;
+              border-bottom: 1px solid #999;
+            }
+            &:last-child {
+              .p-dropdown-item {
+                border-bottom: none;
+                &:hover {
+                  border-bottom-left-radius: 8px;
+                  border-bottom-right-radius: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.p-dropdown-open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        .p-dropdown-panel {
+          outline: 0 none;
+          outline-offset: 0;
+          box-shadow: 0 0 0 0.2rem #a6d5fa;
+          border-color: #2196f3;
+        }
+      }
+    }
+  }
+}
+
+.lang-item {
+  a {
+    width: 100%;
+    display: block;
+    padding-left: 1rem;
+    text-decoration: none;
+    color: #444;
+    &:hover {
+      text-decoration: none;
+      color: #444;
+    }
+  }
+}
+
 .text-primary {
   color: #1976d2 !important;
 }

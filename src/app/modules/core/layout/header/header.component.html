@@ -14,12 +14,12 @@
               <div style="display: inline; margin-left: 10px;">{{texts}}</div>
             </ng-template>
           </p-autoComplete>
-          <button class="btn btn-warning text-white search_btn" i18n="@@header-search-button">Search</button>
+          <button class="btn btn-warning text-white search_btn" [disabled]="!texts"
+            i18n="@@header-search-button">Search</button>
         </div>
       </div>
       <div class="right_section" *ngIf="isBrowser">
-        <p-dropdown [options]="languages" itemSize="30" optionLabel="label" optionValue="label"
-          [(ngModel)]="selectedLanguage">
+        <p-dropdown [options]="languages" itemSize="30" name="selectedLanguage" [(ngModel)]="selectedLanguage">
           <ng-template let-lang pTemplate="item">
             <div class="lang-item">
               <a class="language-link" href="{{(lang.name === 'en') ? currentUrl : '/' + lang.name + currentUrl}}"

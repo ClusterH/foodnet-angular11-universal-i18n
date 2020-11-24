@@ -3,31 +3,31 @@
   <file source-language="en" datatype="plaintext" original="ng2.template" target-language="hu">
     <body>
       <trans-unit id="home-section1-i" datatype="html">
-        <source>Buy and enjoy the possibilities of foodnet</source><target state="new">Buy and enjoy the possibilities of foodnet</target>
+        <source>Buy and enjoy the possibilities of foodnet</source><target state="new">Ide jönne valami figyelemfelkeltő cím</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
       </trans-unit><trans-unit id="home-section1-e" datatype="html">
-        <source>Quick search:</source><target state="new">Quick search:</target>
+        <source>Quick search:</source><target state="new">Gyorskereső:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit><trans-unit id="home-section1-f" datatype="html">
-        <source>Târgu Mureș</source><target state="new">Târgu Mureș</target>
+        <source>Târgu Mureș</source><target state="new">Marosvásárhely</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit><trans-unit id="home-section1-g" datatype="html">
-        <source>Odorheiu Secuiesc</source><target state="new">Odorheiu Secuiesc</target>
+        <source>Odorheiu Secuiesc</source><target state="new">Székelyudvarhely</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit><trans-unit id="home-section1-h" datatype="html">
-        <source>Miercurea Ciuc</source><target state="new">Miercurea Ciuc</target>
+        <source>Miercurea Ciuc</source><target state="new">Csíkszereda</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">21</context>
@@ -73,6 +73,24 @@
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">131</context>
         </context-group>
+      </trans-unit><trans-unit id="home-section6-a" datatype="html">
+        <source>Do you want to appear on the site?</source><target state="new">Szeretnél megjelenni az oldalon?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section6-b" datatype="html">
+        <source>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</source><target state="new">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">171,173</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section6-c" datatype="html">
+        <source> Apply </source><target state="new"> Jelentkezés </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">175,176</context>
+        </context-group>
       </trans-unit><trans-unit id="home-section1-d" datatype="html">
         <source>Search</source><target state="new">Keresés</target>
         <context-group purpose="location">
@@ -90,7 +108,7 @@
           <context context-type="linenumber">9,12</context>
         </context-group>
       </trans-unit><trans-unit id="home-section5-a" datatype="html">
-        <source> Our key strengths </source><target state="new">  Kiemelt erősségeink </target>
+        <source> Users said </source><target state="new">  Kiemelt erősségeink </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
           <context context-type="linenumber">149,150</context>
@@ -122,7 +140,98 @@
           <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
-
+       <trans-unit id="home-section4-b">
+        <source>Strength #1</source>
+        <target>Erősség #1</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">131</context></context-group></trans-unit>
+      <trans-unit id="home-section4-c">
+        <source>Strength #2</source>
+        <target>Erősség #2</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">135</context></context-group></trans-unit>
+      <trans-unit id="home-section4-d">
+        <source>Strength #3</source>
+        <target>Erősség #3</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">139</context></context-group></trans-unit>
+      <trans-unit id="home-section4-e">
+        <source>Strength #4</source>
+        <target>Erősség #4</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">143</context></context-group></trans-unit>
+      <trans-unit id="home-section4-f">
+        <source>Here will be the strength 1</source>
+        <target>Itt lesz az erősség 1</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">132</context></context-group></trans-unit>
+      <trans-unit id="home-section4-g">
+        <source>Here will be the strength 2</source>
+        <target>Itt lesz az erősség 2</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">136</context></context-group></trans-unit>
+      <trans-unit id="home-section4-h">
+        <source>Here will be the strength 3</source>
+        <target>Itt lesz az erősség 3</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">140</context></context-group></trans-unit>
+      <trans-unit id="home-section4-i">
+        <source>Here will be the strength 4</source>
+        <target>Itt lesz az erősség 4</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">144</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-1">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">149</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-2">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">154</context></context-group></trans-unit>
+      <trans-unit id="home-section5-b-3">
+        <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
+        <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">159</context></context-group></trans-unit>
+      <trans-unit id="footer-a">
+        <source>Job advertisement</source>
+        <target>Álláshirdetés</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-b">
+        <source>Customer service</source>
+        <target>Ügyfélszolgálat</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-c">
+        <source>Contact</source>
+        <target>Kapcsolat</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-d">
+        <source>Company information</source>
+        <target>Céginformáció</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <trans-unit id="footer-e">
+        <source>Coronavirus information</source>
+        <target>Koronavírus tájékoztató</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-f">
+        <source>Blog</source>
+        <target>Blog</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-g">
+        <source>Allergens</source>
+        <target>Allergének</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-h">
+        <source>FAQ</source>
+        <target>GY.I.K</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <trans-unit id="footer-i">
+        <source>Website Terms of Use</source>
+        <target>Weboldal felhasználási feltételek</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-j">
+        <source>Cookie</source>
+        <target>Sütik</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-k">
+        <source>ÁSZF EN</source>
+        <target>ÁSZF.</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <trans-unit id="footer-l">
+        <source>Adatkezelési tájékoztató EN</source>
+        <target>Adatkezelési tájékoztató</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
 
     </body>
   </file>

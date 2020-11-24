@@ -1,0 +1,191 @@
+<div class="m-0 home-banner p-0">
+  <img class="img-fluid p-0 m-0" src="./assets/images/banner.svg" alt="Home Banner">
+  <div class="banner-article">
+    <h2 i18n="@@home-section1-i">Buy and enjoy the possibilities of foodnet</h2>
+    <div class="autocomplet_section" *ngIf="isBrowser">
+      <i class="fas fa-map-marker-alt marker_search"></i>
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="searchCity($event)"
+        placeholder="Település" i18n="@@home-section1-c">
+        <ng-template let-texts pTemplate="item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div style="display: inline; margin-left: 10px;">{{texts}}</div>
+        </ng-template>
+      </p-autoComplete>
+      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d">Search</button>
+    </div>
+
+    <div class="tip_content">
+      <label for="" i18n="@@home-section1-e">Quick search:</label>
+      <label for="" i18n="@@home-section1-f">Târgu Mureș</label>
+      <label for="" i18n="@@home-section1-g">Odorheiu Secuiesc</label>
+      <label for="" i18n="@@home-section1-h">Miercurea Ciuc</label>
+    </div>
+  </div>
+</div>
+<main class="main-content">
+  <section class="main-card">
+    <div class="card card-cascade">
+      <div class="card-body">
+        <div class="article">
+          <h5 class="mb-3" i18n="@@home-section2-eye-catching-address">An eye-catching address</h5>
+          <h5 class="mb-4" i18n="@@home-section2-about-purechase">about the purchase</h5>
+        </div>
+        <div class="article">
+          <p i18n="@@home-section2-b">Here we would give a little description of why it would be worth it for him, what
+            are the benefits, in 2-3 lines.</p>
+        </div>
+        <div class="d-flex flex-row article">
+          <button type="button" class="btn btn-warning text-white" i18n="@@home-section2-c">
+            Shop
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <span class="p-2 ml-3 d-flex align-items-center text-warning text-bold" i18n="@@home-section2-d">Reading about
+            it</span>
+        </div>
+      </div>
+      <div class="card-img">
+        <a routerLink="#">
+          <img class="img-fluid" src="./assets/images/main_card.svg" alt="Card image cap">
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="card-group">
+    <h5 class="card-group-title text-bold" i18n="@@home-section3.1-a">Târgu Mureș</h5>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_1">
+        <div class="card">
+          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">
+              <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+              <label class="rate-label" [hidden]="restaurant.restaurant_rating === 0">
+                <i class="far fa-star text-warning"></i>
+                <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
+              </label>
+            </h4>
+            <p class="card-text">{{restaurant.restaurant_description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center card-group-footer">
+      <button type="button" class="btn btn-warning-light text-warning text-bold text-center" i18n="@@home-section3.1-b">
+        All restaurants in Târgu Mureș
+      </button>
+    </div>
+  </section>
+  <section class="card-group">
+    <h5 class="card-group-title text-bold" i18n="@@home-section3.2-a">Miercurea Ciuc</h5>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_2">
+        <div class="card">
+          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">
+              <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+              <label class="rate-label" [hidden]="restaurant.restaurant_rating === 0">
+                <i class="far fa-star text-warning"></i>
+                <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
+              </label>
+            </h4>
+            <p class="card-text">{{restaurant.restaurant_description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center card-group-footer">
+      <button type="button" class="btn btn-warning-light text-warning text-bold text-center" i18n="@@home-section3.2-b">
+        All restaurants in Miercurea Ciuc
+      </button>
+    </div>
+  </section>
+  <section class="card-group">
+    <h5 class="card-group-title text-bold" i18n="@@home-section3.3-a">Odorheiu Secuiesc</h5>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_3">
+        <div class="card">
+          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">
+              <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+              <label class="rate-label">
+                <i class="far fa-star text-warning"></i>
+                <span class="text-warning text-bold"
+                  [hidden]="restaurant.restaurant_rating === 0">{{restaurant.restaurant_rating}}/5</span>
+              </label>
+            </h4>
+            <p class="card-text">{{restaurant.restaurant_description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center card-group-footer">
+      <button type="button" class="btn btn-warning-light text-warning text-bold text-center" i18n="@@home-section3.3-b">
+        All restaurants in Odorheiu Secuiesc
+      </button>
+    </div>
+  </section>
+  <section class="bg-warning-light pb-4 pt-4">
+    <div class="card-group row">
+      <h5 class="card-group-title text-bold mb-4" i18n="@@home-section4-a">Our key strengths</h5>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let item of strengths">
+          <div class="card">
+            <div class="card-body strength-card-body">
+              <div class="circle-on"></div>
+              <h4 class="card-title">
+                <strong class="text-bold">{{item.type}}</strong>
+              </h4>
+              <p class="card-text">{{item.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="d-flex flex-column align-items-center justify-content-around pt-4 w-100" *ngIf="isBrowser">
+    <h5 class="key-strength-title" i18n="@@home-section5-a">
+      Our key strengths
+    </h5>
+    <div class="col-md-6 col-sm-8 slide-section">
+      <p-carousel [value]="slides" [autoplayInterval]="3000" [circular]="true" dotsContainerClass="p-carousel-dot-icon">
+        <ng-template let-slide pTemplate="item">
+          <div class="slide-content">
+            <img src="{{slide.image}}" alt="avatar" width="30" height="30" class="user-avatar">
+            <p>
+              {{slide.description}}
+            </p>
+            <p>
+              - {{ slide.name }}
+            </p>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </section>
+  <section class="m-0 home-banner-footer p-0">
+    <img src="./assets/images/banner_foot.svg" alt="banner footer" class="img-fluid p-0 m-0">
+    <div class="banner-footer-artice">
+      <h2>Szeretnél megjelenni az oldalon?</h2>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+      <button type="button" class="btn btn-warning text-white">
+        Jelentkezés
+      </button>
+    </div>
+  </section>
+  <p-dialog header="" [(visible)]="display" [style]="{width: '255px'}" [baseZIndex]="10000" class="custom_dialog"
+    *ngIf="isBrowser">
+    <p-header>
+      <img src="./assets/icons/cookie_bite.svg" alt="">
+    </p-header>
+    <h2 class="text-warning">Cookie</h2>
+    <div class="text-center mb-4">
+      <p>We use Cookies to give you the best possible service. By continuing to browse our site you are agreeing to our
+        use of Cookies. For more information please see our</p>
+      <a href="#">Cookie Policy. </a>
+    </div>
+    <button type="button" class="btn btn-warning text-white">Elfogadom</button>
+  </p-dialog>
+
+</main>

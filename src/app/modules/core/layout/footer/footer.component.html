@@ -1,0 +1,15 @@
+<div class="footer">
+  <div class="row ml-0 mr-0">
+    <div class="col-12 footer_containter">
+      <div class="col-md-9 col-sm-12 footer_list_content">
+        <div class="col-md-3 footer_logo_content">
+          <img src="./assets/icons/foodnet-logo.svg" alt="">
+        </div>
+        <ul *ngFor="let item of footerList">
+          <li *ngFor="let subitem of item">{{ subitem }}</li>
+        </ul>
+      </div>
+      <p class="col-md-9 text-left">&copy; Food Net 2020</p>
+    </div>
+  </div>
+</div>

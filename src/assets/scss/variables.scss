@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins-Black";
+    src: url(../fonts/Poppins-Black.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url(../fonts/Poppins-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins-Italic";
+    src: url(../fonts/Poppins-Italic.ttf);
+    font-style: italic;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Poppins-Light";
+    src: url(../fonts/Poppins-Light.ttf);
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../fonts/Poppins-Medium.ttf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+$font-poppins: 'Poppins';
+$font-poppins-Black: 'Poppins-Black';
+$font-poppins-Bold: 'Poppins-Bold';
+$font-poppins-Italic: 'Poppins-Italic';
+$font-poppins-Light: 'Poppins-Light';
+$font-poppins-Medium: 'Poppins-Medium';
+
+$color-1st: #2e77b3;
+$color-layout-2-1st: #dd2400;
+$color-autopart: #dd2400;
+$color-technology: #0071df;
+$color-electronic: #dd2400;
+$color-furniture: #fb7c00;
+$color-organic: #5fa30f;
+$color-kids: #3e81ac;
+$color-photo: #c81919;
+$color-2nd: #222222;
+$color-3rd: #5e6b9d;
+$color-heading: #000;
+$color-text: #232323;
+$color-text-2: #555;
+$color-dark: #161824;
+$color-link: #06c;
+$color-logo: #fcb800;
+
+$color-success: #669900;
+$color-warning: #faa806;
+$color-danger: #ec0101;
+$color-gray: #9e9e9e;
+$color-facebook: #3b5999;
+$color-twitter: #55acee;
+$color-google: #dd4b39;
+$color-linkedin: #0077b5;
+$color-instagram: #0077b5;
+$document-font-size: 14px;
+
+$color-header2-circle: #003051;
+$color-warning : #F21641;
+$color-title :#232323;
+$color-pink : #FAD3D6;
+
+
+$timing: cubic-bezier(0.77, 0, 0.175, 1);
+$timing-1: cubic-bezier(0.7, 0, 0.3, 1);
+$timing-2: cubic-bezier(0.2, 1, 0.3, 1);
+
+

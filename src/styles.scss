@@ -1,0 +1,24 @@
+@import "assets/scss/variables.scss";
+
+@import "app/app.component";
+
+* {
+  font-family: $font-poppins;
+  box-sizing: border-box;
+}
+.fa,
+.far,
+.fas,
+.fab {
+  font-family: "Font Awesome 5 Free" !important;
+}
+
+body {
+  padding-top: 4rem !important;
+  color: black;
+  font-weight: 400;
+  background: #e5e5e5;
+  @media screen and (max-width: 590px) {
+    padding-top: 7rem !important;
+  }
+}

@@ -1,0 +1,39 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white">
+    <div class="header_content">
+      <div class="left_section">
+        <a class="navbar-brand" routerLink="/">
+          <img src="./assets/icons/foodnet-logo.svg" alt="">
+        </a>
+        <div class="header_search">
+          <i class="fas fa-map-marker-alt marker_search"></i>
+          <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="searchCity($event)"
+            placeholder="Település" i18n="@@header-search-placeholder">
+            <ng-template let-texts pTemplate="item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div style="display: inline; margin-left: 10px;">{{texts}}</div>
+            </ng-template>
+          </p-autoComplete>
+          <button class="btn btn-warning text-white search_btn" i18n="@@header-search-button">Search</button>
+        </div>
+      </div>
+      <div class="right_section" *ngIf="isBrowser">
+        <p-dropdown [options]="languages" itemSize="30" optionLabel="label" optionValue="label"
+          [(ngModel)]="selectedLanguage">
+          <ng-template let-lang pTemplate="item">
+            <div class="lang-item">
+              <a class="language-link" href="{{(lang.name === 'en') ? currentUrl : '/' + lang.name + currentUrl}}"
+                (click)="changeLanguage(lang)">{{lang.label}}</a>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <button class="btn text-warning bg-warning-light" i18n="@@header-login-button">Login</button>
+        <button class="btn btn-warning text-white" i18n="@@header-registeration-button">Registration</button>
+        <span class="bg-warning-light">
+          <img src="./assets/icons/shop_bag.svg" alt="">
+          <span class="badge bg-warning text-white">9</span>
+        </span>
+      </div>
+    </div>
+  </nav>
+</header>

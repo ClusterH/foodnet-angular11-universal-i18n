@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="hu">
+    <body>
+      <trans-unit id="home-section1-i" datatype="html">
+        <source>Buy and enjoy the possibilities of foodnet</source><target state="new">Buy and enjoy the possibilities of foodnet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-e" datatype="html">
+        <source>Quick search:</source><target state="new">Quick search:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-f" datatype="html">
+        <source>Târgu Mureș</source><target state="new">Târgu Mureș</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-g" datatype="html">
+        <source>Odorheiu Secuiesc</source><target state="new">Odorheiu Secuiesc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-h" datatype="html">
+        <source>Miercurea Ciuc</source><target state="new">Miercurea Ciuc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section2-eye-catching-address" datatype="html">
+        <source>An eye-catching address</source><target state="new">Figyelemfelkeltő cím</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="home-section2-about-purechase" datatype="html">
+        <source>about the purchase</source><target state="new">a vásárlásról</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="home-section2-b" datatype="html">
+        <source>Here we would give a little description of why it would be worth it for him, what are the benefits, in 2-3 lines.</source><target state="new">Itt adnánk egy kicsi leírást, hogy miért érné meg neki, mik az előnyei, 2-3 sorban.</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">34</context></context-group></trans-unit><trans-unit id="home-section2-c" datatype="html">
+        <source> Shop <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
+            &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></source><target state="new"> Előfizetek <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
+            &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="home-section2-d" datatype="html">
+        <source>Reading about it</source><target state="new">Tudj meg többet</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">42</context></context-group></trans-unit><trans-unit id="home-section3.1-a" datatype="html">
+        <source>Târgu Mureș</source><target state="new">Marosvásárhely</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">54</context></context-group></trans-unit><trans-unit id="home-section3.1-b" datatype="html">
+        <source> All restaurants in Târgu Mureș </source><target state="new"> Összes vásárhelyi étterem </target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit><trans-unit id="home-section3.2-a" datatype="html">
+        <source>Miercurea Ciuc</source><target state="new">Csíkszereda</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">79</context></context-group></trans-unit><trans-unit id="home-section3.2-b" datatype="html">
+        <source> All restaurants in Miercurea Ciuc </source><target state="new"> Összes csíkszeredai étterem </target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">99</context></context-group></trans-unit><trans-unit id="home-section3.3-a" datatype="html">
+        <source>Odorheiu Secuiesc</source><target state="new">Székelyudvarhely</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">104</context></context-group></trans-unit><trans-unit id="home-section3.3-b" datatype="html">
+        <source> All restaurants in Odorheiu Secuiesc </source><target state="new"> Összes székelyudvarhelyi étterem </target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">125</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
+        <source>Our key strengths</source><target state="new">Our key strengths</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-d" datatype="html">
+        <source>Search</source><target state="new">Keresés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section1-c" datatype="html">
+        <source><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="        &lt;ng-template let-texts pTemplate=&quot;item&quot;>
+ "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="         &lt;i class=&quot;fas fa-map-mar"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="ker-"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="          &lt;div style=&quot;display: inline; margin-lef"/><x id="INTERPOLATION" equiv-text="t: 10px;&quot;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text=">{{tex"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text=">
+        &lt;/n"/></source><target state="new"><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="        &lt;ng-template let-texts pTemplate=&quot;item&quot;>
+ "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="         &lt;i class=&quot;fas fa-map-mar"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="ker-"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="          &lt;div style=&quot;display: inline; margin-lef"/><x id="INTERPOLATION" equiv-text="t: 10px;&quot;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text=">{{tex"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text=">
+        &lt;/n"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">9,12</context>
+        </context-group>
+      </trans-unit><trans-unit id="home-section5-a" datatype="html">
+        <source> Our key strengths </source><target state="new">  Kiemelt erősségeink </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
+          <context context-type="linenumber">149,150</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-search-button" datatype="html">
+        <source>Search</source><target state="new">Keresés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-search-placeholder" datatype="html">
+        <source><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-texts pTemplate=&quot;item&quot;>
+              "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></source><target state="new"><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-texts pTemplate=&quot;item&quot;>
+              "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-login-button" datatype="html">
+        <source>Login</source><target state="new">Bejelentkezés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-registeration-button" datatype="html">
+        <source>Registration</source><target state="new">Regisztráció</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+
+
+    </body>
+  </file>
+</xliff>

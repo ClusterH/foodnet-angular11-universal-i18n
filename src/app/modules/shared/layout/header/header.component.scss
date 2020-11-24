@@ -88,8 +88,12 @@
 :host {
   ::ng-deep {
     .p-dropdown {
-      width: 120px;
+      width: 80px;
       border-radius: 8px;
+      &:not(.p-disabled).p-focus {
+        box-shadow: 0 0 0 0.2rem #ced4da;
+        border-color: #ced4da;
+      }
       .p-dropdown-panel {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
@@ -98,7 +102,7 @@
           padding-bottom: 0 !important;
           p-dropdownitem {
             .p-dropdown-item {
-              padding: 0.5rem 0 !important;
+              padding: 0 !important;
               border-bottom: 1px solid #999;
             }
             &:last-child {
@@ -116,11 +120,21 @@
       &.p-dropdown-open {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        box-shadow: 0 0 0 0.2rem #ced4da;
+        border-bottom: none;
+        border-color: #ced4da;
         .p-dropdown-panel {
           outline: 0 none;
           outline-offset: 0;
-          box-shadow: 0 0 0 0.2rem #a6d5fa;
-          border-color: #2196f3;
+          box-shadow: 0 0 0 0.2rem #ced4da;
+          border: 1px solid #ced4da !important;
+          border-color: #ced4da !important;
+          border-top: none;
+        }
+        .p-dropdown-trigger {
+          .p-dropdown-trigger-icon {
+            transform: rotate(180deg);
+          }
         }
       }
     }
@@ -128,10 +142,13 @@
 }
 
 .lang-item {
+  height: 41px;
   a {
     width: 100%;
+    height: 100%;
     display: block;
-    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
     text-decoration: none;
     color: #444;
     &:hover {

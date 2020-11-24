@@ -1,0 +1,17 @@
+.home-banner {
+  width: 100%;
+  position: relative;
+  img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto;
+  }
+  .not-found-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fcb800;
+    font-size: 80px;
+  }
+}

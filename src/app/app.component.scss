@@ -63,6 +63,20 @@ p-autocomplete {
       border-radius: 8px;
       height: 100% !important;
       padding-left: 2rem;
+      &:focus {
+        box-shadow: none !important;
+        border: 1px solid #ced4da !important;
+        border-color: #ced4da !important;
+      }
+    }
+    .p-inputtext {
+      border: 1px solid #ced4da !important;
+      border-color: #ced4da !important;
+      &:focus {
+        box-shadow: none !important;
+        border: 1px solid #ced4da !important;
+        border-color: #ced4da !important;
+      }
     }
     .p-autocomplete-panel {
       text-align: left;

@@ -34,7 +34,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
+              "src/foodnet-logo.svg",
               "src/assets"
             ],
             "styles": [

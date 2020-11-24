@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
-
 import { NavigationEnd, Router } from '@angular/router';
+import { forkJoin, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { CookieService } from '@gorniv/ngx-universal';
 import { isPlatformBrowser } from '@angular/common';
+import { CitySearchService } from '../../services/city-search.service';
 
 @Component({
   selector: 'app-header',
@@ -18,53 +21,32 @@ export class HeaderComponent implements OnInit {
   locations: any;
   texts: string[];
   results: string[];
+  private _unsubscribeAll: Subject<any>;
+
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
     private cookieService: CookieService,
+    private citySearchService: CitySearchService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
-    console.log(this.selectedLanguage, this.cookieService.get('language'));
+    this._unsubscribeAll = new Subject();
 
-    this.languages = [{ name: 'en', label: 'EN' }, { name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }];
-    this.selectedLanguage = this.cookieService.get('language') ? this.languages.find(country => country.name === this.cookieService.get('language')) : { name: 'en', label: 'EN' };
-    console.log(this.selectedLanguage, this.cookieService.get('language'));
-
-    this.locations = [
-      {
-        "id": 1,
-        "cities": "Târgu Mureș en"
-      },
-      {
-        "id": 2,
-        "cities": "Miercurea Ciuc en"
-      },
-      {
-        "id": 3,
-        "cities": "Odorheiu Secuiesc en"
-      },
-      {
-        "id": 4,
-        "cities": "Cluj Napoca en"
-      },
-      {
-        "id": 5,
-        "cities": "Brașov en"
-      },
-      {
-        "id": 6,
-        "cities": "Brădești en"
-      }
-    ];
+    this.languages = [{ name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }, { name: 'en', label: 'EN' }];
+    this.selectedLanguage = this.cookieService.get('language') ? this.languages.find(country => country.name === this.cookieService.get('language')) : { name: 'ro', label: 'RO' };
   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-      console.log('event===>>>', event);
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
+    });
+
+    const lang = this.cookieService.get('language') || 'ro';
+    this.citySearchService.getLocations(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      this.locations = res.locations;
     });
   }
 
@@ -76,8 +58,9 @@ export class HeaderComponent implements OnInit {
 
   searchCity(event) {
     this.results = [];
+    console.log(this.results);
     this.locations.forEach(item => {
-      if (item.cities.toLowerCase().includes(event.query)) {
+      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) {
         this.results.push(item.cities);
       }
     });

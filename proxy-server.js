@@ -22,7 +22,7 @@ function run() {
   server.use("/ro", appRo);
   server.use("/hu", appHu);
   server.use("/en", appEn);
-  server.use("", appEn);
+  server.use("", appRo);
 
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);

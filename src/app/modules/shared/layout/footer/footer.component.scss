@@ -2,6 +2,7 @@
   background: #000;
   padding-top: 3rem;
   padding-bottom: 1.5rem;
+  overflow: hidden;
   .row {
     --bs-gutter-x: 0;
   }
@@ -33,9 +34,17 @@
           font-size: 16px;
           color: #999;
           margin-bottom: 0.5rem;
+          cursor: pointer;
           &:first-child {
             font-weight: bold;
             color: #fff;
+            cursor: default;
+          }
+          &:hover {
+            color: #f78f1e;
+            &:first-child {
+              color: #fff;
+            }
           }
         }
       }
@@ -45,6 +54,7 @@
         ul {
           li {
             font-size: 12px;
+            cursor: pointer;
           }
         }
       }

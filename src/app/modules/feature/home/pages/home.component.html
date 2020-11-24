@@ -52,14 +52,14 @@
   </section>
   <section class="card-group">
     <h5 class="card-group-title text-bold" i18n="@@home-section3.1-a">Târgu Mureș</h5>
-    <div class="row">
+    <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_1">
         <div class="card">
           <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
-              <label class="rate-label" [hidden]="restaurant.restaurant_rating === 0">
+              <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
                 <i class="far fa-star text-warning"></i>
                 <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
               </label>
@@ -77,14 +77,14 @@
   </section>
   <section class="card-group">
     <h5 class="card-group-title text-bold" i18n="@@home-section3.2-a">Miercurea Ciuc</h5>
-    <div class="row">
+    <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_2">
         <div class="card">
           <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
-              <label class="rate-label" [hidden]="restaurant.restaurant_rating === 0">
+              <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
                 <i class="far fa-star text-warning"></i>
                 <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
               </label>
@@ -102,17 +102,16 @@
   </section>
   <section class="card-group">
     <h5 class="card-group-title text-bold" i18n="@@home-section3.3-a">Odorheiu Secuiesc</h5>
-    <div class="row">
+    <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_3">
         <div class="card">
           <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
-              <label class="rate-label">
+              <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
                 <i class="far fa-star text-warning"></i>
-                <span class="text-warning text-bold"
-                  [hidden]="restaurant.restaurant_rating === 0">{{restaurant.restaurant_rating}}/5</span>
+                <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
               </label>
             </h4>
             <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
@@ -126,10 +125,10 @@
       </button>
     </div>
   </section>
-  <section class="bg-warning-light pb-4 pt-4">
-    <div class="card-group row">
+  <section class="bg-warning-light pb-4 pt-4 w-100">
+    <div class="card-group">
       <h5 class="card-group-title text-bold mb-4" i18n="@@home-section4-a">Our key strengths</h5>
-      <div class="row">
+      <div class="row w-100 ml-0 mr-0">
         <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let item of strengths">
           <div class="card">
             <div class="card-body strength-card-body">
@@ -187,7 +186,7 @@
         use of Cookies. For more information please see our</p>
       <a href="#">Cookie Policy. </a>
     </div>
-    <button type="button" class="btn btn-warning text-white">Elfogadom</button>
+    <button type="button" class="btn btn-warning text-white" (click)="acceptCookie()">Elfogadom</button>
   </p-dialog>
 
 </main>

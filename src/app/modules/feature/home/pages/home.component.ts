@@ -8,6 +8,12 @@ import { Restaurants, Locations } from '../models/home.model';
 import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+const BigCityNameAccordingToLang = {
+  en: ['targu-mures-en', 'miercurea-ciuc-en', 'odorheiu-secuiesc-en'],
+  ro: ['targu-mures', 'miercurea-ciuc', 'odorheiu-secuiesc'],
+  hu: ['marosvasarhely', 'csikszereda', 'szekelyudvarhely'],
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,13 +26,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   bigCityRestaurant_2: Restaurants;
   bigCityRestaurant_3: Restaurants;
 
-  bigCityNameAccordingToLang = {
-    en: ['targu-mures-en', 'miercurea-ciuc-en', 'odorheiu-secuiesc-en'],
-    ro: ['targu-mures', 'miercurea-ciuc', 'odorheiu-secuiesc'],
-    hu: ['marosvasarhely', 'csikszereda', 'szekelyudvarhely'],
-  }
-
-  features: any;
   strengths: any;
   slides: any;
   locations: Locations[];
@@ -44,86 +43,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
 
-    this.features = [
-      [
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_1.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_2.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_3.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_4.svg',
-          link: 'bootstrap-prototype'
-        },
-      ],
-      [
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_2.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_3.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_4.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_1.svg',
-          link: 'bootstrap-prototype'
-        },
-      ],
-      [
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_3.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_4.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_1.svg',
-          link: 'bootstrap-prototype'
-        },
-        {
-          type: 'Étterem neve',
-          description: 'Étterem leírása leírása leírása leírása 2 sorban, hogy legyen helye',
-          image: 'product_2.svg',
-          link: 'bootstrap-prototype'
-        },
-      ]
-    ];
     this.strengths = [
       {
         type: $localize`:@@home-section4-b:Strength #1`,
@@ -162,13 +81,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const lang = this.cookieService.get('language') || 'en';
+    const lang = this.cookieService.get('language') || 'ro';
 
     const location_list = this.homeService.getLocations(lang);
 
-    const bigCity1 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][0], `${lang}/`);
-    const bigCity2 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][1], `${lang}/`);
-    const bigCity3 = this.homeService.getBiggerCityRestaurants(this.bigCityNameAccordingToLang[lang][2], `${lang}/`);
+    const bigCity1 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][0], `${lang}/`);
+    const bigCity2 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][1], `${lang}/`);
+    const bigCity3 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][2], `${lang}/`);
 
     forkJoin([location_list, bigCity1, bigCity2, bigCity3]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([location_list, bigCity1, bigCity2, bigCity3]) => {
       this.locations = location_list.locations;
@@ -187,10 +106,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchCity(event) {
     this.results = [];
     this.locations.forEach(item => {
-      if (item.cities.toLowerCase().includes(event.query)) {
+      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) {
         this.results.push(item.cities);
       }
     });
+  }
+
+  acceptCookie() {
+    this.display = false;
   }
 }
 

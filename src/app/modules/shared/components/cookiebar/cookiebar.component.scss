@@ -1,0 +1,60 @@
+.modal_section {
+  width: 30%;
+}
+
+.custom_dialog {
+  width: 30% !important;
+}
+
+.text-warning {
+  color: #f78f1e !important;
+}
+
+:host {
+  ::ng-deep {
+    .p-dialog {
+      position: absolute;
+      left: 10%;
+      bottom: 10%;
+      border-radius: 10px;
+      .p-dialog-header {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        text-align: center;
+        .p-dialog-title {
+          width: 42px;
+          height: 42px;
+          margin: auto;
+        }
+        .p-dialog-header-icons {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+        }
+      }
+      .p-dialog-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 0 1rem 1.8rem 1rem;
+        h2 {
+          font-weight: bolder;
+          font-size: 32px;
+          text-align: center;
+        }
+        p {
+          margin-bottom: 0;
+        }
+        a {
+          color: #f78f1e !important;
+          &:hover {
+            color: #f78f1e;
+          }
+        }
+      }
+    }
+  }
+}

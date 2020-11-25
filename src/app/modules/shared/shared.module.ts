@@ -18,6 +18,7 @@ import { DialogModule } from 'primeng/dialog';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { CookieBarComponent } from './components/cookiebar/cookiebar.component';
 import { CitySearchService } from './services/city-search.service';
 
 @NgModule({
@@ -26,8 +27,9 @@ import { CitySearchService } from './services/city-search.service';
     FormsModule,
     AutoCompleteModule,
     DropdownModule,
+    DialogModule
   ],
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, CookieBarComponent],
   providers: [CitySearchService],
   exports: [
     CommonModule,
@@ -51,7 +53,7 @@ import { CitySearchService } from './services/city-search.service';
 
     HeaderComponent,
     FooterComponent,
-    // HomeComponent,
+    CookieBarComponent,
   ]
 })
 export class ShareModule {

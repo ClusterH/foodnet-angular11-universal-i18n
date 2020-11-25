@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit {
     this.results = [];
     console.log(this.results);
     this.locations.forEach(item => {
-      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) {
+      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())) {
         this.results.push(item.cities);
       }
     });

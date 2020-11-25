@@ -1,0 +1,13 @@
+<p-dialog header="" [(visible)]="display" [style]="{width: '255px'}" [baseZIndex]="10000" class="custom_dialog"
+  *ngIf="isBrowser">
+  <p-header>
+    <img src="./assets/icons/cookie_bite.svg" alt="">
+  </p-header>
+  <h2 class="text-warning">Cookie</h2>
+  <div class="text-center mb-4">
+    <p>We use Cookies to give you the best possible service. By continuing to browse our site you are agreeing to our
+      use of Cookies. For more information please see our</p>
+    <a href="#">Cookie Policy. </a>
+  </div>
+  <button type="button" class="btn btn-warning text-white" (click)="acceptCookie()">Elfogadom</button>
+</p-dialog>

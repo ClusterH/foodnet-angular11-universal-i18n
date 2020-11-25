@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private homeService: HomeService,
-    private cookieService: CookieService,
+    public cookieService: CookieService,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
@@ -106,14 +106,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchCity(event) {
     this.results = [];
     this.locations.forEach(item => {
-      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))) {
+      if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())) {
         this.results.push(item.cities);
       }
     });
   }
 
   acceptCookie() {
-    this.display = false;
+    if (this.display) {
+      this.display = false;
+      this.cookieService.put('authInfo', "accepted");
+    }
   }
 }
 

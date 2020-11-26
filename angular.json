@@ -19,6 +19,7 @@
             "translation": "src/i18n/messages.hu.xlf",
             "baseHref": "hu/"
           }
+
         }
       },
       "prefix": "app",

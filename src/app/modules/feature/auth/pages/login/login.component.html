@@ -1,0 +1,57 @@
+<main class="main_container">
+  <section class="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
+    <h2>Bejelentkezés</h2>
+    <form class="main_form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group message_section">
+        <p-messages severity="info">
+          <ng-template pTemplate>
+            <img src="./assets/icons/foodnet-logo.svg" width="32" />
+            <div class="p-ml-2">Always bet on Prime.</div>
+          </ng-template>
+        </p-messages>
+      </div>
+      <div class="form-group">
+        <label for="email">Email cím</label>
+        <input id="email" type="email" class="form-control" formControlName="email" pInputText
+          aria-describedby="email-help">
+      </div>
+      <div *ngIf="isValidInput('email')" class="alert alert-danger">
+        <div *ngIf="loginForm.controls['email'].errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="loginForm.controls['email'].errors.pattern">
+          Email address is not an email format.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Jelszó</label>
+        <a href="#"><small id="forgot-password" class="pull-right text-warning">Elfelejtett jelszó</small></a>
+        <input id="password" type="password" class="form-control" pInputText aria-describedby="password-help"
+          formControlName="password">
+        <!-- <small id="passwordHelp">Enter your username to reset your password.</small> -->
+      </div>
+      <div *ngIf="isValidInput('password')" class="alert alert-danger">
+        <div *ngIf="loginForm.controls['password'].errors.required">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="form-check login_remember_section">
+        <input type="checkbox" name="login_remember" id="login_remember" class="form-check-input" value="val1" />
+        <label class="form-check-label" for="login_remember">
+          Check me out</label>
+      </div>
+      <div class="form-group login_btn_section">
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-warning text-white">Bejelentkezés</button>
+      </div>
+    </form>
+    <div class="signup_section">
+      <h5>Új vagy itt?</h5>
+      <button type="button" class="btn btn-white text-warning">Regisztrálj!</button>
+    </div>
+  </section>
+  <section class="col-md-6 col-sm-12">
+    <img src="./assets/images/portfolio.svg" class="w-100" alt="">
+  </section>
+</main>

@@ -27,8 +27,10 @@
             </div>
           </ng-template>
         </p-dropdown>
-        <button class="btn text-warning bg-warning-light" i18n="@@header-login-button">Login</button>
-        <button class="btn btn-warning text-white" i18n="@@header-registeration-button">Registration</button>
+        <button class="btn text-warning bg-warning-light" i18n="@@header-login-button"
+          [routerLink]="'/auth/login'">Login</button>
+        <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
+          [routerLink]="'/auth/register'">Registration</button>
         <span class="bg-warning-light">
           <img src="./assets/icons/shop_bag.svg" alt="">
           <span class="badge bg-warning text-white">9</span>

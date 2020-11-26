@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -15,6 +17,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { DropdownModule } from 'primeng/dropdown';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DialogModule } from 'primeng/dialog';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -25,9 +29,10 @@ import { CitySearchService } from './services/city-search.service';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     AutoCompleteModule,
     DropdownModule,
-    DialogModule
+    DialogModule,
   ],
   declarations: [HeaderComponent, FooterComponent, CookieBarComponent],
   providers: [CitySearchService],
@@ -45,11 +50,13 @@ import { CitySearchService } from './services/city-search.service';
     MatTooltipModule,
     MatSnackBarModule,
     MatButtonModule,
-
+    //primeNg
     CarouselModule,
     AutoCompleteModule,
     DropdownModule,
     DialogModule,
+    MessageModule,
+    MessagesModule,
 
     HeaderComponent,
     FooterComponent,

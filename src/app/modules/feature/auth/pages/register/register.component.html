@@ -1,54 +1,109 @@
 <main class="main_container">
   <section class="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
-    <h2>Bejelentkezés</h2>
-    <form class="main_form" [formGroup]="registerForm" (ngSubmit)="register()">
-      <div class="form-group message_section">
-        <p-messages severity="info">
+    <h2 class="text-bold">Registration</h2>
+    <form class="signin_form" [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="form-group message_section" *ngIf="isInvalidErrors">
+        <p-messages severity="error">
           <ng-template pTemplate>
-            <img src="./assets/icons/foodnet-logo.svg" width="32" />
-            <div class="p-ml-2">Always bet on Prime.</div>
+            <i class="fas fa-info-circle text-danger" width="32"></i>
+            <div class="ml-2">User already exist</div>
           </ng-template>
         </p-messages>
       </div>
       <div class="form-group">
-        <label for="email">Email cím</label>
-        <input id="email" type="email" class="form-control" formControlName="email" pInputText
-          aria-describedby="email-help">
-      </div>
-      <div *ngIf="isValidInput('email')" class="alert alert-danger">
-        <div *ngIf="registerForm.controls['email'].errors.required">
-          Email is required.
+        <label for="name" class="text-bold"
+          [ngClass]="(isValidInput('name') && (registerForm.controls['name'].errors.required || registerForm.controls['name'].errors.pattern || registerForm.controls['name'].errors.minlength || registerForm.controls['name'].errors.maxlength)) ? 'text-red' : ''">Name</label>
+        <input id="name" type="text" class="form-control" formControlName="name"
+          [ngClass]="(isValidInput('name') && (registerForm.controls['name'].errors.required || registerForm.controls['name'].errors.pattern || registerForm.controls['name'].errors.minlength || registerForm.controls['name'].errors.maxlength)) ? 'bd-red' : ''">
+        <div *ngIf="isValidInput('name')" class="m-0 p-0">
+          <div *ngIf="registerForm.controls['name'].errors.required">
+            <small id="namedHelp" class="text-red">Name is required.</small>
+          </div>
+          <div *ngIf="registerForm.controls['name'].errors.pattern">
+            <small id="namedHelp" class="text-red">Name is not a name format.</small>
+          </div>
+          <div *ngIf="registerForm.controls['name'].errors.minlength">
+            <small id="namedHelp" class="text-red">The name must be at least 3 characters long</small>
+          </div>
+          <div *ngIf="registerForm.controls['name'].errors.maxlength">
+            <small id="namedHelp" class="text-red">The name must be maximum 20 characters long</small>
+          </div>
         </div>
-        <div *ngIf="registerForm.controls['email'].errors.pattern">
-          Email address is not an email format.
-        </div>
       </div>
-
       <div class="form-group">
-        <label for="password">Jelszó</label>
-        <a href="#"><small id="forgot-password" class="pull-right text-warning">Elfelejtett jelszó</small></a>
-        <input id="password" type="password" class="form-control" pInputText aria-describedby="password-help"
-          formControlName="password">
-        <!-- <small id="passwordHelp">Enter your username to reset your password.</small> -->
-      </div>
-      <div *ngIf="isValidInput('password')" class="alert alert-danger">
-        <div *ngIf="registerForm.controls['password'].errors.required">
-          Password is required.
+        <label for="email" class="text-bold"
+          [ngClass]="(isValidInput('email') && (registerForm.controls['email'].errors.required || registerForm.controls['email'].errors.pattern)) ? 'text-red' : ''">Email
+          address</label>
+        <input id="email" type="email" class="form-control" formControlName="email"
+          [ngClass]="(isValidInput('email') && (registerForm.controls['email'].errors.required || registerForm.controls['email'].errors.pattern)) ? 'bd-red' : ''">
+        <div *ngIf="isValidInput('email')" class="m-0 p-0">
+          <div *ngIf="registerForm.controls['email'].errors.required">
+            <small id="emailHelp" class="text-red">Email is required.</small>
+          </div>
+          <div *ngIf="registerForm.controls['email'].errors.pattern">
+            <small id="emailHelp" class="text-red">Not an e-mail format</small>
+          </div>
         </div>
       </div>
 
+      <div class="form-group" class="password_section">
+        <label for="password" class="text-bold"
+          [ngClass]="(isValidInput('password') && (registerForm.controls['password'].errors.required || registerForm.controls['password'].errors.minlength || registerForm.controls['password'].errors.maxlength)) ? 'text-red' : ''">Password</label><br />
+        <label for="password">6+ characters</label>
+        <input id="password" [type]="isShown? 'text' : 'password'" class="form-control" formControlName="password"
+          [ngClass]="(isValidInput('password') && (registerForm.controls['password'].errors.required || registerForm.controls['password'].errors.minlength || registerForm.controls['password'].errors.maxlength)) ? 'bd-red' : ''">
+        <i class="far" [ngClass]="isShown ? 'fa-eye-slash' : 'fa-eye'" (click)="toggleEye('origin')"></i>
+        <div *ngIf="isValidInput('password')" class="m-0 p-0">
+          <div *ngIf="registerForm.controls['password'].errors.required">
+            <small id="passwordHelp" class="text-red">The password is required</small>
+          </div>
+          <div *ngIf="registerForm.controls['password'].errors.minlength">
+            <small id="passwordConfirmHelp" class="text-red">The password must be at least 6 characters long</small>
+          </div>
+          <div *ngIf="registerForm.controls['password'].errors.maxlength">
+            <small id="passwordConfirmHelp" class="text-red">The password must be maximum 30 characters long</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" class="password_section">
+        <label for="passwordConfirm" class="text-bold"
+          [ngClass]="(isValidInput('passwordConfirm') && (registerForm.controls['passwordConfirm'].errors.required || registerForm.controls['passwordConfirm'].errors.mustMatch)) ? 'text-red' : ''">Password
+          again</label><br />
+        <label for="passwordConfirm">6+ characters</label>
+        <input id="passwordConfirm" [type]="isShownConfirm? 'text' : 'password'" class="form-control"
+          formControlName="passwordConfirm"
+          [ngClass]="(isValidInput('passwordConfirm') && (registerForm.controls['passwordConfirm'].errors.required || registerForm.controls['passwordConfirm'].errors.mustMatch)) ? 'bd-red' : ''">
+        <i class="far" [ngClass]="isShownConfirm ? 'fa-eye-slash' : 'fa-eye'" (click)="toggleEye('confirm')"></i>
+        <div *ngIf="isValidInput('passwordConfirm')" class="m-0 p-0">
+          <div *ngIf="registerForm.controls['passwordConfirm'].errors.required">
+            <small id="passwordConfirmHelp" class="text-red">The password is required</small>
+          </div>
+          <div *ngIf="registerForm.controls['passwordConfirm'].errors.mustMatch">
+            <small id="passwordConfirmHelp" class="text-red">The password again and password do not match</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-check login_remember_section mt-1">
+        <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input" [checked]="isAcceptTerms"
+          (change)="isAcceptTerms = !isAcceptTerms" />
+        <label class="form-check-label" for="acceptTerms">
+          I accept the <a href="#" class="text-warning text-decoration-none">Terms and Conditions.</a></label>
+      </div>
       <div class="form-check login_remember_section">
-        <input type="checkbox" name="login_remember" id="login_remember" class="form-check-input" value="val1" />
-        <label class="form-check-label" for="login_remember">
-          Check me out</label>
+        <input type="checkbox" name="subscribe" id="subscribe" class="form-check-input" [checked]="isNewsletter"
+          (change)="isNewsletter = !isNewsletter" />
+        <label class="form-check-label" for="subscribe">
+          I subscribe to the newsletter.</label>
       </div>
       <div class="form-group login_btn_section">
-        <button [disabled]="!registerForm.valid" type="submit" class="btn btn-warning text-white">Bejelentkezés</button>
+        <button [disabled]="!registerForm.valid || !isAcceptTerms" type="submit"
+          class="btn btn-warning text-white">Registration</button>
       </div>
     </form>
     <div class="signup_section">
-      <h5>Új vagy itt?</h5>
-      <button type="button" class="btn btn-white text-warning">Regisztrálj!</button>
+      <h5 class="text-bold text-center">Do you already have an account?</h5>
+      <button type="button" class="btn btn-white text-warning" [routerLink]="'/auth/login'">Sign in!</button>
     </div>
   </section>
   <section class="col-md-6 col-sm-12">

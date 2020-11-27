@@ -6,6 +6,7 @@ import { NotificationService } from 'src/app/modules/core/notifications/notifica
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MustMatch } from '../../services/auth.validators';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;
   errors: any = [];
   notify: string;
+  isShown: boolean;
+  isShownConfirm: boolean;
+  isAcceptTerms: boolean;
+  isNewsletter: boolean;
+  isInvalidErrors: boolean;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -27,7 +33,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private notifyService: NotificationService,
   ) {
     this._unsubscribeAll = new Subject();
-
+    this.isShown = false;
+    this.isShownConfirm = false;
   }
 
   ngOnInit(): void {
@@ -41,9 +48,15 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   initForm(): void {
     this.registerForm = this.fb.group({
+      name: ['', [Validators.required,
+      Validators.pattern('^[a-zA-Z ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required,
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required,
+      Validators.minLength(6), Validators.maxLength(30)]],
+      passwordConfirm: ['', Validators.required],
+    }, {
+      validator: MustMatch('password', 'passwordConfirm')
     });
   }
 
@@ -55,15 +68,26 @@ export class RegisterComponent implements OnInit, OnDestroy {
   register(): void {
     console.log(this.registerForm.value);
     this.errors = [];
-    const test_registerData = {
-      name: 'test', email: 'test@test.com', password: '!23456', newsletter: ''
+    const registerData = {
+      name: this.registerForm.value.name, email: this.registerForm.value.email, password: this.registerForm.value.password, newsletter: this.isNewsletter ? 1 : 0
     }
-    this.authService.register(test_registerData).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
+    console.log(registerData);
+    this.authService.register(registerData).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
       console.log(token);
-      this.router.navigate(['/auth/login'], { queryParams: { registered: 'success' } });
+
+      this.router.navigate(['/'], { queryParams: { registered: 'success' } });
     },
       (errorResponse) => {
-        this.errors.push(errorResponse.error.error);
+        this.isInvalidErrors = true;
       });
+  }
+
+  toggleEye(type: string): void {
+    if (type == 'origin') {
+      this.isShown = !this.isShown;
+    }
+    else {
+      this.isShownConfirm = !this.isShownConfirm;
+    }
   }
 }

@@ -29,27 +29,47 @@ export class AuthService {
   }
 
   public register(userData: any): Observable<any> {
-    return this._httpClient.post(`${this.apiBase}/register`, userData);
+    return this._httpClient.post<any>(`${this.apiBase}/register`, userData).pipe(map(res => {
+      console.log(res);
+      return this.saveToken(res.result[0].token);
+    }))
   }
 
-  logIn(userData: any): Observable<any> {
-    return this._httpClient.post<User>(`${this.apiBase}/login`, userData).pipe(map(token => {
-      console.log(token);
-      return this.saveToken(token);
+  logIn(userData: any, isStay: boolean): Observable<any> {
+    return this._httpClient.post<any>(`${this.apiBase}/login`, userData).pipe(map(res => {
+      console.log(res);
+      return this.saveToken(res.result[0].token, isStay);
+    }))
+  }
+
+  reset(userData: any): Observable<any> {
+    return this._httpClient.post<any>(`${this.apiBase}/reset`, userData).pipe(map(res => {
+      console.log(res);
+      return res;
+    }))
+  }
+
+  resetPWD(userData: any, token: string): Observable<any> {
+    return this._httpClient.post<any>(`${this.apiBase}/reset-password/${token}`, userData).pipe(map(res => {
+      console.log(res);
+      return this.saveToken(res.result[0].token);
     }))
   }
 
   public logout(): void {
-    this.cookieService.remove('auth_tkn');
-    this.cookieService.remove('auth_meta');
+    this.cookieService.removeAll();
 
     this.decodedToken = new DecodedToken();
   }
 
-  private saveToken(token: any): any {
+  private saveToken(token: any, isStay?: boolean): any {
+    console.log(token);
     this.decodedToken = jwt.decodeToken(token);
     this.cookieService.put('auth_tkn', token);
     this.cookieService.put('auth_meta', JSON.stringify(this.decodedToken));
+    if (isStay) {
+      this.cookieService.put('stay_login', 'stayed');
+    }
     return token;
   }
 

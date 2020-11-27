@@ -27,10 +27,16 @@
             </div>
           </ng-template>
         </p-dropdown>
-        <button class="btn text-warning bg-warning-light" i18n="@@header-login-button"
-          [routerLink]="'/auth/login'">Login</button>
-        <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
-          [routerLink]="'/auth/register'">Registration</button>
+        <ng-container *ngIf="!cookieService.get('auth_tkn')">
+          <button class="btn text-warning bg-warning-light" i18n="@@header-login-button" routerLink="auth/login"
+            routerLinkActive>Login</button>
+          <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
+            routerLink="/auth/register">Registration</button>
+        </ng-container>
+        <ng-container *ngIf="cookieService.get('auth_tkn')">
+          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button"
+            (click)="logout()">Logout</button>
+        </ng-container>
         <span class="bg-warning-light">
           <img src="./assets/icons/shop_bag.svg" alt="">
           <span class="badge bg-warning text-white">9</span>

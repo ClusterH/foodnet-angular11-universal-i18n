@@ -1,5 +1,8 @@
 .main_container {
   width: 80%;
+  min-height: calc(100% - 424px);
+  padding-right: 15px;
+  padding-left: 15px;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -7,40 +10,99 @@
   section {
     &:first-child {
       margin-right: 1rem;
+      h2 {
+        margin-top: 1rem;
+        font-size: 28px;
+        font-weight: bold;
+        @media all and (min-width: 1440px) {
+          font-size: 32px;
+        }
+        @media all and (max-width: 590px) {
+          font-size: 16px;
+        }
+      }
+      @media all and (max-width: 590px) {
+        margin-right: 0;
+      }
     }
     &:last-child {
       margin-left: 1rem;
+      @media all and (max-width: 590px) {
+        display: none;
+      }
     }
+  }
+  @media all and (max-width: 590px) {
+    width: 100%;
+    margin: 1rem auto;
   }
 }
 
-.main_form {
+.signin_form {
+  label {
+    font-size: 12px;
+    @media all and (min-width: 1440px) {
+      font-size: 16px;
+    }
+    @media all and (max-width: 590px) {
+      font-size: 16px;
+    }
+  }
   .message_section {
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
   }
   .login_remember_section {
-    margin-bottom: 4rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 0.5rem;
   }
   .login_btn_section {
-    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
     button {
       width: 160px;
       height: 56px;
+      font-size: 16px;
+      border-radius: 6px;
     }
   }
   input {
     min-height: 44px;
     box-shadow: none;
+    background: white !important;
     &:focus {
       box-shadow: none;
       border-color: #999;
+    }
+    &:valid {
+      background-color: white !important;
+    }
+  }
+  .form-control {
+    &:valid {
+      background-color: #fff !important;
+    }
+  }
+  .form-check-input {
+    margin-top: 0 !important;
+  }
+  .password_section {
+    position: relative;
+    margin-bottom: 0.5rem;
+    label {
+      margin-bottom: 0;
+    }
+    .far {
+      position: absolute;
+      top: 60px;
+      right: 15px;
+      font-size: 18px !important;
+      color: #666 !important;
+      cursor: pointer;
     }
   }
 }
@@ -55,10 +117,30 @@
   border-radius: 10px;
   width: 100%;
   min-height: 206px;
+  button {
+    width: 138px;
+    height: 56px;
+    margin-top: 24px;
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 18px;
+    @media all and (min-width: 1440px) {
+      font-size: 20px;
+    }
+    @media all and (max-width: 590px) {
+      font-size: 14px;
+    }
+  }
+  @media all and (max-width: 590px) {
+    padding: 1.5rem;
+  }
 }
 
 .btn-white {
   background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 }
 
 .text-warning {
@@ -67,4 +149,12 @@
 
 .pull-right {
   float: right !important;
+}
+
+.text-red {
+  color: #f00 !important;
+}
+
+.bd-red {
+  border-color: #f00 !important;
 }

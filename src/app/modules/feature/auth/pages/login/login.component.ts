@@ -13,8 +13,10 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
-  errors: any = [];
+  isInvalidErrors: boolean = false;
   notify: string;
+  isShown: boolean;
+  isStay: boolean;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -25,22 +27,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute) {
     this._unsubscribeAll = new Subject();
-
   }
 
   ngOnInit(): void {
     this.initForm();
-    this.route.queryParams.subscribe((params) => {
-      const key1 = 'registered';
-      const key2 = 'loggedOut';
-      if (params[key1] === 'success') {
-        this.notify = 'You have been successfully registered. Please Log in';
-      }
-      if (params[key2] === 'success') {
-        this.notify = 'You have been loggedout successfully';
-      }
-      this.notifyService.success(this.notify);
-    });
   }
 
   ngOnDestroy(): void {
@@ -49,6 +39,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   initForm(): void {
+    this.isInvalidErrors = false;
     this.loginForm = this.fb.group({
       email: ['', [Validators.required,
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
@@ -63,15 +54,22 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login(): void {
     console.log(this.loginForm.value);
-    this.errors = [];
-    this.authService.logIn(this.loginForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
+    this.authService.logIn(this.loginForm.value, this.isStay).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
       console.log(token);
+
       this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
     },
       (errorResponse) => {
-        this.errors.push(errorResponse.error.error);
-        this.notifyService.error(this.errors);
+        console.log(errorResponse);
+
+        this.isInvalidErrors = true;
+        // this.errors.push(errorResponse.error.error);
+        // this.notifyService.error(this.errors);
       });
+  }
+
+  toggleEye(): void {
+    this.isShown = !this.isShown;
   }
 
 }

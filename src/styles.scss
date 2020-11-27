@@ -16,9 +16,11 @@
 
 body {
   padding-top: 4rem !important;
+  height: calc(100vh - 80px);
   color: black;
   font-weight: 400;
   background: #e5e5e5;
+  font-family: $font-poppins;
   @media screen and (max-width: 590px) {
     padding-top: 5rem !important;
   }

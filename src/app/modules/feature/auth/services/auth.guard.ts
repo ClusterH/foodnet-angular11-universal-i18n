@@ -33,9 +33,10 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    console.log('canctivate===>>>', state);
     this.url = state.url;
     if (this.auth.isAuthenticated()) {
-     return this.authState();
+      return this.authState();
     }
     return this.notAuthState();
   }

@@ -27,6 +27,12 @@
     }
     &:last-child {
       margin-left: 1rem;
+      width: 45%;
+      background-image: url(../../../../../../assets/images/portfolio.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      border-radius: 10px;
       @media all and (max-width: 590px) {
         display: none;
       }

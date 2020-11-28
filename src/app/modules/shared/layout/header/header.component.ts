@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   currentLang: string;
   private _unsubscribeAll: Subject<any>;
 
-
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
@@ -35,16 +34,25 @@ export class HeaderComponent implements OnInit {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
+
+    // const temp_token = this.cookieService.get('auth_tkn_temp') || null;
+    // if (!this.cookieService.get('stay_login') && this.cookieService.get('change_lang')) {
+    // this.cookieService.put('auth_tkn', temp_token);
+    if (this.cookieService.get('change_lang')) {
+      this.cookieService.remove('change_lang');
+    }
+
+    // console.log(this.cookieService.get('auth_tkn_temp'), '===', this.cookieService.get('auth_tkn'));
+    // }
   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
-
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
     });
-    this.currentLang = window.location.pathname.split('/')[1];
+    this.currentLang = window.location.pathname.split('/')[1] || 'ro';
     console.log(this.currentLang);
     // const siteLanguage = this.languageList.find(f => f.code === this.siteLocale).label;
     this.languages = [{ name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }, { name: 'en', label: 'EN' }];
@@ -57,10 +65,17 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: any): void {
-    // this.cookieService.put('language', language.name);
+    // const temp_token = this.cookieService.get('auth_tkn') || null;
+    // this.cookieService.put('auth_tkn_temp', temp_token);
+    this.cookieService.put('change_lang', language.name);
     // this.selectedLanguage = language;
     // console.log(this.selectedLanguage);
   }
+
+  // onBeforeUnload() {
+  //   const temp_token = this.cookieService.get('auth_tkn') || null;
+  //   this.cookieService.put('auth_tkn_temp', temp_token);
+  // }
 
   searchCity(event) {
     this.results = [];

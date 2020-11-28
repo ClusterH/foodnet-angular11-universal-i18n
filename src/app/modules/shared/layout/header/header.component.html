@@ -27,7 +27,7 @@
             </div>
           </ng-template>
         </p-dropdown>
-        <ng-container *ngIf="!cookieService.get('auth_tkn')">
+        <ng-container *ngIf=" !cookieService.get('auth_tkn')">
           <button class="btn text-warning bg-warning-light" i18n="@@header-login-button" routerLink="auth/login"
             routerLinkActive>Login</button>
           <button class="btn btn-warning text-white" i18n="@@header-registeration-button"

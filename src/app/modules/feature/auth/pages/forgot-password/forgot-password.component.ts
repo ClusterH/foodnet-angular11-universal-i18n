@@ -55,7 +55,6 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   }
 
   sendMsg(): void {
-    this.isShown = true;
     console.log(this.lostPWForm.value);
     this.authService.reset(this.lostPWForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       console.log(res);
@@ -67,6 +66,8 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
         this.statusIcon = "./assets/icons/fail_icon.svg";
         this.statusMsg = $localize`:@@forgotten-server-b:A server error has occurred`;
       }
+      this.isShown = true;
+
     });
   }
 

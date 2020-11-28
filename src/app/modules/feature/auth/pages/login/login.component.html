@@ -1,42 +1,45 @@
 <main class="main_container">
   <section class="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
-    <h2>Login</h2>
+    <h2 i18n="@@login-title-a">Login</h2>
     <form class="signin_form" [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group message_section" *ngIf="isInvalidErrors">
         <p-messages severity="error">
           <ng-template pTemplate>
             <i class="fas fa-info-circle text-danger" width="32"></i>
-            <div class="ml-2">Email or password incorrect</div>
+            <div class="ml-2" i18n="@@login-incorrect-message">Email or password incorrect</div>
           </ng-template>
         </p-messages>
       </div>
       <div class="form-group">
         <label for="email" class="text-bold"
-          [ngClass]="(isValidInput('email') && (loginForm.controls['email'].errors.required || loginForm.controls['email'].errors.pattern)) ? 'text-red' : ''">Email
-          address</label>
+          [ngClass]="(isValidInput('email') && (loginForm.controls['email'].errors.required || loginForm.controls['email'].errors.pattern)) ? 'text-red' :  ''"
+          i18n="@@login-email-b">Email address</label>
         <input id="email" type="email" class="form-control" formControlName="email"
           [ngClass]="(isValidInput('email') && (loginForm.controls['email'].errors.required || loginForm.controls['email'].errors.pattern)) ? 'bd-red' : ''">
         <div *ngIf="isValidInput('email')" class="m-0 p-0">
           <div *ngIf="loginForm.controls['email'].errors.required">
-            <small id="emailHelp" class="text-red">Email is required.</small>
+            <small id="emailHelp" class="text-red" i18n="@@login-email-required">Email is required.</small>
           </div>
           <div *ngIf="loginForm.controls['email'].errors.pattern">
-            <small id="emailHelp" class="text-red">Email address is not an email format.</small>
+            <small id="emailHelp" class="text-red" i18n="@@login-email-not-format">Email address is not an email
+              format.</small>
           </div>
         </div>
       </div>
 
       <div class="form-group password_section">
         <label for="password" class="text-bold"
-          [ngClass]="(isValidInput('password') && loginForm.controls['password'].errors.required) ? 'text-red' : ''">Jelszó</label>
-        <a routerLink="/auth/lostpw" class="pull-right text-decoration-none text-warning">Forgotten password</a>
+          [ngClass]="(isValidInput('password') && loginForm.controls['password'].errors.required) ? 'text-red' : ''"
+          i18n="@@login-password-d">Password</label>
+        <a routerLink="/auth/lostpw" class="pull-right text-decoration-none text-warning"
+          i18n="@@login-forgot-password">Forgotten password</a>
         <input id="password" [type]="isShown ? 'text': 'password'"
           [ngClass]="(isValidInput('password') && loginForm.controls['password'].errors.required) ? 'bd-red' : ''"
           class="form-control" pInputText aria-describedby="password-help" formControlName="password">
         <i class="far" [ngClass]="isShown ? 'fa-eye-slash' : 'fa-eye'" (click)="toggleEye()"></i>
         <div *ngIf="isValidInput('password')" class="m-0 p-0">
           <div *ngIf="loginForm.controls['password'].errors.required" class="m-0 p-0">
-            <small id="passwordHelp" class="text-red">Password is required.</small>
+            <small id="passwordHelp" class="text-red" i18n="@@login-password-required">Password is required.</small>
             <!-- Password is required. -->
           </div>
         </div>
@@ -45,16 +48,18 @@
       <div class="form-check login_remember_section">
         <input type="checkbox" name="login_remember" id="login_remember" class="form-check-input" [checked]="isStay"
           (change)="isStay = !isStay" />
-        <label class="form-check-label" for="login_remember">
+        <label class="form-check-label" for="login_remember" i18n="@@login-stay-login">
           I will stay logged in</label>
       </div>
       <div class="form-group login_btn_section">
-        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-warning text-white">Login</button>
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-warning text-white"
+          i18n="@@login-button-f">Login</button>
       </div>
     </form>
     <div class="signup_section">
-      <h5 class="text-bold text-center">Are you new here?</h5>
-      <button type="button" class="btn btn-white text-warning" [routerLink]="'/auth/register'">Sign up!</button>
+      <h5 class="text-bold text-center" i18n="@@login-new-here">Are you new here?</h5>
+      <button type="button" class="btn btn-white text-warning" [routerLink]="'/auth/register'"
+        i18n="@@login-signup-h">Sign up!</button>
     </div>
   </section>
   <section class="col-md-6 col-sm-12">

@@ -34,8 +34,8 @@
             routerLink="/auth/register">Registration</button>
         </ng-container>
         <ng-container *ngIf="cookieService.get('auth_tkn')">
-          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button"
-            (click)="logout()">Logout</button>
+          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
+            i18n="@@header-logout-button">Logout</button>
         </ng-container>
         <span class="bg-warning-light">
           <img src="./assets/icons/shop_bag.svg" alt="">

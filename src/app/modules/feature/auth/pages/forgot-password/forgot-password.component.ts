@@ -54,29 +54,6 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
       (this.lostPWForm.controls[fieldName].dirty || this.lostPWForm.controls[fieldName].touched);
   }
 
-  // login(): void {
-  //   this.isShown = true;
-  //   let status = true;
-  //   if (status) {
-  //     console.log(this.lostPWForm.value);
-  //     this.statusIcon = "./assets/icons/success_icon.svg";
-  //     this.statusMsg = "Check your email account";
-  //   }
-  //   else {
-  //     this.statusIcon = "./assets/icons/fail_icon.svg";
-  //     this.statusMsg = "A server error has occurred";
-  //   }
-  //   // this.errors = [];
-  //   // this.authService.logIn(this.lostPWForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-  //   //   console.log(token);
-  //   //   this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
-  //   // },
-  //   //   (errorResponse) => {
-  //   //     this.errors.push(errorResponse.error.error);
-  //   //   });
-
-  // }
-
   sendMsg(): void {
     this.isShown = true;
     console.log(this.lostPWForm.value);
@@ -84,30 +61,16 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
       console.log(res);
       if (res.status == 200) {
         this.statusIcon = "./assets/icons/success_icon.svg";
-        this.statusMsg = "Check your email account";
+        this.statusMsg = $localize`:@@forgotten-check-email-a:Check your email account`;
       }
       else {
         this.statusIcon = "./assets/icons/fail_icon.svg";
-        this.statusMsg = "A server error has occurred";
+        this.statusMsg = $localize`:@@forgotten-server-b:A server error has occurred`;
       }
-
-      // this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
     });
-
-
-    // this.errors = [];
-    // this.authService.logIn(this.lostPWForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-    //   console.log(token);
-    //   this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
-    // },
-    //   (errorResponse) => {
-    //     this.errors.push(errorResponse.error.error);
-    //   });
-
   }
 
   closeMsg(): void {
     this.isShown = !this.isShown;
   }
-
 }

@@ -67,31 +67,19 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">104</context></context-group></trans-unit><trans-unit id="home-section3.3-b" datatype="html">
         <source> All restaurants in Odorheiu Secuiesc </source><target state="new"> Összes székelyudvarhelyi étterem </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">125</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">124</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
         <source>Our key strengths</source><target state="new">Our key strengths</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">131</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section6-a" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">130</context></context-group></trans-unit><trans-unit id="home-section6-a" datatype="html">
         <source>Do you want to appear on the site?</source><target state="new">Szeretnél megjelenni az oldalon?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">170</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section6-b" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">169</context></context-group></trans-unit><trans-unit id="home-section6-b" datatype="html">
         <source>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</source><target state="new">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">171,173</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section6-c" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">170</context></context-group></trans-unit><trans-unit id="home-section6-c" datatype="html">
         <source> Apply </source><target state="new"> Jelentkezés </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">175,176</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section1-d" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">174</context></context-group></trans-unit><trans-unit id="home-section1-d" datatype="html">
         <source>Search</source><target state="new">Keresés</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
@@ -109,129 +97,430 @@
         </context-group>
       </trans-unit><trans-unit id="home-section5-a" datatype="html">
         <source> Users said </source><target state="new">  Kiemelt erősségeink </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">149,150</context>
-        </context-group>
-      </trans-unit><trans-unit id="header-search-button" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">148</context></context-group></trans-unit><trans-unit id="header-search-button" datatype="html">
         <source>Search</source><target state="new">Keresés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit><trans-unit id="header-search-placeholder" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">18</context></context-group></trans-unit><trans-unit id="header-search-placeholder" datatype="html">
         <source><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-texts pTemplate=&quot;item&quot;>
               "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></source><target state="new"><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-texts pTemplate=&quot;item&quot;>
               "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
-          <context context-type="linenumber">12,15</context>
-        </context-group>
-      </trans-unit><trans-unit id="header-login-button" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="header-login-button" datatype="html">
         <source>Login</source><target state="new">Bejelentkezés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit><trans-unit id="header-registeration-button" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
         <source>Registration</source><target state="new">Regisztráció</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">34</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
+        <source>Logout</source><target state="new">Kijelentkezés</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/core/layout/header/header.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
        <trans-unit id="home-section4-b">
         <source>Strength #1</source>
         <target>Erősség #1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">131</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">48</context></context-group></trans-unit>
       <trans-unit id="home-section4-c">
         <source>Strength #2</source>
         <target>Erősség #2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">135</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">52</context></context-group></trans-unit>
       <trans-unit id="home-section4-d">
         <source>Strength #3</source>
         <target>Erősség #3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">139</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">56</context></context-group></trans-unit>
       <trans-unit id="home-section4-e">
         <source>Strength #4</source>
         <target>Erősség #4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">143</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">60</context></context-group></trans-unit>
       <trans-unit id="home-section4-f">
         <source>Here will be the strength 1</source>
         <target>Itt lesz az erősség 1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">132</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">49</context></context-group></trans-unit>
       <trans-unit id="home-section4-g">
         <source>Here will be the strength 2</source>
         <target>Itt lesz az erősség 2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">136</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">53</context></context-group></trans-unit>
       <trans-unit id="home-section4-h">
         <source>Here will be the strength 3</source>
         <target>Itt lesz az erősség 3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">140</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">57</context></context-group></trans-unit>
       <trans-unit id="home-section4-i">
         <source>Here will be the strength 4</source>
         <target>Itt lesz az erősség 4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">144</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">61</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-1">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">149</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">66</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-2">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">154</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">71</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-3">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">159</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">76</context></context-group></trans-unit>
       <trans-unit id="footer-a">
         <source>Job advertisement</source>
         <target>Álláshirdetés</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="footer-b">
         <source>Customer service</source>
         <target>Ügyfélszolgálat</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="footer-c">
         <source>Contact</source>
         <target>Kapcsolat</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="footer-d">
         <source>Company information</source>
         <target>Céginformáció</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="footer-e">
         <source>Coronavirus information</source>
         <target>Koronavírus tájékoztató</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
       <trans-unit id="footer-f">
         <source>Blog</source>
         <target>Blog</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
       <trans-unit id="footer-g">
         <source>Allergens</source>
         <target>Allergének</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
       <trans-unit id="footer-h">
         <source>FAQ</source>
         <target>GY.I.K</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">14</context></context-group></trans-unit>
       <trans-unit id="footer-i">
         <source>Website Terms of Use</source>
         <target>Weboldal felhasználási feltételek</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
       <trans-unit id="footer-j">
         <source>Cookie</source>
         <target>Sütik</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
       <trans-unit id="footer-k">
         <source>ÁSZF EN</source>
         <target>ÁSZF.</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
       <trans-unit id="footer-l">
         <source>Adatkezelési tájékoztató EN</source>
         <target>Adatkezelési tájékoztató</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/core/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="login-title-a" datatype="html">
+        <source>Login</source><target state="new">Bejelentkezés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-email-b" datatype="html">
+        <source>Email address</source><target state="new">E-mail cím</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-password-d" datatype="html">
+        <source>Password</source><target state="new">Parolă</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-forgot-password" datatype="html">
+        <source>Forgotten password</source><target state="new">Parolă uitată</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-stay-login" datatype="html">
+        <source> I will stay logged in</source><target state="new">Maradok bejelentkezve</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-button-f" datatype="html">
+        <source>Login</source><target state="new">Bejelentkezés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-new-here" datatype="html">
+        <source>Are you new here?</source><target state="new">Ești nou aici?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-signup-h" datatype="html">
+        <source>Sign up!</source><target state="new">Regisztrálj!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-incorrect-message" datatype="html">
+        <source>Email or password incorrect</source><target state="new">E-mail vagy jelszó helytelen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-email-required" datatype="html">
+        <source>Email is required.</source><target state="new">E-mail szükséges.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-email-not-format" datatype="html">
+        <source>Email address is not an email format.</source><target state="new">Az e-mail cím nem e-mail formátum.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-password-required" datatype="html">
+        <source>Password is required.</source><target state="new">Jelszó szükséges.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-title-a" datatype="html">
+        <source>Registration</source><target state="new">Regisztráció</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-name-b" datatype="html">
+        <source>Name</source><target state="new">Név</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-email-c" datatype="html">
+        <source>Email address</source><target state="new">E-mail cím</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-password-d" datatype="html">
+        <source>Password</source><target state="new">Jelszó</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-password-six-character" datatype="html">
+        <source>6+ characters</source><target state="new"> 6+ karakter</target>
+
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="register-passwordagain-g" datatype="html">
+        <source>Password again</source><target state="new">Jelszó ismét</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">80</context></context-group></trans-unit><trans-unit id="register-passwordagin-six-character" datatype="html">
+        <source>6+ characters</source><target state="new">6+ karakter</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">82</context></context-group></trans-unit><trans-unit id="register-accept-i-1" datatype="html">
+        <source> I accept the <x id="START_LINK" ctype="x-a" equiv-text="bel class=&quot;form-check-label&quot; for=&quot;acceptTerms&quot; i18n=&quot;@"/>Terms and Conditions.<x id="CLOSE_LINK" ctype="x-a" equiv-text=" I a"/></source><target state="new"> Elfogadom a <x id="START_LINK" ctype="x-a" equiv-text="bel class=&quot;form-check-label&quot; for=&quot;acceptTerms&quot; i18n=&quot;@"/>Szerződési Feltételeket.<x id="CLOSE_LINK" ctype="x-a" equiv-text=" I a"/></target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">103</context></context-group></trans-unit><trans-unit id="register-newsletter-j" datatype="html">
+        <source> I subscribe to the newsletter.</source><target state="new">  Feliratkozom a hírlevélre.</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">110</context></context-group></trans-unit><trans-unit id="register-registeration-button-k" datatype="html">
+        <source>Registration</source><target state="new">Regisztráció</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">114</context></context-group></trans-unit><trans-unit id="register-already-have-account" datatype="html">
+        <source>Do you already have an account?</source><target state="new">Van már felhasználói fiókod?</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">118</context></context-group></trans-unit><trans-unit id="register-signin-q" datatype="html">
+        <source>Sign in!</source><target state="new">Jelentkezz be!</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">120</context></context-group></trans-unit><trans-unit id="register-user-exist" datatype="html">
+        <source>User already exist</source><target state="new">Felhasználó már létezik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-name-required" datatype="html">
+        <source>Name is required.</source><target state="new">Név megadása kötelező.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-name-not-format" datatype="html">
+        <source>Name is not a name format.</source><target state="new">A név nem névformátum.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-name-three-character" datatype="html">
+        <source>The name must be at least 3 characters long</source><target state="new">A névnek legalább 3 karakter hosszúnak kell lennie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-name-twenty-character" datatype="html">
+        <source>The name must be maximum 20 characters long</source><target state="new">A név legfeljebb 20 karakter hosszú lehet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-email-required" datatype="html">
+        <source>Email is required.</source><target state="new">E-mail szükséges.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-email-not-format" datatype="html">
+        <source>Not an e-mail format</source><target state="new">Nem e-mail formátum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-password-required" datatype="html">
+        <source>The password is required</source><target state="new">Jelszó szükséges</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-passwordconfirm-six-character" datatype="html">
+        <source>The password must be at least 6 characters long</source><target state="new">A jelszónak legalább 6 karakter hosszúnak kell lennie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context>
+          <context context-type="linenumber">67,69</context>
+        </context-group>
+      </trans-unit><trans-unit id="register-password-thirty-character" datatype="html">
+        <source>The password must be maximum 30 characters long</source><target state="new">A jelszónak legfeljebb 30 karakter hosszúnak kell lennie</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">72</context></context-group></trans-unit><trans-unit id="register-passwordagain-required" datatype="html">
+        <source>The password again is required</source><target state="new">Ismét meg kell adni a jelszót</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">89</context></context-group></trans-unit><trans-unit id="register-password-again-not-match" datatype="html">
+        <source>The password again and password do not match</source><target state="new">A két jelszó nem egyezik</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/register/register.component.html</context><context context-type="linenumber">93</context></context-group></trans-unit><trans-unit id="forgotten-check-email-a" datatype="html">
+        <source>Check your email account</source><target state="new">Ellenőrizd az email fiókodat</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-server-b" datatype="html">
+        <source>A server error has occurred</source><target state="new">Szerver hiba történt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-title-a" datatype="html">
+        <source>Forgotten password</source><target state="new">Elfelejtett jelszó</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-description-b" datatype="html">
+        <source>Enter your e-mail address where we can send your password change information. </source><target state="new">Írja be e-mail címét, ahová elküldhetjük a jelszó megváltoztatásával kapcsolatos információkat. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-email-c" datatype="html">
+        <source>E-mail address</source><target state="new">E-mail cím</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-sending-d" datatype="html">
+        <source>Sending</source><target state="new">Küldés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-email-required" datatype="html">
+        <source>Email is required.</source><target state="new">E-mail megadása kötelező.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-email-not-format" datatype="html">
+        <source>Not an e-mail format</source><target state="new">Nem e-mail formátum</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgotten-close-button-c" datatype="html">
+        <source>Close</source><target state="new">Bezárás</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/forgot-password/forgot-password.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-title-a" datatype="html">
+        <source>Set a new password</source><target state="new">Új jelszó beállítása</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-description-b" datatype="html">
+        <source>Enter the new password to use your account.</source><target state="new">Add meg az új jelszót, hogy tudd használni a fiókodat.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password" datatype="html">
+        <source>New Password</source><target state="new">Új jelszó</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-six-character" datatype="html">
+        <source>6+ characters</source><target state="new">6+ karakter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-again-f" datatype="html">
+        <source>New Password again</source><target state="new">Új jelszó mégegyszer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-again-six-character" datatype="html">
+        <source>6+ characters</source><target state="new">6+ karakter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-save-button" datatype="html">
+        <source>Save</source><target state="new">Mentés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-required" datatype="html">
+        <source>The password is required</source><target state="new">A jelszó megadása kötelező.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-six-character-required" datatype="html">
+        <source>The password must be at least 6 characters long</source><target state="new">A jelszónak legalább 6 karakter hosszúnak kell lennie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-thirty-character-required" datatype="html">
+        <source>The password must be maximum 30 characters long</source><target state="new">A jelszónak legfeljebb 30 karakter hosszúnak kell lennie.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-again-required" datatype="html">
+        <source>The password is required</source><target state="new">A jelszó megadása kötelező.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit><trans-unit id="reset-new-password-again-not-match" datatype="html">
+        <source>The password again and password do not match</source><target state="new">A két jelszó nem egyezik.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
 
     </body>
   </file>

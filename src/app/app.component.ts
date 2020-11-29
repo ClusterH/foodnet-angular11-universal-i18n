@@ -1,5 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from './modules/feature/auth/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +11,12 @@ import { CookieService } from '@gorniv/ngx-universal';
 })
 export class AppComponent implements OnInit {
   title = 'foodnet';
-  @HostListener("window:beforeunload", ["$event"])
-  clearCookie(event) {
-    // const temp_token = this.cookieService.get('auth_tkn_temp') || null;
-    // const temp_lang = this.cookieService.get('change_lang') || null;
 
-    if (!this.cookieService.get('stay_login') && !this.cookieService.get('change_lang')) {
-      this.cookieService.removeAll();
-    }
-    // this.cookieService.put('change_lang', temp_lang);
-    // if (this.cookieService.get('change_lang')) {
-    //   this.cookieService.put('auth_tkn_temp', temp_token);
-    // }
-  }
-  constructor(public cookieService: CookieService) { }
+  constructor(
+    @Inject(PLATFORM_ID) platformId: Object,
+    public cookieService: CookieService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void { }
-
 }

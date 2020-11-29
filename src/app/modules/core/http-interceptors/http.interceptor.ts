@@ -4,27 +4,25 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 /** Passes HttpErrorResponse to application-wide error handler */
 @Injectable()
-export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector) {}
+export class HttpConfigInterceptor implements HttpInterceptor {
+  constructor(private injector: Injector) { }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
-      tap({
-        error: (err: any) => {
-          if (err instanceof HttpErrorResponse) {
-            const appErrorHandler = this.injector.get(ErrorHandler);
-            appErrorHandler.handleError(err);
-          }
+      map((event: HttpEvent<any>) => {
+        if (event instanceof HttpResponse) {
+          return event;
         }
       })
     );

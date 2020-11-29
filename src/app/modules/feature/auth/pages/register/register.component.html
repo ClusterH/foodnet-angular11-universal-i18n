@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="form-group" class="password_section">
+      <div class="form-group password_section">
         <label for="password" class="text-bold"
           [ngClass]="(isValidInput('password') && (registerForm.controls['password'].errors.required || registerForm.controls['password'].errors.minlength || registerForm.controls['password'].errors.maxlength)) ? 'text-red' : ''"
           i18n="@@register-password-d">Password</label><br />
@@ -74,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div class="form-group" class="password_section">
+      <div class="form-group password_section">
         <label for="passwordConfirm" class="text-bold"
           [ngClass]="(isValidInput('passwordConfirm') && (registerForm.controls['passwordConfirm'].errors.required || registerForm.controls['passwordConfirm'].errors.mustMatch)) ? 'text-red' : ''"
           i18n="@@register-passwordagain-g">Password
@@ -121,6 +121,10 @@
     </div>
   </section>
   <section class="col-md-6 col-sm-12">
-    <!-- <img src="./assets/images/portfolio.svg" class="w-100" alt=""> -->
   </section>
 </main>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

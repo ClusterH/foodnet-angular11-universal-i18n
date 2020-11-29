@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   notify: string;
   isShown: boolean;
   isStay: boolean;
+  isSpinner: boolean = false;
+
 
   private _unsubscribeAll: Subject<any>;
 
@@ -53,23 +55,17 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(): void {
-    console.log(this.loginForm.value);
+    this.isSpinner = true;
     this.authService.logIn(this.loginForm.value, this.isStay).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-      console.log(token);
-
+      this.isSpinner = false;
       this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
     },
       (errorResponse) => {
-        console.log(errorResponse);
-
         this.isInvalidErrors = true;
-        // this.errors.push(errorResponse.error.error);
-        // this.notifyService.error(this.errors);
       });
   }
 
   toggleEye(): void {
     this.isShown = !this.isShown;
   }
-
 }

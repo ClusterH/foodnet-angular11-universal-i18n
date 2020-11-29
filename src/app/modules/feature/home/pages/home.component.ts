@@ -1,12 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { HomeService } from '../services/home.service';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
-
-import { Restaurants, Locations } from '../models/home.model';
 import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Locations, Restaurants } from '../models/home.model';
+import { HomeService } from '../services/home.service';
+
 
 const BigCityNameAccordingToLang = {
   en: ['targu-mures-en', 'miercurea-ciuc-en', 'odorheiu-secuiesc-en'],
@@ -22,9 +21,9 @@ const BigCityNameAccordingToLang = {
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-  bigCityRestaurant_1: Restaurants;
-  bigCityRestaurant_2: Restaurants;
-  bigCityRestaurant_3: Restaurants;
+  bigCityRestaurant_1: Restaurants[];
+  bigCityRestaurant_2: Restaurants[];
+  bigCityRestaurant_3: Restaurants[];
 
   strengths: any;
   slides: any;
@@ -32,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   texts: string[];
   results: string[];
   display: boolean = true;
+  isSpinner: boolean = false;
+
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
 
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
+    this.isSpinner = true;
 
     this.strengths = [
       {
@@ -82,9 +84,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const lang = this.cookieService.get('language') || 'ro';
-
     const location_list = this.homeService.getLocations(lang);
-
+    const imgPath = 'http://admin.foodnet.ro/'
     const bigCity1 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][0], `${lang}/`);
     const bigCity2 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][1], `${lang}/`);
     const bigCity3 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[lang][2], `${lang}/`);
@@ -92,9 +93,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     forkJoin([location_list, bigCity1, bigCity2, bigCity3]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([location_list, bigCity1, bigCity2, bigCity3]) => {
       this.locations = location_list.locations;
 
-      this.bigCityRestaurant_1 = bigCity1.restaurants;
-      this.bigCityRestaurant_2 = bigCity2.restaurants;
-      this.bigCityRestaurant_3 = bigCity3.restaurants;
+      this.bigCityRestaurant_1 = bigCity1.result;
+      this.bigCityRestaurant_1.map(item => {
+        item.restaurant_coverImage_new = imgPath + item.restaurant_coverImage;
+        return item;
+      });
+
+      this.bigCityRestaurant_2 = bigCity2.result;
+      this.bigCityRestaurant_2.map(item => {
+        item.restaurant_coverImage_new = imgPath + item.restaurant_coverImage;
+        return item;
+      });
+
+      this.bigCityRestaurant_3 = bigCity3.result;
+      this.bigCityRestaurant_3.map(item => {
+        item.restaurant_coverImage_new = imgPath + item.restaurant_coverImage;
+        return item;
+      });
+
+      this.isSpinner = false;
     });
   }
 
@@ -119,4 +136,3 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 }
-

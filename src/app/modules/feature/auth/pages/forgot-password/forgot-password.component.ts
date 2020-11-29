@@ -20,6 +20,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   statusIcon: string;
   statusMsg: string;
   public isBrowser: boolean;
+  isSpinner: boolean = false;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -55,9 +56,9 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   }
 
   sendMsg(): void {
-    console.log(this.lostPWForm.value);
+    this.isSpinner = true;
+
     this.authService.reset(this.lostPWForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
       if (res.status == 200) {
         this.statusIcon = "./assets/icons/success_icon.svg";
         this.statusMsg = $localize`:@@forgotten-check-email-a:Check your email account`;
@@ -67,7 +68,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
         this.statusMsg = $localize`:@@forgotten-server-b:A server error has occurred`;
       }
       this.isShown = true;
-
+      this.isSpinner = false;
     });
   }
 

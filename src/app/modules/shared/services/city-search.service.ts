@@ -11,5 +11,3 @@ export class CitySearchService {
     return this._httpClient.get<any[]>(`${this.apiBase}${lang}`);
   }
 }
-
-

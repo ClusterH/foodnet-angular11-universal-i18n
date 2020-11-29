@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { NotificationService } from 'src/app/modules/core/notifications/notification.service'
 
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { finalize, takeUntil } from 'rxjs/operators';
 import { MustMatch } from '../../services/auth.validators';
 
 @Component({
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   isAcceptTerms: boolean;
   isNewsletter: boolean;
   isInvalidErrors: boolean;
-
+  isSpinner: boolean = false;
   private _unsubscribeAll: Subject<any>;
 
   constructor(
@@ -45,11 +45,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
-
+  // [A - zÀ - ú] // accepts lowercase and uppercase characters
+  // [A - zÀ - ÿ] // as above but including letters with an umlaut (includes [ ] ^ \ × ÷)
+  // [A - Za - zÀ - ÿ] // as above but not including [ ] ^ \
+  // [A - Za - zÀ - ÖØ - öø - ÿ]
   initForm(): void {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required,
-      Validators.pattern('^[a-zA-Z ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
+      Validators.pattern('^[A-zÀ-ÖØ-öø-ÿ ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required,
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
       password: ['', [Validators.required,
@@ -66,20 +69,23 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   register(): void {
-    console.log(this.registerForm.value);
+    this.isSpinner = true;
     this.errors = [];
     const registerData = {
       name: this.registerForm.value.name, email: this.registerForm.value.email, password: this.registerForm.value.password, newsletter: this.isNewsletter ? 1 : 0
     }
-    console.log(registerData);
-    this.authService.register(registerData).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-      console.log(token);
-
-      this.router.navigate(['/'], { queryParams: { registered: 'success' } });
-    },
-      (errorResponse) => {
-        this.isInvalidErrors = true;
-      });
+    this.authService.register(registerData)
+      .pipe(
+        takeUntil(this._unsubscribeAll),
+        finalize(() => {
+          this.isSpinner = false;
+        }))
+      .subscribe(token => {
+        this.router.navigate(['/'], { queryParams: { registered: 'success' } });
+      },
+        (errorResponse) => {
+          this.isInvalidErrors = true;
+        });
   }
 
   toggleEye(type: string): void {

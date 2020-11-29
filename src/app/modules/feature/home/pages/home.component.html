@@ -55,7 +55,7 @@
     <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_1">
         <div class="card">
-          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <img class="card-img-top" [src]="restaurant.restaurant_coverImage_new" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
@@ -80,7 +80,7 @@
     <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_2">
         <div class="card">
-          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <img class="card-img-top" [src]="restaurant.restaurant_coverImage_new" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
@@ -105,7 +105,7 @@
     <div class="row mr-0 ml-0">
       <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-4" *ngFor="let restaurant of bigCityRestaurant_3">
         <div class="card">
-          <img class="card-img-top" src="./assets/images/product_1.svg" alt="Card image 1" style="width:100%">
+          <img class="card-img-top" [src]="restaurant.restaurant_coverImage_new" alt="Card image 1" style="width:100%">
           <div class="card-body">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
@@ -175,18 +175,10 @@
       </button>
     </div>
   </section>
-  <!-- <p-dialog header="" [(visible)]="display" [style]="{width: '255px'}" [baseZIndex]="10000" class="custom_dialog"
-    *ngIf="isBrowser">
-    <p-header>
-      <img src="./assets/icons/cookie_bite.svg" alt="">
-    </p-header>
-    <h2 class="text-warning">Cookie</h2>
-    <div class="text-center mb-4">
-      <p>We use Cookies to give you the best possible service. By continuing to browse our site you are agreeing to our
-        use of Cookies. For more information please see our</p>
-      <a href="#">Cookie Policy. </a>
-    </div>
-    <button type="button" class="btn btn-warning text-white" (click)="acceptCookie()">Elfogadom</button>
-  </p-dialog> -->
-
 </main>
+
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

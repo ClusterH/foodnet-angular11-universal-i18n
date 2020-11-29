@@ -51,4 +51,4 @@ Angular 11 Server Side Rendering Restaurant APP with i18n
 ## Production
 
 - `npm run serve:ssr`
-- in your browser [http://localhost:4000](http://localhost:4000)
+- in your browser [http://localhost:4200](http://localhost:4200)

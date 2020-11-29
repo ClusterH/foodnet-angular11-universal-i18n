@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import {
   HttpClientModule,
@@ -8,13 +9,14 @@ import {
 } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor';
-import { AppErrorHandler } from './error-handler/app-error-handler.service';
+import { HttpConfigInterceptor } from './http-interceptors/http.interceptor';
+// import { AppErrorHandler } from './error-handler/app-error-handler.service';
 import { NotificationService } from './notifications/notification.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SessionStorageService } from './session-storage/session-storage.service';
 
 export {
-  NotificationService
+  NotificationService,
+  SessionStorageService
 };
 
 @NgModule({
@@ -28,8 +30,8 @@ export {
   ],
   declarations: [],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: AppErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    // { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   exports: [
     // angular

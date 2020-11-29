@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   isShown: boolean;
   isShownConfirm: boolean;
   currentToken: string;
+  isSpinner: boolean = false;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -28,7 +29,6 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
 
     this.activatedroute.paramMap.subscribe(params => {
       this.currentToken = params.get('token');
-      console.log(this.currentToken);
     });
   }
 
@@ -57,10 +57,11 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   }
 
   resetPWD(): void {
-    console.log(this.resetPWDForm.value);
+    this.isSpinner = true;
     this.errors = [];
     this.authService.resetPWD(this.resetPWDForm.value, this.currentToken).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-      console.log(token);
+      this.isSpinner = false;
+
       this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
     },
       (errorResponse) => {

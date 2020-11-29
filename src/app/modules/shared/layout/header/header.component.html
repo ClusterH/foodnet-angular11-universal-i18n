@@ -27,16 +27,17 @@
             </div>
           </ng-template>
         </p-dropdown>
-        <ng-container *ngIf=" !cookieService.get('auth_tkn')">
+        <ng-container
+          *ngIf="cookieService.get('stay_login')? cookieService.get('auth_tkn'): sessionService.getItem('auth_tkn');else log_out">
+          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
+            i18n="@@header-logout-button">Logout</button>
+        </ng-container>
+        <ng-template #log_out>
           <button class="btn text-warning bg-warning-light" i18n="@@header-login-button" routerLink="auth/login"
             routerLinkActive>Login</button>
           <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
             routerLink="/auth/register">Registration</button>
-        </ng-container>
-        <ng-container *ngIf="cookieService.get('auth_tkn')">
-          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
-            i18n="@@header-logout-button">Logout</button>
-        </ng-container>
+        </ng-template>
         <span class="bg-warning-light">
           <img src="./assets/icons/shop_bag.svg" alt="">
           <span class="badge bg-warning text-white">9</span>

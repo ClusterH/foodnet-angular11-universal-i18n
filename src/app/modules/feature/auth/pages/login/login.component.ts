@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     },
       (errorResponse) => {
         this.isInvalidErrors = true;
+        this.isSpinner = false;
       });
   }
 

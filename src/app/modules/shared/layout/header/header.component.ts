@@ -9,6 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { CitySearchService } from '../../services/city-search.service';
 import { AuthService } from '../../../feature/auth/services/auth.service';
 import { SessionStorageService } from '../../../core/session-storage/session-storage.service';
+import * as environment from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-header',

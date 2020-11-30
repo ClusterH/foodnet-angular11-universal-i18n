@@ -109,60 +109,57 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="header-login-button" datatype="html">
         <source>Login</source><target state="new">Bejelentkezés</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">37</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
         <source>Registration</source><target state="new">Regisztráció</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">34</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
         <source>Logout</source><target state="new">Kijelentkezés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
-          <context context-type="linenumber">38</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">33</context></context-group></trans-unit>
        <trans-unit id="home-section4-b">
         <source>Strength #1</source>
         <target>Erősség #1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">48</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">50</context></context-group></trans-unit>
       <trans-unit id="home-section4-c">
         <source>Strength #2</source>
         <target>Erősség #2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">52</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">54</context></context-group></trans-unit>
       <trans-unit id="home-section4-d">
         <source>Strength #3</source>
         <target>Erősség #3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">56</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">58</context></context-group></trans-unit>
       <trans-unit id="home-section4-e">
         <source>Strength #4</source>
         <target>Erősség #4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">60</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">62</context></context-group></trans-unit>
       <trans-unit id="home-section4-f">
         <source>Here will be the strength 1</source>
         <target>Itt lesz az erősség 1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">49</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">51</context></context-group></trans-unit>
       <trans-unit id="home-section4-g">
         <source>Here will be the strength 2</source>
         <target>Itt lesz az erősség 2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">53</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">55</context></context-group></trans-unit>
       <trans-unit id="home-section4-h">
         <source>Here will be the strength 3</source>
         <target>Itt lesz az erősség 3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">57</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">59</context></context-group></trans-unit>
       <trans-unit id="home-section4-i">
         <source>Here will be the strength 4</source>
         <target>Itt lesz az erősség 4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">61</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">63</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-1">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">66</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">68</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-2">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">71</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">73</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-3">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">76</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">78</context></context-group></trans-unit>
       <trans-unit id="footer-a">
         <source>Job advertisement</source>
         <target>Álláshirdetés</target>
@@ -462,65 +459,41 @@
         </context-group>
       </trans-unit><trans-unit id="reset-new-password" datatype="html">
         <source>New Password</source><target state="new">Új jelszó</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">9,10</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-six-character" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">20</context></context-group></trans-unit><trans-unit id="reset-new-password-six-character" datatype="html">
         <source>6+ characters</source><target state="new">6+ karakter</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-again-f" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="reset-new-password-again-f" datatype="html">
         <source>New Password again</source><target state="new">Új jelszó mégegyszer</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">33,34</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-again-six-character" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">44</context></context-group></trans-unit><trans-unit id="reset-new-password-again-six-character" datatype="html">
         <source>6+ characters</source><target state="new">6+ karakter</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-save-button" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">46</context></context-group></trans-unit><trans-unit id="reset-new-password-save-button" datatype="html">
         <source>Save</source><target state="new">Mentés</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">64</context></context-group></trans-unit><trans-unit id="reset-new-password-invalid-token" datatype="html">
+        <source>Token not valid</source><target state="new">Token érvénytelen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit><trans-unit id="reset-new-password-required" datatype="html">
         <source>The password is required</source><target state="new">A jelszó megadása kötelező.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-six-character-required" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">28</context></context-group></trans-unit><trans-unit id="reset-new-password-six-character-required" datatype="html">
         <source>The password must be at least 6 characters long</source><target state="new">A jelszónak legalább 6 karakter hosszúnak kell lennie</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">21,22</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-thirty-character-required" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="reset-new-password-thirty-character-required" datatype="html">
         <source>The password must be maximum 30 characters long</source><target state="new">A jelszónak legfeljebb 30 karakter hosszúnak kell lennie.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">25,26</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-again-required" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">36</context></context-group></trans-unit><trans-unit id="reset-new-password-again-required" datatype="html">
         <source>The password is required</source><target state="new">A jelszó megadása kötelező.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">42,43</context>
-        </context-group>
-      </trans-unit><trans-unit id="reset-new-password-again-not-match" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">53</context></context-group></trans-unit><trans-unit id="reset-new-password-again-not-match" datatype="html">
         <source>The password again and password do not match</source><target state="new">A két jelszó nem egyezik.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">46,47</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">57</context></context-group></trans-unit>
 
     </body>
   </file>

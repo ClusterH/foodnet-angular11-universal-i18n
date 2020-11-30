@@ -18,6 +18,7 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   isShown: boolean;
   isShownConfirm: boolean;
   currentToken: string;
+  isInvalidErrors: boolean = false;
   isSpinner: boolean = false;
 
   private _unsubscribeAll: Subject<any>;
@@ -65,7 +66,8 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
       this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
     },
       (errorResponse) => {
-        this.errors.push(errorResponse.error.error);
+        this.isInvalidErrors = true;
+        this.isSpinner = false;
       });
   }
 

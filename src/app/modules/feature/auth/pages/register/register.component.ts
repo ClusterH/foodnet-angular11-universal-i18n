@@ -48,11 +48,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
   // [A - zÀ - ú] // accepts lowercase and uppercase characters
   // [A - zÀ - ÿ] // as above but including letters with an umlaut (includes [ ] ^ \ × ÷)
   // [A - Za - zÀ - ÿ] // as above but not including [ ] ^ \
-  // [A - Za - zÀ - ÖØ - öø - ÿ]
+  // [A - Za - zØ - öø - ÿ]
+  // ĂÂÎȘȚăâîșțÁÉÍÓÖŐÚÜŰáéíóöőúüű
   initForm(): void {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required,
-      Validators.pattern('^[A-zÀ-ÖØ-öø-ÿ ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
+      Validators.pattern('^[A-zĂÂÎȘȚăâîșțÁÉÍÓÖŐÚÜŰáéíóöőúüű ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required,
       Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
       password: ['', [Validators.required,
@@ -85,6 +86,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       },
         (errorResponse) => {
           this.isInvalidErrors = true;
+          this.isSpinner = false;
         });
   }
 

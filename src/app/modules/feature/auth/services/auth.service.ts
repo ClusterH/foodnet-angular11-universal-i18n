@@ -37,7 +37,7 @@ export class AuthService {
 
   public register(userData: any): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/register`, userData).pipe(map(res => {
-      return this.saveToken(res.result[0].token);
+      return this.saveToken(res.result[0].token, true);
     }))
   }
 
@@ -55,13 +55,15 @@ export class AuthService {
 
   resetPWD(userData: any, token: string): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/reset-password/${token}`, userData).pipe(map(res => {
-      return this.saveToken(res.result[0].token);
+      return this.saveToken(res.result[0].token, true);
     }))
   }
 
   public logout(): void {
+    const cookie_token = this.cookieService.get('authInfo');
     this.cookieService.removeAll();
     this.sessionService.clear();
+    this.cookieService.put('authInfo', cookie_token);
 
     this.decodedToken = new DecodedToken();
   }

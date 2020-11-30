@@ -6,77 +6,77 @@
         <source>Strength #1</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-f" datatype="html">
         <source>Here will be the strength 1</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-c" datatype="html">
         <source>Strength #2</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-g" datatype="html">
         <source>Here will be the strength 2</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-d" datatype="html">
         <source>Strength #3</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-h" datatype="html">
         <source>Here will be the strength 3</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-e" datatype="html">
         <source>Strength #4</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section4-i" datatype="html">
         <source>Here will be the strength 4</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section5-b-1" datatype="html">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section5-b-2" datatype="html">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section5-b-3" datatype="html">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="home-section1-i" datatype="html">
@@ -259,25 +259,25 @@
           <context context-type="linenumber">12,15</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="header-logout-button" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="header-login-button" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="header-registeration-button" datatype="html">
         <source>Registration</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="header-logout-button" datatype="html">
-        <source>Logout</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer-a" datatype="html">
@@ -697,70 +697,77 @@
         <source>New Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">9,10</context>
+          <context context-type="linenumber">20,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-six-character" datatype="html">
         <source>6+ characters</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-again-f" datatype="html">
         <source>New Password again</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">44,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-again-six-character" datatype="html">
         <source>6+ characters</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-save-button" datatype="html">
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="reset-new-password-invalid-token" datatype="html">
+        <source>Token not valid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-required" datatype="html">
         <source>The password is required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">17,18</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-six-character-required" datatype="html">
         <source>The password must be at least 6 characters long</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">21,22</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-thirty-character-required" datatype="html">
         <source>The password must be maximum 30 characters long</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">36,37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-again-required" datatype="html">
         <source>The password is required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">42,43</context>
+          <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="reset-new-password-again-not-match" datatype="html">
         <source>The password again and password do not match</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context>
-          <context context-type="linenumber">46,47</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit>
     </body>

@@ -1,0 +1,103 @@
+<div class="content">
+  <h2 class="text-bold" i18n="@@profile-update-title-a">Update profile Data</h2>
+  <form class="mainForm" [formGroup]="updateForm" (ngSubmit)="save()">
+    <!-- <div class="form-group message_section" *ngIf="isInvalidErrors">
+        <p-messages severity="error">
+          <ng-template pTemplate>
+            <i class="fas fa-info-circle text-danger" width="32"></i>
+            <div class="ml-2" i18n="@@profile-update-user-exist">Invalid Error</div>
+          </ng-template>
+        </p-messages>
+      </div> -->
+    <div class="form-group">
+      <label for="name" class="text-bold"
+        [ngClass]="(isValidInput('name') && (updateForm.controls['name'].errors.required || updateForm.controls['name'].errors.pattern || updateForm.controls['name'].errors.minlength || updateForm.controls['name'].errors.maxlength)) ? 'text-red' : ''"
+        i18n="@@profile-update-name-b">Name (Required)</label>
+      <input id="name" type="text" class="form-control" formControlName="name"
+        [ngClass]="(isValidInput('name') && (updateForm.controls['name'].errors.required || updateForm.controls['name'].errors.pattern || updateForm.controls['name'].errors.minlength || updateForm.controls['name'].errors.maxlength)) ? 'bd-red' : ''">
+      <div *ngIf="isValidInput('name')" class="m-0 p-0">
+        <div *ngIf="updateForm.controls['name'].errors.required">
+          <small id="namedHelp" class="text-red" i18n="@@profile-update-name-required">Name is required.</small>
+        </div>
+        <div *ngIf="updateForm.controls['name'].errors.pattern">
+          <small id="namedHelp" class="text-red" i18n="@@profile-update-name-not-format">Name is not a name
+            format.</small>
+        </div>
+        <div *ngIf="updateForm.controls['name'].errors.minlength">
+          <small id="namedHelp" class="text-red" i18n="@@profile-update-name-three-character">The name must be at
+            least 3
+            characters long</small>
+        </div>
+        <div *ngIf="updateForm.controls['name'].errors.maxlength">
+          <small id="namedHelp" class="text-red" i18n="@@profile-update-name-twenty-character">The name must be
+            maximum 20
+            characters long</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="text-bold"
+        [ngClass]="(isValidInput('email') && (updateForm.controls['email'].errors.required || updateForm.controls['email'].errors.pattern)) ? 'text-red' : ''"
+        i18n="@@profile-update-email-c">E-mail address (Required)</label>
+      <input id="email" type="email" class="form-control" formControlName="email"
+        [ngClass]="(isValidInput('email') && (updateForm.controls['email'].errors.required || updateForm.controls['email'].errors.pattern)) ? 'bd-red' : ''">
+      <div *ngIf="isValidInput('email')" class="m-0 p-0">
+        <div *ngIf="updateForm.controls['email'].errors.required">
+          <small id="emailHelp" class="text-red" i18n="@@profile-update-email-required">Email is required.</small>
+        </div>
+        <div *ngIf="updateForm.controls['email'].errors.pattern">
+          <small id="emailHelp" class="text-red" i18n="@@profile-update-email-not-format">Not an e-mail format</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group phonenumber_section">
+      <label for="phonenumber" class="text-bold"
+        [ngClass]="(isValidInput('phonenumber') && (updateForm.controls['phonenumber'].errors.required || updateForm.controls['phonenumber'].errors.minlength || updateForm.controls['phonenumber'].errors.maxlength)) ? 'text-red' : ''"
+        i18n="@@profile-update-phonenumber-d">Phone Number (Required)</label><br />
+      <input id="phonenumber" type="tel" class="form-control" formControlName="phonenumber"
+        [ngClass]="(isValidInput('phonenumber') && (updateForm.controls['phonenumber'].errors.required || updateForm.controls['phonenumber'].errors.minlength || updateForm.controls['phonenumber'].errors.maxlength)) ? 'bd-red' : ''">
+      <div *ngIf="isValidInput('phonenumber')" class="m-0 p-0">
+        <div *ngIf="updateForm.controls['phonenumber'].errors.required">
+          <small id="passwordHelp" class="text-red" i18n="@@profile-update-phonenumber-required">The phonenumber is
+            required</small>
+        </div>
+        <div *ngIf="updateForm.controls['phonenumber'].errors.minlength">
+          <small id="passwordConfirmHelp" class="text-red" i18n="@@profile-update-passwordconfirm-six-character">The
+            phonenumber must
+            be at least 6 characters long</small>
+        </div>
+        <div *ngIf="updateForm.controls['phonenumber'].errors.maxlength">
+          <small id="passwordConfirmHelp" class="text-red" i18n="@@profile-update-phonenumber-thirty-character">The
+            phonenumber
+            must be maximum 30 characters long</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn_section">
+      <button [disabled]="!updateForm.valid" type="submit" class="btn btn-warning text-white"
+        i18n="@@profile-update-registeration-button-k"><i class="far fa-save mr-2"></i> Save</button>
+    </div>
+  </form>
+  <div class="btn_section">
+    <button (click)="loadComponent()" class="btn btn-warning text-white"
+      i18n="@@profile-update-registeration-button-k"><i class="far fa-save mr-2"></i> Save</button>
+  </div>
+</div>
+<p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
+  [modal]="true">
+  <p-header>
+    <img [src]="statusIcon" alt="">
+  </p-header>
+  <h2 class="text-bold text-center">{{statusMsg}}</h2>
+  <p-footer>
+    <button type="button" class="btn btn-warning-light text-warning" (click)="closeMsg()"
+      i18n="@@profile-update-close-button-c">Close</button>
+  </p-footer>
+</p-dialog>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

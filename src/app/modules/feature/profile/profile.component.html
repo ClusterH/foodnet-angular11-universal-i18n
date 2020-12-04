@@ -1,0 +1,13 @@
+<main class="main_container">
+  <h1>KissJanos1981</h1>
+  <div class="main_content">
+    <section class="menulist">
+      <app-profile-menulist></app-profile-menulist>
+    </section>
+    <section class="main_body">
+      <app-update-profile *ngIf="profileType=='update'" style="width: 100%"></app-update-profile>
+      <app-delete-profile *ngIf="profileType=='delete'" style="width: 100%;"></app-delete-profile>
+      <app-change-password *ngIf="profileType=='changepwd'" style="width: 100%;"></app-change-password>
+    </section>
+  </div>
+</main>

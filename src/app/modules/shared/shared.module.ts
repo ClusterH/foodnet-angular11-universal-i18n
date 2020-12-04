@@ -19,6 +19,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DialogModule } from 'primeng/dialog';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { TableModule } from 'primeng/table';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -57,6 +58,7 @@ import { CitySearchService } from './services/city-search.service';
     DialogModule,
     MessageModule,
     MessagesModule,
+    TableModule,
 
     HeaderComponent,
     FooterComponent,

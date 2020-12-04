@@ -27,8 +27,7 @@
             </div>
           </ng-template>
         </p-dropdown>
-        <ng-container
-          *ngIf="cookieService.get('stay_login')? cookieService.get('auth_tkn'): sessionService.getItem('auth_tkn');else log_out">
+        <ng-container *ngIf="authService.isAuthenticated();else log_out">
           <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
             i18n="@@header-logout-button">Logout</button>
         </ng-container>

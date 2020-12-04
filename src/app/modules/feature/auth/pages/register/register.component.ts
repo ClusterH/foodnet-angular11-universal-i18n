@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { NotificationService } from 'src/app/modules/core/notifications/notification.service'
 
 import { Subject } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
@@ -30,7 +29,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private notifyService: NotificationService,
   ) {
     this._unsubscribeAll = new Subject();
     this.isShown = false;
@@ -82,7 +80,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.isSpinner = false;
         }))
       .subscribe(token => {
-        this.router.navigate(['/'], { queryParams: { registered: 'success' } });
+        this.router.navigate(['/profile/update']);
       },
         (errorResponse) => {
           this.isInvalidErrors = true;

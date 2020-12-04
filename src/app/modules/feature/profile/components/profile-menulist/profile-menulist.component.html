@@ -1,0 +1,20 @@
+<main class="menulist_container">
+  <ul>
+    <li class="menuitem" [ngClass]="(profileType == 'delivery-list' || profileType == 'delivery-edit')? 'active' : ''"
+      (click)="loadComponent('delivery-list')">Delivery addresses list</li>
+    <li class="menuitem" [ngClass]="profileType == 'changepwd' ? 'active' : ''" (click)="loadComponent('changepwd')">
+      Change password</li>
+    <li class="menuitem" [ngClass]="profileType == 'update' ? 'active' : ''" (click)="loadComponent('update')">Edit
+      profile information</li>
+    <li class="menuitem" [ngClass]="profileType == 'setting' ? 'active' : ''" (click)="loadComponent('setting')">
+      Subscriber settings</li>
+    <li class="menuitem" [ngClass]="profileType == 'orders' ? 'active' : ''" (click)="loadComponent('orders')">Previous
+      orders</li>
+    <li class="menuitem" [ngClass]="profileType == 'delete' ? 'active' : ''" (click)="loadComponent('delete')">Delete
+      profile</li>
+    <li class="menuitem" [ngClass]="profileType == 'reviews' ? 'active' : ''" (click)="loadComponent('reviews')">Reviews
+    </li>
+    <li class="menuitem" [ngClass]="profileType == 'checkout' ? 'active' : ''" (click)="loadComponent('checkout')">
+      Check-Out</li>
+  </ul>
+</main>

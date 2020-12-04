@@ -10,16 +10,38 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { CookieService } from '@gorniv/ngx-universal';
+import { SessionStorageService } from '../session-storage/session-storage.service';
+
 /** Passes HttpErrorResponse to application-wide error handler */
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector) { }
+  constructor(
+    private injector: Injector,
+    private cookieService: CookieService,
+    private sessionService: SessionStorageService
+
+  ) { }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
+    const headersConfig = {
+      'Content-Type': 'application/json',
+      // 'Accept': 'application/json'
+    };
+
+    const token = this.cookieService.get('stay_login') ? this.cookieService.get('auth_tkn') : this.sessionService.getItem('auth_tkn');
+
+    if (token) {
+      console.log(token);
+      headersConfig['x-auth-token'] = `${token}`;
+    }
+
+    const req = request.clone({ setHeaders: headersConfig });
+
+    return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
           return event;

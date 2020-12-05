@@ -8,10 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileMenulistComponent implements OnInit {
   profileType: string;
+  userName: string;
 
   constructor(
     private router: Router,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
   ) {
     this.activatedroute.paramMap.subscribe(params => {
       this.profileType = params.get('id');

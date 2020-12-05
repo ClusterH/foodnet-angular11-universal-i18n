@@ -1,0 +1,38 @@
+<div class="content" *ngIf="!isSpinner">
+  <h2 class="text-bold">Write an opinion</h2>
+  <p class="review_description">
+    {{ description }}
+  </p>
+  <h5>Evaluation</h5>
+  <div class="evaluation">
+    <label class="rate-label" [ngClass]="i == evaluation - 1 ? 'bd-warning' : ''"
+      *ngFor="let in of points(5) ;let i = index" (click)="evaluationSelect(i)">
+      <i class="far fa-star mr-3" [ngClass]="i == evaluation - 1 ? 'text-warning' : ''"></i>
+      <span class="text-bold">{{i + 1}}</span>
+    </label>
+  </div>
+  <h5>Text Opinion</h5>
+  <textarea name="message" id="" cols="30" rows="5" [(ngModel)]="message">
+  </textarea>
+  <div class="form-check mt-1">
+    <input type="checkbox" name="acceptGTC" id="acceptGTC" class="form-check-input" [checked]="isAcceptGTC"
+      (change)="isAcceptGTC = !isAcceptGTC" />
+    <label class="form-check-label" for="acceptGTC">
+      I accept the <a href="" class="text-warning text-decoration-none">GTC</a>.</label>
+  </div>
+  <div class="form-check mt-1">
+    <input type="checkbox" name="acceptReview" id="acceptReview" class="form-check-input" [checked]="isAcceptReview"
+      (change)="isAcceptReview = !isAcceptReview" />
+    <label class="form-check-label" for="acceptReview">
+      I agree that my review may appear on <a href="" class="text-warning text-decoration-none">foodnet.ro</a> website.
+    </label>
+  </div>
+  <div class="btn_section">
+    <button class="btn btn-warning text-white text-bold" (click)="createNewReview()">Submit an opinion</button>
+  </div>
+</div>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

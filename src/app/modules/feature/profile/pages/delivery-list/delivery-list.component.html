@@ -1,25 +1,33 @@
 <div class="content">
-    <h2 class="text-bold">Delivery addresses list</h2>
-    <p-table [value]="deliveryList">
-      <ng-template pTemplate="header">
-          <tr >
-              <th class="bg-white" colspan="2">
-                <span style="color: #999;">Title</span>
-                <span class="pull-right" style="color: #999;">Operations</span>
-              </th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-delivery>
-          <tr>
-              <td style="width: 80%; color: #111;">{{delivery.title}}</td>
-              <td class="text-right" style="width: 20%;">
-                <a href="#" class="text-warning text-decoration-none mr-4 text-bold edit_tag" (click)="loadComponent('delivery-edit', delivery.id)">Edit</a>
-                <i class="fas fa-trash-alt" style="color: #999;"></i>
-              </td>
-          </tr>
-      </ng-template>
+  <h2 class="text-bold">Delivery addresses list</h2>
+  <p-table [value]="deliveryList">
+    <ng-template pTemplate="header">
+      <tr>
+        <th class="bg-white" colspan="2">
+          <span style="color: #999;">Title</span>
+          <span class="pull-right" style="color: #999;">Operations</span>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-delivery>
+      <tr>
+        <td style="width: 80%; color: #111;">{{delivery.houseNumber}} {{delivery.street}} {{delivery.city}}
+          {{delivery.floor}} {{delivery.doorNumber}}</td>
+        <td class="text-right" style="width: 20%;">
+          <a class="text-warning text-decoration-none mr-4 text-bold edit_tag"
+            (click)="loadComponent('delivery-edit', delivery.id)">Edit</a>
+          <i class="fas fa-trash-alt" style="color: #999;" (click)="deleteDeliveryList(delivery.id)"></i>
+        </td>
+      </tr>
+    </ng-template>
   </p-table>
-    <div class="btn_section">
-        <button class="btn btn-warning-light text-warning text-bold" (click)="loadComponent('delivery-edit')" > <i class="fas fa-plus"></i> Add a new address</button>
-    </div>
+  <div class="btn_section">
+    <button class="btn btn-warning-light text-warning text-bold" (click)="loadComponent('delivery-edit')"> <i
+        class="fas fa-plus"></i> Add a new address</button>
+  </div>
+</div>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
 </div>

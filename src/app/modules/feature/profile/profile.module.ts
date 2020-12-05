@@ -13,9 +13,23 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { DeliveryListComponent } from './pages/delivery-list/delivery-list.component';
 import { DeliveryEditComponent } from './pages/delivery-edit/delivery-edit.component';
+import { ReviewListComponent } from './pages/review-list/review-list.component';
+import { ReviewEditComponent } from './pages/review-edit/review-edit.component';
+import { ReviewCreateComponent } from './pages/review-create/review-create.component';
 
 @NgModule({
-  declarations: [ProfileComponent, DeleteProfileComponent, UpdateProfileComponent, ProfileMenulistComponent, ChangePasswordComponent, DeliveryListComponent, DeliveryEditComponent,],
+  declarations: [
+    ProfileComponent,
+    DeleteProfileComponent,
+    UpdateProfileComponent,
+    ProfileMenulistComponent,
+    ChangePasswordComponent,
+    DeliveryListComponent,
+    DeliveryEditComponent,
+    ReviewListComponent,
+    ReviewEditComponent,
+    ReviewCreateComponent,
+  ],
   imports: [
     CommonModule,
     ProfileRoutingModule,

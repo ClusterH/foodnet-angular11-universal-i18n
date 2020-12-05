@@ -97,8 +97,4 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
   closeMsg(): void {
     this.isShown = !this.isShown;
   }
-
-  loadComponent() {
-    this.router.navigate(['/profile/delete-test']);
-  }
 }

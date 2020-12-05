@@ -19,10 +19,7 @@ export class UpdateService {
   ) { }
 
   update(userData: any): Observable<any> {
-    return this._httpClient.post<any>(`${this.apiBase}`, userData).pipe(map(res => {
-      console.log(res);
-      // this.isAuthenticated(res);
-    }))
+    return this._httpClient.post<any>(`${this.apiBase}`, userData);
   }
 }
 

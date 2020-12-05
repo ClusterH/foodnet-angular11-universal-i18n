@@ -1,21 +1,21 @@
 <div class="content">
   <h2 class="text-bold">{{title}}</h2>
+  <div>
+    <label for="city" class="text-bold">Settlement (Required)</label>
+    <p-dropdown [options]="deliveryAddress" name="selectedCity" [(ngModel)]="selectedCity" optionLabel="cities"
+      placeholder="Select a Settlement" required="true">
+      <ng-template let-city pTemplate="item">
+        <div class="city-item">
+          {{city.cities}}
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
   <form class="mainForm" [formGroup]="addressForm" (ngSubmit)="update()">
-    <div class="form-group" *ngIf="isBrowser">
-      <label for="city" class="text-bold"
-        >Settlement (Required)</label>
-      <p-dropdown [options]="cities" class="form-control" id="city" itemSize="30" optionLabel="title" required="true" formControlName="city" ngModelOptions="{standalone: true}" [(ngModel)]="selectedCity" placeholder="Select a Settlement">
-        <ng-template let-city pTemplate="item">          
-          <div class="city-item">
-            {{city.title}}
-          </div>
-        </ng-template>
-      </p-dropdown>
-    </div>
     <div class="form-group">
       <label for="street" class="text-bold"
-        [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''"
-        >Street (Required)</label>
+        [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''">Street
+        (Required)</label>
       <input id="street" type="text" class="form-control" formControlName="street"
         [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required ) ? 'bd-red' : ''">
       <div *ngIf="isValidInput('street')" class="m-0 p-0">
@@ -28,8 +28,8 @@
       <div class="row">
         <div class="col">
           <label for="houseNumber" class="text-bold"
-          [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required) ? 'text-red' : ''"
-          >House Number (Required)</label>
+            [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required) ? 'text-red' : ''">House
+            Number (Required)</label>
           <input id="houseNumber" type="text" class="form-control" formControlName="houseNumber"
             [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required ) ? 'bd-red' : ''">
           <div *ngIf="isValidInput('houseNumber')" class="m-0 p-0">
@@ -39,18 +39,34 @@
           </div>
         </div>
         <div class="col">
-          <label for="floor" class="text-bold" >Floor (Optional)</label>
-          <input id="floor" type="text" class="form-control" formControlName="floor" >
+          <label for="floor" class="text-bold">Floor (Optional)</label>
+          <input id="floor" type="text" class="form-control" formControlName="floor">
         </div>
         <div class="col">
-          <label for="door" class="text-bold" >Door (Optional)</label>
-          <input id="door" type="text" class="form-control" formControlName="door" >
+          <label for="door" class="text-bold">Door (Optional)</label>
+          <input id="door" type="text" class="form-control" formControlName="door">
         </div>
       </div>
     </div>
-
+    <div class="btn_section">
+      <button class="btn btn-warning text-white text-bold" type="submit"> <i class="fas fa-save mr-2"></i> Save</button>
+    </div>
   </form>
-  <div class="btn_section">
-      <button class="btn btn-warning text-white text-bold"> <i class="fas fa-save mr-2"></i> Save</button>
+</div>
+
+<p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
+  [modal]="true">
+  <p-header>
+    <img [src]="statusIcon" alt="">
+  </p-header>
+  <h2 class="text-bold text-center">{{statusMsg}}</h2>
+  <p-footer>
+    <button type="button" class="btn btn-warning-light text-warning" (click)="closeMsg()"
+      i18n="@@delivery-update-close-button-c">Close</button>
+  </p-footer>
+</p-dialog>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
   </div>
 </div>

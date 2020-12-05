@@ -1,13 +1,31 @@
-<main class="main_container">
-  <h1>KissJanos1981</h1>
+<main class="main_container" *ngIf="profileType != 'review-create'">
+  <h1>{{userName}}</h1>
   <div class="main_content">
     <section class="menulist">
       <app-profile-menulist></app-profile-menulist>
     </section>
     <section class="main_body">
+      <app-delivery-list *ngIf="profileType=='delivery-list'" style="width: 100%"></app-delivery-list>
+      <app-delivery-edit *ngIf="profileType=='delivery-edit'" style="width: 100%"></app-delivery-edit>
       <app-update-profile *ngIf="profileType=='update'" style="width: 100%"></app-update-profile>
       <app-delete-profile *ngIf="profileType=='delete'" style="width: 100%;"></app-delete-profile>
       <app-change-password *ngIf="profileType=='changepwd'" style="width: 100%;"></app-change-password>
+      <app-review-list *ngIf="profileType=='review-list'" style="width: 100%"></app-review-list>
+      <app-review-edit *ngIf="profileType=='review-edit'" style="width: 100%"></app-review-edit>
     </section>
+  </div>
+</main>
+<main class="main_container_review" *ngIf="profileType == 'review-create'">
+  <div class="banner_section">
+    <img class="img-fluid p-0 m-0" src="./assets/images/banner_review.svg" alt="Review Banner">
+    <div class="title_section">
+      <h1>Opinion</h1>
+      <h5>Description that he can’t help us otherwise and misses the free raffle.</h5>
+    </div>
+  </div>
+  <div class="main_content">
+    <div class="review_content">
+      <app-review-create style="width: 100%"></app-review-create>
+    </div>
   </div>
 </main>

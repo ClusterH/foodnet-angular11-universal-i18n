@@ -158,6 +158,44 @@
   }
 }
 
+.profile_menu {
+  color: #111;
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+  &:hover {
+    color: #111;
+  }
+}
+
+.menu_content {
+  width: auto;
+  // height: 230px;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  position: absolute;
+  top: 80px;
+  right: 30px;
+  background: #fff;
+  ul {
+    list-style: none;
+    padding: 0 !important;
+    li {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+      font-size: 14px;
+      &.active {
+        font-weight: bold;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .text-primary {
   color: #1976d2 !important;
 }

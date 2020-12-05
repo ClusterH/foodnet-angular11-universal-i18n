@@ -9,7 +9,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
   providedIn: 'root'
 })
 
-export class ChangePasswordService {
+export class DeleteProfileService {
   apiBase = 'http://api.foodnet.ro/api/profile/';
 
   constructor(
@@ -18,8 +18,8 @@ export class ChangePasswordService {
     private sessionService: SessionStorageService
   ) { }
 
-  changePwd(userData: any): Observable<any> {
-    return this._httpClient.post<any>(`${this.apiBase}reset-password`, userData)
+  deleteProfile(): Observable<any> {
+    return this._httpClient.delete<any>(`${this.apiBase}`);
   }
 }
 

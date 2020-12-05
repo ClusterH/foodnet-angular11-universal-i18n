@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from '@gorniv/ngx-universal';
 
 @Component({
   selector: 'app-profile',
@@ -8,22 +9,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   profileType: string;
+  userName: string;
 
   constructor(
     private router: Router,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
+    private cookieService: CookieService,
   ) {
+    this.userName = this.cookieService.get('auth_name');
     this.activatedroute.paramMap.subscribe(params => {
-      console.log(params);
-
       this.profileType = params.get('id');
-      console.log(this.profileType);
     });
   }
 
   ngOnInit(): void {
   }
   ngOnDestroy(): void {
-
   }
 }

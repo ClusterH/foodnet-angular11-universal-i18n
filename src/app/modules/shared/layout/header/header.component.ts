@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 
@@ -16,6 +16,7 @@ import * as environment from '../../../../../environments/environment';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   selectedLanguage: Lang;
@@ -25,19 +26,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
   texts: string[];
   results: string[];
   currentLang: string;
+  profileType: string;
+  menuShow: boolean;
+  userName: string;
 
   private _unsubscribeAll: Subject<any>;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
+    private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
     private citySearchService: CitySearchService,
     public authService: AuthService,
     public sessionService: SessionStorageService
   ) {
+    this.userName = this.cookieService.get('auth_name');
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
+    this.activatedroute.paramMap.subscribe(params => {
+      this.profileType = params.get('id');
+      console.log("header_profileType====>", params);
+    });
+    this.menuShow = false;
   }
 
   ngOnInit(): void {
@@ -53,6 +64,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.citySearchService.getLocations(this.currentLang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.locations = res.locations;
     });
+    if (this.isBrowser) {
+      window.addEventListener('click', (event) => {
+        this.menuContentManage(event);
+      });
+    }
   }
 
   ngOnDestroy(): void {
@@ -76,6 +92,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/']);
+  }
+
+  loadComponent(component): void {
+    this.router.navigate(['/profile/' + component]);
+  }
+
+  menuContentManage(event): void {
+    if (!event.target.matches('.menu_content') && !event.target.matches('.profile_menu')) {
+      this.menuShow = false;
+    }
+  }
+
+  menuShowEvent(): void {
+    this.menuShow = !this.menuShow;
+  }
+  menuShowMouseEvent(): void {
+    this.menuShow = true;
   }
 }
 

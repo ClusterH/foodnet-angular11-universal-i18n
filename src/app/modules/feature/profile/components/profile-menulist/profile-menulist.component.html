@@ -12,7 +12,8 @@
       orders</li>
     <li class="menuitem" [ngClass]="profileType == 'delete' ? 'active' : ''" (click)="loadComponent('delete')">Delete
       profile</li>
-    <li class="menuitem" [ngClass]="profileType == 'reviews' ? 'active' : ''" (click)="loadComponent('reviews')">Reviews
+    <li class="menuitem" [ngClass]="(profileType == 'review-list'  ||  profileType == 'review-edit') ? 'active' : ''"
+      (click)="loadComponent('review-list')">Review List
     </li>
     <li class="menuitem" [ngClass]="profileType == 'checkout' ? 'active' : ''" (click)="loadComponent('checkout')">
       Check-Out</li>

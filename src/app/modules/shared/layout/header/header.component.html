@@ -28,8 +28,41 @@
           </ng-template>
         </p-dropdown>
         <ng-container *ngIf="authService.isAuthenticated();else log_out">
-          <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
-            i18n="@@header-logout-button">Logout</button>
+          <!-- <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
+            i18n="@@header-logout-button">Logout</button> -->
+          <a class="profile_menu" (click)="menuShowEvent()" (mouseenter)="menuShowMouseEvent()">{{userName}} <i
+              class="fas" [ngClass]="menuShow? 'fa-chevron-up' : 'fa-chevron-down'"></i></a>
+          <div class="menu_content" *ngIf="menuShow == true">
+            <ul>
+              <li class="menuitem"
+                [ngClass]="(profileType == 'delivery-list' || profileType == 'delivery-edit')? 'active' : ''"
+                (click)="loadComponent('delivery-list')">Delivery addresses list</li>
+              <li class="menuitem" [ngClass]="profileType == 'changepwd' ? 'active' : ''"
+                (click)="loadComponent('changepwd')">
+                Change password</li>
+              <li class="menuitem" [ngClass]="profileType == 'update' ? 'active' : ''"
+                (click)="loadComponent('update')">Edit
+                profile information</li>
+              <li class="menuitem" [ngClass]="profileType == 'setting' ? 'active' : ''"
+                (click)="loadComponent('setting')">
+                Subscriber settings</li>
+              <li class="menuitem" [ngClass]="profileType == 'orders' ? 'active' : ''"
+                (click)="loadComponent('orders')">Previous
+                orders</li>
+              <li class="menuitem" [ngClass]="profileType == 'delete' ? 'active' : ''"
+                (click)="loadComponent('delete')">Delete
+                profile</li>
+              <li class="menuitem"
+                [ngClass]="(profileType == 'review-list' ||  profileType == 'review-edit') ? 'active' : ''"
+                (click)="loadComponent('review-list')">Review list</li>
+              <li class="menuitem" [ngClass]="profileType == 'checkout' ? 'active' : ''"
+                (click)="loadComponent('checkout')">
+                Check-Out</li>
+              <hr />
+              <li class="menuitem" i18n="@@header-logout-button" (click)="logout()" i18n="@@header-logout-button">Log
+                Out</li>
+            </ul>
+          </div>
         </ng-container>
         <ng-template #log_out>
           <button class="btn text-warning bg-warning-light" i18n="@@header-login-button" routerLink="auth/login"

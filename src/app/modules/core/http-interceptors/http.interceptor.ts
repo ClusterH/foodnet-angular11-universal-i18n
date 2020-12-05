@@ -29,13 +29,11 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const headersConfig = {
       'Content-Type': 'application/json',
-      // 'Accept': 'application/json'
     };
 
     const token = this.cookieService.get('stay_login') ? this.cookieService.get('auth_tkn') : this.sessionService.getItem('auth_tkn');
 
     if (token) {
-      console.log(token);
       headersConfig['x-auth-token'] = `${token}`;
     }
 

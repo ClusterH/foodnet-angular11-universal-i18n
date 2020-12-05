@@ -2,51 +2,32 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-// import { JwtHelperService } from '@auth0/angular-jwt';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from '../../../core/session-storage/session-storage.service';
-
-// import * as moment from 'moment';
-
-// import { User } from '../models/signin-user.model'
-
-// const jwt = new JwtHelperService();
-
-class DecodedToken {
-  exp: number;
-  username: string;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   isLoggedIn: boolean = false;
-  // public loading$ = false;
 
   apiBase = 'http://api.foodnet.ro/api/auth';
-  // private decodedToken;
 
   constructor(
     private _httpClient: HttpClient,
     public cookieService: CookieService,
     private sessionService: SessionStorageService
   ) {
-    // this.decodedToken = this.cookieService.get('auth_meta') || new DecodedToken();
   }
 
   register(userData: any): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/register`, userData).pipe(map(res => {
-      console.log(res);
-      // this.isAuthenticated(res);
       return this.saveToken(res, true);
     }))
   }
 
   logIn(userData: any, isStay: boolean): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/login`, userData).pipe(map(res => {
-      console.log(res);
-      // this.isAuthenticated(res);
       return this.saveToken(res, isStay);
     }))
   }
@@ -97,4 +78,3 @@ export class AuthService {
     return this.isLoggedIn;
   }
 }
-

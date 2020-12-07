@@ -85,11 +85,11 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
   showMsg(status): void {
     if (status) {
       this.statusIcon = "./assets/icons/success_icon.svg";
-      this.statusMsg = $localize`:@@update-profile-success-message:Successful data modification`;
+      this.statusMsg = $localize`:@@profile-update-success-message:Successful data modification`;
     }
     else {
       this.statusIcon = "./assets/icons/fail_icon.svg";
-      this.statusMsg = $localize`:update-profile-failed-message:A server error has occurred`;
+      this.statusMsg = $localize`:profile-update-failed-message:A server error has occurred`;
     }
     this.isShown = true;
   }

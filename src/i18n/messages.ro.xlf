@@ -109,13 +109,13 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="header-login-button" datatype="html">
         <source>Login</source><target state="new">Intră în cont</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">37</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">69</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
         <source>Registration</source><target state="new">Cont nou</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
-        <source>Logout</source><target state="new">Deconectați-vă</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">71</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
+        <source>Log Out</source><target state="new">Deconectați-vă</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">33</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">62</context></context-group></trans-unit>
       <trans-unit id="home-section4-b">
         <source>Strength #1</source>
         <target>Putere #1</target>
@@ -207,7 +207,19 @@
       <trans-unit id="footer-l">
         <source>Adatkezelési tájékoztató EN</source>
         <target>Adatkezelési tájékoztató RO</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="login-title-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="profile-review-create-title" datatype="html">
+        <source>Opinion</source><target state="new">Opinie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-subtitle" datatype="html">
+        <source>A description that she can’t help us otherwise and falls short of the free raffle.</source><target state="new">O descriere pe care ea nu ne poate ajuta altfel și nu se încadrează în tombola gratuită.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit><trans-unit id="login-title-a" datatype="html">
         <source>Login</source><target state="new">Autentificare</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/auth/pages/login/login.component.html</context>
@@ -493,7 +505,542 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">53</context></context-group></trans-unit><trans-unit id="reset-new-password-again-not-match" datatype="html">
         <source>The password again and password do not match</source><target state="new">Parola din nou și parola nu se potrivesc</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">57</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="profile-deliverylist-b" datatype="html">
+        <source>Delivery addresses list</source><target state="new">Lista adreselor de livrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-f" datatype="html">
+        <source> Change password</source><target state="new"> Schimbați parola</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-f" datatype="html">
+        <source>Edit profile information</source><target state="new">Modificați informațiile de profil</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-d" datatype="html">
+        <source>Delete profile</source><target state="new">Șterge profilul</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-h" datatype="html">
+        <source>Review List </source><target state="new">Lista de opinii </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-a" datatype="html">
+        <source>Delete profile</source><target state="new">Șterge profilul</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-b" datatype="html">
+        <source>Reason (Optional)</source><target state="new">Motiv (Opțional)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-c" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
+        class=&quot;fas fa-trash-alt mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Profile delete</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
+        class=&quot;fas fa-trash-alt mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Șterge profilul</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-dialog-a" datatype="html">
+        <source>Are you sure you want to delete your profile?</source><target state="new">Sigur doriți să vă ștergeți profilul?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-dialog-b" datatype="html">
+        <source>This will cause all your previous data to be lost and cannot be restored.</source><target state="new">Acest lucru va face ca toate datele anterioare să fie pierdute și nu pot fi recuperate.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-dialog-c" datatype="html">
+        <source>No</source><target state="new">Nu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delete-dialog-d" datatype="html">
+        <source>Yes</source><target state="new">Da</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-success-message" datatype="html">
+        <source>Successful data modification</source><target state="new">Modificarea cu succes a datelor</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit><trans-unit id="8837637216164715470" datatype="html">
+        <source>A server error has occurred</source><target state="new">A apărut o eroare de server</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <note priority="1" from="description">profile-update-failed-message</note>
+      </trans-unit><trans-unit id="profile-update-title-a" datatype="html">
+        <source>Edit Profile Infomation</source><target state="new">Modificați informațiile de profil</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-name-b" datatype="html">
+        <source>Name (Required)</source><target state="new">Nume (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-email-c" datatype="html">
+        <source>E-mail address (Required)</source><target state="new">Adresă de e-mail (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-phonenumber-d" datatype="html">
+        <source>Phone Number (Required)</source><target state="new">Număr de telefon (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-registeration-button-k" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Save</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Salvare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-close-button-b" datatype="html">
+        <source>Close</source><target state="new">Închidere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-name-required" datatype="html">
+        <source>Name is required.</source><target state="new">Numele este obligatoriu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-name-not-format" datatype="html">
+        <source>Name is not a name format.</source><target state="new">Numele nu este un format de nume.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-name-three-character" datatype="html">
+        <source>The name must be at least 3 characters long</source><target state="new">Nume trebuie să aibă cel puțin 3 caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-name-twenty-character" datatype="html">
+        <source>The name must be maximum 20 characters long</source><target state="new">Numele trebuie să aibă maximum 20 de caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">24,26</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-email-required" datatype="html">
+        <source>Email is required.</source><target state="new">E-mailul este obligatoriu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-email-not-format" datatype="html">
+        <source>Not an e-mail format</source><target state="new">Nu este un format de e-mail</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-phonenumber-required" datatype="html">
+        <source>The phonenumber is required</source><target state="new">Numărul de telefon este obligatoriu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-passwordconfirm-six-character" datatype="html">
+        <source>The phonenumber must be at least 6 characters long</source><target state="new">Numărul de telefon trebuie să aibă cel puțin 6 caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">58,60</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-update-phonenumber-thirty-character" datatype="html">
+        <source>The phonenumber must be maximum 30 characters long</source><target state="new">Numărul de telefon trebuie să aibă maximum 30 de caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-title-a" datatype="html">
+        <source>Delivery addresses list</source><target state="new">Lista adreselor de livrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-f" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Add a new address</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Adăugați o adresă nouă</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-c" datatype="html">
+        <source>Title</source><target state="new">Titlu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-e" datatype="html">
+        <source>Operations</source><target state="new">Operațiuni</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-d" datatype="html">
+        <source>Edit</source><target state="new">Editare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit><trans-unit id="update-profile-success-message" datatype="html">
+        <source>Successful data modification</source><target state="new">Modificarea cu succes a datelor</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
+        <source>A server error has occurred</source><target state="new">A apărut o eroare de server</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
+        <source>Change password</source><target state="new">Schimbați parola</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-oldPassword-b" datatype="html">
+        <source>Old Password (Required)</source><target state="new">Parola veche (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="d0a1b0d2bd8e5513102133d400a34d7d6e005e66" datatype="html">
+        <source>6+ characters</source><target state="new">6+ caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-password-d" datatype="html">
+        <source>New Password (Required)</source><target state="new">Parolă nouă (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-password-six-character" datatype="html">
+        <source>6+ characters</source><target state="new">6+ caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-passwordagain-g" datatype="html">
+        <source>New Password again (Required)</source><target state="new">Parolă nouă din nou (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-passwordagin-six-character" datatype="html">
+        <source>6+ characters</source><target state="new">6+ caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-registeration-button-k" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Save</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;far fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Salvare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-close-button-c" datatype="html">
+        <source>Close</source><target state="new">Închidere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-name-required" datatype="html">
+        <source>Old Password is required.</source><target state="new">Este necesară o parolă veche.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">15,16</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-name-three-character" datatype="html">
+        <source>The Password must be at least 6 characters long</source><target state="new">Parola trebuie să aibă cel puțin 6 caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-name-twenty-character" datatype="html">
+        <source>The Password must be maximum 30 characters long</source><target state="new">Parola trebuie să aibă cel mult 30 de caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-password-required" datatype="html">
+        <source>The password is required</source><target state="new">Parolă necesară</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-passwordconfirm-six-character" datatype="html">
+        <source>The password must be at least 6 characters long</source><target state="new">Parola trebuie să aibă cel puțin 6 caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-password-thirty-character" datatype="html">
+        <source>The password must be maximum 30 characters long</source><target state="new">Parola trebuie să aibă cel mult 30 de caractere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-passwordagain-required" datatype="html">
+        <source>The password again is required</source><target state="new">Parola este necesară din nou</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">66,68</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-changepwd-password-again-not-match" datatype="html">
+        <source>The password again and password do not match</source><target state="new">Parola din nou și parola nu se potrivesc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
+          <context context-type="linenumber">71,73</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-update-title" datatype="html">
+        <source>Update delivery address</source><target state="new">Actualizați adresa de livrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-create-title" datatype="html">
+        <source>Create delivery address</source><target state="new">Creați adresa de expediere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-success-message" datatype="html">
+        <source>Successful data modification</source><target state="new">Modificarea cu succes a datelor</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
+          <context context-type="linenumber">140</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-failed-message" datatype="html">
+        <source>A server error has occurred</source><target state="new">A apărut o eroare de server</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-b" datatype="html">
+        <source>Settlement (Required)</source><target state="new">Așezare (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-c" datatype="html">
+        <source>Street (Required)</source><target state="new">Strada (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-d" datatype="html">
+        <source>House Number (Required)</source><target state="new">Numărul casei (Obligatoriu)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-e" datatype="html">
+        <source>Floor (Optional)</source><target state="new">Etaj (Opțional)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-f" datatype="html">
+        <source>Door (Optional)</source><target state="new">Ușă (Opțional)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-g" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
+          class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Save</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
+          class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Salvare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-close-button-c" datatype="html">
+        <source>Close</source><target state="new">Închidere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-street-required" datatype="html">
+        <source>Street is required.</source><target state="new">Strada este obligatorie.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-housenumber-required" datatype="html">
+        <source>House Number is required.</source><target state="new">Numărul casei este obligatoriu.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-a" datatype="html">
+        <source>Review list</source><target state="new">Review list</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-b" datatype="html">
+        <source> You can only write a review if you have ordered at least 5 times before. </source><target state="new"> Puteți scrie o recenzie numai dacă ați comandat anterior. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-c" datatype="html">
+        <source>Who</source><target state="new">La cine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-d" datatype="html">
+        <source>When</source><target state="new">Când</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-e" datatype="html">
+        <source>Operation</source><target state="new">Operațiune</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-f" datatype="html">
+        <source>CREATE</source><target state="new">Adăuga</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-list-g" datatype="html">
+        <source>EDIT</source><target state="new">Vedere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-a" datatype="html">
+        <source>View Review</source><target state="new">Vizualizați recenzia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-b" datatype="html">
+        <source>Opinions require approval, which may take 3-5 business days</source><target state="new">Avizele necesită aprobare, care poate dura 3-5 zile lucrătoare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-c" datatype="html">
+        <source>Thank you in advance for your patience!</source><target state="new">Vă mulțumesc anticipat pentru răbdare!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-d" datatype="html">
+        <source>Who</source><target state="new">La cine</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-e" datatype="html">
+        <source>Evaluation</source><target state="new">Evaluare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-f" datatype="html">
+        <source>Text Opinion</source><target state="new">Text de notificare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-edit-g" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>
+      "/> Go Back</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>
+      "/> Înapoi</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-a" datatype="html">
+        <source>Write a review - <x id="INTERPOLATION" equiv-text="{{restaurantName}}"/></source><target state="new">Scrie o opinie - <x id="INTERPOLATION" equiv-text="{{restaurantName}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-b" datatype="html">
+        <source>Opinions require approval, which may take 3-5 business days</source><target state="new">Avizele necesită aprobare, care poate dura 3-5 zile lucrătoare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-c" datatype="html">
+        <source>Thank you in advance for your patience!</source><target state="new">Vă mulțumesc anticipat pentru răbdare!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-d" datatype="html">
+        <source>Evaluation</source><target state="new">Evaluare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-e" datatype="html">
+        <source>Text Opinion</source><target state="new">Text de notificare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-f" datatype="html">
+        <source> I accept the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;&quot; class=&quot;text-warning text-decoration-none&quot;>"/>GTC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/>.</source><target state="new"> Accept <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;&quot; class=&quot;text-warning text-decoration-none&quot;>"/>termenii și condițiile<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a>"/>.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-g" datatype="html">
+        <source> I agree that my review may appear on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;&quot; class=&quot;text-warning text-decoration-none&quot;>"/>foodnet.ro<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a> "/> website. </source><target state="new"> Sunt de acord că recenzia mea poate apărea pe <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;&quot; class=&quot;text-warning text-decoration-none&quot;>"/>foodnet.ro<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a> "/> site-ul web. </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-review-create-h" datatype="html">
+        <source>Submit a review</source><target state="new">Trimiteți o opiniei</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
 
     </body>
   </file>

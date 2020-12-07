@@ -1,7 +1,7 @@
 <div class="content">
   <h2 class="text-bold">{{title}}</h2>
   <div>
-    <label for="city" class="text-bold">Settlement (Required)</label>
+    <label for="city" class="text-bold" i18n="@@profile-delivery-edit-b">Settlement (Required)</label>
     <p-dropdown [options]="deliveryAddress" name="selectedCity" [(ngModel)]="selectedCity" optionLabel="cities"
       placeholder="Select a Settlement" required="true">
       <ng-template let-city pTemplate="item">
@@ -14,13 +14,15 @@
   <form class="mainForm" [formGroup]="addressForm" (ngSubmit)="update()">
     <div class="form-group">
       <label for="street" class="text-bold"
-        [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''">Street
+        [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''"
+        i18n="@@profile-delivery-edit-c">Street
         (Required)</label>
       <input id="street" type="text" class="form-control" formControlName="street"
         [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required ) ? 'bd-red' : ''">
       <div *ngIf="isValidInput('street')" class="m-0 p-0">
         <div *ngIf="addressForm.controls['street'].errors.required">
-          <small id="streetHelp" class="text-red">Street is required.</small>
+          <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-street-required">Street is
+            required.</small>
         </div>
       </div>
     </div>
@@ -28,28 +30,30 @@
       <div class="row">
         <div class="col">
           <label for="houseNumber" class="text-bold"
-            [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required) ? 'text-red' : ''">House
-            Number (Required)</label>
+            [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required) ? 'text-red' : ''"
+            i18n="@@profile-delivery-edit-d">House Number (Required)</label>
           <input id="houseNumber" type="text" class="form-control" formControlName="houseNumber"
             [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required ) ? 'bd-red' : ''">
           <div *ngIf="isValidInput('houseNumber')" class="m-0 p-0">
             <div *ngIf="addressForm.controls['houseNumber'].errors.required">
-              <small id="houseNumberHelp" class="text-red">House Number is required.</small>
+              <small id="houseNumberHelp" class="text-red" i18n="@@profile-delivery-edit-housenumber-required">House
+                Number is required.</small>
             </div>
           </div>
         </div>
         <div class="col">
-          <label for="floor" class="text-bold">Floor (Optional)</label>
+          <label for="floor" class="text-bold" i18n="@@profile-delivery-edit-e">Floor (Optional)</label>
           <input id="floor" type="text" class="form-control" formControlName="floor">
         </div>
         <div class="col">
-          <label for="door" class="text-bold">Door (Optional)</label>
+          <label for="door" class="text-bold" i18n="@@profile-delivery-edit-f">Door (Optional)</label>
           <input id="door" type="text" class="form-control" formControlName="door">
         </div>
       </div>
     </div>
     <div class="btn_section">
-      <button class="btn btn-warning text-white text-bold" type="submit"> <i class="fas fa-save mr-2"></i> Save</button>
+      <button class="btn btn-warning text-white text-bold" type="submit" i18n="@@profile-delivery-edit-g"> <i
+          class="fas fa-save mr-2"></i> Save</button>
     </div>
   </form>
 </div>
@@ -62,7 +66,7 @@
   <h2 class="text-bold text-center">{{statusMsg}}</h2>
   <p-footer>
     <button type="button" class="btn btn-warning-light text-warning" (click)="closeMsg()"
-      i18n="@@delivery-update-close-button-c">Close</button>
+      i18n="@@profile-delivery-edit-close-button-c">Close</button>
   </p-footer>
 </p-dialog>
 <div class="spinner_overlay" *ngIf="isSpinner">

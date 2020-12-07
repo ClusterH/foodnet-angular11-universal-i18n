@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DeliveryAddressService } from '../../services';
 
 import { Subject } from 'rxjs';
-import { finalize, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-delivery-list',
@@ -37,7 +37,6 @@ export class DeliveryListComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
-
 
   loadComponent(component, id = null): void {
     if (id != null) {

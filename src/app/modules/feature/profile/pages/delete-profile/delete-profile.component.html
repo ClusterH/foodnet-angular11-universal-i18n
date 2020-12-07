@@ -1,20 +1,22 @@
 <div class="content">
-  <h2 class="text-bold">Delete profile</h2>
-  <h5>Reason (Optional)</h5>
+  <h2 class="text-bold" i18n="@@profile-delete-a">Delete profile</h2>
+  <h5 i18n="@@profile-delete-b">Reason (Optional)</h5>
   <textarea name="" id="" cols="30" rows="5"></textarea>
   <div class="btn_section">
-    <button class="btn text-white text-bold" (click)="deleteProfile()"> <i class="fas fa-trash-alt mr-2"></i> Profile
+    <button class="btn text-white text-bold" (click)="deleteProfile()" i18n="@@profile-delete-c"> <i
+        class="fas fa-trash-alt mr-2"></i> Profile
       delete</button>
   </div>
   <p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
     *ngIf="isBrowser" [modal]="true">
     <p-header>
-      <h2>Are you sure you want to delete your profile?</h2>
+      <h2 i18n="@@profile-delete-dialog-a">Are you sure you want to delete your profile?</h2>
     </p-header>
-    <p class="text-bold text-center">This will cause all your previous data to be lost and cannot be restored.</p>
+    <p class="text-bold text-center" i18n="@@profile-delete-dialog-b">This will cause all your previous data to be lost
+      and cannot be restored.</p>
     <p-footer>
-      <button type="button" class="btn bg-grey" (click)="closeMsg(false)">No</button>
-      <button type="button" class="btn bg-grey" (click)="closeMsg(true)">Yes</button>
+      <button type="button" class="btn bg-grey" (click)="closeMsg(false)" i18n="@@profile-delete-dialog-c">No</button>
+      <button type="button" class="btn bg-grey" (click)="closeMsg(true)" i18n="@@profile-delete-dialog-d">Yes</button>
     </p-footer>
   </p-dialog>
 </div>

@@ -52,7 +52,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
       this.activatedroute.queryParams.subscribe(params => {
         if (params.id) {
           this.id = params.id;
-          this.title = "Update delivery address";
+          this.title = $localize`:@@profile-delivery-update-title:Update delivery address`;
           this.deliveryAddressService.getCurrentAddress(params.id).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
             console.log(this.deliveryAddress.filter(address => address.cities == res.result.city));
             this.selectedCity = { id: this.deliveryAddress.filter(address => address.cities == res.result.city)[0].id, cities: res.result.city };
@@ -64,7 +64,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
               this.isSpinner = false;
             });;
         } else {
-          this.title = "Create delivery address";
+          this.title = $localize`:@@profile-delivery-create-title:Create delivery address`;
           this.selectedCity = res.locations[0];
           this.isSpinner = false;
           this.isCreate = true;
@@ -137,11 +137,11 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
   showMsg(status): void {
     if (status) {
       this.statusIcon = "./assets/icons/success_icon.svg";
-      this.statusMsg = $localize`:@@update-profile-success-message:Successful data modification`;
+      this.statusMsg = $localize`:@@profile-delivery-edit-success-message:Successful data modification`;
     }
     else {
       this.statusIcon = "./assets/icons/fail_icon.svg";
-      this.statusMsg = $localize`:update-profile-failed-message:A server error has occurred`;
+      this.statusMsg = $localize`:@@profile-delivery-edit-failed-message:A server error has occurred`;
     }
     this.isShown = true;
   }

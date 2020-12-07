@@ -1,14 +1,6 @@
 <div class="content">
-  <h2 class="text-bold" i18n="@@profile-update-title-a">Update profile Data</h2>
+  <h2 class="text-bold" i18n="@@profile-update-title-a">Edit Profile Infomation</h2>
   <form class="mainForm" [formGroup]="updateForm" (ngSubmit)="save()">
-    <!-- <div class="form-group message_section" *ngIf="isInvalidErrors">
-        <p-messages severity="error">
-          <ng-template pTemplate>
-            <i class="fas fa-info-circle text-danger" width="32"></i>
-            <div class="ml-2" i18n="@@profile-update-user-exist">Invalid Error</div>
-          </ng-template>
-        </p-messages>
-      </div> -->
     <div class="form-group">
       <label for="name" class="text-bold"
         [ngClass]="(isValidInput('name') && (updateForm.controls['name'].errors.required || updateForm.controls['name'].errors.pattern || updateForm.controls['name'].errors.minlength || updateForm.controls['name'].errors.maxlength)) ? 'text-red' : ''"
@@ -89,7 +81,7 @@
   <h2 class="text-bold text-center">{{statusMsg}}</h2>
   <p-footer>
     <button type="button" class="btn btn-warning-light text-warning" (click)="closeMsg()"
-      i18n="@@profile-update-close-button-c">Close</button>
+      i18n="@@profile-update-close-button-b">Close</button>
   </p-footer>
 </p-dialog>
 <div class="spinner_overlay" *ngIf="isSpinner">

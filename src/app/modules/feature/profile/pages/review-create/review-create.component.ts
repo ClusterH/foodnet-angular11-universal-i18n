@@ -13,9 +13,9 @@ import { ReviewListService } from '../../services';
 })
 export class ReviewCreateComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
-  description: string;
   message: any;
   evaluation: any;
+  restaurantName: string;
   genLink: number;
   isAcceptGTC: boolean;
   isAcceptReview: boolean;
@@ -27,7 +27,6 @@ export class ReviewCreateComponent implements OnInit, OnDestroy {
     private reviewListService: ReviewListService
   ) {
     this._unsubscribeAll = new Subject();
-    this.description = "Opinions require approval, which may take 3-5 business days. \n Thank you in advance for your patience!";
     this.message = "";
     this.evaluation = 1;
     this.isAcceptGTC = false;
@@ -36,9 +35,9 @@ export class ReviewCreateComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activatedroute.queryParams.subscribe(params => {
-      if (params.genLink) {
+      if (params) {
         console.log(params); // { id: 2 }
-
+        this.restaurantName = params.restaurantName;
         this.genLink = params.genLink;
         console.log(this.genLink); // popular
       }

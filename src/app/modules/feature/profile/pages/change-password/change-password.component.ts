@@ -105,7 +105,7 @@ export class ChangePasswordComponent implements OnInit {
     }
     else {
       this.statusIcon = "./assets/icons/fail_icon.svg";
-      this.statusMsg = $localize`:update-profile-failed-message:A server error has occurred`;
+      this.statusMsg = $localize`:@@update-profile-failed-message:A server error has occurred`;
     }
     this.isShownDig = true;
   }
@@ -113,9 +113,4 @@ export class ChangePasswordComponent implements OnInit {
   closeMsg(): void {
     this.isShownDig = !this.isShownDig;
   }
-
-  // loadComponent() {
-  //   this.router.navigate(['/profile/delete-test']);
-  // }
-
 }

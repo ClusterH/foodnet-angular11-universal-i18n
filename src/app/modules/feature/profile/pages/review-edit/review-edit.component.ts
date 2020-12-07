@@ -13,7 +13,6 @@ import { finalize, takeUntil } from 'rxjs/operators';
 })
 export class ReviewEditComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
-  description: string;
   restaurant_name: string = "";
   opinion: string = "";
   evaluation: number = 5;
@@ -26,7 +25,6 @@ export class ReviewEditComponent implements OnInit, OnDestroy {
     private reviewListService: ReviewListService
   ) {
     this._unsubscribeAll = new Subject();
-    this.description = "Opinions require approval, which may take 3-5 business days. \n Thank you in advance for your patience!";
     // this.restaurant_name = "Restaurant name";
     // this.opinion = "";
     // this.evaluation = 4;

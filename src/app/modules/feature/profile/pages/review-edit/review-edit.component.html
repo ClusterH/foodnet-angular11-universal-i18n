@@ -1,11 +1,12 @@
 <div class="content">
-  <h2 class="text-bold">View Review</h2>
-  <p class="review_description">
-    {{ description }}
-  </p>
-  <h5>Kit</h5>
+  <h2 class="text-bold" i18n="@@profile-review-edit-a">View Review</h2>
+  <p class="review_description mb-0" i18n="@@profile-review-edit-b">Opinions require approval, which may take 3-5
+    business
+    days</p>
+  <p class="review_description mt-0" i18n="@@profile-review-edit-c">Thank you in advance for your patience!</p>
+  <h5 i18n="@@profile-review-edit-d">Who</h5>
   <p>{{restaurant_name}}</p>
-  <h5>Evaluation</h5>
+  <h5 i18n="@@profile-review-edit-e">Evaluation</h5>
   <div class="evaluation">
     <label class="rate-label" [ngClass]="i == evaluation - 1 ? 'bd-warning' : ''"
       *ngFor="let in of points(5) ;let i = index" (click)="evaluationSelect(i)">
@@ -13,12 +14,12 @@
       <span class="text-bold">{{i + 1}}</span>
     </label>
   </div>
-  <h5>Text Opinion</h5>
+  <h5 i18n="@@profile-review-edit-f">Text Opinion</h5>
   <textarea name="opinion" id="" cols="30" rows="5" [(ngModel)]="opinion">
   </textarea>
   <div class="btn_section">
-    <button class="btn btn-warning text-white text-bold" [routerLink]="['/profile/review-list']"> <i
-        class="fas fa-save mr-2"></i>
+    <button class="btn btn-warning text-white text-bold" [routerLink]="['/profile/review-list']"
+      i18n="@@profile-review-edit-g"> <i class="fas fa-save mr-2"></i>
       Go Back</button>
   </div>
 </div>

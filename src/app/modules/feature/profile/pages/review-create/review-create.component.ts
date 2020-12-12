@@ -36,10 +36,10 @@ export class ReviewCreateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activatedroute.queryParams.subscribe(params => {
       if (params) {
-        console.log(params); // { id: 2 }
+
         this.restaurantName = params.restaurantName;
         this.genLink = params.genLink;
-        console.log(this.genLink); // popular
+
       }
       else {
       }
@@ -68,10 +68,10 @@ export class ReviewCreateComponent implements OnInit, OnDestroy {
       genLink: this.genLink
     }
 
-    console.log(body);
+
 
     this.reviewListService.createNewReview(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       this.isSpinner = false;
       this.router.navigate(['profile/review-list']);
     },

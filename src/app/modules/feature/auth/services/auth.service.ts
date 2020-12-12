@@ -4,7 +4,6 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from '../../../core/session-storage/session-storage.service';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,17 +17,18 @@ export class AuthService {
     public cookieService: CookieService,
     private sessionService: SessionStorageService
   ) {
+
   }
 
   register(userData: any): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/register`, userData).pipe(map(res => {
-      return this.saveToken(res, true);
+      return this.saveToken(res, true, userData);
     }))
   }
 
   logIn(userData: any, isStay: boolean): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}/login`, userData).pipe(map(res => {
-      return this.saveToken(res, isStay);
+      return this.saveToken(res, isStay, userData);
     }))
   }
 
@@ -52,10 +52,15 @@ export class AuthService {
     this.isLoggedIn = false;
   }
 
-  private saveToken(res: any, isStay?: boolean): any {
-    this.sessionService.setItem('auth_tkn', res.result[0].token);
-    if (res.result[0].name) {
-      this.cookieService.put('auth_name', res.result[0].name)
+  private saveToken(res: any, isStay?: boolean, userData?: any): any {
+    if (res.result[0].token) {
+      this.sessionService.setItem('auth_tkn', res.result[0].token);
+      this.cookieService.put('auth_name', res.result[0].name);
+      this.cookieService.put('auth_email', userData.email);
+      if (!this.cookieService.get('change_lang')) {
+        const currentLang = window.location.pathname.split('/')[1] || 'ro';
+        this.cookieService.put('change_lang', currentLang);
+      }
     }
 
     if (isStay) {

@@ -106,16 +106,52 @@
               "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></source><target state="new"><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;ng-template let-texts pTemplate=&quot;item&quot;>
               "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-map-marker-alt&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div style=&quot;display: inline; margin-left: 10px;&quot;>"/><x id="INTERPOLATION" equiv-text="{{texts}}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div>"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="&lt;/ng-template>"/></target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="header-login-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">12</context></context-group></trans-unit><trans-unit id="header-menu-edit-profile" datatype="html">
+        <source>Edit profile information</source><target state="new">Profil adatok módosítása</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">40,41</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-menu-change-password" datatype="html">
+        <source> Change password</source><target state="new"> Jelszó módosítása</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-menu-delivery-address" datatype="html">
+        <source>Delivery addresses list </source><target state="new">Kiszállítási címek </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-menu-previous-orders" datatype="html">
+        <source>Previous orders</source><target state="new">Korábbi megrendelések</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-menu-review-list" datatype="html">
+        <source>Review list</source><target state="new">Vélemény lista</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-menu-delete-profile" datatype="html">
+        <source>Delete profile</source><target state="new">Profil törlése</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit><trans-unit id="header-login-button" datatype="html">
         <source>Login</source><target state="new">Bejelentkezés</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">69</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">66</context></context-group></trans-unit><trans-unit id="header-registeration-button" datatype="html">
         <source>Registration</source><target state="new">Regisztráció</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">71</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">68</context></context-group></trans-unit><trans-unit id="header-logout-button" datatype="html">
         <source>Log Out</source><target state="new">Kijelentkezés</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">62</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">59</context></context-group></trans-unit>
        <trans-unit id="home-section4-b">
         <source>Strength #1</source>
         <target>Erősség #1</target>
@@ -507,35 +543,26 @@
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/auth/pages/reset-password/reset-password.component.html</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="profile-deliverylist-b" datatype="html">
         <source>Delivery addresses list</source><target state="new">Kiszállítási címek</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context><context context-type="linenumber">10</context></context-group></trans-unit><trans-unit id="profile-previous-orders-a" datatype="html">
+        <source>Previous orders</source><target state="new">Korábbi megrendelések</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
-          <context context-type="linenumber">4</context>
+          <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit><trans-unit id="profile-changepwd-f" datatype="html">
         <source> Change password</source><target state="new"> Jelszó módosítása</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-update-f" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="profile-update-f" datatype="html">
         <source>Edit profile information</source><target state="new">Profil adatok módosítása</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
-          <context context-type="linenumber">9,10</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delete-d" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context><context context-type="linenumber">4</context></context-group></trans-unit><trans-unit id="profile-delete-d" datatype="html">
         <source>Delete profile</source><target state="new">Profil törlése</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
-          <context context-type="linenumber">16,17</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-review-list-h" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context><context context-type="linenumber">18</context></context-group></trans-unit><trans-unit id="profile-review-list-h" datatype="html">
         <source>Review List </source><target state="new">Vélemény lista </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context>
-          <context context-type="linenumber">19,20</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delete-a" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/components/profile-menulist/profile-menulist.component.html</context><context context-type="linenumber">15</context></context-group></trans-unit><trans-unit id="profile-delete-a" datatype="html">
         <source>Delete profile</source><target state="new">Profil törlése</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delete-profile/delete-profile.component.html</context>
@@ -581,18 +608,12 @@
         </context-group>
       </trans-unit><trans-unit id="profile-update-success-message" datatype="html">
         <source>Successful data modification</source><target state="new">Sikeres adatmódosítás</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-      </trans-unit><trans-unit id="8837637216164715470" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context><context context-type="linenumber">100</context></context-group></trans-unit><trans-unit id="8837637216164715470" datatype="html">
         <source>A server error has occurred</source><target state="new">Szerver hiba történt</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context>
-          <context context-type="linenumber">92</context>
-        </context-group>
+
         <note priority="1" from="description">profile-update-failed-message</note>
-      </trans-unit><trans-unit id="profile-update-title-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.ts</context><context context-type="linenumber">105</context></context-group></trans-unit><trans-unit id="profile-update-title-a" datatype="html">
         <source>Edit Profile Infomation</source><target state="new">Profil adatok módosítása</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/update-profile/update-profile.component.html</context>
@@ -688,13 +709,34 @@
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
-      </trans-unit><trans-unit id="profile-deliverylist-f" datatype="html">
-        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Add a new address</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Új cím hozzáadása</target>
+      </trans-unit><trans-unit id="profile-deliverylist-delete-dialog-a" datatype="html">
+        <source>Are you sure you want to delete current Address?</source><target state="new">Are you sure you want to delete current Address?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">28</context>
         </context-group>
-      </trans-unit><trans-unit id="profile-deliverylist-c" datatype="html">
+      </trans-unit><trans-unit id="profile-deliverylist-delete-dialog-b" datatype="html">
+        <source>This will cause all your previous data to be lost and cannot be restored.</source><target state="new">This will cause all your previous data to be lost and cannot be restored.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-delete-dialog-c" datatype="html">
+        <source>No</source><target state="new">No</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-delete-dialog-d" datatype="html">
+        <source>Yes</source><target state="new">Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-deliverylist-f" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Add a new address</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fas fa-plus&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Új cím hozzáadása</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context><context context-type="linenumber">42</context></context-group></trans-unit><trans-unit id="profile-deliverylist-c" datatype="html">
         <source>Title</source><target state="new">Cím</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-list/delivery-list.component.html</context>
@@ -714,17 +756,11 @@
         </context-group>
       </trans-unit><trans-unit id="update-profile-success-message" datatype="html">
         <source>Successful data modification</source><target state="new">Sikeres adatmódosítás</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context>
-          <context context-type="linenumber">104</context>
-        </context-group>
-      </trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">107</context></context-group></trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
         <source>A server error has occurred</source><target state="new">Szerver hiba történt</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context>
-          <context context-type="linenumber">108</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">111</context></context-group></trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
         <source>Change password</source><target state="new">Jelszó módosítása</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
@@ -864,50 +900,56 @@
         </context-group>
       </trans-unit><trans-unit id="profile-delivery-edit-d" datatype="html">
         <source>House Number (Required)</source><target state="new">Település (Kötelező)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-e" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">43</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-e" datatype="html">
         <source>Floor (Optional)</source><target state="new">Emelet (Opcionális)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-f" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">63</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-f" datatype="html">
         <source>Door (Optional)</source><target state="new">Ajtó (Opcionális)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-g" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">67</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-g" datatype="html">
         <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
           class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Save</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
           class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Mentés</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">55,56</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-close-button-c" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">73</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-close-button-c" datatype="html">
         <source>Close</source><target state="new">Bezárás</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-street-required" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">87</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-street-required" datatype="html">
         <source>Street is required.</source><target state="new">Utcára van szükség.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
           <context context-type="linenumber">24,25</context>
         </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-housenumber-required" datatype="html">
-        <source>House Number is required.</source><target state="new">Házszám megadása kötelező.</target>
+      </trans-unit><trans-unit id="profile-delivery-edit-two-character" datatype="html">
+        <source>The password must be at least 2 characters long</source><target state="new">Az utcának legalább 2 karakter hosszúnak kell lennie</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-hundred-character" datatype="html">
+        <source>The password must be maximum 100 characters long</source><target state="new">Az utca legfeljebb 100 karakter hosszú lehet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-housenumber-required" datatype="html">
+        <source>House Number is required.</source><target state="new">Házszám megadása kötelező.</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">48</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-one-character" datatype="html">
+        <source>The password must be at least 1 characters long</source><target state="new">A házszámnak legalább 1 karakter hosszúnak kell lennie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-delivery-edit-twenty-character" datatype="html">
+        <source>The password must be maximum 20 characters long</source><target state="new">A házszám legfeljebb 20 karakter hosszú lehet</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit><trans-unit id="profile-review-list-a" datatype="html">
-        <source>Review list</source><target state="new">Vélemény lista</target>
+        <source>Review list</source><target state="new">Felülvizsgálati lista</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
           <context context-type="linenumber">2</context>
@@ -935,6 +977,30 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-a" datatype="html">
+        <source>Are you sure you want to delete current Revie?</source><target state="new">Biztosan törli az aktuális véleményt?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-b" datatype="html">
+        <source>This will cause all your previous data to be lost and cannot be restored.</source><target state="new">Ez minden korábbi adatát elveszíti, és nem állítható vissza.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-c" datatype="html">
+        <source>No</source><target state="new">Nem</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-d" datatype="html">
+        <source>Yes</source><target state="new">Igen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit><trans-unit id="profile-review-list-f" datatype="html">
         <source>CREATE</source><target state="new">Létrehozás</target>
@@ -1036,11 +1102,8 @@
         </context-group>
       </trans-unit><trans-unit id="profile-review-create-h" datatype="html">
         <source>Submit a review</source><target state="new">Vélemény beküldése</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/review-create/review-create.component.html</context><context context-type="linenumber">33</context></context-group></trans-unit>
 
     </body>
   </file>

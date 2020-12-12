@@ -28,7 +28,8 @@
     </label>
   </div>
   <div class="btn_section">
-    <button class="btn btn-warning text-white text-bold" (click)="createNewReview()"
+    <button class="btn btn-warning text-white text-bold"
+      [disabled]="!evaluation || !message ||  !isAcceptReview || !isAcceptGTC" (click)="createNewReview()"
       i18n="@@profile-review-create-h">Submit a review</button>
   </div>
 </div>

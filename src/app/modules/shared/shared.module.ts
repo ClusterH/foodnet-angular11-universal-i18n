@@ -24,7 +24,7 @@ import { TableModule } from 'primeng/table';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CookieBarComponent } from './components/cookiebar/cookiebar.component';
-import { CitySearchService } from './services/city-search.service';
+import { CitySearchService } from './services';
 
 @NgModule({
   imports: [

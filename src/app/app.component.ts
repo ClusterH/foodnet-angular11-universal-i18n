@@ -3,7 +3,7 @@ import { CookieService } from '@gorniv/ngx-universal';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthService } from './modules/feature/auth/services/auth.service';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,9 +19,6 @@ export class AppComponent implements OnInit {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     if (this.isBrowser) {
-      // console.log('============>>>', window.location);
-      // const lang = this.cookieService.get('change_lang') || 'ro';
-      // window.location.pathname = '/' + this.cookieService.get('change_lang') + '/';
     }
   }
 

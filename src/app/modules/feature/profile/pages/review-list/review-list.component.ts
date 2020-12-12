@@ -16,6 +16,8 @@ export class ReviewListComponent implements OnInit, OnDestroy {
   createList: ReviewList[];
   editList: any;
   isSpinner: boolean = true;
+  isShown: boolean;
+  currentReviewListId: number;
 
   constructor(
     private router: Router,
@@ -23,6 +25,7 @@ export class ReviewListComponent implements OnInit, OnDestroy {
     private reviewListService: ReviewListService
   ) {
     this._unsubscribeAll = new Subject();
+    this.isShown = false;
   }
 
   ngOnInit(): void {
@@ -32,9 +35,6 @@ export class ReviewListComponent implements OnInit, OnDestroy {
     forkJoin([createReviewList, editReviewList]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([createList, editList]) => {
       this.createList = createList.result;
       this.editList = editList.result;
-      console.log(createList, editList);
-
-
       this.isSpinner = false;
     }, (errorResponse) => {
       this.isSpinner = false;
@@ -47,20 +47,31 @@ export class ReviewListComponent implements OnInit, OnDestroy {
   }
 
   loadComponent(reviewId): void {
-    console.log(reviewId);
     this.router.navigate(['/profile/review-edit'], { queryParams: { id: reviewId } });
   }
 
+  closeMsg(isDelete: boolean): void {
+    if (isDelete) {
+      this.isSpinner = true;
+      this.reviewListService.deleteReview(this.currentReviewListId).pipe(takeUntil(this._unsubscribeAll))
+        .subscribe(res => {
+
+          if (res.status == 200) {
+            this.editList = this.editList.filter(list => list.id !== this.currentReviewListId);
+            this.isShown = false;
+            this.isSpinner = false;
+          } else {
+            this.isShown = false;
+            this.isSpinner = false;
+          }
+        });
+    } else {
+      this.isShown = false;
+    }
+  }
+
   deleteReviewList(id: number) {
-    this.isSpinner = true;
-    this.reviewListService.deleteReview(id).pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(res => {
-        console.log(res);
-        this.editList = this.editList.filter(list => list.id !== res.result.id);
-        this.isSpinner = false;
-      }, (errorResponse) => {
-        console.log(errorResponse);
-        this.isSpinner = false;
-      });
+    this.isShown = true;
+    this.currentReviewListId = id;
   }
 }

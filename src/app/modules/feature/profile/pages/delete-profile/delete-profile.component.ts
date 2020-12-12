@@ -39,7 +39,7 @@ export class DeleteProfileComponent implements OnInit {
     if (isDelete) {
       this.isSpinner = true;
       this.deleteProfileService.deleteProfile().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-        console.log(res);
+
         this.isShown = false;
         this.isSpinner = false;
         this.authService.logout();
@@ -49,6 +49,8 @@ export class DeleteProfileComponent implements OnInit {
           this.isShown = false;
           this.isSpinner = false;
         });;
+    } else {
+      this.isShown = false;
     }
 
   }

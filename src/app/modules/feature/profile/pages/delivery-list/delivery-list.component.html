@@ -14,13 +14,29 @@
         <td style="width: 80%; color: #111;">{{delivery.houseNumber}} {{delivery.street}} {{delivery.city}}
           {{delivery.floor}} {{delivery.doorNumber}}</td>
         <td class="text-right" style="width: 20%;">
-          <a class="text-warning text-decoration-none mr-4 text-bold edit_tag"
+          <a class="text-warning text-decoration-none mr-4 text-bold edit_tag" style="cursor: pointer;"
             (click)="loadComponent('delivery-edit', delivery.id)" i18n="@@profile-deliverylist-d">Edit</a>
-          <i class="fas fa-trash-alt" style="color: #999;" (click)="deleteDeliveryList(delivery.id)"></i>
+          <i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"
+            (click)="deleteDeliveryList(delivery.id)"></i>
         </td>
       </tr>
     </ng-template>
   </p-table>
+  <p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
+    [modal]="true">
+    <p-header>
+      <h2 i18n="@@profile-deliverylist-delete-dialog-a">Are you sure you want to delete current Address?</h2>
+    </p-header>
+    <p class="text-bold text-center" i18n="@@profile-deliverylist-delete-dialog-b">This will cause all your previous
+      data to be lost
+      and cannot be restored.</p>
+    <p-footer>
+      <button type="button" class="btn bg-grey" (click)="closeMsg(false)"
+        i18n="@@profile-deliverylist-delete-dialog-c">No</button>
+      <button type="button" class="btn bg-grey" (click)="closeMsg(true)"
+        i18n="@@profile-deliverylist-delete-dialog-d">Yes</button>
+    </p-footer>
+  </p-dialog>
   <div class="btn_section">
     <button class="btn btn-warning-light text-warning text-bold" (click)="loadComponent('delivery-edit')"
       i18n="@@profile-deliverylist-f"> <i class="fas fa-plus"></i> Add a new address</button>

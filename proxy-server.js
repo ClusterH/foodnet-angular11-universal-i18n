@@ -25,7 +25,7 @@ function run() {
   server.use("", appRo);
 
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+
   });
 }
 

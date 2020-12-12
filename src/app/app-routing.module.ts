@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', loadChildren: () => import('./modules/feature/auth/auth.module').then(m => m.AuthModule) },
   { path: 'profile/:id', loadChildren: () => import('./modules/feature/profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'restaurant-filter/:location', loadChildren: () => import('./modules/feature/restaurant-filter/restaurant-filter.module').then(m => m.RestaurantFilterModule) },
+  { path: 'restaurant-profile/:location', loadChildren: () => import('./modules/feature/restaurant-profile/restaurant-profile.module').then(m => m.RestaurantProfileModule) },
   { path: '**', component: NotFoundComponent },
 ];
 

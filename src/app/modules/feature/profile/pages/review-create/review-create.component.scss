@@ -9,7 +9,7 @@
     margin-top: 2rem;
     button {
       // width: 185px;
-      padding: .7rem 1.5rem;
+      padding: 0.7rem 1.5rem;
       font-size: 16px;
     }
   }
@@ -24,7 +24,7 @@
     font-size: 16px;
     color: #111;
   }
-  div{
+  div {
     &.evaluation {
       display: flex;
       justify-content: flex-start;
@@ -54,9 +54,15 @@
     align-items: center;
     margin-top: 2rem;
     button {
-        // width: 185px;
-        padding: .7rem 1.5rem;
-        font-size: 16px;
+      // width: 185px;
+      padding: 0.7rem 1.5rem;
+      font-size: 16px;
+    }
+  }
+  @media all and (max-width: 590px) {
+    width: 100%;
+    & > h2 {
+      font-size: 22px;
     }
   }
 }
@@ -84,7 +90,7 @@
 
 .text-bold {
   font-weight: bold;
-}  
+}
 
 .text-warning {
   color: #f78f1e !important;
@@ -113,7 +119,7 @@
 .bg-warning-light {
   background: #feebd6 !important;
 }
-  
+
 .bg-white {
-  background: #FFF !important;
+  background: #fff !important;
 }

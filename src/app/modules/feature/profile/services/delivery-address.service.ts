@@ -19,8 +19,8 @@ export class DeliveryAddressService {
     private sessionService: SessionStorageService
   ) { }
 
-  getDeliveryAddress(): Observable<any> {
-    return this._httpClient.get<any>(`${this.apiBase}`)
+  getDeliveryAddress(lang: string): Observable<any> {
+    return this._httpClient.get<any>(`${this.apiBase}${lang}`);
   }
 
   deleteDeliveryAddress(id): Observable<any> {
@@ -39,7 +39,7 @@ export class DeliveryAddressService {
     return this._httpClient.get<any[]>(`${this.apiBase_location}${lang}`);
   }
 
-  getCurrentAddress(id: number): Observable<any> {
-    return this._httpClient.get<any>(`${this.apiBase}${id}`);
+  getCurrentAddress(id: number, lang: string): Observable<any> {
+    return this._httpClient.get<any>(`${this.apiBase}${lang}/${id}`);
   }
 }

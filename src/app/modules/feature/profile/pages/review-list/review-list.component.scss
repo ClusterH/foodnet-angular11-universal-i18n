@@ -11,6 +11,9 @@
     width: 100%;
     margin-left: 0;
     padding-left: 0;
+    @media all and (max-width: 590px) {
+      width: 150% !important;
+    }
     .list_header {
       display: flex;
       justify-content: space-between;
@@ -28,6 +31,13 @@
       .col {
         width: 50%;
       }
+    }
+  }
+  @media all and (max-width: 590px) {
+    width: 100%;
+    overflow-x: auto;
+    & > h2 {
+      font-size: 22px;
     }
   }
 }
@@ -55,7 +65,7 @@
 
 .text-bold {
   font-weight: bold;
-}  
+}
 
 .text-warning {
   color: #f78f1e !important;
@@ -80,7 +90,79 @@
 .bg-warning-light {
   background: #feebd6 !important;
 }
-  
+
 .bg-white {
-  background: #FFF !important;
+  background: #fff !important;
+}
+
+.bg-grey {
+  background-color: #e8e8e8;
+}
+
+:host {
+  ::ng-deep {
+    .p-dialog {
+      border-radius: 10px;
+      width: 420px !important;
+      height: 350px !important;
+      background-color: white;
+      z-index: 110001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      .p-dialog-header {
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        text-align: center;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        @media all and (max-width: 360px) {
+          padding: 1rem 1rem 0.5rem 1rem !important;
+        }
+        .p-dialog-title {
+          width: 90%;
+          margin: 1rem auto 0 auto;
+          font-size: 24px;
+          color: #111;
+          font-weight: bolder;
+          @media all and (max-width: 590px) {
+            font-size: 16px !important;
+          }
+        }
+        .p-dialog-header-icons {
+          display: none;
+        }
+      }
+      .p-dialog-content {
+        width: 100%;
+        padding: 0.5rem 0.5rem;
+        p {
+          font-size: 16px;
+          color: #666;
+          @media all and (max-width: 590px) {
+            font-size: 12px !important;
+          }
+        }
+      }
+      .p-dialog-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 1.5rem;
+        button {
+          width: 71px;
+          height: 48px;
+          margin: 0 0.5rem;
+          font-size: 16px;
+          box-shadow: none;
+        }
+      }
+      @media all and (max-width: 360px) {
+        width: 280px !important;
+        height: 340px !important;
+      }
+    }
+  }
 }

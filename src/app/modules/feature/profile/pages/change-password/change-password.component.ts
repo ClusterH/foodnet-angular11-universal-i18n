@@ -81,6 +81,7 @@ export class ChangePasswordComponent implements OnInit {
     const changedData = {
       "oldPassword": this.changePwdForm.value.oldPassword, "newPassword": this.changePwdForm.value.newPassword, "newPasswordAgain": this.changePwdForm.value.passwordConfirm
     }
+
     this.changePwdService.changePwd(changedData)
       .pipe(
         takeUntil(this._unsubscribeAll),
@@ -88,14 +89,15 @@ export class ChangePasswordComponent implements OnInit {
           this.isSpinner = false;
         }))
       .subscribe(res => {
-        this.isInvalidErrors = false;
-        this.showMsg(true);
-      },
-        (errorResponse) => {
+        if (res.status == 400) {
           this.isInvalidErrors = true;
           this.isSpinner = false;
           this.showMsg(false);
-        });
+        } else if (res.status == 200) {
+          this.isInvalidErrors = false;
+          this.showMsg(true);
+        }
+      });
   }
 
   showMsg(status): void {

@@ -1,0 +1,25 @@
+<main class="main_container">
+  <h1><span class="text-warning text-bold">33 éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
+  <div class="main_content">
+    <div class="filter_section">
+      <app-filter-section></app-filter-section>
+    </div>
+    <div class="main_body">
+      <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurantList" >
+        <img class="card-img" [src]="restaurant.restaurant_image" alt="Card image 1" style="width:100%">
+        <div class="card-body">
+          <h4 class="card-title">
+            <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+            <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
+              <i class="far fa-star text-warning"></i>
+              <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
+            </label>
+          </h4>
+          <p class="card-text block-with-text">{{restaurant.restaurant_summary}}</p>
+          <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount != 0">-{{restaurant.restaurant_discount}}% cheaper</p>
+          <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount == 0">&nbsp;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

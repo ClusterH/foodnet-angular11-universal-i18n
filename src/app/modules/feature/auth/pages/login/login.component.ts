@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.isSpinner = true;
     this.authService.logIn(this.loginForm.value, this.isStay).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
       this.isSpinner = false;
-      this.router.navigate(['/profile/update']);
+      this.router.navigate(['']);
     },
       (errorResponse) => {
         this.isInvalidErrors = true;

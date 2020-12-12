@@ -50,9 +50,9 @@ export class ReviewEditComponent implements OnInit, OnDestroy {
   getReview(): void {
     this.activatedroute.queryParams.subscribe(params => {
       if (params.id) {
-        console.log(params); // { id: 2 }
+
         this.reviewListService.getReviewList(params.id).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-          console.log(res);
+
           this.restaurant_name = res.result[0].restaurant_name;
           this.evaluation = res.result[0].review_rating;
           this.opinion = res.result[0].review_message;
@@ -71,10 +71,10 @@ export class ReviewEditComponent implements OnInit, OnDestroy {
     //   rating: this.evaluation,
     // }
 
-    // console.log(body);
+    //
 
     // this.reviewListService.createNewReview(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-    //   console.log(res);
+    //
     //   this.isSpinner = false;
     this.router.navigate(['profile/review-list']);
     // },

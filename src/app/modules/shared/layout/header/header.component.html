@@ -28,36 +28,33 @@
           </ng-template>
         </p-dropdown>
         <ng-container *ngIf="authService.isAuthenticated();else log_out">
-          <!-- <button class="btn text-warning bg-warning-light" i18n="@@header-logout-button" (click)="logout()"
-            i18n="@@header-logout-button">Logout</button> -->
-          <a class="profile_menu" (click)="menuShowEvent()" (mouseenter)="menuShowMouseEvent()">{{userName}} <i
-              class="fas" [ngClass]="menuShow? 'fa-chevron-up' : 'fa-chevron-down'"></i></a>
+          <a class="order_status text-decoration-none ml-3"><span class="mr-1" style="color: #111;">My
+              orders</span><span class="text-warning">(1 active)</span></a>
+          <div class="vertical_line"></div>
+          <a class="profile_menu" (click)="menuShowEvent()"
+            (mouseenter)="menuShowMouseEvent()">{{cookieService.get('auth_name')}} <i class="fas"
+              [ngClass]="menuShow? 'fa-chevron-up' : 'fa-chevron-down'"></i></a>
           <div class="menu_content" *ngIf="menuShow == true">
             <ul>
+              <li class="menuitem" [ngClass]="profileType == 'update' ? 'active' : ''" (click)="loadComponent('update')"
+                i18n="@@header-menu-edit-profile">Edit
+                profile information</li>
+              <li class="menuitem" [ngClass]="profileType == 'changepwd' ? 'active' : ''"
+                (click)="loadComponent('changepwd')" i18n="@@header-menu-change-password">
+                Change password</li>
               <li class="menuitem"
                 [ngClass]="(profileType == 'delivery-list' || profileType == 'delivery-edit')? 'active' : ''"
-                (click)="loadComponent('delivery-list')">Delivery addresses list</li>
-              <li class="menuitem" [ngClass]="profileType == 'changepwd' ? 'active' : ''"
-                (click)="loadComponent('changepwd')">
-                Change password</li>
-              <li class="menuitem" [ngClass]="profileType == 'update' ? 'active' : ''"
-                (click)="loadComponent('update')">Edit
-                profile information</li>
-              <li class="menuitem" [ngClass]="profileType == 'setting' ? 'active' : ''"
-                (click)="loadComponent('setting')">
-                Subscriber settings</li>
-              <li class="menuitem" [ngClass]="profileType == 'orders' ? 'active' : ''"
-                (click)="loadComponent('orders')">Previous
+                (click)="loadComponent('delivery-list')" i18n="@@header-menu-delivery-address">Delivery addresses list
+              </li>
+              <li class="menuitem" [ngClass]="profileType == 'orders' ? 'active' : ''" (click)="loadComponent('orders')"
+                i18n="@@header-menu-previous-orders">Previous
                 orders</li>
-              <li class="menuitem" [ngClass]="profileType == 'delete' ? 'active' : ''"
-                (click)="loadComponent('delete')">Delete
-                profile</li>
               <li class="menuitem"
                 [ngClass]="(profileType == 'review-list' ||  profileType == 'review-edit') ? 'active' : ''"
-                (click)="loadComponent('review-list')">Review list</li>
-              <li class="menuitem" [ngClass]="profileType == 'checkout' ? 'active' : ''"
-                (click)="loadComponent('checkout')">
-                Check-Out</li>
+                (click)="loadComponent('review-list')" i18n="@@header-menu-review-list">Review list</li>
+              <li class="menuitem" [ngClass]="profileType == 'delete' ? 'active' : ''" (click)="loadComponent('delete')"
+                i18n="@@header-menu-delete-profile">Delete
+                profile</li>
               <hr />
               <li class="menuitem" i18n="@@header-logout-button" (click)="logout()" i18n="@@header-logout-button">Log
                 Out</li>
@@ -70,7 +67,7 @@
           <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
             routerLink="/auth/register">Registration</button>
         </ng-template>
-        <span class="bg-warning-light">
+        <span class="bg-warning-light notification">
           <img src="./assets/icons/shop_bag.svg" alt="">
           <span class="badge bg-warning text-white">9</span>
         </span>

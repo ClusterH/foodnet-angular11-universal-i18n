@@ -80,9 +80,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.isSpinner = false;
         }))
       .subscribe(token => {
-        this.router.navigate(['/profile/update']);
+        this.router.navigate(['']);
       },
         (errorResponse) => {
+          console.log(errorResponse);
           this.isInvalidErrors = true;
           this.isSpinner = false;
         });

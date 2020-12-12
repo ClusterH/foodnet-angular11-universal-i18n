@@ -11,7 +11,7 @@
       </ng-template>
     </p-dropdown>
   </div>
-  <form class="mainForm" [formGroup]="addressForm" (ngSubmit)="update()">
+  <form class="mainForm" [formGroup]="addressForm" (ngSubmit)="update()" *ngIf="!isSpinner">
     <div class="form-group">
       <label for="street" class="text-bold"
         [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''"
@@ -23,6 +23,15 @@
         <div *ngIf="addressForm.controls['street'].errors.required">
           <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-street-required">Street is
             required.</small>
+        </div>
+        <div *ngIf="addressForm.controls['street'].errors.minlength">
+          <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-two-character">The
+            password must
+            be at least 2 characters long</small>
+        </div>
+        <div *ngIf="addressForm.controls['street'].errors.maxlength">
+          <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-hundred-character">The password
+            must be maximum 100 characters long</small>
         </div>
       </div>
     </div>
@@ -39,6 +48,15 @@
               <small id="houseNumberHelp" class="text-red" i18n="@@profile-delivery-edit-housenumber-required">House
                 Number is required.</small>
             </div>
+            <div *ngIf="addressForm.controls['houseNumber'].errors.minlength">
+              <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-one-character">The
+                password must
+                be at least 1 characters long</small>
+            </div>
+            <div *ngIf="addressForm.controls['houseNumber'].errors.maxlength">
+              <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-twenty-character">The password
+                must be maximum 20 characters long</small>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -47,13 +65,13 @@
         </div>
         <div class="col">
           <label for="door" class="text-bold" i18n="@@profile-delivery-edit-f">Door (Optional)</label>
-          <input id="door" type="text" class="form-control" formControlName="door">
+          <input id="door" type="text" class="form-control" formControlName="doorNumber">
         </div>
       </div>
     </div>
     <div class="btn_section">
-      <button class="btn btn-warning text-white text-bold" type="submit" i18n="@@profile-delivery-edit-g"> <i
-          class="fas fa-save mr-2"></i> Save</button>
+      <button class="btn btn-warning text-white text-bold" type="submit" i18n="@@profile-delivery-edit-g"
+        [disabled]="!selectedCity || !addressForm.valid"> <i class="fas fa-save mr-2"></i> Save</button>
     </div>
   </form>
 </div>

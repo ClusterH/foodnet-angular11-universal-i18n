@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -6,7 +6,7 @@ import { take, takeUntil } from 'rxjs/operators';
 
 import { CookieService } from '@gorniv/ngx-universal';
 import { isPlatformBrowser } from '@angular/common';
-import { CitySearchService } from '../../services/city-search.service';
+import { CitySearchService } from '../../services';
 import { AuthService } from '../../../feature/auth/services/auth.service';
 import { SessionStorageService } from '../../../core/session-storage/session-storage.service';
 import * as environment from '../../../../../environments/environment';
@@ -41,17 +41,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     public authService: AuthService,
     public sessionService: SessionStorageService
   ) {
-    this.userName = this.cookieService.get('auth_name');
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.activatedroute.paramMap.subscribe(params => {
       this.profileType = params.get('id');
-      console.log("header_profileType====>", params);
     });
     this.menuShow = false;
+    this.userName = this.cookieService.get('auth_name');
   }
 
   ngOnInit(): void {
+
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;

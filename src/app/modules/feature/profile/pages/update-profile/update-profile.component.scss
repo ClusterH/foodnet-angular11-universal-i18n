@@ -16,6 +16,12 @@
       font-size: 16px;
     }
   }
+  @media all and (max-width: 590px) {
+    width: 100%;
+    & > h2 {
+      font-size: 22px;
+    }
+  }
 }
 
 .btn-white {
@@ -88,9 +94,10 @@
         align-items: center;
         padding-bottom: 1.5rem;
         button {
-          width: 78px;
           height: 48px;
           margin: 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
           font-size: 16px;
           box-shadow: none;
         }

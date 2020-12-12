@@ -1,0 +1,21 @@
+<main class="filter_container">
+  <h5 class="text-grey">Filtration</h5>
+  <div class="filter_block">
+    <h5 class="text-bold">Useful</h5>
+    <div class="col-12 pr-0 pl-0">
+      <button class="btn btn-white" (click)="usefulFilter(useful)" [ngClass]="usefulActive == useful ? 'active' : ''" *ngFor="let useful of usefulList">{{ useful }}</button>
+    </div>
+  </div>
+  <div class="filter_block">
+    <h5 class="text-bold">Foods</h5>
+    <div class="col-12 pr-0 pl-0">
+      <button class="btn btn-white" (click)="foodFilter(food)" [ngClass]="foodActive == food ? 'active' : ''"  *ngFor="let food of foodList">{{ food }}</button>
+    </div>
+  </div>
+  <div class="filter_block">
+    <h5 class="text-bold">Payment options</h5>
+    <div class="col-12 pr-0 pl-0">
+      <button class="btn btn-white" (click)="payFilter(payoption)" [ngClass]="payoptionActive == payoption ? 'active' : ''"  *ngFor="let payoption of payoptionList">{{ payoption }}</button>
+    </div>
+  </div>
+</main>

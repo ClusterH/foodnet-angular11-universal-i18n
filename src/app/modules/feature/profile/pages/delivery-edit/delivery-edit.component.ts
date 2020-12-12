@@ -28,6 +28,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
   isCreate: boolean;
   statusIcon: string;
   statusMsg: string;
+  lang: string;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -42,27 +43,36 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const lang = this.cookieService.get('change_lang') || 'ro';
+    this.lang = this.cookieService.get('change_lang') || 'ro';
 
-    this.deliveryAddressService.getLocations(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      this.deliveryAddress = res.locations;
-      console.log(this.deliveryAddress);
+    this.deliveryAddressService.getLocations(this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      console.log(res);
+      this.deliveryAddress = [...res.locations];
+
       this.initForm();
 
       this.activatedroute.queryParams.subscribe(params => {
         if (params.id) {
           this.id = params.id;
           this.title = $localize`:@@profile-delivery-update-title:Update delivery address`;
-          this.deliveryAddressService.getCurrentAddress(params.id).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-            console.log(this.deliveryAddress.filter(address => address.cities == res.result.city));
-            this.selectedCity = { id: this.deliveryAddress.filter(address => address.cities == res.result.city)[0].id, cities: res.result.city };
-            this.setForm(res.result);
+          this.deliveryAddressService.getCurrentAddress(params.id, this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+            console.log(res);
+            if (res.status == 400) {
+              console.log(res);
+              this.isSpinner = false;
+              this.router.navigate['/profile/update'];
+              return
+            }
+
+            this.selectedCity = { id: this.deliveryAddress.filter(address => address.cities == res.result[0].city)[0].id, cities: res.result[0].city };
+            console.log(this.selectedCity);
+            this.setForm(res.result[0]);
             this.isSpinner = false;
             this.isCreate = false;
           },
             (errorResponse) => {
               this.isSpinner = false;
-            });;
+            });
         } else {
           this.title = $localize`:@@profile-delivery-create-title:Create delivery address`;
           this.selectedCity = res.locations[0];
@@ -80,10 +90,10 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
 
   initForm(): void {
     this.addressForm = this.fb.group({
-      street: ['', [Validators.required]],
-      houseNumber: ['', [Validators.required]],
+      street: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      houseNumber: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
       floor: [''],
-      door: ['']
+      doorNumber: ['']
     });
   }
 
@@ -92,7 +102,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
       street: address.street,
       houseNumber: address.houseNumber,
       floor: address.floor,
-      door: address.door,
+      doorNumber: address.doorNumber,
     });
   }
 
@@ -102,7 +112,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
   }
 
   onChangeCity(e: any) {
-    console.log(e);
+
     this.selectedCity = e.value.cities;
   }
 
@@ -110,24 +120,25 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
     this.isSpinner = true;
     const delivery_address = {
       city: this.selectedCity.cities,
+      locationNameId: this.selectedCity.id,
       street: this.addressForm.value.street,
       houseNumber: this.addressForm.value.houseNumber,
       floor: this.addressForm.value.floor || "",
-      door: this.addressForm.value.door || "",
+      doorNumber: this.addressForm.value.doorNumber || "",
     }
-    console.log(delivery_address);
+
     this.deliveryAddressService.createDeliveryAddress(delivery_address, this.id).pipe(
       takeUntil(this._unsubscribeAll),
       finalize(() => {
         this.isSpinner = false;
       }))
       .subscribe(res => {
-        console.log(res);
+
         this.isInvalidErrors = false;
         this.showMsg(true);
       },
         (errorResponse) => {
-          console.log(errorResponse);
+
           this.isInvalidErrors = true;
           this.isSpinner = false;
           this.showMsg(false);

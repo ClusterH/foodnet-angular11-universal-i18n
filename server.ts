@@ -154,7 +154,7 @@ function run() {
   server.use(cookieparser());
 
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+
   });
 }
 

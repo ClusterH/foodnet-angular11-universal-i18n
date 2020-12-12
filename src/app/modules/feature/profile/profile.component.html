@@ -1,5 +1,5 @@
 <main class="main_container" *ngIf="profileType != 'review-create'">
-  <h1>{{userName}}</h1>
+  <h1>{{cookieService.get('auth_name')}}</h1>
   <div class="main_content">
     <section class="menulist">
       <app-profile-menulist></app-profile-menulist>

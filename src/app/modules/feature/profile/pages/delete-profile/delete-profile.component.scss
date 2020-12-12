@@ -25,6 +25,12 @@
     width: 100%;
     padding: 5px 8px;
   }
+  @media all and (max-width: 590px) {
+    width: 100%;
+    & > h2 {
+      font-size: 22px;
+    }
+  }
 }
 
 :host {
@@ -32,7 +38,7 @@
     .p-dialog {
       border-radius: 10px;
       width: 420px !important;
-      height: 350px !important;
+      height: 340px !important;
       background-color: white;
       z-index: 110001;
       display: flex;
@@ -51,11 +57,15 @@
         .p-dialog-title {
           width: 90%;
           margin: 1rem auto 0 auto;
-          font-size: 24px;
-          color: #111;
-          font-weight: bolder;
+          h2 {
+            font-size: 24px !important;
+            color: #111;
+            font-weight: bolder;
+          }
           @media all and (max-width: 590px) {
-            font-size: 16px !important;
+            h2 {
+              font-size: 22px !important;
+            }
           }
         }
         .p-dialog-header-icons {
@@ -87,9 +97,9 @@
           box-shadow: none;
         }
       }
-      @media all and (max-width: 360px) {
+      @media all and (max-width: 590px) {
         width: 280px !important;
-        height: 340px !important;
+        height: 280px !important;
       }
     }
   }

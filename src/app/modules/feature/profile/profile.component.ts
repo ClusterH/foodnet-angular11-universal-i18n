@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private activatedroute: ActivatedRoute,
-    private cookieService: CookieService,
+    public cookieService: CookieService,
   ) {
     this.userName = this.cookieService.get('auth_name');
     this.activatedroute.paramMap.subscribe(params => {

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeliveryAddressService } from '../../services';
+import { CookieService } from '@gorniv/ngx-universal';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,21 +14,32 @@ import { takeUntil } from 'rxjs/operators';
 export class DeliveryListComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
   deliveryList: any;
+  currentListId: number;
+  isShown: boolean;
   isSpinner: boolean = true;
+  lang: string;
 
   constructor(
     private router: Router,
     private activatedroute: ActivatedRoute,
-    private deliveryAddressService: DeliveryAddressService
+    private deliveryAddressService: DeliveryAddressService,
+    public cookieService: CookieService,
   ) {
     this._unsubscribeAll = new Subject();
+    this.isShown = false;
   }
 
   ngOnInit(): void {
-    this.deliveryAddressService.getDeliveryAddress().pipe(takeUntil(this._unsubscribeAll))
+    this.lang = this.cookieService.get('change_lang') || 'ro';
+    this.deliveryAddressService.getDeliveryAddress(this.lang).pipe(takeUntil(this._unsubscribeAll))
       .subscribe(res => {
-        this.deliveryList = res.result;
-        this.isSpinner = false;
+        if (res.status == 400) {
+          this.isSpinner = false;
+          this.router.navigate['/profile/update'];
+        } else {
+          this.deliveryList = res.result;
+          this.isSpinner = false;
+        }
       }, (errorResponse) => {
         this.isSpinner = false;
       });
@@ -47,16 +59,27 @@ export class DeliveryListComponent implements OnInit, OnDestroy {
     }
   }
 
+  closeMsg(isDelete: boolean): void {
+    if (isDelete) {
+      this.isSpinner = true;
+      this.deliveryAddressService.deleteDeliveryAddress(this.currentListId).pipe(takeUntil(this._unsubscribeAll))
+        .subscribe(res => {
+          console.log(res);
+          this.deliveryList = this.deliveryList.filter(list => list.id !== res.result.id);
+          this.isShown = false;
+          this.isSpinner = false;
+        }, (errorResponse) => {
+
+          this.isShown = false;
+          this.isSpinner = false;
+        });
+    } else {
+      this.isShown = false;
+    }
+  }
+
   deleteDeliveryList(id: number) {
-    this.isSpinner = true;
-    this.deliveryAddressService.deleteDeliveryAddress(id).pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(res => {
-        console.log(res);
-        this.deliveryList = this.deliveryList.filter(list => list.id !== res.result.id);
-        this.isSpinner = false;
-      }, (errorResponse) => {
-        console.log(errorResponse);
-        this.isSpinner = false;
-      });
+    this.isShown = true;
+    this.currentListId = id;
   }
 }

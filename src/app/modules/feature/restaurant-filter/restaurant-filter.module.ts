@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from 'src/app/modules/shared/shared.module';
 import { RestaurantFilterComponent } from './pages/restaurant-filter.component';
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
+import { RestaurantFilterService } from './services';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FilterSectionComponent } from './components/filter-section/filter-secti
     ShareModule
   ],
   exports: [
-  ]
+  ],
+  providers: [RestaurantFilterService]
 })
 export class RestaurantFilterModule { }

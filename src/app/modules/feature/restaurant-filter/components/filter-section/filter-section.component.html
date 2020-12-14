@@ -3,19 +3,24 @@
   <div class="filter_block">
     <h5 class="text-bold">Useful</h5>
     <div class="col-12 pr-0 pl-0">
-      <button class="btn btn-white" (click)="usefulFilter(useful)" [ngClass]="usefulActive == useful ? 'active' : ''" *ngFor="let useful of usefulList">{{ useful }}</button>
+      <button class="btn btn-white" (click)="selectFilter(useful.value)" [ngClass]="filters[useful.value] == 1 ? 'active' : ''" *ngFor="let useful of usefulList">{{ useful.name }}</button>
     </div>
   </div>
   <div class="filter_block">
     <h5 class="text-bold">Foods</h5>
     <div class="col-12 pr-0 pl-0">
-      <button class="btn btn-white" (click)="foodFilter(food)" [ngClass]="foodActive == food ? 'active' : ''"  *ngFor="let food of foodList">{{ food }}</button>
+      <button class="btn btn-white" (click)="selectFilter(food.value)" [ngClass]="filters[food.value] == 1 ? 'active' : ''"  *ngFor="let food of foodList">{{ food.name }}</button>
     </div>
   </div>
   <div class="filter_block">
     <h5 class="text-bold">Payment options</h5>
     <div class="col-12 pr-0 pl-0">
-      <button class="btn btn-white" (click)="payFilter(payoption)" [ngClass]="payoptionActive == payoption ? 'active' : ''"  *ngFor="let payoption of payoptionList">{{ payoption }}</button>
+      <button class="btn btn-white" (click)="selectFilter(payoption.value)" [ngClass]="filters[payoption.value] == 1 ? 'active' : ''"  *ngFor="let payoption of payoptionList">{{ payoption.name }}</button>
     </div>
+  </div>
+  <div class="mb_btn">
+    <hr style="width: 90%;" />
+    <button class="btn btn-warning btn-expand text-white">Search</button>
+    <button class="btn btn-white btn-expand mb-5">Cancel</button>
   </div>
 </main>

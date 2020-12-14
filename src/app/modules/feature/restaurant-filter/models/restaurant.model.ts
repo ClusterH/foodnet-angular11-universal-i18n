@@ -1,10 +1,13 @@
 export interface RestaurantList {
-    restaurant_Id?: number;
-    restaurant_name?: string;
-    restaurant_image?: string;
-    restaurant_rating?: number;
-    restaurant_summary?: string;
-    restaurant_discount?: number;
-    restaurant_active?: boolean;
-  }
-  
+  restaurant_open?: string;
+  restaurant_close?: string;
+  restaurant_rating?: number;
+  restaurant_id?: number;
+  restaurant_coverImage?: string;
+  restaurant_name?: string;
+  restaurant_new?: number;
+  restaurant_discount?: number;
+  restaurant_description?: string;
+  restaurant_commission?: string;
+  restaurant_profileImage?: boolean;
+}

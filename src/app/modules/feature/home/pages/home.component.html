@@ -11,7 +11,8 @@
           <div style="display: inline; margin-left: 10px;">{{texts}}</div>
         </ng-template>
       </p-autoComplete>
-      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d" [disabled]="!texts">Search</button>
+      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d" [disabled]="!texts"
+        (click)="getRestaurantsByLocation()">Search</button>
     </div>
 
     <div class="tip_content">

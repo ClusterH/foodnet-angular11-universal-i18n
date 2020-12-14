@@ -1,25 +1,45 @@
 <main class="main_container">
   <h1><span class="text-warning text-bold">33 éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
   <div class="main_content">
-    <div class="filter_section">
+    <div class="filter_section" [ngClass]="filterShow ? 'active': ''">
       <app-filter-section></app-filter-section>
     </div>
-    <div class="main_body">
-      <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurantList" >
-        <img class="card-img" [src]="restaurant.restaurant_image" alt="Card image 1" style="width:100%">
-        <div class="card-body">
-          <h4 class="card-title">
-            <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
-            <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
-              <i class="far fa-star text-warning"></i>
-              <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
-            </label>
-          </h4>
-          <p class="card-text block-with-text">{{restaurant.restaurant_summary}}</p>
-          <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount != 0">-{{restaurant.restaurant_discount}}% cheaper</p>
-          <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount == 0">&nbsp;</p>
+    <div class="main_body" [ngClass]="filterShow ? 'active': ''">
+      <h5>Find a restaurant by name</h5>
+      <div class="search_box">
+        <i class="fas fa-search"></i>
+        <input type="text" class="form-control" placeholder="Restaurant name..." >
+        <i class="fas fa-sliders-h" (click)="filterShown()"></i>
+      </div>
+      <div class="result_body">
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurantList">
+          <img class="card-img" [src]="'http://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="Card image 1"
+            style="width:100%">
+          <span class="badge" *ngIf="restaurant.restaurant_new == 1">New restaurant</span>
+          <span class="badge" *ngIf="restaurant.restaurant_discount == 1">Pret special</span>
+          <div class="overlay" *ngIf="restaurant.restaurant_closed">
+            <span>Closed</span>
+          </div>
+          <div class="card-body" [ngClass]="restaurant.restaurant_closed ? 'closed' : ''">
+            <h4 class="card-title">
+              <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+              <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">
+                <i class="far fa-star text-warning"></i>
+                <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
+              </label>
+            </h4>
+            <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
+            <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount != 0">
+              -{{restaurant.restaurant_discount}}% cheaper</p>
+            <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount == 0">&nbsp;</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </main>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

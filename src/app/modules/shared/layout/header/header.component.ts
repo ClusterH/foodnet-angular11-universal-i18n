@@ -51,13 +51,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
     });
-    this.currentLang = window.location.pathname.split('/')[1] || 'ro';
+    // this.currentLang = window.location.pathname.split('/')[1] || 'ro';
+    this.currentLang = this.cookieService.get('change_lang');
     this.languages = [{ name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }, { name: 'en', label: 'EN' }];
     this.selectedLanguage = this.languages.find(country => country.name === this.currentLang);
 
@@ -87,6 +87,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.results.push(item.cities);
       }
     });
+  }
+
+  getRestaurantsByLocation(): void {
+    this.router.navigate([`restaurant-filter/${this.texts}`]);
   }
 
   logout(): void {

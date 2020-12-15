@@ -14,8 +14,8 @@
               <div style="display: inline; margin-left: 10px;">{{texts}}</div>
             </ng-template>
           </p-autoComplete>
-          <button class="btn btn-warning text-white search_btn" [disabled]="!texts"
-            i18n="@@header-search-button">Search</button>
+          <button class="btn btn-warning text-white search_btn" [disabled]="!texts" i18n="@@header-search-button"
+            (click)="getRestaurantsByLocation()">Search</button>
         </div>
       </div>
       <div class="right_section" *ngIf="isBrowser">

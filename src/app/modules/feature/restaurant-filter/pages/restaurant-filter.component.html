@@ -2,13 +2,14 @@
   <h1><span class="text-warning text-bold">33 éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
   <div class="main_content">
     <div class="filter_section" [ngClass]="filterShow ? 'active': ''">
-      <app-filter-section></app-filter-section>
+      <app-filter-section (selectedFilterOptions)="filterEventFromPanel($event)"></app-filter-section>
     </div>
     <div class="main_body" [ngClass]="filterShow ? 'active': ''">
       <h5>Find a restaurant by name</h5>
       <div class="search_box">
         <i class="fas fa-search"></i>
-        <input type="text" class="form-control" placeholder="Restaurant name..." >
+        <input type="text" class="form-control" placeholder="Restaurant name..." [(ngModel)]="searchString"
+          (keyup)="onKeyUpSearch()">
         <i class="fas fa-sliders-h" (click)="filterShown()"></i>
       </div>
       <div class="result_body">
@@ -17,10 +18,11 @@
             style="width:100%">
           <span class="badge" *ngIf="restaurant.restaurant_new == 1">New restaurant</span>
           <span class="badge" *ngIf="restaurant.restaurant_discount == 1">Pret special</span>
-          <div class="overlay" *ngIf="restaurant.restaurant_closed">
+          <div class="overlay" *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">
             <span>Closed</span>
           </div>
-          <div class="card-body" [ngClass]="restaurant.restaurant_closed ? 'closed' : ''">
+          <div class="card-body"
+            [ngClass]="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close) ? 'closed' : ''">
             <h4 class="card-title">
               <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
               <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0">

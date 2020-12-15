@@ -86,7 +86,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.lang = this.cookieService.get('change_lang') || 'ro';
+    if (this.cookieService.get('change_lang')) {
+      this.lang = this.cookieService.get('change_lang');
+    } else {
+      this.lang = window.location.pathname.split('/')[1] || 'ro';
+    }
+
     const location_list = this.homeService.getLocations(this.lang);
     const imgPath = 'http://admin.foodnet.ro/'
     const bigCity1 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[this.lang][0], `${this.lang}/`);

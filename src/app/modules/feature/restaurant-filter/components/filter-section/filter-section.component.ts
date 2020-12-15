@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,6 +15,8 @@ export class FilterSectionComponent implements OnInit {
   payoptionList: any[];
   filters: any;
 
+  @Output() selectedFilterOptions = new EventEmitter<{}>();
+
   constructor(
     private router: Router,
     private activatedroute: ActivatedRoute,
@@ -28,15 +30,15 @@ export class FilterSectionComponent implements OnInit {
       { name: "Within 1 hour", value: "withinOneHour" }
     ];
     this.foodList = [
-      {name: "Hamburger", value: "hamburger"},
-      {name: "Pizza", value: "pizza"},
-      {name: "Soup", value: "soup"},
-      {name: "Daily menu", value: "dailyMenu"},
-      {name: "Salad", value: "salad"}
+      { name: "Hamburger", value: "hamburger" },
+      { name: "Pizza", value: "pizza" },
+      { name: "Soup", value: "soup" },
+      { name: "Daily menu", value: "dailyMenu" },
+      { name: "Salad", value: "salad" }
     ];
     this.payoptionList = [
-      {name: "Cash", value: "money"},
-      {name: "Card", value: "card"}
+      { name: "Cash", value: "money" },
+      { name: "Card", value: "card" }
     ];
     this.filters = {
       "freeDelivery": 0,
@@ -56,10 +58,11 @@ export class FilterSectionComponent implements OnInit {
   }
 
   selectFilter(item): void {
-    if(this.filters[item] == 1)
+    if (this.filters[item] == 1)
       this.filters[item] = 0;
     else
       this.filters[item] = 1;
-  }
 
+    this.selectedFilterOptions.emit(this.filters);
+  }
 }

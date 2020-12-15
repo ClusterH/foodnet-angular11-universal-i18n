@@ -46,9 +46,11 @@ export class AuthService {
 
   public logout(): void {
     const cookie_token = this.cookieService.get('authInfo');
+    const lang = this.cookieService.get('change_lang');
     this.cookieService.removeAll();
     this.sessionService.clear();
     this.cookieService.put('authInfo', cookie_token);
+    this.cookieService.put('change_lang', lang);
     this.isLoggedIn = false;
   }
 

@@ -17,8 +17,9 @@ export class AppComponent implements OnInit {
     @Inject(PLATFORM_ID) platformId: Object,
     public cookieService: CookieService,
   ) {
-    this.isBrowser = isPlatformBrowser(platformId);
-    if (this.isBrowser) {
+    if (!this.cookieService.get('change_lang')) {
+      const lang = window.location.pathname.split('/')[1] || 'ro';
+      this.cookieService.put('change_lang', lang);
     }
   }
 

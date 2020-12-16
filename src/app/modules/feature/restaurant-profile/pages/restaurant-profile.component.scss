@@ -1,0 +1,107 @@
+.main_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .main_menu {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .banner {
+      width: 100%;
+      position: relative;
+      .banner_img {
+        width: 100%;
+        height: auto;
+      }
+      .profile_img {
+        position: absolute;
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border: 5px solid #FFF;
+        border-radius: 50%;
+        bottom: -5%;
+        left: 14%;
+      }
+      .status_badge {
+        position: absolute;
+        bottom: 5%;
+        left: 27%;
+        padding: .2rem .5rem;
+        font-size: 14px;
+        border: 2px solid #FFF;
+        background-color: #4ACC4F;
+        border-radius: 4px;
+        color: #FFF;
+      }
+    }
+    .top_info {
+      width: 80%;
+      margin-left: 14%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      h1 {
+        width: 100%;
+        font-weight: bolder;
+        font-size: 32px;
+      }
+      .filter_items {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .rate-label {
+          background: #feebd6;
+          border-radius: 3px;
+          padding: .5rem;
+          font-size: 12px;
+          white-space: nowrap;
+          width: auto;
+          margin-right: 1rem;
+        }
+      }
+    }
+    .main_info {
+      width: 100%;
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    p-tabview {
+      ul.p-tabview-nav {
+        padding-left: 14%;
+        li {
+          a.p-tabview-nav-link {
+            padding-bottom: .5rem;
+            &:not(.p-disabled):focus{
+              box-shadow: none;
+            }
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          &.p-highlight {
+            .p-tabview-nav-link {
+              border: solid #F78F1E;
+              border-width: 0 0 3px 0;
+              color: #F78F1E;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+      .p-tabview-panels {
+        padding-left: 14%;
+      }
+  }
+  }
+}
+
+.text-warning {
+  color: #f78f1e !important;
+}

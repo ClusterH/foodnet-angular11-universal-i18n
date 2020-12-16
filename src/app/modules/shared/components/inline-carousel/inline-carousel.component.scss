@@ -1,0 +1,46 @@
+.carousel-container {
+  display: flex;
+  border-bottom: 1px solid #C4C4C4;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  overflow-x: hidden;
+  .carousel-items {
+    white-space: nowrap;
+    width: 90%;
+    // overflow-x: hidden;
+    button {
+      margin-right: 1rem;
+    }
+  }
+  .prev_icon {
+    box-shadow: none;
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    transform: translateY(-50%);
+  }
+  .next_icon {
+    box-shadow: none;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+  }
+}
+
+.btn-white {
+  background-color: white;
+  border: 2px solid #C4C4C4;
+  border-radius: 6px;
+}
+
+.btn-warning-light {
+  background-color: #FEEBD6;
+  height: 50px;
+  width: 56px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

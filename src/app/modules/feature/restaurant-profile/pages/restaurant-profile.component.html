@@ -1,1 +1,40 @@
-<p>Restaurant-Profile</p>
+<main class="main_container">
+    <section class="main_menu">
+        <div class="banner">
+            <img class="banner_img" src="./assets/images/restaurant_profile.svg" alt="">
+            <img class="profile_img" src="./assets/images/product_1.svg" alt="">
+            <span class="status_badge">open</span>
+        </div>
+        <div class="top_info">
+            <h1>Restaurant Name</h1>
+            <div class="filter_items">
+                <label class="rate-label">
+                    <i class="far fa-star text-warning"></i>
+                    <span class="text-warning text-bold">4/5</span>
+                </label>
+                <label  class="rate-label">
+                    <span class="text-warning text-bold">No shipping costs</span>
+                </label>
+                <label  class="rate-label">
+                    <span class="text-warning text-bold">Pizza</span>
+                </label>
+            </div>
+        </div>
+        <div class="main_info">
+            <p-tabView *ngIf="isBrowser">
+                <p-tabPanel header="Menu">
+                   <app-restaurant-menu></app-restaurant-menu>
+                </p-tabPanel>
+                <p-tabPanel header="INFO & PROMOTIONS">
+                    <app-restaurant-info></app-restaurant-info>
+                </p-tabPanel>
+                <p-tabPanel header="EVALUATION">
+                    <app-restaurant-evaluation></app-restaurant-evaluation>
+                </p-tabPanel>
+            </p-tabView>  
+        </div>
+    </section>
+    <section class="side_menu">
+
+    </section>
+</main>

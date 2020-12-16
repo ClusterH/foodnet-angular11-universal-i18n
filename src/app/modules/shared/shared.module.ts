@@ -20,11 +20,13 @@ import { DialogModule } from 'primeng/dialog';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { TableModule } from 'primeng/table';
+import { TabViewModule } from 'primeng/tabview';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { CookieBarComponent } from './components/cookiebar/cookiebar.component';
 import { CitySearchService } from './services';
+import { InlineCarouselComponent } from './components/inline-carousel/inline-carousel.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,7 @@ import { CitySearchService } from './services';
     DropdownModule,
     DialogModule,
   ],
-  declarations: [HeaderComponent, FooterComponent, CookieBarComponent],
+  declarations: [HeaderComponent, FooterComponent, CookieBarComponent, InlineCarouselComponent],
   providers: [CitySearchService],
   exports: [
     CommonModule,
@@ -59,10 +61,12 @@ import { CitySearchService } from './services';
     MessageModule,
     MessagesModule,
     TableModule,
+    TabViewModule,
 
     HeaderComponent,
     FooterComponent,
     CookieBarComponent,
+    InlineCarouselComponent,
   ]
 })
 export class ShareModule {

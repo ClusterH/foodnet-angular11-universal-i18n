@@ -1,20 +1,36 @@
 <main class="menu_container">
   <h2 class="text-bold">Menu</h2>
-  <app-inline-carousel [itemList]="categoryList"></app-inline-carousel>
-  <app-inline-carousel [itemList]="categoryList"></app-inline-carousel>
-  <!-- <div #mainCategory class="main_category">
-    <div #mainCarousel class="main_carousel">
-      <button class="btn btn-white mainCategory" *ngFor="let category of categoryList">{{category.name}}</button>
-    </div>
-    <button class="btn btn-warning-light prev_icon" (click)="prevCarousel('mainCategory')" ><i class="fas fa-chevron-left"></i></button>
-    <button class="btn btn-warning-light next_icon" (click)="nextCarousel('mainCategory')" ><i class="fas fa-chevron-right"></i></button>
-  </div>
+  <app-inline-carousel [itemList]="sendList" [disabledOption]="false" [optionType]="'category'" 
+  (selectedItemEmitter)="selectedItem($event)" ></app-inline-carousel>
   <h5>Availability</h5>
-  <div #subCategory class="sub_category">
-    <div #subCarousel class="main_carousel">
-      <button class="btn btn-white subCategory" *ngFor="let category of categoryList">{{category.name}}</button>
-    </div>
-    <button class="btn btn-warning-light prev_icon" (click)="prevCarousel('subCategory')"><i class="fas fa-chevron-left"></i></button>
-    <button class="btn btn-warning-light next_icon" (click)="nextCarousel('subCategory')"><i class="fas fa-chevron-right"></i></button>
-  </div> -->
+  <app-inline-carousel [itemList]="sendList" [disabledOption]="false" [optionType]="'subcategory'" 
+  (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
+  <div class="form-group search_field">
+    <label for="category_search" class="text-bold" >{{ selectedCategory.category_name }} Search</label>
+    <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search">
+  </div>
+  <div class="restaurant_content">
+    <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
+      <span *ngIf="selectedSubCategory.category_name != ''">-{{ selectedSubCategory.category_name }}</span></h2>
+    <div class="prod_list">
+      <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of productList; odd as isOdd">
+        <div class="card_img">
+          <img [src]="imgPath + product.product_imageUrl" alt="">
+        </div>
+        <div class="card_body">
+          <h5>{{ product.product_name }}</h5>
+          <p >{{ product.product_description }}</p>
+          <p class="text-grey"><span *ngFor="let allergen of product.allergens_name">{{ allergen.allergen_name }}</span></p>
+          <div class="card_footer">
+            <span class="price_item text-warning text-bold">
+              {{ product.product_price }}Ft
+            </span>
+            <div class="counter">
+              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="true" [statusOption]="isOdd ? 'bag' : 'check'" ></app-counter>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
 </main>

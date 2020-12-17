@@ -13,6 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class RestaurantProfileComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
+  counts: number;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -25,4 +26,8 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   ngOnInit(): void { }
 
   ngOnDestroy(): void { }
+
+  counterChange(event): void {
+    this.counts = event.counts;
+  }
 }

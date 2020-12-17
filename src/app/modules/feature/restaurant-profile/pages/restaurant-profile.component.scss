@@ -1,14 +1,16 @@
 .main_container {
   width: 100%;
+  min-height: calc(100% - 400px);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   .main_menu {
-    width: 75%;
+    width: 78%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    border-right: 1px solid #C4C4C4;
     .banner {
       width: 100%;
       position: relative;
@@ -68,11 +70,98 @@
       width: 100%;
     }
   }
+  .side_menu {
+    width: 22%;
+    padding: 2rem 1.5rem;
+    border-left: 1px solid #C4C4C4;
+    h2 {
+      font-size: 24px;
+      width: 100%;
+      margin-bottom: 1rem;
+      margin-top: 1.5rem;
+    }
+    .cart_item {
+      width: 100%;
+      margin-top: 1rem;
+      .item_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: .5rem;
+        .item_title {
+          font-size: 18px;
+        }
+      }
+      .ingredient_label {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        color: #666;
+      }
+      .ingredient_items {
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+        color: #666;
+        padding-top: 0;
+        margin-top: 0;
+      }
+      .extra_section {
+        margin-bottom: .5rem;
+        a {
+          color: #111;
+          margin-right: .5rem;
+          cursor: pointer;
+        }
+      }
+      .item_footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .price_section {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .price_item {
+            &:first-child {
+              font-size: 18px;
+            }
+            &:last-child {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .total_price {
+      font-size: 18px;
+      margin-bottom: 1rem;
+    }
+    .btn_section {
+      button {
+        width: 90%;
+        height: 44px;
+        border: none;
+        box-shadow: none;
+        margin-bottom: 1rem;
+        &:hover {
+          box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+        }
+        &:focus {
+          box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+        }
+      }
+    }
+  }
 }
 
 :host {
   ::ng-deep {
-    p-tabview {
+  p-tabview { 
       ul.p-tabview-nav {
         padding-left: 14%;
         li {
@@ -98,10 +187,24 @@
       .p-tabview-panels {
         padding-left: 14%;
       }
-  }
+    }
   }
 }
 
 .text-warning {
   color: #f78f1e !important;
+}
+
+.text-white {
+  color: #FFF;
+}
+
+.btn-warning {
+  background-color: #F78F1E !important;
+  color: #FFF;
+}
+
+.btn-white {
+  background-color: #FFF;
+  color: #F78F1E;
 }

@@ -1,7 +1,12 @@
 <div #carouselContainer class="carousel-container">
-  <div #carouselItems class="carousel-items">
-    <button class="btn btn-white inline-carousel-item" *ngFor="let item of itemList">{{item.name}}</button>
+  <div #carouselItems class="carousel-items" draggable="true">
+    <button class="btn btn-white inline-carousel-item" (click)="selectItem(item)"
+     [disabled]="disabledOption" *ngFor="let item of itemList">{{item.name}}</button>
   </div>
-  <button #prevCarousel class="btn btn-warning-light prev_icon" (click)="prevShowCarousel($event)" ><i class="fas fa-chevron-left"></i></button>
-  <button #nextCarousel class="btn btn-warning-light next_icon" (click)="nextShowCarousel($event)" ><i class="fas fa-chevron-right"></i></button>
+  <button #prevCarousel class="btn btn-warning-light prev_icon" (drag)="prevShowCarousel($event)" (click)="prevShowCarousel($event)" >
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button #nextCarousel class="btn btn-warning-light next_icon"  (click)="nextShowCarousel($event)" >
+    <i class="fas fa-chevron-right"></i>
+  </button>
 </div>

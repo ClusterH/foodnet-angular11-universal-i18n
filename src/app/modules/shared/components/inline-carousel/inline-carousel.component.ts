@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, OnInit, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { CookieService } from '@gorniv/ngx-universal';
@@ -21,6 +21,9 @@ export class InlineCarouselComponent implements OnInit {
   @ViewChild('nextCarousel', {static: true}) nextCarousel: ElementRef;
 
   @Input() itemList: Array<{}>;
+  @Input() disabledOption: Boolean = true;
+  @Input() optionType: string;
+  @Output() selectedItemEmitter = new EventEmitter<{}>();
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -34,10 +37,7 @@ export class InlineCarouselComponent implements OnInit {
   }
 
   nextShowCarousel(e): void {
-
     const btn = Array.from(document.getElementsByClassName('inline-carousel-item') as HTMLCollectionOf<HTMLElement>);
-
-
 
     if(this.carouselItems.nativeElement.clientWidth > this.carouselContainer.nativeElement.clientWidth - 100){
       const diff = this.carouselItems.nativeElement.clientWidth - this.carouselContainer.nativeElement.clientWidth + 100;
@@ -68,6 +68,12 @@ export class InlineCarouselComponent implements OnInit {
     this.showIndex--;
   }
 
+  selectItem(item): void {
+    this.selectedItemEmitter.emit({
+      type: this.optionType,
+      param: item
+    })
+  }
 
 }
 

@@ -27,6 +27,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { CookieBarComponent } from './components/cookiebar/cookiebar.component';
 import { CitySearchService } from './services';
 import { InlineCarouselComponent } from './components/inline-carousel/inline-carousel.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,7 @@ import { InlineCarouselComponent } from './components/inline-carousel/inline-car
     DropdownModule,
     DialogModule,
   ],
-  declarations: [HeaderComponent, FooterComponent, CookieBarComponent, InlineCarouselComponent],
+  declarations: [HeaderComponent, FooterComponent, CookieBarComponent, InlineCarouselComponent, CounterComponent],
   providers: [CitySearchService],
   exports: [
     CommonModule,
@@ -67,6 +68,7 @@ import { InlineCarouselComponent } from './components/inline-carousel/inline-car
     FooterComponent,
     CookieBarComponent,
     InlineCarouselComponent,
+    CounterComponent,
   ]
 })
 export class ShareModule {

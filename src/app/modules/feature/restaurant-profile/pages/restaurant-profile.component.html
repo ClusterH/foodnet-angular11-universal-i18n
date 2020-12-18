@@ -35,6 +35,41 @@
         </div>
     </section>
     <section class="side_menu">
-
+        <h2 class="text-bold">Cart</h2>
+        <div class="cart_item" *ngFor="let i of [0, 1, 2, 3]">
+            <h5 class="item_header">
+                <span class="item_title text-bold">Product name</span>
+                <span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"></i></span>
+            </h5>
+            <label for="" class="ingredient_label">Ingredients</label>
+            <p class="ingredient_items">
+                (Allergen 1, Allergen 2, Allergen 3)
+            </p>
+            <div class="extra_section">
+                <a class="plus_extra"><i class="fas fa-plus"></i></a>
+                <span>1*Extra 1, 2*Extra 2, 3*Extra 3</span>
+            </div>
+            <div class="item_footer">
+                <div class="price_section">
+                    <span class="price_item text-warning text-bold">
+                        2390Ft
+                    </span>
+                    <span class="price_item text-grey text-bold">
+                        Packing: 150 Ft
+                    </span>
+                </div>
+                <div class="counter">
+                  <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false" ></app-counter>
+                </div>
+            </div>
+            <hr />  
+        </div>
+        <div class="total_price text-warning text-bold">
+            Total: 7170 Ft
+        </div>
+        <div class="btn_section">
+            <button class="btn btn-warning order_btn">Order</button>
+            <button class="btn btn-white delete_btn">Delete cart contents</button>
+        </div>
     </section>
 </main>

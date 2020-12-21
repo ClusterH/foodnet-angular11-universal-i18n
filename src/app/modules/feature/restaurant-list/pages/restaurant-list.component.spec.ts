@@ -1,22 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RestaurantFilterComponent } from './restaurant-filter.component';
+import { RestaurantListComponent } from './restaurant-list.component';
 
-describe('RestaurantFilterComponent', () => {
-  let component: RestaurantFilterComponent;
-  let fixture: ComponentFixture<RestaurantFilterComponent>;
+describe('RestaurantListComponent', () => {
+  let component: RestaurantListComponent;
+  let fixture: ComponentFixture<RestaurantListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
-      declarations: [RestaurantFilterComponent]
+      declarations: [RestaurantListComponent]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RestaurantFilterComponent);
+    fixture = TestBed.createComponent(RestaurantListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

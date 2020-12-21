@@ -1,0 +1,47 @@
+<main class="menu_container">
+  <h2 class="text-bold">Menu</h2>
+  <app-inline-carousel *ngIf="categoryList" [itemList]="categoryList" [disabledOption]="false" [optionType]="'category'"
+    (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
+  <h5>Availability</h5>
+  <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
+    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
+  <div class="form-group search_field" *ngIf="categoryList">
+    <label for="category_search" class="text-bold">{{ selectedCategory.category_name }} Search</label>
+    <input id="category_search" type="text" class="form-control"
+      placeholder="{{selectedCategory.category_name}} search">
+  </div>
+  <div class="restaurant_content">
+    <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
+      <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
+    </h2>
+    <div class="prod_list">
+      <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4"
+        *ngFor="let product of productList; odd as isOdd">
+        <div class="card_img">
+          <img [src]="imgPath + product.product_imageUrl" alt="">
+        </div>
+        <div class="card_body">
+          <h5>{{ product.product_name }}</h5>
+          <p>{{ product.product_description }}</p>
+          <p class="text-grey">
+            <span>(Allergens: </span>
+            <span *ngFor="let allergen of product.allergens_name; let last=last">
+              <span *ngIf="last">{{ allergen.allergen_name }}</span>
+              <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+            </span>
+            <span>)</span>
+          </p>
+          <div class="card_footer">
+            <span class="price_item text-warning text-bold">
+              {{ product.product_price }}Ft
+            </span>
+            <div class="counter">
+              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="true"
+                [statusOption]="isOdd ? 'bag' : 'check'"></app-counter>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

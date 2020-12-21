@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RestaurantFilterRoutingModule } from './restaurant-filter-routing.module';
+import { RestaurantListRoutingModule } from './restaurant-list-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from 'src/app/modules/shared/shared.module';
-import { RestaurantFilterComponent } from './pages/restaurant-filter.component';
+import { RestaurantListComponent } from './pages/restaurant-list.component';
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
 import { RestaurantFilterService } from './services';
 
 @NgModule({
   declarations: [
-    RestaurantFilterComponent,
+    RestaurantListComponent,
     FilterSectionComponent,
   ],
   imports: [
     CommonModule,
-    RestaurantFilterRoutingModule,
+    RestaurantListRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -25,4 +25,4 @@ import { RestaurantFilterService } from './services';
   ],
   providers: [RestaurantFilterService]
 })
-export class RestaurantFilterModule { }
+export class RestaurantListModule { }

@@ -13,10 +13,9 @@ import { HttpConfigInterceptor } from './http-interceptors/http.interceptor';
 // import { AppErrorHandler } from './error-handler/app-error-handler.service';
 import { NotificationService } from './notifications/notification.service';
 import { SessionStorageService } from './session-storage/session-storage.service';
-
 export {
   NotificationService,
-  SessionStorageService
+  SessionStorageService,
 };
 
 @NgModule({

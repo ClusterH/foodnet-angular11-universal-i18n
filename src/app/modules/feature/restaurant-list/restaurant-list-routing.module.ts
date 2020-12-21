@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/services/auth.guard';
 
-import { RestaurantFilterComponent } from './pages/restaurant-filter.component';
+import { RestaurantListComponent } from './pages/restaurant-list.component';
 
 const routes: Routes = [
-  { path: '**', component: RestaurantFilterComponent },
+  { path: '', component: RestaurantListComponent },
+  { path: ':restaurant', loadChildren: () => import('./pages/restaurant-profile/restaurant-profile.module').then(m => m.RestaurantProfileModule) },
 ]
 @NgModule({
   declarations: [],
@@ -15,4 +16,4 @@ const routes: Routes = [
     CommonModule
   ],
 })
-export class RestaurantFilterRoutingModule { }
+export class RestaurantListRoutingModule { }

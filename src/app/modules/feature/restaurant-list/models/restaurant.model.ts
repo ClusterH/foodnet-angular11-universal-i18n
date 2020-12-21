@@ -10,4 +10,6 @@ export interface RestaurantList {
   restaurant_description?: string;
   restaurant_commission?: string;
   restaurant_profileImage?: boolean;
+  locationId?: number;
+  restaurant_AVGrating?: number;
 }

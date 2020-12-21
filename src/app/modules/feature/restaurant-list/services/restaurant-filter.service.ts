@@ -10,8 +10,8 @@ export class RestaurantFilterService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getRestaurantsByLocation(lang: string, location: string): Observable<any> {
-    return this._httpClient.get<RestaurantList>(`${this.apiBase}${lang}/${location}`);
+  getRestaurantsByLocation(lang: string, locationId: number): Observable<any> {
+    return this._httpClient.get<RestaurantList>(`${this.apiBase}${lang}/${locationId}`);
   }
 
   getFilteredRestaurants(body: any): Observable<any> {

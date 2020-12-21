@@ -6,7 +6,7 @@ import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Locations, Restaurants } from '../models/home.model';
 import { HomeService } from '../services/home.service';
-
+import { SessionStorageService } from '../../../core';
 
 const BigCityNameAccordingToLang = {
   en: ['targu-mures-en', 'miercurea-ciuc-en', 'odorheiu-secuiesc-en'],
@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
     private homeService: HomeService,
+    private sessionStorageService: SessionStorageService,
     public cookieService: CookieService,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -144,7 +145,24 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  getRestaurantsByLocation(): void {
-    this.router.navigate([`restaurant-filter/${this.texts}`]);
+  getRestaurantsByLocation(id: number = 0): void {
+    if (id == 0) {
+      const location = this.locations.find(item => item.cities === this.texts);
+      console.log(this.locations, 'id===>>>', location, 'text===>>>', this.texts);
+      this.sessionStorageService.setItem('currentLocationId', location.id.toString());
+
+      this.router.navigate([`/${location.cities}`]);
+
+    } else {
+      const cityList = {
+        en: ['Târgu Mureș en', 'Miercurea Ciuc en', 'Odorheiu Secuiesc en'],
+        ro: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
+        hu: ['Marosvásárhely', 'Csíkszereda', 'Székelyudvarhely'],
+      }
+
+      this.sessionStorageService.setItem('currentLocationId', id.toString());
+
+      this.router.navigate([`/${cityList[this.cookieService.get('change_lang')][id - 1]}`]);
+    }
   }
 }

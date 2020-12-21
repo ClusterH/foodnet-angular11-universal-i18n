@@ -1,6 +1,6 @@
 export class FilterOption {
   lang?: string;
-  location?: string;
+  locationId?: number;
   searchString?: string;
   filters?: {
     freeDelivery?: number;
@@ -17,7 +17,7 @@ export class FilterOption {
 
   constructor() {
     this.lang = '';
-    this.location = '';
+    this.locationId = 0;
     this.searchString = '';
     this.filters = {
       freeDelivery: 0,

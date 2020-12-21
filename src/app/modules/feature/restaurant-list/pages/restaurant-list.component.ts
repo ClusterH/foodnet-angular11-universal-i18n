@@ -2,6 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from '@gorniv/ngx-universal';
+import { SessionStorageService } from '../../../core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { RestaurantList, FilterOption } from '../models';
@@ -9,12 +10,12 @@ import { RestaurantFilterService } from '../services';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-restaurant-filter',
-  templateUrl: './restaurant-filter.component.html',
-  styleUrls: ['./restaurant-filter.component.scss'],
+  selector: 'app-restaurant-list',
+  templateUrl: './restaurant-list.component.html',
+  styleUrls: ['./restaurant-list.component.scss'],
 })
 
-export class RestaurantFilterComponent implements OnInit, OnDestroy {
+export class RestaurantListComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
   isSpinner: boolean = false;
@@ -22,7 +23,7 @@ export class RestaurantFilterComponent implements OnInit, OnDestroy {
   filterOption: FilterOption;
 
   lang: string;
-  location: string;
+  locationId: number;
   searchString: string;
   restaurantList: RestaurantList[];
 
@@ -31,7 +32,8 @@ export class RestaurantFilterComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
-    private restaurantFilterService: RestaurantFilterService
+    private restaurantFilterService: RestaurantFilterService,
+    private sessionStorageService: SessionStorageService,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
@@ -41,17 +43,15 @@ export class RestaurantFilterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.activatedroute.params.subscribe(params => {
-      this.location = params.location.toString();
-      this.restaurantFilterService.getRestaurantsByLocation(this.lang, this.location).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-        console.log(res);
-        this.restaurantList = [...res.result];
+    this.locationId = Number(this.sessionStorageService.getItem('currentLocationId'));
+    this.restaurantFilterService.getRestaurantsByLocation(this.lang, this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      console.log(res);
+      this.restaurantList = [...res.result];
+      this.isSpinner = false;
+    },
+      (errorResponse) => {
         this.isSpinner = false;
-      },
-        (errorResponse) => {
-          this.isSpinner = false;
-        });
-    });
+      });
   }
 
   ngOnDestroy(): void {
@@ -76,7 +76,7 @@ export class RestaurantFilterComponent implements OnInit, OnDestroy {
   filterRestaurant() {
     this.isSpinner = true;
     this.filterOption.lang = this.lang;
-    this.filterOption.location = this.location;
+    this.filterOption.locationId = this.locationId;
     this.restaurantFilterService.getFilteredRestaurants(this.filterOption).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.restaurantList = [...res.result];
       this.isSpinner = false;
@@ -95,5 +95,12 @@ export class RestaurantFilterComponent implements OnInit, OnDestroy {
     const current = moment(`${hour}:${minute}`, format);
 
     return current.isBetween(open, close);
+  }
+
+  restaurantProfile(restaurant: any) {
+    console.log(restaurant);
+    this.sessionStorageService.setParams(restaurant);
+    const location = 'Târgu Mureș'
+    this.router.navigate([`${location}/${restaurant.restaurant_name}`]);
   }
 }

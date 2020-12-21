@@ -35,12 +35,12 @@
       @media all and (max-width: 590px) {
         padding: 0;
         z-index: 1000;
-        background-color: #FFF;
+        background-color: #fff;
       }
     }
     .main_body {
       width: 75%;
-      &>h5 {
+      & > h5 {
         font-size: 16px;
         font-weight: bolder;
         width: 100%;
@@ -56,13 +56,13 @@
         height: 45px;
         margin-bottom: 1rem;
         position: relative;
-        input[type=text] {
+        input[type="text"] {
           height: 100%;
           width: 100%;
           padding-left: 35px;
           padding-right: 35px;
         }
-        .fa-search{
+        .fa-search {
           position: absolute;
           top: 50%;
           left: 10px;
@@ -70,7 +70,7 @@
           font-size: 18px;
           color: #f78f1e;
         }
-        .fa-sliders-h{
+        .fa-sliders-h {
           position: absolute;
           top: 30%;
           right: 10px;
@@ -78,17 +78,17 @@
           color: #f78f1e;
           transform: rotate(90deg);
         }
-        @media all and (max-width: 590px){
+        @media all and (max-width: 590px) {
           width: 90%;
           margin: auto;
           margin-bottom: 1rem;
           height: 35px;
         }
-        @media all and (min-width: 590px){
-          .fa-search{
+        @media all and (min-width: 590px) {
+          .fa-search {
             display: none;
           }
-          .fa-sliders-h{
+          .fa-sliders-h {
             display: none;
           }
         }
@@ -109,13 +109,13 @@
           border-radius: 10px;
           padding: 0 0 2% 0;
           max-width: 31%;
-          position: relative;        
+          position: relative;
           .card-img {
             border-radius: 10px;
             border-radius: 10px;
             height: 200px;
           }
-          .overlay{
+          .overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -124,10 +124,10 @@
             border-radius: 10px;
             border-radius: 10px;
             background-color: rgba($color: #000000, $alpha: 0.7);
-            span{
+            span {
               font-weight: bolder;
               font-size: 32px;
-              color: #FFF;
+              color: #fff;
               position: absolute;
               top: 50%;
               left: 50%;
@@ -139,15 +139,15 @@
             top: 15px;
             left: 10px;
             background-color: #f78f1e;
-            color: #FFF;
+            color: #fff;
             border-radius: 8px;
-            padding: .5rem;
+            padding: 0.5rem;
           }
           .card-body {
             padding: 0.5rem;
             width: 100%;
             &.closed {
-              opacity: .5;
+              opacity: 0.5;
             }
             .card-title {
               display: flex;
@@ -195,7 +195,7 @@
         font-size: 12px;
         width: 100%;
       }
-    }    
+    }
   }
   @media all and (max-width: 590px) {
     width: 100%;
@@ -216,13 +216,13 @@
       .main_body {
         width: 95%;
         margin: auto;
-        &.active{
-          opacity: .7;
+        &.active {
+          opacity: 0.7;
           z-index: -1;
         }
       }
     }
-  }    
+  }
 }
 
 .text-warning {
@@ -232,4 +232,3 @@
 .text-grey {
   color: #999;
 }
-

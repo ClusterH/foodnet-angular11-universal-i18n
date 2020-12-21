@@ -1,7 +1,10 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Input } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
-import { forkJoin, Subject } from 'rxjs';
+import { SessionStorageService } from 'src/app/modules/core';
+import { RestaurantMenuService } from '../../../services';
+import { RestaurantList } from '../../../models';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -14,16 +17,25 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
   counts: number;
+  restaurant: RestaurantList;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     public cookieService: CookieService,
+    private sessionStorageService: SessionStorageService,
+    private restaurantMenuService: RestaurantMenuService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
+    this.sessionStorageService.$params.subscribe(res => {
+      console.log(res);
+      this.restaurant = res;
+    });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+  }
 
   ngOnDestroy(): void { }
 

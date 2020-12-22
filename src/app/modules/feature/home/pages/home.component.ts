@@ -95,9 +95,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     const location_list = this.homeService.getLocations(this.lang);
     const imgPath = 'http://admin.foodnet.ro/'
-    const bigCity1 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[this.lang][0], `${this.lang}/`);
-    const bigCity2 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[this.lang][1], `${this.lang}/`);
-    const bigCity3 = this.homeService.getBiggerCityRestaurants(BigCityNameAccordingToLang[this.lang][2], `${this.lang}/`);
+    const bigCity1 = this.homeService.getBiggerCityRestaurants(1, `${this.lang}/`);
+    const bigCity2 = this.homeService.getBiggerCityRestaurants(2, `${this.lang}/`);
+    const bigCity3 = this.homeService.getBiggerCityRestaurants(3, `${this.lang}/`);
 
     forkJoin([location_list, bigCity1, bigCity2, bigCity3]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([location_list, bigCity1, bigCity2, bigCity3]) => {
       this.locations = location_list.locations;
@@ -148,7 +148,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   getRestaurantsByLocation(id: number = 0): void {
     if (id == 0) {
       const location = this.locations.find(item => item.cities === this.texts);
-      console.log(this.locations, 'id===>>>', location, 'text===>>>', this.texts);
+
       this.sessionStorageService.setItem('currentLocationId', location.id.toString());
 
       this.router.navigate([`/${location.cities}`]);
@@ -163,6 +163,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.sessionStorageService.setItem('currentLocationId', id.toString());
 
       this.router.navigate([`/${cityList[this.cookieService.get('change_lang')][id - 1]}`]);
+      // this.router.navigate([`list/${id}`]);
     }
   }
 }

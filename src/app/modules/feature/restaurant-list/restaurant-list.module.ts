@@ -6,12 +6,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from 'src/app/modules/shared/shared.module';
 import { RestaurantListComponent } from './pages/restaurant-list.component';
 import { FilterSectionComponent } from './components/filter-section/filter-section.component';
-import { RestaurantFilterService } from './services';
+import { RestaurantProfileComponent } from './pages/restaurant-profile/pages/restaurant-profile.component';
+import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant-menu.component';
+import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
+import { RestaurantEvaluationComponent } from './components/restaurant-evaluation/restaurant-evaluation.component';
+import { RestaurantFilterService, RestaurantMenuService, RestaurantInfoService } from './services';
 
 @NgModule({
   declarations: [
     RestaurantListComponent,
     FilterSectionComponent,
+    RestaurantProfileComponent,
+    RestaurantMenuComponent,
+    RestaurantInfoComponent,
+    RestaurantEvaluationComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +31,6 @@ import { RestaurantFilterService } from './services';
   ],
   exports: [
   ],
-  providers: [RestaurantFilterService]
+  providers: [RestaurantFilterService, RestaurantMenuService, RestaurantInfoService]
 })
 export class RestaurantListModule { }

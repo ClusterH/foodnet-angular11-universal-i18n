@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/services/auth.guard';
 
 import { RestaurantListComponent } from './pages/restaurant-list.component';
+import { RestaurantProfileComponent } from './pages/restaurant-profile/pages/restaurant-profile.component';
 
 const routes: Routes = [
   { path: '', component: RestaurantListComponent },
-  { path: ':restaurant', loadChildren: () => import('./pages/restaurant-profile/restaurant-profile.module').then(m => m.RestaurantProfileModule) },
+  { path: ':restaurant', component: RestaurantProfileComponent },
 ]
+
 @NgModule({
   declarations: [],
   imports: [

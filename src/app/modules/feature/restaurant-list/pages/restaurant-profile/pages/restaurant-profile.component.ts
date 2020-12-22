@@ -18,6 +18,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
   counts: number;
   restaurant: RestaurantList;
+  restaurantId: number;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -27,10 +28,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
-    this.sessionStorageService.$params.subscribe(res => {
-      console.log(res);
-      this.restaurant = res;
-    });
+    this.restaurant = JSON.parse(this.cookieService.get('restaurant'));
   }
 
   ngOnInit(): void {

@@ -7,8 +7,8 @@
     [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
   <div class="form-group search_field" *ngIf="categoryList">
     <label for="category_search" class="text-bold">{{ selectedCategory.category_name }} Search</label>
-    <input id="category_search" type="text" class="form-control"
-      placeholder="{{selectedCategory.category_name}} search">
+    <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
+      [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
   </div>
   <div class="restaurant_content">
     <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>

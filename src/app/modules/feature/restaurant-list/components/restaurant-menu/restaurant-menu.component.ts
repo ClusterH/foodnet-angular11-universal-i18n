@@ -19,6 +19,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   subCategoryList: Array<SubCategory>;
   selectedCategory = new Category;
   selectedSubCategory = new SubCategory;
+  searchedProduct: string = '';
   productList: ProductList[];
   counts: number;
   imgPath: string = 'http://admin.foodnet.ro/';
@@ -35,13 +36,13 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log(this.restaurantId);
+
     const body = { "restaurantId": this.restaurantId, "lang": this.cookieService.get('change_lang') };
     this.restaurantMenuService.getRestaurantCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       this.categoryList = [...res.result];
       this.categoryList.map(item => { item.name = item.category_name; return item; });
-      console.log(this.categoryList);
+
       this.selectedCategory = this.categoryList[0];
       this.getSubCategory(this.categoryList[0].category_id);
     });
@@ -53,13 +54,13 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   selectedItem(event): void {
-    console.log('selectedCategory====>', event.param);
+
     if (event.type === 'category') {
       this.selectedCategory = { ...event.param }
       this.getSubCategory(this.selectedCategory.category_id);
     } else if (event.type === 'subcategory') {
       this.selectedSubCategory = { ...event.param };
-      this.getProducts(this.selectedSubCategory, '');
+      this.getProducts(this.selectedSubCategory);
     }
   }
 
@@ -75,27 +76,31 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     }
 
     this.restaurantMenuService.getRestaurantSubCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       this.subCategoryList = [...res.result];
       this.subCategoryList.map(item => { item.name = item.subcategories_name; return item; });
       this.selectedSubCategory = this.subCategoryList[0];
-      this.getProducts(this.subCategoryList[0], '');
+      this.getProducts(this.subCategoryList[0]);
     });
   }
 
-  getProducts(subCategory: any, searchedProduct: string = '') {
+  getProducts(subCategory: any) {
     const body = {
       restaurantId: this.restaurantId,
       lang: this.cookieService.get('change_lang'),
       categoryId: subCategory.categoryId,
       subcategoryId: subCategory.subcategoryId,
       propertyValTransId: subCategory.propertyValTransId,
-      searchedProduct: searchedProduct,
+      searchedProduct: this.searchedProduct,
     };
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       this.productList = [...res.result];
     })
+  }
+
+  onKeyUpSearch(): void {
+    this.getProducts(this.selectedSubCategory);
   }
 }

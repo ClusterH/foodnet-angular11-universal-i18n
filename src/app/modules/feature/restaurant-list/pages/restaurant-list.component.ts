@@ -18,7 +18,7 @@ import * as moment from 'moment';
 export class RestaurantListComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
-  isSpinner: boolean = false;
+  isSpinner: boolean = true;
   filterShow: boolean = false;
   filterOption: FilterOption;
 
@@ -38,14 +38,14 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.lang = this.cookieService.get('change_lang');
-    this.isSpinner = true;
     this.filterOption = new FilterOption;
   }
 
   ngOnInit(): void {
+    this.isSpinner = true;
     this.locationId = Number(this.sessionStorageService.getItem('currentLocationId'));
-    this.restaurantFilterService.getRestaurantsByLocation(this.lang, this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+    this.restaurantFilterService.getRestaurantsByLocation(this.cookieService.get('change_lang'), this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+
       this.restaurantList = [...res.result];
       this.isSpinner = false;
     },
@@ -98,8 +98,8 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
   }
 
   restaurantProfile(restaurant: any) {
-    console.log(restaurant);
-    this.sessionStorageService.setParams(restaurant);
+
+    this.cookieService.put('restaurant', JSON.stringify(restaurant));
     const location = 'Târgu Mureș'
     this.router.navigate([`${location}/${restaurant.restaurant_name}`]);
   }

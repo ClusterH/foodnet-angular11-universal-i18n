@@ -38,7 +38,6 @@ export class InlineCarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("itemList===>", this.itemList);
   }
 
   nextShowCarousel(e): void {

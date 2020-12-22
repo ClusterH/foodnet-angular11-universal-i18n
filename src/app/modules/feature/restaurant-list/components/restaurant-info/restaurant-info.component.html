@@ -1,24 +1,25 @@
-<main class="info_container">
+<main class="info_container" *ngIf="!isSpinner">
   <section class="info_section">
     <h2 class="text-bold">INFO & PROMOTIONS</h2>
     <h5 class="text-bold">Average delivery time</h5>
-    <p>Kb. 30 perc</p>
+    <p>Kb. {{restaurantInfo.restaurant_AvgDeliveryTime}} perc</p>
     <h5 class="text-bold">Address & Contacts</h5>
-    <p>
-      2715 Ash Dr. San Jose, South Dakota 83475
-    </p>
+    <p>{{restaurantInfo.restaurant_address}}</p>
     <h5 class="text-bold">Description</h5>
-    <p>
-      Duis vitae orci consequat egestas. Justo, diam, morbi accumsan facilisi aliquet. Vitae curabitur non in iaculis posuere nisi, feugiat. Diam neque lectus at lectus urna nisl, sed enim.
-    </p>
+    <p>{{restaurantInfo.restaurant_description}}</p>
   </section>
   <section class="time_section">
     <h2 class="text-bold">Opening hours</h2>
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let time of timeList">
-        <span class="text-uppercase text-bold" >{{time.week}}</span>
-        <span>{{time.time}}</span>
+      <li class="list-group-item" *ngFor="let date of restaurantInfo.result">
+        <span class="text-uppercase text-bold">{{date.day}}</span>
+        <span>{{date.open}} - {{date.close}}</span>
       </li>
     </ul>
   </section>
 </main>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

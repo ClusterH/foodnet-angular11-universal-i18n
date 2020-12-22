@@ -64,7 +64,7 @@ export class DeliveryListComponent implements OnInit, OnDestroy {
       this.isSpinner = true;
       this.deliveryAddressService.deleteDeliveryAddress(this.currentListId).pipe(takeUntil(this._unsubscribeAll))
         .subscribe(res => {
-          console.log(res);
+
           this.deliveryList = this.deliveryList.filter(list => list.id !== res.result.id);
           this.isShown = false;
           this.isSpinner = false;

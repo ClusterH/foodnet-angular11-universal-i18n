@@ -26,7 +26,7 @@
           <app-restaurant-menu *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-menu>
         </p-tabPanel>
         <p-tabPanel header="INFO & PROMOTIONS">
-          <app-restaurant-info></app-restaurant-info>
+          <app-restaurant-info *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-info>
         </p-tabPanel>
         <p-tabPanel header="EVALUATION">
           <app-restaurant-evaluation></app-restaurant-evaluation>

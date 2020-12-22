@@ -83,7 +83,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.router.navigate(['']);
       },
         (errorResponse) => {
-          console.log(errorResponse);
+
           this.isInvalidErrors = true;
           this.isSpinner = false;
         });

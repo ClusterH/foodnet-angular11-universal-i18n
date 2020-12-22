@@ -14,7 +14,7 @@ export class HomeService {
     return this._httpClient.get<Restaurants>(`${this.apiBase}${lang}`);
   }
 
-  getBiggerCityRestaurants(city: string, langPath: string): Observable<any> {
-    return this._httpClient.get<Restaurants>(`${this.apiBase}home/${langPath}${city}`);
+  getBiggerCityRestaurants(cityId: number, langPath: string): Observable<any> {
+    return this._httpClient.get<Restaurants>(`${this.apiBase}home/${langPath}${cityId}`);
   }
 }

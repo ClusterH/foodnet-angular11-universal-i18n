@@ -46,7 +46,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
     this.lang = this.cookieService.get('change_lang') || 'ro';
 
     this.deliveryAddressService.getLocations(this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       this.deliveryAddress = [...res.locations];
 
       this.initForm();
@@ -56,16 +56,16 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
           this.id = params.id;
           this.title = $localize`:@@profile-delivery-update-title:Update delivery address`;
           this.deliveryAddressService.getCurrentAddress(params.id, this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-            console.log(res);
+
             if (res.status == 400) {
-              console.log(res);
+
               this.isSpinner = false;
               this.router.navigate['/profile/update'];
               return
             }
 
             this.selectedCity = { id: this.deliveryAddress.filter(address => address.cities == res.result[0].city)[0].id, cities: res.result[0].city };
-            console.log(this.selectedCity);
+
             this.setForm(res.result[0]);
             this.isSpinner = false;
             this.isCreate = false;

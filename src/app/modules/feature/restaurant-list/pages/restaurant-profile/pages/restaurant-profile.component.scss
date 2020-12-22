@@ -10,20 +10,21 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    border-right: 1px solid #C4C4C4;
+    border-right: 1px solid #c4c4c4;
     .banner {
       width: 100%;
       position: relative;
       .banner_img {
+        object-fit: cover;
         width: 100%;
-        height: auto;
+        height: 300px;
       }
       .profile_img {
         position: absolute;
         width: 160px;
         height: 160px;
         object-fit: cover;
-        border: 5px solid #FFF;
+        border: 5px solid #fff;
         border-radius: 50%;
         bottom: -5%;
         left: 14%;
@@ -32,12 +33,12 @@
         position: absolute;
         bottom: 5%;
         left: 27%;
-        padding: .2rem .5rem;
+        padding: 0.2rem 0.5rem;
         font-size: 14px;
-        border: 2px solid #FFF;
-        background-color: #4ACC4F;
+        border: 2px solid #fff;
+        background-color: #4acc4f;
         border-radius: 4px;
-        color: #FFF;
+        color: #fff;
       }
     }
     .top_info {
@@ -58,7 +59,7 @@
         .rate-label {
           background: #feebd6;
           border-radius: 3px;
-          padding: .5rem;
+          padding: 0.5rem;
           font-size: 12px;
           white-space: nowrap;
           width: auto;
@@ -73,7 +74,7 @@
   .side_menu {
     width: 22%;
     padding: 2rem 1.5rem;
-    border-left: 1px solid #C4C4C4;
+    border-left: 1px solid #c4c4c4;
     h2 {
       font-size: 24px;
       width: 100%;
@@ -89,7 +90,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         .item_title {
           font-size: 18px;
         }
@@ -109,10 +110,10 @@
         margin-top: 0;
       }
       .extra_section {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         a {
           color: #111;
-          margin-right: .5rem;
+          margin-right: 0.5rem;
           cursor: pointer;
         }
       }
@@ -161,13 +162,13 @@
 
 :host {
   ::ng-deep {
-  p-tabview { 
+    p-tabview {
       ul.p-tabview-nav {
         padding-left: 14%;
         li {
           a.p-tabview-nav-link {
-            padding-bottom: .5rem;
-            &:not(.p-disabled):focus{
+            padding-bottom: 0.5rem;
+            &:not(.p-disabled):focus {
               box-shadow: none;
             }
             &:hover {
@@ -176,9 +177,9 @@
           }
           &.p-highlight {
             .p-tabview-nav-link {
-              border: solid #F78F1E;
+              border: solid #f78f1e;
               border-width: 0 0 3px 0;
-              color: #F78F1E;
+              color: #f78f1e;
               text-transform: uppercase;
             }
           }
@@ -196,15 +197,15 @@
 }
 
 .text-white {
-  color: #FFF;
+  color: #fff;
 }
 
 .btn-warning {
-  background-color: #F78F1E !important;
-  color: #FFF;
+  background-color: #f78f1e !important;
+  color: #fff;
 }
 
 .btn-white {
-  background-color: #FFF;
-  color: #F78F1E;
+  background-color: #fff;
+  color: #f78f1e;
 }

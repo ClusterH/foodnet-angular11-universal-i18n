@@ -1,16 +1,16 @@
-<main class="menu_container">
+<main class="menu_container" *ngIf="productList">
   <h2 class="text-bold">Menu</h2>
   <app-inline-carousel *ngIf="categoryList" [itemList]="categoryList" [disabledOption]="false" [optionType]="'category'"
     (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
   <h5>Availability</h5>
   <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
     [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
-  <div class="form-group search_field" *ngIf="categoryList">
+  <div class="form-group search_field">
     <label for="category_search" class="text-bold">{{ selectedCategory.category_name }} Search</label>
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
   </div>
-  <div class="restaurant_content">
+  <div class="restaurant_content" *ngIf="productList != []">
     <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
       <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
     </h2>
@@ -45,3 +45,8 @@
     </div>
   </div>
 </main>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

@@ -19,6 +19,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   counts: number;
   restaurant: RestaurantList;
   restaurantId: number;
+  isSpinner: boolean = true;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,

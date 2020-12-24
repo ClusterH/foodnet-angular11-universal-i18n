@@ -35,6 +35,7 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     private restaurantFilterService: RestaurantFilterService,
     private sessionStorageService: SessionStorageService,
   ) {
+    console.log('refresh_constructor');
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.lang = this.cookieService.get('change_lang');
@@ -42,10 +43,11 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log('refresh_ngOnInit');
+
     this.isSpinner = true;
     this.locationId = Number(this.sessionStorageService.getItem('currentLocationId'));
     this.restaurantFilterService.getRestaurantsByLocation(this.cookieService.get('change_lang'), this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.restaurantList = [...res.result];
       this.isSpinner = false;
     },
@@ -98,7 +100,6 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
   }
 
   restaurantProfile(restaurant: any) {
-
     this.cookieService.put('restaurant', JSON.stringify(restaurant));
     const location = 'Târgu Mureș'
     this.router.navigate([`${location}/${restaurant.restaurant_name}`]);

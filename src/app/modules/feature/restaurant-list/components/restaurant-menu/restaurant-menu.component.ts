@@ -6,6 +6,7 @@ import { take, takeUntil } from 'rxjs/operators';
 import { Category, SubCategory, ProductList } from '../../models';
 import { CookieService } from '@gorniv/ngx-universal';
 import { RestaurantMenuService } from '../../services';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -23,6 +24,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   productList: ProductList[];
   counts: number;
   imgPath: string = 'http://admin.foodnet.ro/';
+  isSpinner: boolean = true;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -36,13 +38,15 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     const body = { "restaurantId": this.restaurantId, "lang": this.cookieService.get('change_lang') };
     this.restaurantMenuService.getRestaurantCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.categoryList = [...res.result];
-      this.categoryList.map(item => { item.name = item.category_name; return item; });
+      if (isEmpty(this.categoryList)) {
+        this.isSpinner = false;
+        return;
+      }
 
+      this.categoryList.map(item => { item.name = item.category_name; return item; });
       this.selectedCategory = this.categoryList[0];
       this.getSubCategory(this.categoryList[0].category_id);
     });
@@ -54,7 +58,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   selectedItem(event): void {
-
+    this.isSpinner = true;
     if (event.type === 'category') {
       this.selectedCategory = { ...event.param }
       this.getSubCategory(this.selectedCategory.category_id);
@@ -76,8 +80,12 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     }
 
     this.restaurantMenuService.getRestaurantSubCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.subCategoryList = [...res.result];
+      if (isEmpty(this.subCategoryList)) {
+        this.isSpinner = false;
+        return;
+      }
+
       this.subCategoryList.map(item => { item.name = item.subcategories_name; return item; });
       this.selectedSubCategory = this.subCategoryList[0];
       this.getProducts(this.subCategoryList[0]);
@@ -95,12 +103,16 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     };
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
+      this.isSpinner = false;
       this.productList = [...res.result];
+      if (isEmpty(this.productList)) {
+        return;
+      }
     })
   }
 
   onKeyUpSearch(): void {
+    this.isSpinner = true;
     this.getProducts(this.selectedSubCategory);
   }
 }

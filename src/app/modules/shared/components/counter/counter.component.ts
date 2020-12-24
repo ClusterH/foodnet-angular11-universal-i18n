@@ -29,7 +29,9 @@ export class CounterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  counterChange(direct): void {
+  counterChange(event, direct): void {
+    event.stopPropagation();
+
     if(direct == 'increase') {
       this.counter++;
     }

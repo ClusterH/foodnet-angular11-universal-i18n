@@ -1,16 +1,32 @@
-.carousel-container {
-  display: flex;
-  border-bottom: 1px solid #C4C4C4;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.carousel-main-container {
+  width: 100%;
   position: relative;
-  overflow-x: hidden;
-  .carousel-items {
-    white-space: nowrap;
-    // width: 90%;
-    // overflow-x: hidden;
-    button {
-      margin-right: 1rem;
+  border-bottom: 1px solid #C4C4C4;
+  .carousel-container {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    overflow-x: hidden;
+    width: 80%;
+    .carousel-items {
+      white-space: nowrap;
+      padding-left: 2px;
+      // width: 90%;
+      // overflow-x: hidden;
+      button {
+        margin-right: 1rem;
+        &.active {
+          border-color: #f78f1e;
+          color: #f78f1e;
+        }
+        &:hover {
+          box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+        }
+        &:focus {
+          box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+        }
+      }
     }
   }
   .prev_icon {
@@ -27,6 +43,7 @@
     right: 5px;
     transform: translateY(-50%);
   }
+
 }
 
 .btn-white {

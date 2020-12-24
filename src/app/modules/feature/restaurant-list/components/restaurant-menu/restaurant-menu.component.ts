@@ -23,6 +23,11 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   productList: ProductList[];
   counts: number;
   imgPath: string = 'http://admin.foodnet.ro/';
+  requiredExtraList: Array<{}>;
+  optionalExtraList: Array<{}>;
+  selectedProduct: number;
+  isShownExtra: boolean = false;
+  productImg: string;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -33,6 +38,26 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     private restaurantMenuService: RestaurantMenuService
   ) {
     this._unsubscribeAll = new Subject();
+    this.productImg = "./assets/images/banner.svg";
+    this.requiredExtraList = [
+      {
+        id: 1,
+        extra_content: "Coca-Cola carbonated soft drink 0.33l"
+      },
+      {
+        id: 2,
+        extra_content: "Coca-Cola Zero carbonated soft drink 0.33l"
+      },
+      {
+        id: 3,
+        extra_content: "Fanta Orange carbonated soft drink 0.33l"
+      },
+      {
+        id: 4,
+        extra_content: "Sprite Lemon-Lime carbonated soft drink 0.33l"
+      },
+
+    ]
   }
 
   ngOnInit(): void {
@@ -53,6 +78,10 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.complete();
   }
 
+  points(i: number) {
+    return new Array(i);
+  }
+  
   selectedItem(event): void {
 
     if (event.type === 'category') {
@@ -102,5 +131,14 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   onKeyUpSearch(): void {
     this.getProducts(this.selectedSubCategory);
+  }
+
+  showExtraPopup(productItem): void {
+    this.selectedProduct = productItem;
+    this.isShownExtra = true;
+  }
+
+  closeExtra(): void {
+    this.isShownExtra = false;
   }
 }

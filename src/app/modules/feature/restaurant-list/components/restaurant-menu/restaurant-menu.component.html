@@ -5,8 +5,9 @@
   <h5>Availability</h5>
   <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
     [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
-  <div class="form-group search_field">
-    <label for="category_search" class="text-bold">{{ selectedCategory.category_name }} Search</label>
+  <div class="form-group search_field" *ngIf="categoryList">
+    <label for="category_search" class="text-bold" (click)="showExtraPopup(1)">{{ selectedCategory.category_name }}
+      Search</label>
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
   </div>
@@ -16,7 +17,7 @@
     </h2>
     <div class="prod_list">
       <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4"
-        *ngFor="let product of productList; odd as isOdd">
+        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product.product_id)">
         <div class="card_img">
           <img [src]="imgPath + product.product_imageUrl" alt="">
         </div>
@@ -44,6 +45,61 @@
       </div>
     </div>
   </div>
+
+  <p-dialog header="" [(visible)]="isShownExtra" [style]="{width: '255px'}" [baseZIndex]="10000"
+    styleClass="custom_dialog" [modal]="true">
+    <p-header>
+      <img [src]="productImg" alt="">
+    </p-header>
+    <div class="main_info">
+      <h2>Product Name</h2>
+      <p>product_ description: lorem ipsum dolor sit amet. Lorem ispum dolor...</p>
+      <div>(Allergens: Allergen 1, Allergen 2, Allergen 3)</div>
+    </div>
+    <div class="required_extra">
+      <h5 class="text-bold">Required extra(1 piece Required)</h5>
+      <ul class="required_extra_list">
+        <li class="text-left" *ngFor="let requiredExtra of requiredExtraList; let i = index">
+          <label for="">
+            <input type="radio" name="required_extra_item" id="required_extra_{{requiredExtra.id}}">
+            <span>{{requiredExtra.extra_content}}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <div class="optional_extra">
+      <h5 class="text-bold">Optional extra(Not required)</h5>
+      <ul class="optional_extra_list">
+        <li class="d-flex justify-content-between align-items-start" *ngFor="let in of points(5)">
+          <input type="checkbox" name="" id="">
+          <div class="optional_extra_content">
+            <div class="optional_extra_main_info d-flex justify-content-between align-items-start">
+              <span>Extra name</span>
+              <span class="text-warning text-bold text-left">600Ft</span>
+            </div>
+            <div class="allergens text-left flex-wrap">
+              (Allergens: Allergen 1, Allergen 2, Allergen 3)
+            </div>
+          </div>
+          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+        </li>
+      </ul>
+      <hr />
+      <div class="d-flex justify-content-center align-items-center show_more_section">
+        <a class="text-warning text-decoration-none text-bold">SHOW MORE</a>
+      </div>
+
+    </div>
+    <div class="comments">
+      <h5 class="text-bold">Comment</h5>
+      <textarea class="comment_content" name="" id="" cols="30" rows="4"></textarea>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-warning text-white btn-expand" (click)="closeExtra()">Add to the
+        cart</button>
+    </p-footer>
+  </p-dialog>
+
 </main>
 <div class="spinner_overlay" *ngIf="isSpinner">
   <div class="spinner_container">

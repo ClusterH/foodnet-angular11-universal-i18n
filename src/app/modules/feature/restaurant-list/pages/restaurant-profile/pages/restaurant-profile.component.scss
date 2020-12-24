@@ -32,13 +32,19 @@
       .status_badge {
         position: absolute;
         bottom: 5%;
-        left: 27%;
+        left: 22.5rem;
         padding: 0.2rem 0.5rem;
         font-size: 14px;
         border: 2px solid #fff;
         background-color: #4acc4f;
         border-radius: 4px;
         color: #fff;
+        @media all and (min-width: 1660px) {
+          left: 23.5rem;
+        }
+        @media all and (max-width: 1440px) {
+          left: 20rem;
+        }
       }
     }
     .top_info {

@@ -30,12 +30,9 @@ export class RestaurantInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.restaurantInfoService.getRestaurantInfo(this.cookieService.get('change_lang'), this.restaurantId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.restaurantInfo = { ...res.result[0] };
       this.isSpinner = false;
-
     });
   }
 
@@ -43,6 +40,4 @@ export class RestaurantInfoComponent implements OnInit {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
-
-
 }

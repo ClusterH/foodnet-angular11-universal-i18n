@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, forkJoin } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 
 import { Category, SubCategory, ProductList } from '../../models';
@@ -24,7 +24,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   searchedProduct: string = '';
   productList: ProductList[];
   counts: number;
-  imgPath: string = 'http://admin.foodnet.ro/';
+  imgPath: string = 'https://admin.foodnet.ro/';
 
   requiredExtraList: Array<any>;
   optionalExtraList: Array<any>;
@@ -32,7 +32,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   isShownExtra: boolean = false;
   productImg: string;
 
-  isSpinner: boolean = false;
+  isSpinner: boolean = true;
   private _unsubscribeAll: Subject<any>;
 
   constructor(
@@ -149,6 +149,14 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
+    console.log(productItem);
+    const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
+    const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
+    const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
+    forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
+      console.log(requiredExtraData, '==========', optionalExtraData);
+    });
+
     this.selectedProduct = productItem;
     this.isShownExtra = true;
   }

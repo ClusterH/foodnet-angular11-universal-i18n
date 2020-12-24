@@ -5,7 +5,7 @@ import { Category } from '../models'
 
 @Injectable()
 export class RestaurantInfoService {
-  apiBase = 'http://api.foodnet.ro/api/restaurant/info/';
+  apiBase = 'https://api.foodnet.ro/api/restaurant/info/';
 
   constructor(private _httpClient: HttpClient) { }
 

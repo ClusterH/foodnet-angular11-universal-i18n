@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 export class AuthService {
   isLoggedIn: boolean = false;
 
-  apiBase = 'http://api.foodnet.ro/api/auth';
+  apiBase = 'https://api.foodnet.ro/api/auth';
 
   constructor(
     private _httpClient: HttpClient,

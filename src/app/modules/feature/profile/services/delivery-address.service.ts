@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 })
 
 export class DeliveryAddressService {
-  apiBase = 'http://api.foodnet.ro/api/delivery-address/';
+  apiBase = 'https://api.foodnet.ro/api/delivery-address/';
   apiBase_location = 'http://api.foodnet.ro/api/location/';
 
   constructor(

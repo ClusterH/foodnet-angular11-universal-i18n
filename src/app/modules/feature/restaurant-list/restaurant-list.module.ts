@@ -10,7 +10,7 @@ import { RestaurantProfileComponent } from './pages/restaurant-profile/pages/res
 import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant-menu.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantEvaluationComponent } from './components/restaurant-evaluation/restaurant-evaluation.component';
-import { RestaurantFilterService, RestaurantMenuService, RestaurantInfoService } from './services';
+import { RestaurantFilterService, RestaurantMenuService, RestaurantInfoService, RestaurantReviewService } from './services';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,6 @@ import { RestaurantFilterService, RestaurantMenuService, RestaurantInfoService }
   ],
   exports: [
   ],
-  providers: [RestaurantFilterService, RestaurantMenuService, RestaurantInfoService]
+  providers: [RestaurantFilterService, RestaurantMenuService, RestaurantInfoService, RestaurantReviewService]
 })
 export class RestaurantListModule { }

@@ -15,8 +15,8 @@
       <div class="result_body">
         <div class="card col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurantList"
           (click)="restaurantProfile(restaurant)">
-          <img class="card-img" [src]="'http://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="Card image 1"
-            style="width:100%">
+          <img class="card-img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
+            alt="Card image 1" style="width:100%">
           <span class="badge" *ngIf="restaurant.restaurant_new == 1">New restaurant</span>
           <span class="badge" *ngIf="restaurant.restaurant_discount == 1">Pret special</span>
           <div class="overlay" *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">

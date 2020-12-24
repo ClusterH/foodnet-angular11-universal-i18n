@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 })
 
 export class DeleteProfileService {
-  apiBase = 'http://api.foodnet.ro/api/profile/';
+  apiBase = 'https://api.foodnet.ro/api/profile/';
 
   constructor(
     private _httpClient: HttpClient,

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CitySearchService {
   // apiBase_temp = 'https://shielded-anchorage-51692.herokuapp.com/api/location/';
-  apiBase = 'http://api.foodnet.ro/api/location/';
+  apiBase = 'https://api.foodnet.ro/api/location/';
 
   constructor(private _httpClient: HttpClient) { }
   getLocations(lang: string): Observable<any> {

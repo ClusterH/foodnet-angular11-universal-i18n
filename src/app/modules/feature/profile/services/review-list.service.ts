@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 })
 
 export class ReviewListService {
-  apiBase = 'http://api.foodnet.ro/api/restaurant-reviews/';
+  apiBase = 'https://api.foodnet.ro/api/restaurant-reviews/';
 
   constructor(
     private _httpClient: HttpClient,

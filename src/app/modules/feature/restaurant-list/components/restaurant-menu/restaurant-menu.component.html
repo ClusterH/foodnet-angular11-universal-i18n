@@ -4,7 +4,8 @@
     (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
   <h5>Availability</h5>
   <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
-    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)" [translatePosition]="translatePosition"></app-inline-carousel>
+    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)" [translatePosition]="translatePosition">
+  </app-inline-carousel>
   <div class="form-group search_field" *ngIf="categoryList">
     <label for="category_search" class="text-bold">{{ selectedCategory.category_name }}
       Search</label>
@@ -17,7 +18,7 @@
     </h2>
     <div class="prod_list">
       <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4"
-        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product.product_id)">
+        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product)">
         <div class="card_img">
           <img [src]="imgPath + product.product_imageUrl" alt="">
         </div>
@@ -59,11 +60,18 @@
     <div class="required_extra">
       <h5 class="text-bold">Required extra(1 piece Required)</h5>
       <ul class="required_extra_list">
-        <li class="text-left" *ngFor="let requiredExtra of requiredExtraList; let i = index">
-          <label for="">
-            <input type="radio" name="required_extra_item" id="required_extra_{{requiredExtra.id}}">
-            <span>{{requiredExtra.extra_content}}</span>
-          </label>
+        <li class="d-flex justify-content-between align-items-start" *ngFor="let in of points(5)">
+          <input type="radio" name="required_extra_item" id="required_extra_item">
+          <div class="extra_content">
+            <div class="extra_main_info d-flex justify-content-between align-items-start">
+              <span>Extra name</span>
+              <span class="text-warning text-bold text-left">600Ft</span>
+            </div>
+            <div class="allergens text-left flex-wrap">
+              (Allergens: Allergen 1, Allergen 2, Allergen 3)
+            </div>
+          </div>
+          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
         </li>
       </ul>
     </div>
@@ -72,8 +80,8 @@
       <ul class="optional_extra_list">
         <li class="d-flex justify-content-between align-items-start" *ngFor="let in of points(5)">
           <input type="checkbox" name="" id="">
-          <div class="optional_extra_content">
-            <div class="optional_extra_main_info d-flex justify-content-between align-items-start">
+          <div class="extra_content">
+            <div class="extra_main_info d-flex justify-content-between align-items-start">
               <span>Extra name</span>
               <span class="text-warning text-bold text-left">600Ft</span>
             </div>

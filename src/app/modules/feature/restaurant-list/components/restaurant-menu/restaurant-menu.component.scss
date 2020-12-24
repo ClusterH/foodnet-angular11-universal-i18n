@@ -1,12 +1,12 @@
 .menu_container {
   width: 100%;
-  &>h2 {
+  & > h2 {
     width: 100%;
     font-size: 32px;
     text-align: left;
     margin-top: 2rem;
   }
-  &>h5 {
+  & > h5 {
     width: 100%;
     font-size: 16px;
     text-align: left;
@@ -71,19 +71,17 @@
             align-items: center;
             width: 100%;
             border: none;
-            background-color: #FFF;
+            background-color: #fff;
             padding: 0;
             .price_item {
               font-size: 18px;
             }
-            
           }
         }
         &:hover {
           box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
-          0px 24px 38px 3px rgba(0, 0, 0, 0.14),
-          0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-
+            0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+            0px 9px 46px 8px rgba(0, 0, 0, 0.12);
         }
       }
     }
@@ -101,7 +99,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      @media all and (max-width: 590px){
+      @media all and (max-width: 590px) {
         width: 90%;
       }
       .p-dialog-header {
@@ -130,7 +128,7 @@
           position: absolute;
           top: 10px;
           right: 10px;
-          background-color: #FFF;
+          background-color: #fff;
           border-radius: 50%;
           .p-dialog-header-icon {
             color: #111 !important;
@@ -143,34 +141,28 @@
         }
         margin-top: 1.5rem;
         .main_info {
-          margin-bottom: .8rem;
+          margin-bottom: 0.8rem;
           h2 {
             font-size: 24px;
             font-weight: bolder;
           }
         }
+        .optional_extra,
         .required_extra {
+          .optional_extra_list,
           .required_extra_list {
             list-style: none;
             padding-left: 0 !important;
-            input[type=radio]{
-              margin-right: .5rem;
-            }
-          }
-        }
-        .optional_extra {
-          .optional_extra_list {
-            list-style:  none;
-            padding-left: 0 !important;
             li {
-              margin-bottom: .8rem;
-              .optional_extra_content {
+              margin-bottom: 0.8rem;
+              .extra_content {
                 margin-right: 2.5rem;
               }
             }
-            input[type=checkbox]{
-              margin-right: .5rem;
-              margin-top: .5rem;
+            input[type="checkbox"],
+            input[type="radio"] {
+              margin-right: 0.5rem;
+              margin-top: 0.5rem;
             }
           }
           .show_more_section {
@@ -209,12 +201,12 @@
 
 .btn-white {
   background-color: white;
-  border: 2px solid #C4C4C4;
+  border: 2px solid #c4c4c4;
   border-radius: 6px;
 }
 
 .btn-warning-light {
-  background-color: #FEEBD6;
+  background-color: #feebd6;
   height: 50px;
   width: 56px;
   border-radius: 6px;

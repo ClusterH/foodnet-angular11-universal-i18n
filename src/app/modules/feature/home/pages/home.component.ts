@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     const location_list = this.homeService.getLocations(this.lang);
-    const imgPath = 'http://admin.foodnet.ro/'
+    const imgPath = 'https://admin.foodnet.ro/'
     const bigCity1 = this.homeService.getBiggerCityRestaurants(1, `${this.lang}/`);
     const bigCity2 = this.homeService.getBiggerCityRestaurants(2, `${this.lang}/`);
     const bigCity3 = this.homeService.getBiggerCityRestaurants(3, `${this.lang}/`);

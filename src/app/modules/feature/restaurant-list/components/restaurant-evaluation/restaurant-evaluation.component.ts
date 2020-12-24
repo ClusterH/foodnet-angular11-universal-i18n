@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
+
+import { CookieService } from '@gorniv/ngx-universal';
+import { RestaurantReviewService } from '../../services';
+import { isEmpty } from 'lodash';
+
 
 @Component({
   selector: 'app-restaurant-evaluation',
@@ -8,13 +15,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RestaurantEvaluationComponent implements OnInit {
   evaluation: number = 4;
-  reviewList: Array<{}>;
+  reviewList: Array<any>;
   loadmore: boolean = false;
-
+  isSpinner: boolean = false;
+  private _unsubscribeAll: Subject<any>;
   constructor(
     private router: Router,
     private activatedroute: ActivatedRoute,
+    private restaurantReviewService: RestaurantReviewService
   ) {
+    this._unsubscribeAll = new Subject();
+
     this.reviewList = [
       {
         title: "KissBela123",
@@ -50,14 +61,14 @@ export class RestaurantEvaluationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.restaurantReviewService.getRestaurantReviews().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      console.log(res);
+    })
   }
 
   points(i: number) {
     return new Array(i);
   }
-
-
-
   evaluationSelect(item): void {
     this.evaluation = item + 1;
   }

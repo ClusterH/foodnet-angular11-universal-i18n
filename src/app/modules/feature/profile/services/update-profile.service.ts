@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 })
 
 export class UpdateService {
-  apiBase = 'http://api.foodnet.ro/api/profile/me';
+  apiBase = 'https://api.foodnet.ro/api/profile/me';
 
   constructor(
     private _httpClient: HttpClient,

@@ -6,7 +6,7 @@ import { RestaurantList } from '../models'
 
 @Injectable()
 export class RestaurantFilterService {
-  apiBase = 'http://api.foodnet.ro/api/location/';
+  apiBase = 'https://api.foodnet.ro/api/location/';
 
   constructor(private _httpClient: HttpClient) { }
 

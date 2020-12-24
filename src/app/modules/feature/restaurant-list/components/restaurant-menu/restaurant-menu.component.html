@@ -4,9 +4,9 @@
     (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
   <h5>Availability</h5>
   <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
-    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
+    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)" [translatePosition]="translatePosition"></app-inline-carousel>
   <div class="form-group search_field" *ngIf="categoryList">
-    <label for="category_search" class="text-bold" (click)="showExtraPopup(1)">{{ selectedCategory.category_name }}
+    <label for="category_search" class="text-bold">{{ selectedCategory.category_name }}
       Search</label>
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">

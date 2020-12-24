@@ -18,6 +18,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   @Input() restaurantId: number;
   categoryList: Array<Category>;
   subCategoryList: Array<SubCategory>;
+  translatePosition: number = 0;
   selectedCategory = new Category;
   selectedSubCategory = new SubCategory;
   searchedProduct: string = '';
@@ -92,6 +93,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     if (event.type === 'category') {
       this.selectedCategory = { ...event.param }
       this.getSubCategory(this.selectedCategory.category_id);
+      this.translatePosition = 0;
     } else if (event.type === 'subcategory') {
       this.selectedSubCategory = { ...event.param };
       this.getProducts(this.selectedSubCategory);

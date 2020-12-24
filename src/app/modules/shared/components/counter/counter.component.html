@@ -1,13 +1,13 @@
 <div class="counter_container">
   <ul class="list-group list-group-horizontal">
-    <li class="list-group-item decrease" (click)="counterChange('decrease')">
+    <li class="list-group-item decrease" (click)="counterChange($event, 'decrease')">
       <i class="fas fa-minus"></i>
     </li>
     <li class="list-group-item amounts">
       <span #counts class="counts">{{counter}}</span>
       <span class="unit">db</span>
     </li>
-    <li class="list-group-item increase" (click)="counterChange('increase')">
+    <li class="list-group-item increase" (click)="counterChange($event, 'increase')">
       <i class="fas fa-plus"></i>
     </li>
     <li class="list-group-item status_item" *ngIf="checkRequire">

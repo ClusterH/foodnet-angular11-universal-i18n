@@ -23,9 +23,9 @@
         }
       }
       .mobile_title {
-        display: none;
+        display: none !important;
         @media all and (max-width: 590px) {
-          display: flex;
+          display: flex !important;
           position: absolute;
           width: 100%;
           padding: 0 20px;
@@ -212,7 +212,7 @@
             }
             @media all and (max-width: 590px) {
               padding: 0.6rem;
-              padding-bottom: .5rem;
+              padding-bottom: 0.5rem;
               font-size: 14px;
             }
           }
@@ -232,7 +232,7 @@
       .p-tabview-panels {
         padding-left: 14%;
         @media all and (max-width: 590px) {
-          padding: .6rem;
+          padding: 0.6rem;
         }
       }
     }

@@ -4,9 +4,18 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  &>h2 {
+  & > h2 {
     font-size: 32px;
     margin-bottom: 1rem;
+    @media all and (max-width: 1440px) {
+      font-size: 28px;
+    }
+    @media all and (max-width: 990px) {
+      font-size: 22px;
+    }
+    @media all and (max-width: 590px) {
+      font-size: 18px;
+    }
   }
   .eval_intro {
     margin-bottom: 1rem;
@@ -23,7 +32,6 @@
       margin-right: 12px;
       cursor: pointer;
     }
-
   }
   .review_list {
     .card {
@@ -53,12 +61,13 @@
       }
       &:hover {
         box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
-        0px 24px 38px 3px rgba(0, 0, 0, 0.14),
-        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
-
+          0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+          0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+      }
+      @media all and (max-width: 590px) {
+        max-width: 100%;
       }
     }
-
   }
   .btn_section {
     width: 100%;
@@ -76,13 +85,13 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      margin-bottom: .8rem;
+      margin-bottom: 0.8rem;
       .leftLine,
       .rightLine {
         width: 130px;
         height: 2px;
         background-color: #c4c4c4;
-        &.active{
+        &.active {
           background-color: #f78f1e;
         }
       }
@@ -98,6 +107,9 @@
       }
     }
   }
+  @media all and (max-width: 590px) {
+    margin-top: 1.5rem;
+  }
 }
 
 .text-grey {
@@ -109,7 +121,7 @@
 }
 
 .btn-warning-light {
-  background-color: #FEEBD6;
+  background-color: #feebd6;
 }
 
 .bd-warning {

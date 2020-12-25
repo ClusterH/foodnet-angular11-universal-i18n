@@ -52,11 +52,12 @@
     styleClass="custom_dialog" [modal]="true">
     <p-header>
       <img [src]="productImg" alt="">
+      <h5 class="text-bold text-center">Extras</h5>
     </p-header>
     <div class="main_info" *ngIf="selectedProduct">
       <h2>{{selectedProduct.product_name}}</h2>
       <p>{{selectedProduct.product_description}}</p>
-      <div><span i18n="@@restaurant-profile-menu-dialog-a">(Allergens: </span>
+      <div class="mb-4"><span i18n="@@restaurant-profile-menu-dialog-a">(Allergens: </span>
         <span *ngFor="let allergen of selectedProduct.allergens_name; let last=last">
           <span *ngIf="last">{{ allergen.allergen_name }}</span>
           <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
@@ -70,11 +71,11 @@
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
           <input type="radio" name="required_extra_item" id="required_extra_item">
           <div class="extra_content">
-            <div class="extra_main_info d-flex justify-content-between align-items-start">
+            <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
               <span>{{extra.extra_name}}</span>
-              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}Ft</span>
             </div>
-            <div class="allergens text-left flex-wrap">
+            <div class="allergens text-left flex-wrap mb-2">
               <span i18n="@@restaurant-profile-menu-dialog-c">(Allergens: </span>
               <span *ngFor="let allergen of extra.allergens_name; let last=last">
                 <span *ngIf="last">{{ allergen.allergen }}</span>
@@ -82,8 +83,14 @@
               </span>
               <span>)</span>
             </div>
+            <div class="mobile_counter_section">
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+            </div>
           </div>
-          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+          <div class="counter_section">
+            <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+          </div>
         </li>
       </ul>
     </div>
@@ -93,11 +100,11 @@
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
           <input type="checkbox" name="" id="">
           <div class="extra_content">
-            <div class="extra_main_info d-flex justify-content-between align-items-start">
+            <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
               <span>{{extra.extra_name}}</span>
-              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}Ft</span>
             </div>
-            <div class="allergens text-left flex-wrap">
+            <div class="allergens text-left flex-wrap mb-2">
               <span i18n="@@restaurant-profile-menu-dialog-e">(Allergens: </span>
               <span *ngFor="let allergen of extra.allergens_name; let last=last">
                 <span *ngIf="last">{{ allergen.allergen }}</span>
@@ -105,8 +112,15 @@
               </span>
               <span>)</span>
             </div>
+            <div class="mobile_counter_section">
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+            </div>
+
           </div>
-          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+          <div class="counter_section">
+            <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+          </div>
         </li>
       </ul>
       <hr />

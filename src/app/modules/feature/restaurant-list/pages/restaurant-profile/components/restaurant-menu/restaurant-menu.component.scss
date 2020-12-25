@@ -1,0 +1,225 @@
+.menu_container {
+  width: 100%;
+  & > h2 {
+    width: 100%;
+    font-size: 32px;
+    text-align: left;
+    margin-top: 2rem;
+  }
+  & > h5 {
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 1.5rem;
+  }
+  .search_field {
+    width: 40%;
+    margin-top: 2rem;
+  }
+  .restaurant_content {
+    margin-top: 2rem;
+    h2 {
+      font-size: 24px;
+      color: #111;
+      font-weight: bolder;
+    }
+    .prod_list {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        transition: all 0.2s ease-in-out;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+        max-width: 49%;
+        .card_img {
+          width: 81px;
+          height: 81px;
+          margin-right: 1rem;
+          img {
+            border-radius: 6px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .card_body {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          width: calc(100% - 81px);
+          h5 {
+            font-size: 18px;
+            font-weight: bolder;
+          }
+          p {
+            font-size: 16px;
+            width: 100%;
+          }
+          .card_footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border: none;
+            background-color: #fff;
+            padding: 0;
+            .price_item {
+              font-size: 18px;
+            }
+          }
+        }
+        &:hover {
+          box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+            0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+            0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+        }
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep {
+    .p-dialog {
+      border-radius: 10px;
+      width: 542px !important;
+      background-color: white;
+      z-index: 110001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      @media all and (max-width: 590px) {
+        width: 90%;
+      }
+      .p-dialog-header {
+        width: 100% !important;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        text-align: center;
+        padding: 0 !important;
+        @media all and (max-width: 360px) {
+          padding: 0 !important;
+        }
+        .p-dialog-title {
+          width: 100%;
+          height: 200px;
+          margin: 0 auto;
+          padding: 0 !important;
+          img {
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            object-fit: cover;
+          }
+        }
+        .p-dialog-header-icons {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: #fff;
+          border-radius: 50%;
+          .p-dialog-header-icon {
+            color: #111 !important;
+          }
+        }
+      }
+      .p-dialog-content {
+        h5 {
+          font-size: 18px;
+        }
+        margin-top: 1.5rem;
+        .main_info {
+          margin-bottom: 0.8rem;
+          h2 {
+            font-size: 24px;
+            font-weight: bolder;
+          }
+        }
+        .optional_extra,
+        .required_extra {
+          .optional_extra_list,
+          .required_extra_list {
+            list-style: none;
+            padding-left: 0 !important;
+            li {
+              margin-bottom: 0.8rem;
+              .extra_content {
+                margin-right: 2.5rem;
+                width: 60%;
+              }
+            }
+            input[type="checkbox"],
+            input[type="radio"] {
+              margin-right: 0.5rem;
+              margin-top: 0.5rem;
+            }
+          }
+          .show_more_section {
+            margin-bottom: 1.2rem;
+            font-size: 14px;
+            a:hover {
+              color: #f7a44c;
+            }
+          }
+        }
+        .comments {
+          .comment_content {
+            width: 100%;
+            border-radius: 8px;
+            resize: none;
+          }
+        }
+      }
+      .p-dialog-footer {
+        width: 100%;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        button {
+          width: 90%;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+.text-warning {
+  color: #f78f1e !important;
+}
+
+.btn-white {
+  background-color: white;
+  border: 2px solid #c4c4c4;
+  border-radius: 6px;
+}
+
+.btn-warning-light {
+  background-color: #feebd6;
+  height: 50px;
+  width: 56px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-expand {
+  width: 100%;
+}
+
+.text-grey {
+  color: gray;
+}

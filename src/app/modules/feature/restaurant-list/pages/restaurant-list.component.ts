@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from '../../../core';
@@ -33,7 +33,6 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
     private restaurantFilterService: RestaurantFilterService,
-    private sessionStorageService: SessionStorageService,
   ) {
     console.log('refresh_constructor');
     this.isBrowser = isPlatformBrowser(platformId);
@@ -46,7 +45,7 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     console.log('refresh_ngOnInit');
 
     this.isSpinner = true;
-    this.locationId = Number(this.sessionStorageService.getItem('currentLocationId'));
+    this.locationId = Number(this.cookieService.get('currentLocationId'));
     this.restaurantFilterService.getRestaurantsByLocation(this.cookieService.get('change_lang'), this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.restaurantList = [...res.result];
       this.isSpinner = false;

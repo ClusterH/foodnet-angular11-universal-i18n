@@ -1,0 +1,132 @@
+<main class="menu_container" *ngIf="productList">
+  <h2 class="text-bold">Menu</h2>
+  <app-inline-carousel *ngIf="categoryList" [itemList]="categoryList" [disabledOption]="false" [optionType]="'category'"
+    (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
+  <h5>Availability</h5>
+  <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
+    [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)" [translatePosition]="translatePosition">
+  </app-inline-carousel>
+  <div class="form-group search_field" *ngIf="categoryList">
+    <label for="category_search" class="text-bold">{{ selectedCategory.category_name }}
+      Search</label>
+    <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
+      [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
+  </div>
+  <div class="restaurant_content" *ngIf="productList != []">
+    <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
+      <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
+    </h2>
+    <div class="prod_list">
+      <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4"
+        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product)">
+        <div class="card_img">
+          <img [src]="imgPath + product.product_imageUrl" alt="">
+        </div>
+        <div class="card_body">
+          <h5>{{ product.product_name }}</h5>
+          <p>{{ product.product_description }}</p>
+          <p class="text-grey">
+            <span>(Allergens: </span>
+            <span *ngFor="let allergen of product.allergens_name; let last=last">
+              <span *ngIf="last">{{ allergen.allergen_name }}</span>
+              <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+            </span>
+            <span>)</span>
+          </p>
+          <div class="card_footer">
+            <span class="price_item text-warning text-bold">
+              {{ product.product_price }}Ft
+            </span>
+            <div class="counter">
+              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="true"
+                [statusOption]="isOdd ? 'bag' : 'check'"></app-counter>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p-dialog header="" [(visible)]="isShownExtra" [style]="{width: '255px'}" [baseZIndex]="10000"
+    styleClass="custom_dialog" [modal]="true">
+    <p-header>
+      <img [src]="productImg" alt="">
+    </p-header>
+    <div class="main_info" *ngIf="selectedProduct">
+      <h2>{{selectedProduct.product_name}}</h2>
+      <p>{{selectedProduct.product_description}}</p>
+      <div><span>(Allergens: </span>
+        <span *ngFor="let allergen of selectedProduct.allergens_name; let last=last">
+          <span *ngIf="last">{{ allergen.allergen_name }}</span>
+          <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+        </span>
+        <span>)</span>
+      </div>
+    </div>
+    <div class="required_extra">
+      <h5 class="text-bold">Required extra(1 piece Required)</h5>
+      <ul class="required_extra_list" *ngIf="requiredExtraList">
+        <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
+          <input type="radio" name="required_extra_item" id="required_extra_item">
+          <div class="extra_content">
+            <div class="extra_main_info d-flex justify-content-between align-items-start">
+              <span>{{extra.extra_name}}</span>
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+            </div>
+            <div class="allergens text-left flex-wrap">
+              <span>(Allergens: </span>
+              <span *ngFor="let allergen of extra.allergens_name; let last=last">
+                <span *ngIf="last">{{ allergen.allergen }}</span>
+                <span *ngIf="!last">{{ allergen.allergen }}, </span>
+              </span>
+              <span>)</span>
+            </div>
+          </div>
+          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+        </li>
+      </ul>
+    </div>
+    <div class="optional_extra">
+      <h5 class="text-bold">Optional extra(Not required)</h5>
+      <ul class="optional_extra_list" *ngIf="optionalExtraList">
+        <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
+          <input type="checkbox" name="" id="">
+          <div class="extra_content">
+            <div class="extra_main_info d-flex justify-content-between align-items-start">
+              <span>{{extra.extra_name}}</span>
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+            </div>
+            <div class="allergens text-left flex-wrap">
+              <span>(Allergens: </span>
+              <span *ngFor="let allergen of extra.allergens_name; let last=last">
+                <span *ngIf="last">{{ allergen.allergen }}</span>
+                <span *ngIf="!last">{{ allergen.allergen }}, </span>
+              </span>
+              <span>)</span>
+            </div>
+          </div>
+          <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+        </li>
+      </ul>
+      <hr />
+      <div class="d-flex justify-content-center align-items-center show_more_section">
+        <a class="text-warning text-decoration-none text-bold">SHOW MORE</a>
+      </div>
+
+    </div>
+    <div class="comments">
+      <h5 class="text-bold">Comment</h5>
+      <textarea class="comment_content" name="" id="" cols="30" rows="4"></textarea>
+    </div>
+    <p-footer>
+      <button type="button" class="btn btn-warning text-white btn-expand" (click)="closeExtra()">Add to the
+        cart</button>
+    </p-footer>
+  </p-dialog>
+
+</main>
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

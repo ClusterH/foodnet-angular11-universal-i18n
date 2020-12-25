@@ -1,0 +1,117 @@
+.evaluation_container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  &>h2 {
+    font-size: 32px;
+    margin-bottom: 1rem;
+  }
+  .eval_intro {
+    margin-bottom: 1rem;
+  }
+  .filteration_block {
+    margin-bottom: 1rem;
+    .rate-label {
+      border-radius: 6px;
+      border: 2px solid #c4c4c4;
+      padding: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+      width: auto;
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+  }
+  .review_list {
+    .card {
+      transition: all 0.2s ease-in-out;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 49%;
+      .card_body {
+        width: 100%;
+        h5 {
+          font-size: 18px;
+          font-weight: bolder;
+        }
+        p {
+          font-size: 16px;
+          width: 100%;
+        }
+        .rate-label {
+          background: #feebd6;
+          border-radius: 3px;
+          padding: 1.5%;
+          font-size: 12px;
+          white-space: nowrap;
+          width: auto;
+        }
+      }
+      &:hover {
+        box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+        0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+
+      }
+    }
+
+  }
+  .btn_section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .loadStatus {
+      width: 265px;
+      text-align: center;
+    }
+    .lineSection {
+      width: 265px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .8rem;
+      .leftLine,
+      .rightLine {
+        width: 130px;
+        height: 2px;
+        background-color: #c4c4c4;
+        &.active{
+          background-color: #f78f1e;
+        }
+      }
+    }
+    .loadMoreBtn {
+      width: 267px;
+      box-shadow: none;
+      &:hover {
+        box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+      }
+      &:focus {
+        box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+      }
+    }
+  }
+}
+
+.text-grey {
+  color: #999;
+}
+
+.text-warning {
+  color: #f78f1e !important;
+}
+
+.btn-warning-light {
+  background-color: #FEEBD6;
+}
+
+.bd-warning {
+  border-color: #f78f1e !important;
+}

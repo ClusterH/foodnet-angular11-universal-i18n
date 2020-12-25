@@ -149,7 +149,7 @@ function run() {
   server.use('', appRo);
 
   // gzip
-  server.use(compression());
+  server.use(compression({ level: 5 }));
   // cokies
   server.use(cookieparser());
 

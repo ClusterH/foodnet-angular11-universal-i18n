@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (id == 0) {
       const location = this.locations.find(item => item.cities === this.texts);
 
-      this.sessionStorageService.setItem('currentLocationId', location.id.toString());
+      this.cookieService.put('currentLocationId', location.id.toString());
 
       this.router.navigate([`/${location.cities}`]);
 
@@ -160,9 +160,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         hu: ['Marosvásárhely', 'Csíkszereda', 'Székelyudvarhely'],
       }
 
-      this.sessionStorageService.setItem('currentLocationId', id.toString());
+      this.cookieService.put('currentLocationId', id.toString());
 
-      this.router.navigate([`/${cityList[this.cookieService.get('change_lang')][id - 1]}`]);
+      this.router.navigate([`${cityList[this.cookieService.get('change_lang')][id - 1]}`]);
+      // this.router.navigate([`restaurant/Targu-Mures`]);
       // this.router.navigate([`list/${id}`]);
     }
   }

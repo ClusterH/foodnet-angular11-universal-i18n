@@ -28,7 +28,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   requiredExtraList: Array<any>;
   optionalExtraList: Array<any>;
-  selectedProduct: number;
+  selectedProduct: ProductList;
   isShownExtra: boolean = false;
   productImg: string;
 
@@ -43,25 +43,16 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   ) {
     this._unsubscribeAll = new Subject();
     this.productImg = "./assets/images/banner.svg";
-    this.requiredExtraList = [
-      {
-        id: 1,
-        extra_content: "Coca-Cola carbonated soft drink 0.33l"
-      },
-      {
-        id: 2,
-        extra_content: "Coca-Cola Zero carbonated soft drink 0.33l"
-      },
-      {
-        id: 3,
-        extra_content: "Fanta Orange carbonated soft drink 0.33l"
-      },
-      {
-        id: 4,
-        extra_content: "Sprite Lemon-Lime carbonated soft drink 0.33l"
-      },
-
-    ]
+    // this.requiredExtraList = [
+    //   {
+    //     id: 1,
+    //     extra_content: "Coca-Cola carbonated soft drink 0.33l"
+    //   },
+    //   {
+    //     id: 2,
+    //     extra_content: "Coca-Cola Zero carbonated soft drink 0.33l"
+    //   },
+    // ]
   }
 
   ngOnInit(): void {
@@ -155,6 +146,8 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
     forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
       console.log(requiredExtraData, '==========', optionalExtraData);
+      this.requiredExtraList = requiredExtraData.result;
+      this.optionalExtraList = optionalExtraData.result;
     });
 
     this.selectedProduct = productItem;

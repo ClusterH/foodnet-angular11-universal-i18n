@@ -2,7 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Input } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from 'src/app/modules/core';
-import { RestaurantMenuService } from '../../../services';
+import { RestaurantMenuService } from './../services';
 import { RestaurantList } from '../../../models';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';

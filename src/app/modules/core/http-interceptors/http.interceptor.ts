@@ -7,9 +7,9 @@ import {
   HttpErrorResponse,
   HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from '../session-storage/session-storage.service';
 
@@ -19,8 +19,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
   constructor(
     private injector: Injector,
     private cookieService: CookieService,
-    private sessionService: SessionStorageService
-
+    private sessionService: SessionStorageService,
+    private transferState: TransferState
   ) { }
 
   intercept(
@@ -35,6 +35,14 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
     if (token) {
       headersConfig['x-auth-token'] = `${token}`;
+    }
+    if (request.method === 'GET') {
+      const key = makeStateKey(request.url);
+      const storedResponse: string = this.transferState.get(key, null);
+      if (storedResponse) {
+        const response = new HttpResponse({ body: storedResponse, status: 200 });
+        return of(response);
+      }
     }
 
     const req = request.clone({ setHeaders: headersConfig });

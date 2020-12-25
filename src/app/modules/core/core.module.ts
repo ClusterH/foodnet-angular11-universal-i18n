@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+
 import {
   HttpClientModule,
-  HttpClient,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { HttpConfigInterceptor } from './http-interceptors/http.interceptor';
-// import { AppErrorHandler } from './error-handler/app-error-handler.service';
+
 import { NotificationService } from './notifications/notification.service';
 import { SessionStorageService } from './session-storage/session-storage.service';
 export {

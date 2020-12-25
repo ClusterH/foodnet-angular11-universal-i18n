@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { CoreModule } from './modules/core/core.module';
 import { ShareModule } from './modules/shared/shared.module';
@@ -19,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'foodnet' }),
+    BrowserTransferStateModule,
+    TransferHttpCacheModule,
     AppRoutingModule,
     HttpClientModule,
     ShareModule,

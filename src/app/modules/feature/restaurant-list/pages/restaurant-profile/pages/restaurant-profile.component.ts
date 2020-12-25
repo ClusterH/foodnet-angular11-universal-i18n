@@ -3,9 +3,9 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Input } from '@angul
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from 'src/app/modules/core';
 import { RestaurantMenuService } from './../services';
-import { RestaurantList } from '../../../models';
+import { RestaurantList, FilterOption } from '../../../models';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-restaurant-profile',
@@ -19,6 +19,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   counts: number;
   restaurant: RestaurantList;
   restaurantId: number;
+  filterOption: Array<string> = [];
+  header_menu: string = '';
+  header_info: string = '';
+  header_review: string = '';
   isSpinner: boolean = true;
 
   constructor(
@@ -30,13 +34,25 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.restaurant = JSON.parse(this.cookieService.get('restaurant'));
+    this.header_menu = $localize`:@@restaurant-profile-tab-menu:Menu`;
+    this.header_info = $localize`:@@restaurant-profile-tab-info:INFO & PROMOTIONS`;
+    this.header_review = $localize`:@@restaurant-profile-tab-review:Evaluation`;
   }
 
   ngOnInit(): void {
-
+    const filterOption = JSON.parse(this.cookieService.get('filter_option')).filters;
+    console.log(filterOption);
+    for (let option in filterOption) {
+      console.log(option)
+      if (filterOption[option] == 1) {
+        this.filterOption.push(option);
+      }
+    }
   }
 
-  ngOnDestroy(): void { }
+  ngOnDestroy(): void {
+
+  }
 
   counterChange(event): void {
     this.counts = event.counts;

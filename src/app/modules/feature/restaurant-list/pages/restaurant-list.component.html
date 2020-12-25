@@ -1,11 +1,17 @@
 <main class="main_container">
-  <h1><span class="text-warning text-bold">33 éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
+  <h1 *ngIf="cookieService.get('change_lang') == 'en'"><span class="text-bold">We have found&nbsp;<span
+        class="text-warning text-bold">{{restaurantList.length}} Restaurants&nbsp;</span>for you</span></h1>
+  <h1 *ngIf="cookieService.get('change_lang') == 'ro'"><span class="text-bold">Am găsit&nbsp;<span
+        class="text-warning text-bold">{{restaurantList.length}} de restaurante&nbsp;</span>pentru dvs</span></h1>
+  <h1 *ngIf="cookieService.get('change_lang') == 'hu'"><span class="text-warning text-bold">{{restaurantList.length}}
+      éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
   <div class="main_content">
     <div class="filter_section" [ngClass]="filterShow ? 'active': ''">
-      <app-filter-section (selectedFilterOptions)="filterEventFromPanel($event)"></app-filter-section>
+      <app-filter-section (selectedFilterOptions)="filterEventFromPanel($event)"
+        (showFilterOptions)="filterShowEvent($event)" [filterShow]="filterShow"></app-filter-section>
     </div>
     <div class="main_body" [ngClass]="filterShow ? 'active': ''">
-      <h5>Find a restaurant by name</h5>
+      <h5 i18n="@@restaurant-list-a">Find a restaurant by name</h5>
       <div class="search_box">
         <i class="fas fa-search"></i>
         <input type="text" class="form-control" placeholder="Restaurant name..." [(ngModel)]="searchString"
@@ -17,10 +23,12 @@
           (click)="restaurantProfile(restaurant)">
           <img class="card-img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
             alt="Card image 1" style="width:100%">
-          <span class="badge" *ngIf="restaurant.restaurant_new == 1">New restaurant</span>
-          <span class="badge" *ngIf="restaurant.restaurant_discount == 1">Pret special</span>
+          <span class="badge" *ngIf="restaurant.restaurant_new == 1" i18n="@@restaurant-list-new-badge">New
+            restaurant</span>
+          <span class="badge" *ngIf="restaurant.restaurant_discount == 1"
+            i18n="@@restaurant-list-discount-badge">Special price</span>
           <div class="overlay" *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">
-            <span>Closed</span>
+            <span i18n="@@restaurant-list-btn-close">Closed</span>
           </div>
           <div class="card-body"
             [ngClass]="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close) ? 'closed' : ''">
@@ -32,7 +40,8 @@
               </label>
             </h4>
             <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
-            <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount != 0">
+            <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount != 0"
+              i18n="@@restaurant-list-cheaper">
               -{{restaurant.restaurant_discount}}% cheaper</p>
             <p class="card-text text-warning text-left" *ngIf="restaurant.restaurant_discount == 0">&nbsp;</p>
           </div>

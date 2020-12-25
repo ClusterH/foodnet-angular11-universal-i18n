@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -9,9 +11,7 @@ import { CookieModule, CookieService } from '@gorniv/ngx-universal';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/feature/home/pages/home.component';
 import { NotFoundComponent } from './modules/feature/not-found/not-found.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-
+import { SessionStorageService } from './modules/core/session-storage/session-storage.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     CookieModule.forRoot()
   ],
-  providers: [CookieService],
+  providers: [CookieService, SessionStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

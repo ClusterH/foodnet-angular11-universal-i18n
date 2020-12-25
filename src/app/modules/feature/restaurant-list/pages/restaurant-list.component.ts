@@ -32,6 +32,7 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
+    private sessionStorageService: SessionStorageService,
     private restaurantFilterService: RestaurantFilterService,
   ) {
     console.log('refresh_constructor');
@@ -62,6 +63,10 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
 
   filterShown(): void {
     this.filterShow = !this.filterShow;
+  }
+
+  filterShowEvent(event): void {
+    this.filterShow = event;
   }
 
   onKeyUpSearch(): void {
@@ -100,7 +105,9 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
 
   restaurantProfile(restaurant: any) {
     this.cookieService.put('restaurant', JSON.stringify(restaurant));
-    const location = 'Târgu Mureș'
+    this.cookieService.put('filter_option', JSON.stringify(this.filterOption));
+
+    const location = 'Târgu Mureș';
     this.router.navigate([`${location}/${restaurant.restaurant_name}`]);
   }
 }

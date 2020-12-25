@@ -1,13 +1,14 @@
 <main class="menu_container" *ngIf="productList">
-  <h2 class="text-bold">Menu</h2>
+  <h2 class="text-bold" i18n="@@restaurant-profile-menu-a">Menu</h2>
   <app-inline-carousel *ngIf="categoryList" [itemList]="categoryList" [disabledOption]="false" [optionType]="'category'"
     (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
-  <h5>Availability</h5>
+  <h5 i18n="@@restaurant-profile-menu-b">Availability</h5>
   <app-inline-carousel *ngIf="subCategoryList" [itemList]="subCategoryList" [disabledOption]="false"
     [optionType]="'subcategory'" (selectedItemEmitter)="selectedItem($event)" [translatePosition]="translatePosition">
   </app-inline-carousel>
   <div class="form-group search_field" *ngIf="categoryList">
-    <label for="category_search" class="text-bold">{{ selectedCategory.category_name }}
+    <label for="category_search" class="text-bold" i18n="@@restaurant-profile-menu-c">{{ selectedCategory.category_name
+      }}
       Search</label>
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
@@ -26,7 +27,7 @@
           <h5>{{ product.product_name }}</h5>
           <p>{{ product.product_description }}</p>
           <p class="text-grey">
-            <span>(Allergens: </span>
+            <span i18n="@@restaurant-profile-menu-d">(Allergens: </span>
             <span *ngFor="let allergen of product.allergens_name; let last=last">
               <span *ngIf="last">{{ allergen.allergen_name }}</span>
               <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
@@ -55,7 +56,7 @@
     <div class="main_info" *ngIf="selectedProduct">
       <h2>{{selectedProduct.product_name}}</h2>
       <p>{{selectedProduct.product_description}}</p>
-      <div><span>(Allergens: </span>
+      <div><span i18n="@@restaurant-profile-menu-dialog-a">(Allergens: </span>
         <span *ngFor="let allergen of selectedProduct.allergens_name; let last=last">
           <span *ngIf="last">{{ allergen.allergen_name }}</span>
           <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
@@ -64,7 +65,7 @@
       </div>
     </div>
     <div class="required_extra">
-      <h5 class="text-bold">Required extra(1 piece Required)</h5>
+      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-b">Required extra(1 piece Required)</h5>
       <ul class="required_extra_list" *ngIf="requiredExtraList">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
           <input type="radio" name="required_extra_item" id="required_extra_item">
@@ -74,7 +75,7 @@
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
             </div>
             <div class="allergens text-left flex-wrap">
-              <span>(Allergens: </span>
+              <span i18n="@@restaurant-profile-menu-dialog-c">(Allergens: </span>
               <span *ngFor="let allergen of extra.allergens_name; let last=last">
                 <span *ngIf="last">{{ allergen.allergen }}</span>
                 <span *ngIf="!last">{{ allergen.allergen }}, </span>
@@ -87,7 +88,7 @@
       </ul>
     </div>
     <div class="optional_extra">
-      <h5 class="text-bold">Optional extra(Not required)</h5>
+      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-d">Optional extra(Not required)</h5>
       <ul class="optional_extra_list" *ngIf="optionalExtraList">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
           <input type="checkbox" name="" id="">
@@ -97,7 +98,7 @@
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
             </div>
             <div class="allergens text-left flex-wrap">
-              <span>(Allergens: </span>
+              <span i18n="@@restaurant-profile-menu-dialog-e">(Allergens: </span>
               <span *ngFor="let allergen of extra.allergens_name; let last=last">
                 <span *ngIf="last">{{ allergen.allergen }}</span>
                 <span *ngIf="!last">{{ allergen.allergen }}, </span>
@@ -110,16 +111,17 @@
       </ul>
       <hr />
       <div class="d-flex justify-content-center align-items-center show_more_section">
-        <a class="text-warning text-decoration-none text-bold">SHOW MORE</a>
+        <a class="text-warning text-decoration-none text-bold" i18n="@@restaurant-profile-menu-dialog-f">SHOW MORE</a>
       </div>
 
     </div>
     <div class="comments">
-      <h5 class="text-bold">Comment</h5>
+      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-g">Comment</h5>
       <textarea class="comment_content" name="" id="" cols="30" rows="4"></textarea>
     </div>
     <p-footer>
-      <button type="button" class="btn btn-warning text-white btn-expand" (click)="closeExtra()">Add to the
+      <button type="button" class="btn btn-warning text-white btn-expand" (click)="closeExtra()"
+        i18n="@@restaurant-profile-menu-dialog-h">Add to the
         cart</button>
     </p-footer>
   </p-dialog>

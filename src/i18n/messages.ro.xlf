@@ -10,82 +10,67 @@
         </context-group>
       </trans-unit><trans-unit id="home-section1-e" datatype="html">
         <source>Quick search:</source><target state="new">Căutare rapidă:</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section1-f" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">19</context></context-group></trans-unit><trans-unit id="home-section1-f" datatype="html">
         <source>Târgu Mureș</source><target state="new">Târgu Mureș</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section1-g" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">20</context></context-group></trans-unit><trans-unit id="home-section1-g" datatype="html">
         <source>Odorheiu Secuiesc</source><target state="new">Odorheiu Secuiesc</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section1-h" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">21</context></context-group></trans-unit><trans-unit id="home-section1-h" datatype="html">
         <source>Miercurea Ciuc</source><target state="new">Miercurea Ciuc</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section2-eye-catching-address" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit><trans-unit id="home-section2-eye-catching-address" datatype="html">
         <source>An eye-catching address</source><target state="new">O adresă atrăgătoare</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="home-section2-about-purechase" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="home-section2-about-purechase" datatype="html">
         <source>about the purchase</source><target state="new">despre achiziție</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="home-section2-b" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="home-section2-b" datatype="html">
         <source>Here we would give a little description of why it would be worth it for him, what are the benefits, in 2-3 lines.</source><target state="new">Aici am face o mică descriere a motivului pentru care ar merita pentru el, care sunt beneficiile, în 2-3 rânduri.</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">34</context></context-group></trans-unit><trans-unit id="home-section2-c" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">35</context></context-group></trans-unit><trans-unit id="home-section2-c" datatype="html">
         <source> Shop <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
             &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></source><target state="new"> Cumpără <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="Shop
             &lt;i class=&quot;fa"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="s fa"/></target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="home-section2-d" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">40</context></context-group></trans-unit><trans-unit id="home-section2-d" datatype="html">
         <source>Reading about it</source><target state="new">Citește mai departe</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">42</context></context-group></trans-unit><trans-unit id="home-section3.1-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">43</context></context-group></trans-unit><trans-unit id="home-section3.1-a" datatype="html">
         <source>Târgu Mureș</source><target state="new">Târgu Mureș</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">54</context></context-group></trans-unit><trans-unit id="home-section3.1-b" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">55</context></context-group></trans-unit><trans-unit id="home-section3.1-b" datatype="html">
         <source> All restaurants in Târgu Mureș </source><target state="new"> Toate restaurante în Târgu Mureș </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit><trans-unit id="home-section3.2-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit><trans-unit id="home-section3.2-a" datatype="html">
         <source>Miercurea Ciuc</source><target state="new">Miercurea Ciuc</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">79</context></context-group></trans-unit><trans-unit id="home-section3.2-b" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">80</context></context-group></trans-unit><trans-unit id="home-section3.2-b" datatype="html">
         <source> All restaurants in Miercurea Ciuc </source><target state="new"> Toate restaurante în Miercurea Ciuc </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">99</context></context-group></trans-unit><trans-unit id="home-section3.3-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">100</context></context-group></trans-unit><trans-unit id="home-section3.3-a" datatype="html">
         <source>Odorheiu Secuiesc</source><target state="new">Odorheiu Secuiesc</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">104</context></context-group></trans-unit><trans-unit id="home-section3.3-b" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">105</context></context-group></trans-unit><trans-unit id="home-section3.3-b" datatype="html">
         <source> All restaurants in Odorheiu Secuiesc </source><target state="new"> Toate restaurante în Odorheiu Secuiesc </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">124</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">125</context></context-group></trans-unit><trans-unit id="home-section4-a" datatype="html">
         <source>Our key strengths</source><target state="new">Punctele noastre forte</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">130</context></context-group></trans-unit><trans-unit id="home-section6-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">131</context></context-group></trans-unit><trans-unit id="home-section6-a" datatype="html">
         <source>Do you want to appear on the site?</source><target state="new">Vrei sa apari pe site?</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">169</context></context-group></trans-unit><trans-unit id="home-section6-b" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">170</context></context-group></trans-unit><trans-unit id="home-section6-b" datatype="html">
         <source>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</source><target state="new">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">170</context></context-group></trans-unit><trans-unit id="home-section6-c" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">171</context></context-group></trans-unit><trans-unit id="home-section6-c" datatype="html">
         <source> Apply </source><target state="new"> Aplică </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">174</context></context-group></trans-unit><trans-unit id="home-section1-d" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">175</context></context-group></trans-unit><trans-unit id="home-section1-d" datatype="html">
         <source>Search</source><target state="new">Căutare</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context>
-          <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit><trans-unit id="home-section1-c" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">15</context></context-group></trans-unit><trans-unit id="home-section1-c" datatype="html">
         <source><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="        &lt;ng-template let-texts pTemplate=&quot;item&quot;>
  "/><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="         &lt;i class=&quot;fas fa-map-mar"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="ker-"/><x id="START_TAG_DIV" ctype="x-div" equiv-text="          &lt;div style=&quot;display: inline; margin-lef"/><x id="INTERPOLATION" equiv-text="t: 10px;&quot;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text=">{{tex"/><x id="CLOSE_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text=">
         &lt;/n"/></source><target state="new"><x id="START_TAG_NG_TEMPLATE" ctype="x-ng_template" equiv-text="        &lt;ng-template let-texts pTemplate=&quot;item&quot;>
@@ -98,7 +83,7 @@
       </trans-unit><trans-unit id="home-section5-a" datatype="html">
         <source> Users said </source><target state="new"> Punctele noastre forte </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">148</context></context-group></trans-unit><trans-unit id="header-search-button" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.html</context><context context-type="linenumber">149</context></context-group></trans-unit><trans-unit id="header-search-button" datatype="html">
         <source>Search</source><target state="new">Căutare</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/header/header.component.html</context><context context-type="linenumber">18</context></context-group></trans-unit><trans-unit id="header-search-placeholder" datatype="html">
@@ -155,47 +140,47 @@
       <trans-unit id="home-section4-b">
         <source>Strength #1</source>
         <target>Putere #1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">50</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">54</context></context-group></trans-unit>
       <trans-unit id="home-section4-c">
         <source>Strength #2</source>
         <target>Putere #2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">54</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">58</context></context-group></trans-unit>
       <trans-unit id="home-section4-d">
         <source>Strength #3</source>
         <target>Putere #3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">58</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">62</context></context-group></trans-unit>
       <trans-unit id="home-section4-e">
         <source>Strength #4</source>
         <target>Putere #4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">62</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">66</context></context-group></trans-unit>
       <trans-unit id="home-section4-f">
         <source>Here will be the strength 1</source>
         <target>Aici va fi forța 1</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">51</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">55</context></context-group></trans-unit>
       <trans-unit id="home-section4-g">
         <source>Here will be the strength 2</source>
         <target>Aici va fi forța 2</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">55</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">59</context></context-group></trans-unit>
       <trans-unit id="home-section4-h">
         <source>Here will be the strength 3</source>
         <target>Aici va fi forța 3</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">59</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">63</context></context-group></trans-unit>
       <trans-unit id="home-section4-i">
         <source>Here will be the strength 4</source>
         <target>Aici va fi forța 4</target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">63</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">67</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-1">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">68</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">72</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-2">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">73</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">77</context></context-group></trans-unit>
       <trans-unit id="home-section5-b-3">
         <source>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.”</source>
         <target>“is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.” </target>
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">78</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/home/pages/home.component.ts</context><context context-type="linenumber">82</context></context-group></trans-unit>
       <trans-unit id="footer-a">
         <source>Job advertisement</source>
         <target>Loc de muncă</target>
@@ -757,10 +742,10 @@
       </trans-unit><trans-unit id="update-profile-success-message" datatype="html">
         <source>Successful data modification</source><target state="new">Modificarea cu succes a datelor</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">107</context></context-group></trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">106</context></context-group></trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
         <source>A server error has occurred</source><target state="new">A apărut o eroare de server</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">111</context></context-group></trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">110</context></context-group></trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
         <source>Change password</source><target state="new">Schimbați parola</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.html</context>
@@ -864,29 +849,17 @@
         </context-group>
       </trans-unit><trans-unit id="profile-delivery-update-title" datatype="html">
         <source>Update delivery address</source><target state="new">Actualizați adresa de livrare</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">55</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-create-title" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="profile-delivery-create-title" datatype="html">
         <source>Create delivery address</source><target state="new">Creați adresa de expediere</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">67</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-success-message" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context><context context-type="linenumber">77</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-success-message" datatype="html">
         <source>Successful data modification</source><target state="new">Modificarea cu succes a datelor</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">140</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-failed-message" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context><context context-type="linenumber">151</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-failed-message" datatype="html">
         <source>A server error has occurred</source><target state="new">A apărut o eroare de server</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">144</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-delivery-edit-b" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context><context context-type="linenumber">155</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-b" datatype="html">
         <source>Settlement (Required)</source><target state="new">Așezare (Obligatoriu)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context>
@@ -912,7 +885,7 @@
           class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Save</source><target state="new"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
           class=&quot;fas fa-save mr-2&quot;>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i> "/> Salvare</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">73</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-close-button-c" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-close-button-c" datatype="html">
         <source>Close</source><target state="new">Închidere</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">87</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-street-required" datatype="html">
@@ -1057,6 +1030,239 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-edit/review-edit.component.html</context>
           <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-list-a" datatype="html">
+        <source>Find a restaurant by name</source><target state="new">Căutați un restaurant după nume</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-list.component.html</context><context context-type="linenumber">14</context></context-group></trans-unit><trans-unit id="restaurant-list-new-badge" datatype="html">
+        <source>New restaurant</source><target state="new">Restaurant nou</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-list.component.html</context><context context-type="linenumber">26</context></context-group></trans-unit><trans-unit id="restaurant-list-discount-badge" datatype="html">
+        <source>Special price</source><target state="new">Pret special</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-list.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit><trans-unit id="restaurant-list-btn-close" datatype="html">
+        <source>Closed</source><target state="new">Închis</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-list.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="restaurant-list-cheaper" datatype="html">
+        <source> -<x id="INTERPOLATION" equiv-text="        i18n=&quot;@@restaurant-list-ch"/>% cheaper</source><target state="new"> -<x id="INTERPOLATION" equiv-text="        i18n=&quot;@@restaurant-list-ch"/>% mai ieftin</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-list.component.html</context><context context-type="linenumber">44</context></context-group></trans-unit><trans-unit id="filter-component-btn-a" datatype="html">
+        <source>No shipping costs</source><target state="new">Fără costuri de expediere</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="filter-component-btn-b" datatype="html">
+        <source>News</source><target state="new">Știri</target>
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="filter-component-btn-c" datatype="html">
+        <source>Within 1 hour</source><target state="new">în decurs de 1 oră</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">33</context></context-group></trans-unit><trans-unit id="filter-component-btn-d" datatype="html">
+        <source>Hamburger</source><target state="new">Hamburger</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">36</context></context-group></trans-unit><trans-unit id="filter-component-btn-e" datatype="html">
+        <source>Pizza</source><target state="new">Pizza</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">37</context></context-group></trans-unit><trans-unit id="filter-component-btn-f" datatype="html">
+        <source>Soup</source><target state="new">Supă</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">38</context></context-group></trans-unit><trans-unit id="filter-component-btn-g" datatype="html">
+        <source>Daily Menu</source><target state="new">Meniul zilei</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="filter-component-btn-h" datatype="html">
+        <source>Salad</source><target state="new">Salată</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">40</context></context-group></trans-unit><trans-unit id="filter-component-btn-i" datatype="html">
+        <source>Cash</source><target state="new">Bani lichizi</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">43</context></context-group></trans-unit><trans-unit id="filter-component-btn-j" datatype="html">
+        <source>Card</source><target state="new">Card</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.ts</context><context context-type="linenumber">44</context></context-group></trans-unit><trans-unit id="filter-component-filteration" datatype="html">
+        <source>Filtration</source><target state="new">Filtrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="filter-component-useful" datatype="html">
+        <source>Useful</source><target state="new">Util</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="filter-component-food" datatype="html">
+        <source>Foods</source><target state="new">Alimente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit><trans-unit id="filter-component-paymentoption" datatype="html">
+        <source>Payment options</source><target state="new">Opțiuni de plată</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="filter-component-btn-search" datatype="html">
+        <source>Search</source><target state="new">Căutare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit><trans-unit id="filter-component-btn-cancel" datatype="html">
+        <source>Cancel</source><target state="new">Anulare</target>
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-menu" datatype="html">
+        <source>Menu</source><target state="new">Meniul</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-tab-info" datatype="html">
+        <source>INFO &amp; PROMOTIONS</source><target state="new">INFO &amp; PROMOȚII</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-tab-review" datatype="html">
+        <source>Evaluation</source><target state="new">Evaluare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-badge-open" datatype="html">
+        <source>open</source><target state="new">deschis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-a" datatype="html">
+        <source>Menu</source><target state="new">Meniul</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-b" datatype="html">
+        <source>Availability</source><target state="new">Disponibilitate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-b" datatype="html">
+        <source>Required extra(1 piece Required)</source><target state="new">Necesar suplimentar(1 bucată Necesar)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-d" datatype="html">
+        <source>Optional extra(Not required)</source><target state="new">Optional suplimentar(Nu este necesar)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-f" datatype="html">
+        <source>SHOW MORE</source><target state="new">AFIȘAȚI MAI MULTE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-g" datatype="html">
+        <source>Comment</source><target state="new">Cometariu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-h" datatype="html">
+        <source>Add to the cart</source><target state="new">Adaugă în coș</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">124,125</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-c" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="-menu-c&quot;>{{ selectedCategory.catego"/> Search</source><target state="new"><x id="INTERPOLATION" equiv-text="-menu-c&quot;>{{ selectedCategory.catego"/> Căutare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-d" datatype="html">
+        <source>(Allergens: </source><target state="new">(Alergeni: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-a" datatype="html">
+        <source>(Allergens: </source><target state="new">(Alergeni: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-c" datatype="html">
+        <source>(Allergens: </source><target state="new">(Alergeni: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-e" datatype="html">
+        <source>(Allergens: </source><target state="new">(Alergeni: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-info-a" datatype="html">
+        <source>INFO &amp; PROMOTIONS</source><target state="new">INFO &amp; PROMOȚII</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-info/restaurant-info.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-info-b" datatype="html">
+        <source>Average delivery time</source><target state="new">Timp mediu de livrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-info/restaurant-info.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-info-c" datatype="html">
+        <source>Address &amp; Contacts</source><target state="new">Adresa &amp; Contacte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-info/restaurant-info.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-info-d" datatype="html">
+        <source>Description</source><target state="new">Descriere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-info/restaurant-info.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-info-e" datatype="html">
+        <source>Opening hours</source><target state="new">Ore de deschidere</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-info/restaurant-info.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-review-a" datatype="html">
+        <source>Evaluation</source><target state="new">Evaluare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-review-b" datatype="html">
+        <source>Average rating: </source><target state="new">Rata medie: </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-review-c" datatype="html">
+        <source>Filtration</source><target state="new">Filtrare</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-review-d" datatype="html">
+        <source>Showing 12 reviews of 24</source><target state="new">Afișare 12 recenzii din 24</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-review-e" datatype="html">
+        <source>Loading more reviews</source><target state="new">Se încarcă mai multe recenzii</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit><trans-unit id="profile-review-create-a" datatype="html">
         <source>Write a review - <x id="INTERPOLATION" equiv-text="{{restaurantName}}"/></source><target state="new">Scrie o opinie - <x id="INTERPOLATION" equiv-text="{{restaurantName}}"/></target>

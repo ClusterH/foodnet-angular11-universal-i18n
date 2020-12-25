@@ -1,15 +1,15 @@
 <main class="info_container" *ngIf="restaurantInfo">
   <section class="info_section">
-    <h2 class="text-bold">INFO & PROMOTIONS</h2>
-    <h5 class="text-bold">Average delivery time</h5>
+    <h2 class="text-bold" i18n="@@restaurant-profile-info-a">INFO & PROMOTIONS</h2>
+    <h5 class="text-bold" i18n="@@restaurant-profile-info-b">Average delivery time</h5>
     <p>Kb. {{restaurantInfo.restaurant_AvgDeliveryTime}} perc</p>
-    <h5 class="text-bold">Address & Contacts</h5>
+    <h5 class="text-bold" i18n="@@restaurant-profile-info-c">Address & Contacts</h5>
     <p>{{restaurantInfo.restaurant_address}}</p>
-    <h5 class="text-bold">Description</h5>
+    <h5 class="text-bold" i18n="@@restaurant-profile-info-d">Description</h5>
     <p>{{restaurantInfo.restaurant_description}}</p>
   </section>
   <section class="time_section">
-    <h2 class="text-bold">Opening hours</h2>
+    <h2 class="text-bold" i18n="@@restaurant-profile-info-e">Opening hours</h2>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let date of restaurantInfo.result">
         <span class="text-uppercase text-bold">{{date.day}}</span>

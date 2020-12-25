@@ -90,7 +90,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getRestaurantsByLocation(): void {
-    this.router.navigate([`restaurant-filter/${this.texts}`]);
+    this.router.navigate([`${this.texts}`]);
   }
 
   logout(): void {

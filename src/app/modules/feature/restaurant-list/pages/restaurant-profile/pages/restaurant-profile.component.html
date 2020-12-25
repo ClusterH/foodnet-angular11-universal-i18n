@@ -3,11 +3,11 @@
     <div class="banner">
       <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
       <img class="profile_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage" alt="">
-      <span class="status_badge">open</span>
+      <span class="status_badge" i18n="@@restaurant-profile-badge-open">open</span>
       <div class="d-flex justify-content-between align-items-center mobile_title">
         <span class="text-white"><i class="fas fa-arrow-left"></i></span>
         <span class="text-white">{{restaurant.restaurant_name}}</span>
-        <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt="" ></span>
+        <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt=""></span>
       </div>
     </div>
     <div class="top_info">
@@ -17,23 +17,20 @@
           <i class="far fa-star text-warning"></i>
           <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
         </label>
-        <label class="rate-label">
-          <span class="text-warning text-bold">No shipping costs</span>
-        </label>
-        <label class="rate-label">
-          <span class="text-warning text-bold">Pizza</span>
+        <label class="rate-label" *ngFor="let option of filterOption">
+          <span class="text-warning text-bold">{{option}}</span>
         </label>
       </div>
     </div>
     <div class="main_info">
       <p-tabView *ngIf="isBrowser">
-        <p-tabPanel header="Menu">
+        <p-tabPanel [header]="header_menu">
           <app-restaurant-menu *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-menu>
         </p-tabPanel>
-        <p-tabPanel header="INFO & PROMOTIONS">
+        <p-tabPanel [header]="header_info">
           <app-restaurant-info *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-info>
         </p-tabPanel>
-        <p-tabPanel header="EVALUATION">
+        <p-tabPanel [header]="header_review">
           <app-restaurant-evaluation></app-restaurant-evaluation>
         </p-tabPanel>
       </p-tabView>

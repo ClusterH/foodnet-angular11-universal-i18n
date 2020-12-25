@@ -1,40 +1,40 @@
 <main class="evaluation_container">
-  <h2 class="text-bold">Evaluation</h2>
+  <h2 class="text-bold" i18n="@@restaurant-profile-review-a">Evaluation</h2>
   <div class="eval_intro">
     <span class="mr-2"><i class="far fa-star text-warning"></i></span>
-    <span class="text-bold">Average rating: </span>
+    <span class="text-bold" i18n="@@restaurant-profile-review-b">Average rating: </span>
     <span class="text-warning text-bold">4/5</span>
   </div>
   <div class="filteration_block d-flex flex-column align-items-start justify-content-center">
-    <span class="text-grey" style="font-size: 12px;">Filtration</span>
+    <span class="text-grey" style="font-size: 12px;" i18n="@@restaurant-profile-review-c">Filtration</span>
     <div class="col-12 pr-0 pl-0">
       <label class="rate-label" [ngClass]="i == evaluation - 1 ? 'bd-warning' : ''"
-      *ngFor="let in of points(5) ;let i = index" (click)="evaluationSelect(i)">
+        *ngFor="let in of points(5) ;let i = index" (click)="evaluationSelect(i)">
         <i class="far fa-star mr-1" [ngClass]="i == evaluation - 1 ? 'text-warning' : ''"></i>
         <span class="text-bold">{{i + 1}}</span>
       </label>
     </div>
   </div>
   <div class="review_list d-flex flex-row justify-content-between align-items-start flex-wrap">
-    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4"
-      *ngFor="let review of reviewList; odd as isOdd">
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let review of reviewList; odd as isOdd">
       <div class="card_body d-flex flex-column align-items-start justify-content-between">
         <h5>{{ review.title }}</h5>
         <p>{{ review.description }}</p>
-        <label class="rate-label" >
-          <i class="far fa-star mr-3 text-warning" ></i>
+        <label class="rate-label">
+          <i class="far fa-star mr-3 text-warning"></i>
           <span class="text-warning text-bold">{{review.evaluation}}/5</span>
         </label>
-  
+
       </div>
     </div>
   </div>
   <div class="btn_section">
-    <label class="loadStatus">Showing 12 reviews of 24</label>
+    <label class="loadStatus" i18n="@@restaurant-profile-review-d">Showing 12 reviews of 24</label>
     <div class="lineSection">
       <div class="leftLine" [ngClass]="!loadmore ? 'active' : ''"></div>
       <div class="rightLine" [ngClass]="loadmore ? 'active' : ''"></div>
     </div>
-    <button class="btn btn-warning-light text-warning mb-5 loadMoreBtn" (click)="loadMore()">Loading more reviews</button>
+    <button class="btn btn-warning-light text-warning mb-5 loadMoreBtn" (click)="loadMore()"
+      i18n="@@restaurant-profile-review-e">Loading more reviews</button>
   </div>
 </main>

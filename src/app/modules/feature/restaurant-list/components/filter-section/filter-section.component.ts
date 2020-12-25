@@ -15,7 +15,10 @@ export class FilterSectionComponent implements OnInit {
   payoptionList: any[];
   filters: any;
 
+  @Input() filterShow: boolean = true;
+
   @Output() selectedFilterOptions = new EventEmitter<{}>();
+  @Output() showFilterOptions = new EventEmitter<{}>();
 
   constructor(
     private router: Router,
@@ -25,20 +28,20 @@ export class FilterSectionComponent implements OnInit {
     this.foodActive = "";
     this.payoptionActive = "";
     this.usefulList = [
-      { name: "No shipping costs", value: "freeDelivery" },
-      { name: "News", value: "Newest" },
-      { name: "Within 1 hour", value: "withinOneHour" }
+      { name: $localize`:@@filter-component-btn-a:No shipping costs`, value: "freeDelivery" },
+      { name: $localize`:@@filter-component-btn-b:News`, value: "Newest" },
+      { name: $localize`:@@filter-component-btn-c:Within 1 hour`, value: "withinOneHour" }
     ];
     this.foodList = [
-      { name: "Hamburger", value: "hamburger" },
-      { name: "Pizza", value: "pizza" },
-      { name: "Soup", value: "soup" },
-      { name: "Daily menu", value: "dailyMenu" },
-      { name: "Salad", value: "salad" }
+      { name: $localize`:@@filter-component-btn-d:Hamburger`, value: "hamburger" },
+      { name: $localize`:@@filter-component-btn-e:Pizza`, value: "pizza" },
+      { name: $localize`:@@filter-component-btn-f:Soup`, value: "soup" },
+      { name: $localize`:@@filter-component-btn-g:Daily Menu`, value: "dailyMenu" },
+      { name: $localize`:@@filter-component-btn-h:Salad`, value: "salad" }
     ];
     this.payoptionList = [
-      { name: "Cash", value: "money" },
-      { name: "Card", value: "card" }
+      { name: $localize`:@@filter-component-btn-i:Cash`, value: "money" },
+      { name: $localize`:@@filter-component-btn-j:Card`, value: "card" }
     ];
     this.filters = {
       "freeDelivery": 0,
@@ -64,5 +67,10 @@ export class FilterSectionComponent implements OnInit {
       this.filters[item] = 1;
 
     this.selectedFilterOptions.emit(this.filters);
+  }
+
+  showFilter(): void {
+    this.filterShow = !this.filterShow;
+    this.showFilterOptions.emit(this.filterShow);
   }
 }

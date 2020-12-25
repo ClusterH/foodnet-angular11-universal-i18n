@@ -4,6 +4,11 @@
       <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
       <img class="profile_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage" alt="">
       <span class="status_badge">open</span>
+      <div class="d-flex justify-content-between align-items-center mobile_title">
+        <span class="text-white"><i class="fas fa-arrow-left"></i></span>
+        <span class="text-white">{{restaurant.restaurant_name}}</span>
+        <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt="" ></span>
+      </div>
     </div>
     <div class="top_info">
       <h1>{{restaurant.restaurant_name}}</h1>

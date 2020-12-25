@@ -14,14 +14,29 @@
       font-size: 32px;
       color: #111;
       margin-bottom: 1.5rem;
+      @media all and (max-width: 1440px) {
+        font-size: 28px;
+      }
+      @media all and (max-width: 990px) {
+        font-size: 22px;
+      }
+      @media all and (max-width: 590px) {
+        font-size: 18px;
+      }
     }
     h5 {
       font-size: 18px;
       color: #111;
+      @media all and (max-width: 590px) {
+        font-size: 16px;
+      }
     }
     p {
       font-size: 16px;
       color: #333;
+    }
+    @media all and (max-width: 590px) {
+      width: 100%;
     }
   }
   .time_section {
@@ -36,5 +51,14 @@
         align-items: center;
       }
     }
+    @media all and (max-width: 590px) {
+      width: 100%;
+    }
+  }
+  @media all and (max-width: 590px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
   }
 }

@@ -28,6 +28,10 @@
         }
       }
     }
+    @media all and (max-width: 590px) {
+      width: 100%;
+      overflow-x: auto;
+    }
   }
   .prev_icon {
     box-shadow: none;
@@ -35,6 +39,9 @@
     top: 50%;
     right: 65px;
     transform: translateY(-50%);
+    @media all and (max-width: 590px){
+      display: none;
+    }
   }
   .next_icon {
     box-shadow: none;
@@ -42,6 +49,9 @@
     top: 50%;
     right: 5px;
     transform: translateY(-50%);
+    @media all and (max-width: 590px){
+      display: none;
+    }
   }
 
 }

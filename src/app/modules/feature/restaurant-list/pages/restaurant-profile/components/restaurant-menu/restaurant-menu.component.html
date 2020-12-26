@@ -18,8 +18,8 @@
       <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
     </h2>
     <div class="prod_list">
-      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4"
-        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product)">
+      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of products; odd as isOdd"
+        (click)="showExtraPopup(product)">
         <div class="card_img">
           <img [src]="imgPath + product.product_imageUrl" alt="">
         </div>
@@ -48,8 +48,7 @@
     </div>
   </div>
 
-  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000"
-    styleClass="custom_dialog" [modal]="true">
+  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true">
     <p-header *ngIf="selectedProduct">
       <img [src]="imgPath + selectedProduct.product_imageUrl" alt="">
       <h5 class="text-bold text-center">Extras</h5>

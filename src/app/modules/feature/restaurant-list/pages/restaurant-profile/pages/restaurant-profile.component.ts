@@ -29,8 +29,6 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     public cookieService: CookieService,
-    private sessionStorageService: SessionStorageService,
-    private restaurantMenuService: RestaurantMenuService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
@@ -41,18 +39,17 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const filterOption = JSON.parse(this.cookieService.get('filter_option'));
-
-    for (let option in filterOption) {
-
-      if (filterOption[option] == 1) {
-        this.filterOption.push(option);
+    if (this.cookieService.get('filter_option')) {
+      const filterOption = JSON.parse(this.cookieService.get('filter_option'));
+      for (let option in filterOption) {
+        if (filterOption[option] == 1) {
+          this.filterOption.push(option);
+        }
       }
     }
   }
 
   ngOnDestroy(): void {
-
   }
 
   isOverdue(openTime, closeTime): boolean {

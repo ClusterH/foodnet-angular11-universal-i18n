@@ -33,3 +33,27 @@ body {
     $bgColor: white
   );
 }
+
+/* For Chrome */
+      /* width */
+      ::-webkit-scrollbar {
+        @media all and (min-width: 990px){
+          width: 3px;
+        }
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #bbb; 
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4b4b4b; 
+      }
+

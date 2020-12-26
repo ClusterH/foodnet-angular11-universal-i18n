@@ -48,7 +48,8 @@
     </div>
   </div>
 
-  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true">
+  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true"
+    [dismissableMask]="true">
     <p-header *ngIf="selectedProduct">
       <img [src]="imgPath + selectedProduct.product_imageUrl" alt="">
       <h5 class="text-bold text-center">Extras</h5>

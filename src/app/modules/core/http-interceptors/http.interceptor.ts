@@ -30,7 +30,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     const headersConfig = {
       'Content-Type': 'application/json',
     };
-    console.log('intercepter');
     const token = this.cookieService.get('stay_login') ? this.cookieService.get('auth_tkn') : this.sessionService.getItem('auth_tkn');
 
     if (token) {
@@ -46,7 +45,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     }
 
     const req = request.clone({ setHeaders: headersConfig });
-
     return next.handle(req).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {

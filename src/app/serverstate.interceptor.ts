@@ -17,7 +17,6 @@ export class ServerStateInterceptor implements HttpInterceptor {
     const headersConfig = {
       'Content-Type': 'application/json',
     };
-    console.log('intercepter');
     const token = this.cookieService.get('stay_login') ? this.cookieService.get('auth_tkn') : this.sessionService.getItem('auth_tkn');
 
     if (token) {

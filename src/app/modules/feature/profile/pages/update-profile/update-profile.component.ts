@@ -53,7 +53,7 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
       name: ['', [Validators.required,
       Validators.pattern('^[A-zĂÂÎȘȚăâîșțÁÉÍÓÖŐÚÜŰáéíóöőúüű ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required,
-      Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+      Validators.pattern('^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-])+\\.+[a-zA-Z]{2,}$')]],
       phonenumber: ['', [Validators.required,
       Validators.minLength(5), Validators.maxLength(30)]],
     });

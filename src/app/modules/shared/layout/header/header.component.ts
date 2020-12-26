@@ -56,7 +56,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.currentUrl = event.url;
       }
     });
-    // this.currentLang = window.location.pathname.split('/')[1] || 'ro';
     this.currentLang = this.cookieService.get('change_lang');
     this.languages = [{ name: 'ro', label: 'RO' }, { name: 'hu', label: 'HU' }, { name: 'en', label: 'EN' }];
     this.selectedLanguage = this.languages.find(country => country.name === this.currentLang);
@@ -69,6 +68,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.menuContentManage(event);
       });
     }
+
+    this.citySearchService.currentCity$.subscribe(res => {
+      this.texts = res;
+      if (this.texts == null) {
+        if (this.cookieService.get('currentLocation')) {
+          this.texts = JSON.parse(this.cookieService.get('currentLocation')).location;
+        }
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -90,7 +98,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   getRestaurantsByLocation(): void {
-    this.router.navigate([`${this.texts}`]);
+    this.citySearchService.currentCity.next(this.texts);
+    const location = this.locations.find(item => item.cities === this.texts);
+    this.cookieService.put('currentLocation', JSON.stringify({ id: location.id, location: location.cities }));
+    this.router.navigate(['/']);
   }
 
   logout(): void {
@@ -113,6 +124,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   menuShowMouseEvent(): void {
     this.menuShow = true;
+  }
+
+  moveToHome(): void {
+    this.texts = null;
+
+    if (this.cookieService.get('filter_option')) {
+      this.cookieService.remove('filter_option');
+    }
+    if (this.cookieService.get('currentLocation')) {
+      this.cookieService.remove('currentLocation');
+    }
   }
 }
 

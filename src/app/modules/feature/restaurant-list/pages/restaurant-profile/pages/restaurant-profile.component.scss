@@ -46,7 +46,8 @@
           display: none;
         }
       }
-      .status_badge {
+      .status_badge_open,
+      .status_badge_close {
         position: absolute;
         bottom: 5%;
         left: 22.5rem;
@@ -65,6 +66,9 @@
         @media all and (max-width: 590px) {
           display: none;
         }
+      }
+      .status_badge_close {
+        background-color: #f05050;
       }
     }
     .top_info {

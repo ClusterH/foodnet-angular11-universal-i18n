@@ -10,9 +10,9 @@
     <li class="list-group-item increase" (click)="counterChange($event, 'increase')">
       <i class="fas fa-plus"></i>
     </li>
-    <li class="list-group-item status_item" *ngIf="checkRequire">
-      <img src="./assets/icons/check_icon.svg" alt="" *ngIf="statusOption == 'check'">
-      <img src="./assets/icons/shop_bag_white.svg" alt="" *ngIf="statusOption == 'bag'">
+    <li class="list-group-item status_item" *ngIf="counterOption.checkRequire">
+      <img src="./assets/icons/check_icon.svg" alt="" *ngIf="counterOption.statusOption == 'check'">
+      <img src="./assets/icons/shop_bag_white.svg" alt="" *ngIf="counterOption.statusOption == 'bag'">
     </li>
   </ul>
 </div>

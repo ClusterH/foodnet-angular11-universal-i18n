@@ -6,6 +6,7 @@ import { RestaurantMenuService } from './../services';
 import { RestaurantList, FilterOption } from '../../../models';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-restaurant-profile',
@@ -40,10 +41,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const filterOption = JSON.parse(this.cookieService.get('filter_option')).filters;
-    console.log(filterOption);
+    const filterOption = JSON.parse(this.cookieService.get('filter_option'));
+
     for (let option in filterOption) {
-      console.log(option)
+
       if (filterOption[option] == 1) {
         this.filterOption.push(option);
       }
@@ -52,6 +53,17 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
 
+  }
+
+  isOverdue(openTime, closeTime): boolean {
+    const format = 'hh:mm';
+    const open = moment(openTime, format);
+    const close = moment(closeTime, format);
+    const hour = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const current = moment(`${hour}:${minute}`, format);
+
+    return current.isBetween(open, close);
   }
 
   counterChange(event): void {

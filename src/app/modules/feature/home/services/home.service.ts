@@ -7,7 +7,6 @@ import { Restaurants } from '../models/home.model'
 @Injectable()
 export class HomeService {
   apiBase = 'https://api.foodnet.ro/api/location/';
-  // apiBase_temp = 'https://shielded-anchorage-51692.herokuapp.com/api/location/';
 
   constructor(private _httpClient: HttpClient) { }
   getLocations(lang: string): Observable<any> {

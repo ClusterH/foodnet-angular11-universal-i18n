@@ -6,12 +6,12 @@ import { forkJoin, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Locations, Restaurants } from '../models/home.model';
 import { HomeService } from '../services/home.service';
-import { SessionStorageService } from '../../../core';
+import { CitySearchService } from '../../../shared/services';
 
-const BigCityNameAccordingToLang = {
-  en: ['targu-mures-en', 'miercurea-ciuc-en', 'odorheiu-secuiesc-en'],
-  ro: ['targu-mures', 'miercurea-ciuc', 'odorheiu-secuiesc'],
-  hu: ['marosvasarhely', 'csikszereda', 'szekelyudvarhely'],
+const cityList = {
+  en: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
+  ro: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
+  hu: ['Marosvásárhely', 'Csíkszereda', 'Székelyudvarhely'],
 }
 
 @Component({
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
     private homeService: HomeService,
-    private sessionStorageService: SessionStorageService,
+    private citySearchService: CitySearchService,
     public cookieService: CookieService,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -87,6 +87,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (this.cookieService.get('currentLocation')) {
+      const location = JSON.parse(this.cookieService.get('currentLocation')).location;
+      this.router.navigate([`/${location.replace(/\s/g, '-')}`]);
+      return;
+    }
+
     if (this.cookieService.get('change_lang')) {
       this.lang = this.cookieService.get('change_lang');
     } else {
@@ -148,23 +154,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   getRestaurantsByLocation(id: number = 0): void {
     if (id == 0) {
       const location = this.locations.find(item => item.cities === this.texts);
-
-      this.cookieService.put('currentLocationId', location.id.toString());
-
-      this.router.navigate([`/${location.cities}`]);
-
+      this.cookieService.put('currentLocation', JSON.stringify({ id: location.id, location: location.cities }));
+      this.citySearchService.currentCity.next(this.texts);
+      this.router.navigate([`/${location.cities.replace(/\s/g, '-')}`]);
     } else {
-      const cityList = {
-        en: ['Târgu Mureș en', 'Miercurea Ciuc en', 'Odorheiu Secuiesc en'],
-        ro: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
-        hu: ['Marosvásárhely', 'Csíkszereda', 'Székelyudvarhely'],
-      }
-
-      this.cookieService.put('currentLocationId', id.toString());
-
-      this.router.navigate([`${cityList[this.cookieService.get('change_lang')][id - 1]}`]);
-      // this.router.navigate([`restaurant/Targu-Mures`]);
-      // this.router.navigate([`list/${id}`]);
+      this.texts = cityList[this.cookieService.get('change_lang')][id - 1];
+      this.cookieService.put('currentLocation', JSON.stringify({ id: id, location: this.texts }));
+      this.citySearchService.currentCity.next(this.texts);
+      this.router.navigate([`${this.texts.replace(/\s/g, '-')}`]);
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from '@gorniv/ngx-universal';
 
 @Component({
   selector: 'app-filter-section',
@@ -13,7 +14,19 @@ export class FilterSectionComponent implements OnInit {
   usefulList: any[];
   foodList: any[];
   payoptionList: any[];
-  filters: any;
+
+  filters = {
+    "freeDelivery": 0,
+    "newest": 0,
+    "pizza": 0,
+    "hamburger": 0,
+    "dailyMenu": 0,
+    "soup": 0,
+    "salad": 0,
+    "money": 0,
+    "card": 0,
+    "withinOneHour": 0
+  };
 
   @Input() filterShow: boolean = true;
 
@@ -23,6 +36,7 @@ export class FilterSectionComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedroute: ActivatedRoute,
+    public cookieService: CookieService,
   ) {
     this.usefulActive = "";
     this.foodActive = "";
@@ -43,21 +57,12 @@ export class FilterSectionComponent implements OnInit {
       { name: $localize`:@@filter-component-btn-i:Cash`, value: "money" },
       { name: $localize`:@@filter-component-btn-j:Card`, value: "card" }
     ];
-    this.filters = {
-      "freeDelivery": 0,
-      "newest": 0,
-      "pizza": 0,
-      "hamburger": 0,
-      "dailyMenu": 0,
-      "soup": 0,
-      "salad": 0,
-      "money": 0,
-      "card": 0,
-      "withinOneHour": 0
-    }
   }
 
   ngOnInit(): void {
+    if (this.cookieService.get('filter_option')) {
+      this.filters = JSON.parse(this.cookieService.get('filter_option'));
+    }
   }
 
   selectFilter(item): void {
@@ -65,6 +70,7 @@ export class FilterSectionComponent implements OnInit {
       this.filters[item] = 0;
     else
       this.filters[item] = 1;
+    this.cookieService.put('filter_option', JSON.stringify(this.filters));
 
     this.selectedFilterOptions.emit(this.filters);
   }

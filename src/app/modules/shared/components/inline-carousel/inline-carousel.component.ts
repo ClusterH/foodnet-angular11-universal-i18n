@@ -17,8 +17,8 @@ export interface Category {
 export class InlineCarouselComponent implements OnInit, OnChanges {
   display: boolean;
   public isBrowser: boolean;
-  showIndex: any = 0;
-  translateWidth: any = 0;
+  showIndex: number = 0;
+  translateWidth: number = 0;
 
   @ViewChild('carouselContainer', { static: true }) carouselContainer: ElementRef;
   @ViewChild('carouselItems', { static: true }) carouselItems: ElementRef;
@@ -43,7 +43,7 @@ export class InlineCarouselComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    if(this.translatePosition != -1){
+    if (this.translatePosition != -1) {
       this.translateWidth = this.translatePosition;
       this.carouselItems.nativeElement.style.transform = 'translate3d(' + this.translateWidth + 'px, 0px ,0px)';
     }
@@ -77,13 +77,12 @@ export class InlineCarouselComponent implements OnInit, OnChanges {
       this.translateWidth = 0;
     }
     this.carouselItems.nativeElement.style.transform = 'translate3d(' + this.translateWidth + 'px, 0px ,0px)';
-
     this.showIndex--;
   }
 
   selectItem(event, item): void {
     let parentElement = event.target.parentElement;
-    for(let i = 0; i < parentElement.children.length; i++){
+    for (let i = 0; i < parentElement.children.length; i++) {
       parentElement.children[i].classList.remove("active");
     }
     event.target.classList.add("active");
@@ -92,6 +91,4 @@ export class InlineCarouselComponent implements OnInit, OnChanges {
       param: item
     })
   }
-
 }
-

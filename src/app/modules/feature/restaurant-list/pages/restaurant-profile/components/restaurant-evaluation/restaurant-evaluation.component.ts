@@ -62,7 +62,7 @@ export class RestaurantEvaluationComponent implements OnInit {
 
   ngOnInit(): void {
     this.restaurantReviewService.getRestaurantReviews().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
     })
   }
 

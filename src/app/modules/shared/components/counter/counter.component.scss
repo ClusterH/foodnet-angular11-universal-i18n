@@ -11,6 +11,7 @@
     }
   }
   .amounts {
+    width: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,8 +28,11 @@
     background-color: #f78f1e;
     padding: .3rem .6rem;
     img {
-      width: 90%;
+      width: 20px;
       height: auto;
+    }
+    @media all and (max-width: 1280px){
+      padding: .3rem .4rem;
     }
   }
   

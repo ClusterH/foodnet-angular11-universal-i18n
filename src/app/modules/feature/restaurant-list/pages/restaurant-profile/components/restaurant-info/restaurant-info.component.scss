@@ -37,4 +37,22 @@
       }
     }
   }
+  @media all and (max-width: 790px) {
+    margin-top: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .info_section {
+      width: 100%;
+      h2 {
+        font-size: 24px;
+      }
+      h5 {
+        font-size: 16px;
+      }
+    }
+    .time_section {
+      width: 100%;
+    }
+  }
 }

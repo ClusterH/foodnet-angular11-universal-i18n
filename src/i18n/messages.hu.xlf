@@ -1195,22 +1195,19 @@
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
-      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-b" datatype="html">
-        <source>Required extra(<x id="INTERPOLATION" equiv-text="e-menu-dialog-b"/> piece Required)</source><target state="new">Szükséges extra(1 darab szükséges)</target>
-
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">69</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-d" datatype="html">
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-d" datatype="html">
         <source>Optional extra(Not required)</source><target state="new">Opcionális extra(nem szükséges)</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">106</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-f" datatype="html">
         <source>SHOW MORE</source><target state="new">MUTASS TÖBBET</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">144</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-g" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">146</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-g" datatype="html">
         <source>Comment</source><target state="new">Megjegyzés</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">149</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-h" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">151</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-h" datatype="html">
         <source>Add to the cart</source><target state="new">Kosárba</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">154</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-c" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">156</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-c" datatype="html">
         <source><x id="INTERPOLATION" equiv-text="-menu-c&quot;>{{ selectedCategory.catego"/> Search</source><target state="new"><x id="INTERPOLATION" equiv-text="-menu-c&quot;>{{ selectedCategory.catego"/> Keresés</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
@@ -1225,7 +1222,13 @@
       </trans-unit><trans-unit id="restaurant-profile-menu-dialog-a" datatype="html">
         <source>(Allergens: </source><target state="new">(Allergének: </target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">60</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-c" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">60</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-b" datatype="html">
+        <source> Required extra(<x id="INTERPOLATION" equiv-text="-menu-dialog-b&quot; *ngIf=&quot;r"/> piece Required)</source><target state="new">Szükséges extra(<x id="INTERPOLATION" equiv-text="aurant-profile-menu-dial"/> darab Kötelező)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-menu-dialog-c" datatype="html">
         <source>(Allergens: </source><target state="new">(Allergének: </target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">83</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-e" datatype="html">

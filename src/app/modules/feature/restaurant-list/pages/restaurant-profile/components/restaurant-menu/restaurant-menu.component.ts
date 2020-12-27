@@ -25,9 +25,9 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   imgPath: string = 'https://admin.foodnet.ro/';
 
   requiredExtraList$: Observable<[]>;
-  minRequired: number;
+  minRequired$: Observable<number>;
   optionalExtraList$: Observable<[]>;
-
+  isExtra: boolean = true;
   selectedProduct: ProductList;
   isShownExtra: boolean = false;
   productImg: string;
@@ -124,19 +124,24 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
-
     const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
     forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
       this.requiredExtraList$ = of(requiredExtraData.result);
-      this.minRequired = requiredExtraData.minRequired;
-
       this.optionalExtraList$ = of(optionalExtraData.result);
+      console.log(requiredExtraData.minRequired);
+      this.minRequired$ = of(requiredExtraData.minRequired);
+      this.selectedProduct = productItem;
+      if (requiredExtraData.result.length == 0 && optionalExtraData.result.length == 0) {
+        this.isExtra = false;
+      } else {
+        this.isExtra = true;
+      }
+      this.isShownExtra = true;
     });
 
-    this.selectedProduct = productItem;
-    this.isShownExtra = true;
+
   }
 
   closeExtra(): void {

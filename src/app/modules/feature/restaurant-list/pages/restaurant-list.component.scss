@@ -95,9 +95,10 @@
       }
       .result_body {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
+        gap: 3%;
         .card {
           display: flex;
           flex-direction: column;
@@ -185,10 +186,16 @@
               0px 24px 38px 3px rgba(0, 0, 0, 0.14),
               0px 9px 46px 8px rgba(0, 0, 0, 0.12);
           }
+          @media all and (max-width: 990px) {
+            max-width: 49%;
+          }
           @media all and (max-width: 590px) {
             flex-direction: column;
             max-width: 100%;
           }
+        }
+        @media all and (max-width: 990px) {
+          gap: 2%;
         }
       }
       @media all and (max-width: 590px) {

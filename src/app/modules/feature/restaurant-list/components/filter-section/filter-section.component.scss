@@ -50,6 +50,12 @@
       }
     }
   }
+  @media all and (max-width: 980px) {
+    padding: 1rem;
+  }
+  @media all and (max-width: 780px) {
+    padding: 1rem .5rem;
+  }
   @media all and (max-width: 590px) {
     border: none;
   }

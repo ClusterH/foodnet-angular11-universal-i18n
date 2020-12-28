@@ -1,4 +1,4 @@
-<main class="menu_container" *ngIf="productList">
+<main class="menu_container" *ngIf="productList$ | async as products">
   <h2 class="text-bold" i18n="@@restaurant-profile-menu-a">Menu</h2>
   <app-inline-carousel *ngIf="categoryList" [itemList]="categoryList" [disabledOption]="false" [optionType]="'category'"
     (selectedItemEmitter)="selectedItem($event)"></app-inline-carousel>
@@ -13,13 +13,13 @@
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
   </div>
-  <div class="restaurant_content" *ngIf="productList != []">
+  <div class="restaurant_content" *ngIf="products != []">
     <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
       <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
     </h2>
     <div class="prod_list">
-      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4"
-        *ngFor="let product of productList; odd as isOdd" (click)="showExtraPopup(product)">
+      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of products; odd as isOdd"
+        (click)="showExtraPopup(product)">
         <div class="card_img">
           <img [src]="imgPath + product.product_imageUrl" alt="">
         </div>
@@ -39,8 +39,8 @@
               {{ product.product_price }}Ft
             </span>
             <div class="counter">
-              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="true"
-                [statusOption]="isOdd ? 'bag' : 'check'"></app-counter>
+              <app-counter (counterEmitter)="counterChange($event)"
+                [counterOption]="{checkRequire: true, statusOption: isOdd ? 'bag' : 'check'}"></app-counter>
             </div>
           </div>
         </div>
@@ -48,10 +48,10 @@
     </div>
   </div>
 
-  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000"
-    styleClass="custom_dialog" [modal]="true">
-    <p-header>
-      <img [src]="productImg" alt="">
+  <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true"
+    [dismissableMask]="true">
+    <p-header *ngIf="selectedProduct">
+      <img [src]="imgPath + selectedProduct.product_imageUrl" alt="">
       <h5 class="text-bold text-center">Extras</h5>
     </p-header>
     <div class="main_info" *ngIf="selectedProduct">
@@ -65,9 +65,10 @@
         <span>)</span>
       </div>
     </div>
-    <div class="required_extra">
-      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-b">Required extra(1 piece Required)</h5>
-      <ul class="required_extra_list" *ngIf="requiredExtraList">
+    <div class="required_extra" *ngIf="requiredExtraList$ | async as requiredExtraList">
+      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-b" *ngIf="requiredExtraList.length > 0">
+        Required extra({{minRequired$ | async}} piece Required)</h5>
+      <ul class="required_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
           <div class="custom_radio">
             <input type="radio" name="required_extra_item" id="radio">
@@ -88,18 +89,23 @@
             </div>
             <div class="mobile_counter_section">
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
-              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+              <app-counter (counterEmitter)="counterChange($event)"
+                [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
+              </app-counter>
             </div>
           </div>
           <div class="counter_section">
-            <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+            <app-counter (counterEmitter)="counterChange($event)"
+              [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
+            </app-counter>
           </div>
         </li>
       </ul>
     </div>
-    <div class="optional_extra">
-      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-d">Optional extra(Not required)</h5>
-      <ul class="optional_extra_list" *ngIf="optionalExtraList">
+    <div class="optional_extra" *ngIf="optionalExtraList$ | async as optionalExtraList">
+      <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-d" *ngIf="optionalExtraList.length > 0">Optional
+        extra(Not required)</h5>
+      <ul class="optional_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
           <div class="custom_checkbox">
             <input type="checkbox" name="" id="checkbox">
@@ -120,17 +126,21 @@
             </div>
             <div class="mobile_counter_section">
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
-              <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+              <app-counter (counterEmitter)="counterChange($event)"
+                [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
+              </app-counter>
             </div>
 
           </div>
           <div class="counter_section">
-            <app-counter (counterEmitter)="counterChange($event)" [checkRequire]="false"></app-counter>
+            <app-counter (counterEmitter)="counterChange($event)"
+              [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
+            </app-counter>
           </div>
         </li>
       </ul>
       <hr />
-      <div class="d-flex justify-content-center align-items-center show_more_section">
+      <div class="d-flex justify-content-center align-items-center show_more_section" *ngIf="isExtra">
         <a class="text-warning text-decoration-none text-bold" i18n="@@restaurant-profile-menu-dialog-f">SHOW MORE</a>
       </div>
 

@@ -3,7 +3,7 @@
   border: 1px solid #c4c4c4;
   border-radius: 10px;
   padding: 1rem 1rem 1rem 2rem;
-  &>h5 {
+  & > h5 {
     font-size: 12px;
     @media all and (max-width: 590px) {
       display: none;
@@ -24,13 +24,13 @@
       padding-left: 0;
       padding-right: 0;
       button {
-        margin: .5rem .5rem .5rem 0rem;
+        margin: 0.5rem 0.5rem 0.5rem 0rem;
         font-size: 14px;
-        padding: .5rem;
+        padding: 0.5rem;
         border: 2px solid #999;
         border-radius: 6px;
         box-shadow: none;
-        &.active{
+        &.active {
           border: 2px solid #f78f1e;
           font-weight: bold;
         }
@@ -46,7 +46,6 @@
       justify-content: flex-start;
       .btn-expand {
         width: 80%;
-
       }
     }
   }
@@ -54,7 +53,7 @@
     padding: 1rem;
   }
   @media all and (max-width: 780px) {
-    padding: 1rem .5rem;
+    padding: 1rem 0.5rem;
   }
   @media all and (max-width: 590px) {
     border: none;

@@ -1,12 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild, Input, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, forkJoin } from 'rxjs';
-import { take, takeUntil } from 'rxjs/operators';
-
-import { Category, SubCategory, ProductList } from '../../models';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
-import { RestaurantMenuService } from '../../services';
 import { isEmpty } from 'lodash';
+import { forkJoin, Observable, of, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Category, ProductList, SubCategory } from '../../models';
+import { RestaurantMenuService } from '../../services';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -16,18 +14,20 @@ import { isEmpty } from 'lodash';
 
 export class RestaurantMenuComponent implements OnInit, OnDestroy {
   @Input() restaurantId: number;
-  categoryList: Array<Category>;
-  subCategoryList: Array<SubCategory>;
+  categoryList: Category[];
+  subCategoryList: SubCategory[];
   translatePosition: number = 0;
   selectedCategory = new Category;
   selectedSubCategory = new SubCategory;
   searchedProduct: string = '';
-  productList: ProductList[];
+  productList$: Observable<ProductList[]>;
   counts: number;
   imgPath: string = 'https://admin.foodnet.ro/';
 
-  requiredExtraList: Array<any>;
-  optionalExtraList: Array<any>;
+  requiredExtraList$: Observable<[]>;
+  minRequired$: Observable<number>;
+  optionalExtraList$: Observable<[]>;
+  isExtra: boolean = true;
   selectedProduct: ProductList;
   isShownExtra: boolean = false;
   productImg: string;
@@ -36,23 +36,11 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
 
   constructor(
-    private router: Router,
-    private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
     private restaurantMenuService: RestaurantMenuService
   ) {
     this._unsubscribeAll = new Subject();
     this.productImg = "./assets/images/banner.svg";
-    // this.requiredExtraList = [
-    //   {
-    //     id: 1,
-    //     extra_content: "Coca-Cola carbonated soft drink 0.33l"
-    //   },
-    //   {
-    //     id: 2,
-    //     extra_content: "Coca-Cola Zero carbonated soft drink 0.33l"
-    //   },
-    // ]
   }
 
   ngOnInit(): void {
@@ -73,10 +61,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
-  }
-
-  points(i: number) {
-    return new Array(i);
   }
 
   selectedItem(event): void {
@@ -127,11 +111,11 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.isSpinner = false;
-      this.productList = [...res.result];
-      if (isEmpty(this.productList)) {
+      this.productList$ = of(res.result);
+      if (isEmpty(this.productList$)) {
         return;
       }
-    })
+    });
   }
 
   onKeyUpSearch(): void {
@@ -140,18 +124,24 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
-    console.log(productItem);
     const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
     forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
-      console.log(requiredExtraData, '==========', optionalExtraData);
-      this.requiredExtraList = requiredExtraData.result;
-      this.optionalExtraList = optionalExtraData.result;
+      this.requiredExtraList$ = of(requiredExtraData.result);
+      this.optionalExtraList$ = of(optionalExtraData.result);
+      console.log(requiredExtraData.minRequired);
+      this.minRequired$ = of(requiredExtraData.minRequired);
+      this.selectedProduct = productItem;
+      if (requiredExtraData.result.length == 0 && optionalExtraData.result.length == 0) {
+        this.isExtra = false;
+      } else {
+        this.isExtra = true;
+      }
+      this.isShownExtra = true;
     });
 
-    this.selectedProduct = productItem;
-    this.isShownExtra = true;
+
   }
 
   closeExtra(): void {

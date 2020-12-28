@@ -1,10 +1,12 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class CitySearchService {
-  // apiBase_temp = 'https://shielded-anchorage-51692.herokuapp.com/api/location/';
+  currentCity = new BehaviorSubject<any>(null);
+  currentCity$ = this.currentCity.asObservable();
+
   apiBase = 'https://api.foodnet.ro/api/location/';
 
   constructor(private _httpClient: HttpClient) { }

@@ -1,17 +1,22 @@
 <main class="main_container" *ngIf="profileType != 'review-create'">
-  <h1>{{cookieService.get('auth_name')}}</h1>
+  <h1 *ngIf="profileType!='order-detail'">{{cookieService.get('auth_name')}}</h1>
+  <h1 *ngIf="profileType=='order-detail'">Restaurant Name</h1>
   <div class="main_content">
-    <section class="menulist">
+    <section class="menulist" *ngIf="profileType!='order-detail'">
       <app-profile-menulist></app-profile-menulist>
     </section>
-    <section class="main_body">
+    <section class="main_body" *ngIf="profileType!='order-detail'">
       <app-delivery-list *ngIf="profileType=='delivery-list'" style="width: 100%"></app-delivery-list>
       <app-delivery-edit *ngIf="profileType=='delivery-edit'" style="width: 100%"></app-delivery-edit>
       <app-update-profile *ngIf="profileType=='update'" style="width: 100%"></app-update-profile>
       <app-delete-profile *ngIf="profileType=='delete'" style="width: 100%;"></app-delete-profile>
       <app-change-password *ngIf="profileType=='changepwd'" style="width: 100%;"></app-change-password>
+      <app-order-list *ngIf="profileType=='orders'" style="width: 100%;"></app-order-list>
       <app-review-list *ngIf="profileType=='review-list'" style="width: 100%"></app-review-list>
       <app-review-edit *ngIf="profileType=='review-edit'" style="width: 100%"></app-review-edit>
+    </section>
+    <section class="order_detail_body" *ngIf="profileType=='order-detail'" style="width: 100%;">
+      <app-order-detail style="width: 100%;"></app-order-detail>
     </section>
   </div>
 </main>

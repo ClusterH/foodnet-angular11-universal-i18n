@@ -9,6 +9,8 @@ import { RestaurantInfoComponent } from './components/restaurant-info/restaurant
 import { RestaurantEvaluationComponent } from './components/restaurant-evaluation/restaurant-evaluation.component';
 import { RestaurantMenuService, RestaurantInfoService, RestaurantReviewService } from './services';
 import { ShareModule } from 'src/app/modules/shared/shared.module';
+import { RestaurantOrderComponent } from './components/restaurant-order/restaurant-order.component';
+import { RestaurantSuccessComponent } from './components/restaurant-success/restaurant-success.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ShareModule } from 'src/app/modules/shared/shared.module';
     RestaurantMenuComponent,
     RestaurantInfoComponent,
     RestaurantEvaluationComponent,
+    RestaurantOrderComponent,
+    RestaurantSuccessComponent,
   ],
   imports: [
     CommonModule,

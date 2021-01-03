@@ -16,6 +16,8 @@ import { DeliveryEditComponent } from './pages/delivery-edit/delivery-edit.compo
 import { ReviewListComponent } from './pages/review-list/review-list.component';
 import { ReviewEditComponent } from './pages/review-edit/review-edit.component';
 import { ReviewCreateComponent } from './pages/review-create/review-create.component';
+import { OrderListComponent } from './pages/order-list/order-list.component';
+import { OrderDetailComponent } from './pages/order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ReviewCreateComponent } from './pages/review-create/review-create.compo
     ReviewListComponent,
     ReviewEditComponent,
     ReviewCreateComponent,
+    OrderListComponent,
+    OrderDetailComponent,
   ],
   imports: [
     CommonModule,

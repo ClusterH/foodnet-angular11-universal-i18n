@@ -1,0 +1,90 @@
+.content {
+    width: 80%;
+    .order_content {
+      width: 100%;
+      overflow-x: auto;
+      .order_list {
+        margin-top: 1.5rem;
+        list-style: none;
+        width: 100%;
+        margin-left: 0;
+        padding-left: 0;
+        @media all and (max-width: 590px) {
+          width: 150% !important;
+        }
+        .list_header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #999999;
+        }
+        .list_content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #c4c4c4;
+          padding-top: 10px;
+          padding-bottom: 8px;
+        }
+      }
+
+    }
+    @media all and (max-width: 790px) {
+      width: 100%;
+      & > h2 {
+        font-size: 22px;
+      }
+    }
+  }
+  
+  .look_detail {
+    font-size: 16px;
+    text-decoration: underline !important;
+    cursor: pointer;
+    color: #f79d3e !important;
+    &:hover {
+      color: #f79d3e !important;
+    }
+  }
+  
+  :host {
+    ::ng-deep {
+      .p-paginator {
+        .p-paginator-prev {
+          border: 1px solid #c4c4c4;
+          border-radius: 0px;
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+          margin: 0px;
+          box-shadow: none;
+        }
+        .p-paginator-next {
+          border: 1px solid #c4c4c4;
+          border-radius: 0px;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          margin: 0px;
+          box-shadow: none;
+        }
+        .p-paginator-pages {
+          .p-paginator-page {
+            border: 1px solid #c4c4c4 !important;
+            border-radius: 0px !important;
+            border-right: none;
+            margin: 0px !important;
+            &.p-highlight {
+              background-color: #f78f1e;
+              color: #FFF;
+              border-color: transparent;
+              box-shadow: none;
+            }
+            &:first-child {
+              border-left: none;
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,5 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from 'src/app/modules/core';
 import { RestaurantMenuService } from './../services';
@@ -29,6 +31,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
+    private router: Router,
     public cookieService: CookieService,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -78,5 +81,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
 
   counterChange(event): void {
     this.counts = event.counts;
+  }
+
+  orderProduct(): void {
+    const location = JSON.parse(this.cookieService.get('currentLocation')).location;
+    this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/order`]);
   }
 }

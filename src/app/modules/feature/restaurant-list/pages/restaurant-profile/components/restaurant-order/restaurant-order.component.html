@@ -1,0 +1,119 @@
+<main class="main_container">
+  <div class="banner">
+    <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
+    <img class="profile_img"
+      [src]="restaurant.restaurant_profileImage? 'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage : './assets/icons/shop_bag_white.svg'"
+      alt="">
+    <span class="status_badge_open" i18n="@@restaurant-profile-badge-open"
+      *ngIf="isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">open</span>
+    <span class="status_badge_close" i18n="@@restaurant-profile-badge-close"
+      *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">close</span>
+    <div class="justify-content-between align-items-center mobile_title">
+      <span class="text-white"><i class="fas fa-arrow-left"></i></span>
+      <span class="text-white">{{restaurant.restaurant_name}}</span>
+      <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt=""></span>
+    </div>
+  </div>
+  <div class="top_info">
+    <h1>{{restaurant.restaurant_name}}</h1>
+  </div>
+  <div class="main_info">
+    <h5 class="text-bold">Order finalization</h5>
+    <h6 class="text-bold">Foods</h6>
+    <div class="cart_item" *ngFor="let i of [0, 1, 2, 3]">
+      <div class="item_container d-flex flex-sm-column flex-md-row flex-lg-row justify-content-sm-start justify-content-md-between
+       justify-content-lg-between align-items-start">
+        <div class="item_content d-flex flex-column align-items-start justify-content-start">
+          <h6 class="text-bold">Product name</h6>
+          <label for="" class="ingredient_label">Ingredients</label>
+          <p class="ingredient_items">
+            (Allergen 1, Allergen 2, Allergen 3)
+          </p>
+          <div class="extra_section">
+            <a class="plus_extra"><i class="fas fa-plus"></i></a>
+            <span>1*Extra 1, 2*Extra 2, 3*Extra 3</span>
+          </div>
+          <label class="price_item text-warning text-bold">
+            2390Ft
+          </label>
+        </div>
+        <div class="counter d-flex justify-content-end justify-content-sm-start">
+          <app-counter (counterEmitter)="counterChange($event)" [counterOption]="{checkRequire: false}"></app-counter>
+        </div>
+      </div>
+      <div class="item_comment">
+        <h6>Comment:</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur blablabla.</p>
+      </div>
+      <hr />
+    </div>
+    <div class="total_price text-bold">
+      <h5 class="text-bold text-warning">
+        Total: 7170 Ft
+      </h5>
+      <h5 class="text-bold">
+        With subscription: 6000 Ft
+      </h5>
+    </div>
+    <div class="takeover_section">
+      <h5 class="text-bold">Takeover</h5>
+      <ul class="">
+        <li class="d-flex justify-content-start align-items-start" *ngFor="let i of [0, 1, 2]">
+          <div class="custom_radio">
+            <input type="radio" name="takeover" id="radio_{{i}}">
+            <label for="radio_{{i}}">4400 Nyíregyháza, Nyírfa tér 1.</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="couponcode_section">
+      <h5 class="text-bold">Coupon code (if any)</h5>
+      <div class="input-group coupon_text">
+        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="">
+        <span class="input-group-text btn-warning text-white" id="">Activation</span>
+      </div>
+    </div>
+    <div class="order_type">
+      <ul class="">
+        <li class="d-flex justify-content-start align-items-start">
+          <div class="custom_checkbox">
+            <input type="checkbox" name="order_type" id="to_go">
+            <label for="to_go">To go</label>
+          </div>
+        </li>
+        <li class="d-flex justify-content-start align-items-start">
+          <div class="custom_checkbox">
+            <input type="checkbox" name="order_type" id="cutlery">
+            <label for="cutlery">Without cutlery</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="comment_section">
+      <h5 class="text-bold">Comment</h5>
+      <textarea class="comment_text" name="" id="" cols="30" rows="5"></textarea>
+    </div>
+    <div class="payment_type">
+      <h5 class="text-bold">Payment method</h5>
+      <ul class="">
+        <li class="d-flex justify-content-start align-items-center">
+          <div class="custom_radio">
+            <input type="radio" name="payment_type" id="p_cash">
+            <label for="p_cash">Cash</label>
+          </div>
+        </li>
+        <li class="d-flex justify-content-start align-items-center">
+          <div class="custom_radio">
+            <input type="radio" name="payment_type" id="p_card">
+            <label for="p_card">Credit card</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="btn_section d-flex justify-content-end align-items-center mt-5">
+      <button class="btn btn-white mr-2">Back</button>
+      <button class="btn btn-warning" (click)="orderSuccess()" >Order</button>
+    </div>
+  </div>
+</main>
+  

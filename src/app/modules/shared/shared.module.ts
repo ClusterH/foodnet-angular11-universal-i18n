@@ -21,6 +21,7 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
+import { PaginatorModule } from 'primeng/paginator';
 
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -63,7 +64,8 @@ import { CounterComponent } from './components/counter/counter.component';
     MessagesModule,
     TableModule,
     TabViewModule,
-
+    PaginatorModule,
+    
     HeaderComponent,
     FooterComponent,
     CookieBarComponent,

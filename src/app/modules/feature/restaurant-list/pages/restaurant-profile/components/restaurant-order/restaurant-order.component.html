@@ -17,28 +17,36 @@
   <div class="top_info">
     <h1>{{restaurant.restaurant_name}}</h1>
   </div>
-  <div class="main_info">
+  <div class="main_info" *ngIf="cartProductList$ | async as cartList">
     <h5 class="text-bold">Order finalization</h5>
     <h6 class="text-bold">Foods</h6>
-    <div class="cart_item" *ngFor="let i of [0, 1, 2, 3]">
+    <div class="cart_item" *ngFor="let product of cartList">
       <div class="item_container d-flex flex-sm-column flex-md-row flex-lg-row justify-content-sm-start justify-content-md-between
        justify-content-lg-between align-items-start">
         <div class="item_content d-flex flex-column align-items-start justify-content-start">
-          <h6 class="text-bold">Product name</h6>
+          <h6 class="text-bold">{{product.product.product_name}}</h6>
           <label for="" class="ingredient_label">Ingredients</label>
           <p class="ingredient_items">
-            (Allergen 1, Allergen 2, Allergen 3)
+            <span>(Allergens: </span>
+            <span *ngFor="let allergen of product.product.allergens_name; let last=last">
+              <span *ngIf="last">{{ allergen.allergen_name }}</span>
+              <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+            </span>
+            <span>)</span>
           </p>
           <div class="extra_section">
-            <a class="plus_extra"><i class="fas fa-plus"></i></a>
-            <span>1*Extra 1, 2*Extra 2, 3*Extra 3</span>
+            <span>+&nbsp;</span>
+            <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
+            <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
           </div>
           <label class="price_item text-warning text-bold">
-            2390Ft
+            {{product.totalPrice}} Ft
           </label>
         </div>
         <div class="counter d-flex justify-content-end justify-content-sm-start">
-          <app-counter (counterEmitter)="counterChange($event)" [counterOption]="{checkRequire: false}"></app-counter>
+          <app-counter (counterEmitter)="counterChange($event, product)"
+            [counterOption]="{checkRequire: false, count: product.product.count}">
+          </app-counter>
         </div>
       </div>
       <div class="item_comment">
@@ -49,7 +57,7 @@
     </div>
     <div class="total_price text-bold">
       <h5 class="text-bold text-warning">
-        Total: 7170 Ft
+        Total: {{totalPrice$ | async}} Ft
       </h5>
       <h5 class="text-bold">
         With subscription: 6000 Ft
@@ -57,11 +65,12 @@
     </div>
     <div class="takeover_section">
       <h5 class="text-bold">Takeover</h5>
-      <ul class="">
-        <li class="d-flex justify-content-start align-items-start" *ngFor="let i of [0, 1, 2]">
+      <ul class="" *ngIf="deliveryAddressList$ | async as deliveryList">
+        <li class="d-flex justify-content-start align-items-start" *ngFor="let address of deliveryList">
           <div class="custom_radio">
-            <input type="radio" name="takeover" id="radio_{{i}}">
-            <label for="radio_{{i}}">4400 Nyíregyháza, Nyírfa tér 1.</label>
+            <input type="radio" name="takeover" [id]="address.deliveryAddressId">
+            <label [for]="address.deliveryAddressId">{{address.houseNumber}} {{address.street}} {{address.city}}
+              {{address.floor}} {{address.doorNumber}}</label>
           </div>
         </li>
       </ul>
@@ -112,8 +121,7 @@
     </div>
     <div class="btn_section d-flex justify-content-end align-items-center mt-5">
       <button class="btn btn-white mr-2">Back</button>
-      <button class="btn btn-warning" (click)="orderSuccess()" >Order</button>
+      <button class="btn btn-warning" (click)="orderSuccess()">Order</button>
     </div>
   </div>
 </main>
-  

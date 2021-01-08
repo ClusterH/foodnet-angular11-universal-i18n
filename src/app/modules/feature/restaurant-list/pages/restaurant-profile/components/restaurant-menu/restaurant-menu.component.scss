@@ -111,6 +111,11 @@
             .price_item {
               font-size: 18px;
             }
+            .div-disabled {
+              pointer-events: none;
+              opacity: 0.5;
+              background: #ccc;
+            }
           }
           @media all and (max-width: 990px) {
             width: 100%;
@@ -201,10 +206,10 @@
       }
       .p-dialog-content {
         width: 90%;
+        margin-top: 1.5rem;
         h5 {
           font-size: 18px;
         }
-        margin-top: 1.5rem;
         .main_info {
           margin-bottom: 0.8rem;
           h2 {
@@ -214,6 +219,11 @@
               font-size: 18px;
             }
           }
+        }
+        .div-disabled {
+          pointer-events: none;
+          opacity: 0.5;
+          background: #ccc;
         }
         .optional_extra,
         .required_extra {

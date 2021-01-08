@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
 import { isEmpty } from 'lodash';
 import { forkJoin, Observable, of, Subject } from 'rxjs';
@@ -21,12 +21,15 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   selectedSubCategory = new SubCategory;
   searchedProduct: string = '';
   productList$: Observable<ProductList[]>;
-  counts: number;
+  productList: ProductList[];
+  cartProductList: any;
   imgPath: string = 'https://admin.foodnet.ro/';
-
+  counts: number = 1;
   requiredExtraList$: Observable<[]>;
+  requiredExtraData: any;
   minRequired$: Observable<number>;
   optionalExtraList$: Observable<[]>;
+  optionalExtraData: any;
   isExtra: boolean = true;
   selectedProduct: ProductList;
   isShownExtra: boolean = false;
@@ -34,6 +37,8 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   isSpinner: boolean = true;
   private _unsubscribeAll: Subject<any>;
+
+  @Output() addCartEventEmitter = new EventEmitter<any>();
 
   constructor(
     public cookieService: CookieService,
@@ -56,6 +61,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       this.selectedCategory = this.categoryList[0];
       this.getSubCategory(this.categoryList[0].category_id);
     });
+
   }
 
   ngOnDestroy(): void {
@@ -73,10 +79,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       this.selectedSubCategory = { ...event.param };
       this.getProducts(this.selectedSubCategory);
     }
-  }
-
-  counterChange(event): void {
-    this.counts = event.counts;
   }
 
   getSubCategory(categoryId: number): void {
@@ -111,11 +113,76 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.isSpinner = false;
-      this.productList$ = of(res.result);
-      if (isEmpty(this.productList$)) {
+      if (isEmpty(res.result)) {
+        this.productList = [];
+        this.productList$ = of(this.productList);
         return;
+      } else {
+        console.log(res.result);
+        console.log(this.cartProductList);
+
+        this.productList = [...res.result];
+        this.productList.map(item => {
+          return this.checkProductIsCart(item);
+        });
+
+        console.log(this.productList);
+        this.productList$ = of(this.productList);
       }
     });
+  }
+
+  checkProductIsCart(product): any {
+    this.cartProductList = this.cookieService.get('cartProducts') ? JSON.parse(this.cookieService.get('cartProducts')).cartList : [];
+    if (this.cartProductList.length > 0) {
+      const index = this.cartProductList.findIndex(item => item.product.product_id === product.product_id);
+      if (index > -1) {
+        product.isCart = true;
+        product.count = this.cartProductList[index].product.count;
+      } else {
+        product.isCart = false;
+        product.count = 1;
+      }
+    } else {
+      product.isCart = false;
+      product.count = 1;
+    }
+    return product;
+  }
+
+  counterChange(event, id?): void {
+    console.log(id);
+    this.counts = event.counts;
+    this.productList.map(item => {
+      if (item.product_id == id) {
+        item.count = this.counts;
+      }
+      return item;
+    });
+
+    console.log(this.productList);
+    this.productList$ = of(this.productList);
+  }
+
+  deleteFromCart(product, type: string): void {
+    if (type === 'all') {
+      this.productList.map(item => {
+        item.count = 1;
+        item.isCart = false;
+      })
+      this.cartProductList = [];
+    } else if (type === 'current') {
+      console.log(product);
+      const index = this.productList.findIndex(item => item.product_id === product.product.product_id);
+      if (index > -1) {
+        this.productList[index].count = 1;
+        this.productList[index].isCart = false;
+      }
+
+      this.cartProductList = this.cookieService.get('cartProducts') ? JSON.parse(this.cookieService.get('cartProducts')).cartList : [];
+    }
+
+    this.productList$ = of(this.productList);
   }
 
   onKeyUpSearch(): void {
@@ -124,13 +191,23 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
+    console.log(productItem);
     const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
     forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
-      this.requiredExtraList$ = of(requiredExtraData.result);
-      this.optionalExtraList$ = of(optionalExtraData.result);
-      console.log(requiredExtraData.minRequired);
+      this.requiredExtraData = requiredExtraData;
+      this.optionalExtraData = optionalExtraData;
+      this.requiredExtraList$ = of(this.requiredExtraData.result.map(item => {
+        item.checked = false;
+        return item;
+      }));
+      this.optionalExtraList$ = of(this.optionalExtraData.result.map(item => {
+        item.checked = false;
+        return item;
+      }));
+
+      console.log(requiredExtraData, optionalExtraData);
       this.minRequired$ = of(requiredExtraData.minRequired);
       this.selectedProduct = productItem;
       if (requiredExtraData.result.length == 0 && optionalExtraData.result.length == 0) {
@@ -140,11 +217,118 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       }
       this.isShownExtra = true;
     });
-
-
   }
 
   closeExtra(): void {
+    this.productList.map(item => {
+      if (item.product_id == this.selectedProduct.product_id) {
+        item.isCart = true;
+        this.selectedProduct.isCart = true;
+      }
+      return item;
+    });
+
+    this.productList$ = of(this.productList);
+
+    let cartProduct: CartProduct = {
+      product: this.selectedProduct,
+      requiredExtra: this.requiredExtraData.result.filter(item => item.checked === true) || [],
+      optionalExtra: this.optionalExtraData.result.filter(item => item.checked === true) || [],
+    }
+
+    const totalPrice = this.countProductTotalPrice(cartProduct);
+    cartProduct.totalPrice = totalPrice;
+    this.cartProductList.push(cartProduct);
+
+    const cartTotalPrice = this.countCartTotalPrice(this.cartProductList);
+    this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: cartTotalPrice }));
+    this.addCartEventEmitter.emit({ cartList: this.cartProductList, totalPrice: cartTotalPrice });
     this.isShownExtra = false;
   }
+
+  countProductTotalPrice(product): number {
+    console.log(product);
+    let requiredExtraTotal: number = 0;
+    if (!isEmpty(product.requiredExtra)) {
+      product.requiredExtra.map(item => {
+        requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
+      });
+    }
+
+    let optionalExtraTotal: number = 0;
+    if (!isEmpty(product.optionalExtra)) {
+      product.optionalExtra.map(item => {
+        optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
+      });
+    }
+
+    const total = product.product.count * product.product.product_price + product.product.count * product.product.box_price + (requiredExtraTotal + optionalExtraTotal);
+
+    return Number(total.toFixed(2));
+  }
+
+  countCartTotalPrice(cartList: Array<any>): number {
+    let totalPrice = 0;
+    cartList.map(item => {
+      totalPrice = totalPrice + item.totalPrice;
+    });
+
+    return totalPrice;
+  }
+
+  openExtraPopUp(event, product) {
+    if (event) {
+      console.log(product);
+      this.showExtraPopup(product);
+    }
+  }
+
+  requiredExtraCounterChange(event, id): void {
+    this.requiredExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.count = event.counts;
+      }
+      return item;
+    });
+  }
+
+  optionalExtraCounterChange(event, id): void {
+    this.optionalExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.count = event.counts;
+      }
+      return item;
+    });
+  }
+
+  onRequiredExtraChange(event, id) {
+    console.log(event, 'extra===>>>', id);
+    this.requiredExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.checked = event.target.checked;
+      }
+      return item;
+    });
+
+    this.requiredExtraList$ = of(this.requiredExtraData.result);
+  }
+
+  onOptionalExtraChange(event, id) {
+    console.log(event, 'extra===>>>', id);
+    this.optionalExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.checked = event.target.checked;
+      }
+      return item;
+    });
+
+    this.optionalExtraList$ = of(this.optionalExtraData.result);
+  }
+}
+
+export interface CartProduct {
+  product?: ProductList,
+  requiredExtra?: Array<any>,
+  optionalExtra?: Array<any>,
+  totalPrice?: number
 }

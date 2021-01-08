@@ -1,12 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, Input } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { RestaurantMenuComponent } from '../components/restaurant-menu/restaurant-menu.component';
 import { CookieService } from '@gorniv/ngx-universal';
 import { SessionStorageService } from 'src/app/modules/core';
 import { RestaurantMenuService } from './../services';
 import { RestaurantList, FilterOption } from '../../../models';
-import { Subject } from 'rxjs';
+import { Subject, Observable, of } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
 
@@ -27,7 +27,13 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   header_menu: string = '';
   header_info: string = '';
   header_review: string = '';
+  cartProductList: Array<any>;
+  cartProductList$: Observable<Array<any>>;
+  totalPrice$: Observable<number>;
+  totalPrice: number = 0;
   isSpinner: boolean = true;
+
+  @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
@@ -63,6 +69,14 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
         }
       }
     }
+
+    if (this.cookieService.get('cartProducts')) {
+      console.log(JSON.parse(this.cookieService.get('cartProducts')));
+      this.cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList;
+      this.cartProductList$ = of(this.cartProductList);
+      this.totalPrice = JSON.parse(this.cookieService.get('cartProducts')).totalPrice;
+      this.totalPrice$ = of(this.totalPrice);
+    }
   }
 
   ngOnDestroy(): void {
@@ -79,12 +93,83 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     return current.isBetween(open, close);
   }
 
-  counterChange(event): void {
+  counterChange(event, product?): void {
+    console.log(event, product, this.cartProductList);
     this.counts = event.counts;
+    this.cartProductList.map(item => {
+      if (item.product.product_id == product.product.product_id) {
+        console.log('ddd');
+        item.product.count = this.counts;
+        item.totalPrice = this.countProductTotalPrice(item);
+      }
+
+      return item;
+    })
+
+    this.cartProductList$ = of(this.cartProductList);
+    this.totalPrice = this.countCartTotalPrice(this.cartProductList);
+    this.totalPrice$ = of(this.totalPrice);
+
+    this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
+    this.menuComponent.counterChange({ counts: this.counts }, product.product.product_id);
   }
 
   orderProduct(): void {
     const location = JSON.parse(this.cookieService.get('currentLocation')).location;
     this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/order`]);
+  }
+
+  addProductToCartEventEmitter(event): void {
+    console.log(event);
+    this.cartProductList = event.cartList;
+    this.cartProductList$ = of(this.cartProductList);
+    this.totalPrice = event.totalPrice;
+    this.totalPrice$ = of(this.totalPrice);
+  }
+
+  countProductTotalPrice(product): number {
+    console.log(product);
+    let requiredExtraTotal: number = 0;
+    product.requiredExtra.map(item => {
+      requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
+    });
+    let optionalExtraTotal: number = 0;
+    product.optionalExtra.map(item => {
+      optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
+    });
+    const total = product.product.count * product.product.product_price + product.product.count * product.product.box_price + (requiredExtraTotal + optionalExtraTotal);
+
+    return total;
+  }
+
+  countCartTotalPrice(cartList: Array<any>): number {
+    let totalPrice = 0;
+    cartList.map(item => {
+      totalPrice = totalPrice + item.totalPrice;
+    });
+
+    return totalPrice;
+  }
+
+  deleteProductFromCart(product, type?: string): void {
+    if (this.cartProductList.length === 1 || type == 'all') {
+      this.cartProductList = null;
+      this.cartProductList$ = of(this.cartProductList);
+      this.cookieService.remove('cartProducts');
+      this.menuComponent.deleteFromCart(product, 'all');
+      return;
+    } else {
+      console.log(this.cartProductList, product);
+      const index = this.cartProductList.indexOf(product);
+      if (index > -1) {
+        this.totalPrice = this.totalPrice - product.totalPrice;
+        this.cartProductList.splice(index, 1);
+      }
+
+      this.cartProductList$ = of(this.cartProductList);
+      this.totalPrice$ = of(this.totalPrice);
+      this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
+      this.menuComponent.deleteFromCart(product, 'current');
+    }
   }
 }

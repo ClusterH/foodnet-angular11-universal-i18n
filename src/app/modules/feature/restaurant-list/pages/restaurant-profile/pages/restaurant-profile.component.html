@@ -30,7 +30,8 @@
     <div class="main_info">
       <p-tabView *ngIf="isBrowser">
         <p-tabPanel [header]="header_menu">
-          <app-restaurant-menu *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-menu>
+          <app-restaurant-menu *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"
+            (addCartEventEmitter)="addProductToCartEventEmitter($event)"></app-restaurant-menu>
         </p-tabPanel>
         <p-tabPanel [header]="header_info">
           <app-restaurant-info *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"></app-restaurant-info>
@@ -41,42 +42,57 @@
       </p-tabView>
     </div>
   </section>
-  <section class="side_menu">
+  <section class="side_menu" *ngIf="cartProductList$ | async as cartList">
     <h2 class="text-bold">Cart</h2>
-    <div class="cart_item" *ngFor="let i of [0, 1, 2, 3]">
+    <div class="cart_item" *ngFor="let product of cartList">
       <h5 class="item_header">
-        <span class="item_title text-bold">Product name</span>
-        <span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"></i></span>
+        <span class="item_title text-bold">{{product.product.product_name}}</span>
+        <span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"
+            (click)="deleteProductFromCart(product, 'current')"></i></span>
       </h5>
       <label for="" class="ingredient_label">Ingredients</label>
       <p class="ingredient_items">
-        (Allergen 1, Allergen 2, Allergen 3)
+        <span>(Allergens: </span>
+        <span *ngFor="let allergen of product.product.allergens_name; let last=last">
+          <span *ngIf="last">{{ allergen.allergen_name }}</span>
+          <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+        </span>
+        <span>)</span>
       </p>
       <div class="extra_section">
-        <a class="plus_extra"><i class="fas fa-plus"></i></a>
-        <span>1*Extra 1, 2*Extra 2, 3*Extra 3</span>
+        <!-- <a class="plus_extra"><i class="fas fa-plus"></i></a> -->
+        <!-- total price = quantity * productPrice + quantity * boxPrice + (extra1Quantity * extra1 + ... -->
+        <span>+&nbsp;</span>
+        <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
+        <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
       </div>
       <div class="item_footer">
         <div class="price_section">
           <span class="price_item text-warning text-bold">
-            2390Ft
+            {{product.totalPrice}} Ft
           </span>
-          <span class="price_item text-grey text-bold">
-            Packing: 150 Ft
+          <span class="price_item text-grey text-bold" *ngIf="product.product.box_price">
+            Packing: {{product.product.count * product.product.box_price}} Ft
           </span>
         </div>
         <div class="counter">
-          <app-counter (counterEmitter)="counterChange($event)" [counterOption]="{checkRequire: false}"></app-counter>
+          <app-counter (counterEmitter)="counterChange($event, product)"
+            [counterOption]="{checkRequire: false, count: product.product.count}">
+          </app-counter>
         </div>
       </div>
       <hr />
     </div>
-    <div class="total_price text-warning text-bold">
-      Total: 7170 Ft
+    <div class="total_price text-warning text-bold" *ngIf="totalPrice > 0">
+      Total: {{totalPrice$ | async}} Ft
     </div>
     <div class="btn_section">
       <button class="btn btn-warning order_btn" (click)="orderProduct()">Order</button>
-      <button class="btn btn-white delete_btn">Delete cart contents</button>
+      <button class="btn btn-white delete_btn" (click)="deleteProductFromCart(null, 'all')">Delete cart
+        contents</button>
     </div>
+  </section>
+  <section class="side_menu" *ngIf="!cartProductList">
+    <h2 class="text-bold">Cart</h2>
   </section>
 </main>

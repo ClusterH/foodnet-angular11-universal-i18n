@@ -4,7 +4,8 @@
       <i class="fas fa-minus"></i>
     </li>
     <li class="list-group-item amounts">
-      <span #counts class="counts">{{counter}}</span>
+      <!-- <span #counts class="counts">{{counterOption.count}}</span> -->
+      <span #counts class="counts">{{counter$ | async}}</span>
       <span class="unit">db</span>
     </li>
     <li class="list-group-item increase" (click)="counterChange($event, 'increase')">
@@ -12,7 +13,8 @@
     </li>
     <li class="list-group-item status_item" *ngIf="counterOption.checkRequire">
       <img src="./assets/icons/check_icon.svg" alt="" *ngIf="counterOption.statusOption == 'check'">
-      <img src="./assets/icons/shop_bag_white.svg" alt="" *ngIf="counterOption.statusOption == 'bag'">
+      <img src="./assets/icons/shop_bag_white.svg" alt="" *ngIf="counterOption.statusOption == 'bag'"
+        (click)="$event.stopPropagation(); openExtraPopUpEmitter()">
     </li>
   </ul>
 </div>

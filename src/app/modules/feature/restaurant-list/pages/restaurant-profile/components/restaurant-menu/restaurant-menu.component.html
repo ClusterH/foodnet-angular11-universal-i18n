@@ -13,13 +13,12 @@
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
       [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
   </div>
-  <div class="restaurant_content" *ngIf="products != []">
+  <div class="restaurant_content" *ngIf="products != []; else noProduct">
     <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
       <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
     </h2>
     <div class="prod_list">
-      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of products; odd as isOdd"
-        (click)="showExtraPopup(product)">
+      <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of products;">
         <div class="card_img">
           <img [src]="imgPath + product.product_imageUrl" alt="">
         </div>
@@ -38,15 +37,20 @@
             <span class="price_item text-warning text-bold">
               {{ product.product_price }}Ft
             </span>
-            <div class="counter">
-              <app-counter (counterEmitter)="counterChange($event)"
-                [counterOption]="{checkRequire: true, statusOption: isOdd ? 'bag' : 'check'}"></app-counter>
+            <div class="counter" [ngClass]="{'div-disabled': product.isCart}">
+              <app-counter (counterEmitter)="counterChange($event, product.product_id)"
+                (openExtraEmitter)="openExtraPopUp($event, product)"
+                [counterOption]="{checkRequire: true, count: product.count, statusOption: product.isCart ? 'check' : 'bag'}">
+              </app-counter>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <ng-template #noProduct>
+    <p>No Product!</p>
+  </ng-template>
 
   <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true"
     [dismissableMask]="true">
@@ -71,8 +75,10 @@
       <ul class="required_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
           <div class="custom_radio">
-            <input type="radio" name="required_extra_item" id="radio">
-            <label for="radio"></label>
+            <input type="radio" [id]="extra.extra_id" [(value)]="extra.checked"
+              [attr.checked]="extra.checked == true? true : null"
+              (change)="onRequiredExtraChange($event, extra.extra_id)">
+            <label [for]="extra.extra_id"></label>
           </div>
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
@@ -87,15 +93,15 @@
               </span>
               <span>)</span>
             </div>
-            <div class="mobile_counter_section">
+            <div class="mobile_counter_section" [ngClass]="{'div-disabled': !extra.checked}">
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
-              <app-counter (counterEmitter)="counterChange($event)"
+              <app-counter (counterEmitter)="requiredExtraCounterChange($event, extra.extra_id)"
                 [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
               </app-counter>
             </div>
           </div>
-          <div class="counter_section">
-            <app-counter (counterEmitter)="counterChange($event)"
+          <div class="counter_section" [ngClass]="{'div-disabled': !extra.checked}">
+            <app-counter (counterEmitter)="requiredExtraCounterChange($event, extra.extra_id)"
               [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
             </app-counter>
           </div>
@@ -108,8 +114,10 @@
       <ul class="optional_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
           <div class="custom_checkbox">
-            <input type="checkbox" name="" id="checkbox">
-            <label for="checkbox"></label>
+            <input type="checkbox" [id]="extra.extra_id" [(value)]="extra.checked"
+              [attr.checked]="extra.checked == true? true : null"
+              (change)="onOptionalExtraChange($event, extra.extra_id)">
+            <label [for]="extra.extra_id"></label>
           </div>
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
@@ -124,16 +132,15 @@
               </span>
               <span>)</span>
             </div>
-            <div class="mobile_counter_section">
+            <div class="mobile_counter_section" [ngClass]="{'div-disabled': !extra.checked}">
               <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
-              <app-counter (counterEmitter)="counterChange($event)"
+              <app-counter (counterEmitter)="optionalExtraCounterChange($event, extra.extra_id)"
                 [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
               </app-counter>
             </div>
-
           </div>
-          <div class="counter_section">
-            <app-counter (counterEmitter)="counterChange($event)"
+          <div class="counter_section" [ngClass]="{'div-disabled': !extra.checked}">
+            <app-counter (counterEmitter)="optionalExtraCounterChange($event, extra.extra_id)"
               [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
             </app-counter>
           </div>

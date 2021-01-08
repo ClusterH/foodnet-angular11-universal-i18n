@@ -8,4 +8,6 @@ export interface ProductList {
   allergens_name?: Array<{
     allergen_name: string
   }>;
+  count?: number;
+  isCart: boolean;
 }

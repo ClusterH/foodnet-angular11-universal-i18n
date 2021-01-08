@@ -8,6 +8,7 @@ import { RestaurantMenuComponent } from './components/restaurant-menu/restaurant
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantEvaluationComponent } from './components/restaurant-evaluation/restaurant-evaluation.component';
 import { RestaurantMenuService, RestaurantInfoService, RestaurantReviewService } from './services';
+import { DeliveryAddressService } from 'src/app/modules/feature/profile/services';
 import { ShareModule } from 'src/app/modules/shared/shared.module';
 import { RestaurantOrderComponent } from './components/restaurant-order/restaurant-order.component';
 import { RestaurantSuccessComponent } from './components/restaurant-success/restaurant-success.component';
@@ -31,6 +32,6 @@ import { RestaurantSuccessComponent } from './components/restaurant-success/rest
   ],
   exports: [
   ],
-  providers: [RestaurantMenuService, RestaurantInfoService, RestaurantReviewService]
+  providers: [RestaurantMenuService, RestaurantInfoService, RestaurantReviewService, DeliveryAddressService]
 })
 export class RestaurantProfileModule { }

@@ -26,7 +26,7 @@ export class RestaurantOrderListComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.cookieService.get('cartProducts')) {
-      console.log(JSON.parse(this.cookieService.get('cartProducts')));
+
       this.cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList;
       this.cartProductList$ = of(this.cartProductList);
       this.totalPrice = JSON.parse(this.cookieService.get('cartProducts')).totalPrice;
@@ -36,11 +36,11 @@ export class RestaurantOrderListComponent implements OnInit {
   }
 
   counterChange(event, product?): void {
-    console.log(event, product, this.cartProductList);
+
     this.counts = event.counts;
     this.cartProductList.map(item => {
       if (item.product.product_id == product.product.product_id) {
-        console.log('ddd');
+
         item.product.count = this.counts;
         item.totalPrice = this.countProductTotalPrice(item);
       }
@@ -57,7 +57,7 @@ export class RestaurantOrderListComponent implements OnInit {
   }
 
   countProductTotalPrice(product): number {
-    console.log(product);
+
     let requiredExtraTotal: number = 0;
     product.requiredExtra.map(item => {
       requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;

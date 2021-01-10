@@ -74,7 +74,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     }
 
     if (this.cookieService.get('cartProducts')) {
-      console.log(JSON.parse(this.cookieService.get('cartProducts')));
+
       this.cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList;
       this.cartProductList$ = of(this.cartProductList);
       this.totalPrice = JSON.parse(this.cookieService.get('cartProducts')).totalPrice;
@@ -97,11 +97,11 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   counterChange(event, product?): void {
-    console.log(event, product, this.cartProductList);
+
     this.counts = event.counts;
     this.cartProductList.map(item => {
       if (item.product.product_id == product.product.product_id) {
-        console.log('ddd');
+
         item.product.count = this.counts;
         item.totalPrice = this.countProductTotalPrice(item);
       }
@@ -124,7 +124,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   addProductToCartEventEmitter(event): void {
-    console.log(event);
+
     this.cartProductList = event.cartList;
     this.cartProductList$ = of(this.cartProductList);
     this.totalPrice = event.totalPrice;
@@ -132,7 +132,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
-    console.log(product);
+
     let requiredExtraTotal: number = 0;
     product.requiredExtra.map(item => {
       requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
@@ -169,7 +169,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       this.cartCountService.getCartNumber();
       return;
     } else {
-      console.log(this.cartProductList, product);
+
       const index = this.cartProductList.indexOf(product);
       if (index > -1) {
         this.totalPrice = this.totalPrice - product.totalPrice;

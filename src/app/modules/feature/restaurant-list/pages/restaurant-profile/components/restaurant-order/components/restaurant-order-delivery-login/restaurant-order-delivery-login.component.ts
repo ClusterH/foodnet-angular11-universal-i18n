@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Subject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { DeliveryAddress } from '../../../../models';
 
 @Component({
   selector: 'app-restaurant-order-delivery-login',
@@ -11,14 +12,17 @@ export class RestaurantOrderDeliveryLoginComponent implements OnInit {
   selectedDeliveryAddress: any;
 
   @Input() deliveryAddressList: Array<any>;
-  @Output() loginDeliveryAddressEmitter = new EventEmitter<any>();
+  @Output() loginDeliveryAddressIdEmitter = new EventEmitter<DeliveryAddress>();
+
   constructor() { }
 
   ngOnInit(): void {
+    this.deliveryAddressList$ = of(this.deliveryAddressList);
   }
 
   selectDeliveryAddress(address): void {
-    console.log(address);
+
     this.selectedDeliveryAddress = address;
+    this.loginDeliveryAddressIdEmitter.emit(address.id);
   }
 }

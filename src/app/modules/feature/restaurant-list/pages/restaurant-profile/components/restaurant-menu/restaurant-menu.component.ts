@@ -63,7 +63,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       this.selectedCategory = this.categoryList[0];
       this.getSubCategory(this.categoryList[0].category_id);
     });
-
   }
 
   ngOnDestroy(): void {
@@ -120,15 +119,11 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
         this.productList$ = of(this.productList);
         return;
       } else {
-        console.log(res.result);
-        console.log(this.cartProductList);
-
         this.productList = [...res.result];
         this.productList.map(item => {
           return this.checkProductIsCart(item);
         });
 
-        console.log(this.productList);
         this.productList$ = of(this.productList);
       }
     });
@@ -153,7 +148,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   counterChange(event, id?): void {
-    console.log(id);
     this.counts = event.counts;
     this.productList.map(item => {
       if (item.product_id == id) {
@@ -161,8 +155,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       }
       return item;
     });
-
-    console.log(this.productList);
     this.productList$ = of(this.productList);
   }
 
@@ -174,7 +166,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       })
       this.cartProductList = [];
     } else if (type === 'current') {
-      console.log(product);
+
       const index = this.productList.findIndex(item => item.product_id === product.product.product_id);
       if (index > -1) {
         this.productList[index].count = 1;
@@ -193,7 +185,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
-    console.log(productItem);
+
     this.isEnableAddCart = false;
     const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
@@ -210,7 +202,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
         return item;
       }));
 
-      console.log(requiredExtraData, optionalExtraData);
+
       this.minRequired$ = of(requiredExtraData.minRequired);
       if (requiredExtraData.result.length == 0) {
         this.isEnableAddCart = true;
@@ -254,7 +246,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
-    console.log(product);
+
     let requiredExtraTotal: number = 0;
     if (!isEmpty(product.requiredExtra)) {
       product.requiredExtra.map(item => {
@@ -288,7 +280,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   openExtraPopUp(event, product) {
     if (event) {
-      console.log(product);
+
       this.showExtraPopup(product);
     }
   }
@@ -312,7 +304,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   onRequiredExtraChange(event, id) {
-    console.log(event, 'extra===>>>', id);
+
     this.requiredExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
@@ -326,7 +318,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   onOptionalExtraChange(event, id) {
-    console.log(event, 'extra===>>>', id);
+
     this.optionalExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;

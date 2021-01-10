@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from '@gorniv/ngx-universal';
 import { DeliveryAddressService } from 'src/app/modules/feature/profile/services';
 import { Subject, Observable, of } from 'rxjs';
-import { isEmpty, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { DeliveryAddress } from '../../../../models';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-restaurant-order-delivery-logout',
@@ -12,12 +14,12 @@ import { isEmpty, takeUntil } from 'rxjs/operators';
 })
 export class RestaurantOrderDeliveryLogoutComponent implements OnInit {
   addressForm: FormGroup;
-
   locationList: any[];
   selectedCity: any;
   lang: string;
   private _unsubscribeAll: Subject<any>;
 
+  @Output() logoutDeliveryAddressEmitter = new EventEmitter<DeliveryAddress>();
 
   constructor(
     private fb: FormBuilder,
@@ -25,19 +27,20 @@ export class RestaurantOrderDeliveryLogoutComponent implements OnInit {
     private deliveryAddressService: DeliveryAddressService,
   ) {
     this._unsubscribeAll = new Subject();
-
   }
 
   ngOnInit(): void {
     this.lang = this.cookieService.get('change_lang') || 'ro';
+    this.getLocations();
+    this.initForm();
   }
 
   initForm(): void {
     this.addressForm = this.fb.group({
-      name: ['', [Validators.required,
+      fullName: ['', [Validators.required,
       Validators.pattern('^[A-zĂÂÎȘȚăâîșțÁÉÍÓÖŐÚÜŰáéíóöőúüű ]+$'), Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$')]],
-      phonenumber: ['', [Validators.required,
+      phone: ['', [Validators.required,
       Validators.minLength(5), Validators.maxLength(30)]],
       street: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       houseNumber: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(20)]],
@@ -58,4 +61,21 @@ export class RestaurantOrderDeliveryLogoutComponent implements OnInit {
       (this.addressForm.controls[fieldName].dirty || this.addressForm.controls[fieldName].touched);
   }
 
+  formChange(): void {
+    if (this.addressForm.valid && !isEmpty(this.selectedCity)) {
+
+      this.logoutDeliveryAddressEmitter.emit(this.generateDeliveryAddress());
+    } else {
+
+      return;
+    }
+  }
+
+  generateDeliveryAddress(): DeliveryAddress {
+
+    let deliveryAddress: DeliveryAddress = this.addressForm.value;
+    deliveryAddress.locationId = this.selectedCity.id;
+
+    return deliveryAddress;
+  }
 }

@@ -1,0 +1,12 @@
+.flex_custom {
+  flex-direction: row;
+  @media all and (max-width: 1034px) {
+    flex-direction: column;
+  }
+  @media all and (max-width: 590px) {
+    flex-direction: row;
+  }
+  @media all and (max-width: 530px) {
+    flex-direction: column;
+  }
+}

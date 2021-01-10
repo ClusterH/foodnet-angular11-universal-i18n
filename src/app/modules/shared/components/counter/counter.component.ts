@@ -47,7 +47,7 @@ export class CounterComponent implements OnInit {
 
     if (this.counterOption.count) {
       this.counter = this.counterOption.count;
-      console.log('counter===>>>', this.counter);
+
       this.counter$ = of(this.counter);
     }
   }
@@ -55,7 +55,7 @@ export class CounterComponent implements OnInit {
   ngOnChanges(): void {
     if (this.counterOption.count) {
       this.counter = this.counterOption.count;
-      console.log('counter===>>>', this.counter);
+
       this.counter$ = of(this.counter);
     }
   }

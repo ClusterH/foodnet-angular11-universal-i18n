@@ -24,7 +24,7 @@ export class RestaurantSuccessComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.restaurant = JSON.parse(this.cookieService.get('restaurant'));
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -38,6 +38,10 @@ export class RestaurantSuccessComponent implements OnInit {
     const current = moment(`${hour}:${minute}`, format);
 
     return current.isBetween(open, close);
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/']);
   }
 
 }

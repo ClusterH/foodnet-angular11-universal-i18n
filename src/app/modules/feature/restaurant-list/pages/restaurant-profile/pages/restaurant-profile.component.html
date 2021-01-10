@@ -60,8 +60,6 @@
         <span>)</span>
       </p>
       <div class="extra_section">
-        <!-- <a class="plus_extra"><i class="fas fa-plus"></i></a> -->
-        <!-- total price = quantity * productPrice + quantity * boxPrice + (extra1Quantity * extra1 + ... -->
         <span>+&nbsp;</span>
         <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
         <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>

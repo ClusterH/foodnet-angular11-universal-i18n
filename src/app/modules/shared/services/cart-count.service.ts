@@ -11,14 +11,14 @@ export class CartCountService {
 
   getCartNumber(): void {
     const cartProductList = this.cookieService.get('cartProducts') ? JSON.parse(this.cookieService.get('cartProducts')).cartList : [];
-    console.log(cartProductList);
+
     let count: number = 0;
     if (cartProductList != []) {
       cartProductList.map(product => {
         count = count + product.product.count;
       })
     }
-    console.log(count);
+
     this.cartCount.next(count);
   }
 }

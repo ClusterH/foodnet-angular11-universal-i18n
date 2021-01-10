@@ -9,14 +9,13 @@
   <ul class="">
     <li class="d-flex justify-content-start align-items-start">
       <div class="custom_checkbox">
-        <input type="checkbox" name="order_type" id="to_go" [(ngModel)]="take" [ngModelOptions]="{standalone: true}">
+        <input type="checkbox" name="order_type" id="to_go" [(ngModel)]="take" (change)="onChangeInputs()">
         <label for="to_go">To go</label>
       </div>
     </li>
     <li class="d-flex justify-content-start align-items-start">
       <div class="custom_checkbox">
-        <input type="checkbox" name="order_type" id="cutlery" [(ngModel)]="cutlery"
-          [ngModelOptions]="{standalone: true}">
+        <input type="checkbox" name="order_type" id="cutlery" [(ngModel)]="cutlery">
         <label for="cutlery">Without cutlery</label>
       </div>
     </li>
@@ -24,7 +23,7 @@
 </div>
 <div class="comment_section">
   <h5 class="text-bold">Comment</h5>
-  <textarea class="comment_text" name="" id="" cols="30" rows="5"></textarea>
+  <textarea class="comment_text" name="" id="" cols="30" rows="5" [(ngModel)]="comment"></textarea>
 </div>
 <div class="payment_type">
   <h5 class="text-bold">Payment method</h5>

@@ -12,3 +12,9 @@ export interface ExtraList {
   quantity: number,
   extraPrice: number
 }
+
+export interface Payment {
+  take: number;
+  cutlery: number;
+  messageCourier: string;
+}

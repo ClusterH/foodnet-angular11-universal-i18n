@@ -7,10 +7,11 @@ import { RestaurantOrderService } from '../../services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { RestaurantList } from '../../../../models';
-import { OrderProductList } from '../../models';
+import { OrderProductList, DeliveryAddress, Payment } from '../../models';
 
 import * as moment from 'moment';
-import { isEmpty, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-restaurant-order',
@@ -23,8 +24,14 @@ export class RestaurantOrderComponent implements OnInit {
   private _unsubscribeAll: Subject<any>;
   restaurant: RestaurantList;
   orderProductList: OrderProductList[];
+  loginDeliveryAddressId: number = -1;
   deliveryAddressList: Array<any>;
   deliveryAddressList$: Observable<Array<any>>;
+  isEmptyDeliveryList: boolean = false;
+  deliveryAddress: DeliveryAddress = null;
+  orderProductOption: any;
+  deliveryAddressOption: any;
+  paymentOption: Payment;
   isAuth: boolean = false;
   isSpinner: boolean = true;
 
@@ -39,30 +46,20 @@ export class RestaurantOrderComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.restaurant = JSON.parse(this.cookieService.get('restaurant'));
+    this.paymentOption = {
+      take: 0,
+      cutlery: 0,
+      messageCourier: ""
+    }
   }
 
   ngOnInit(): void {
     this.isAuth = this.authService.isAuthenticated();
     if (this.isAuth) {
       this.getDeliveryAddress();
-    }
-  }
-
-  getDeliveryAddress(): void {
-    const lang = this.cookieService.get('change_lang') || 'ro';
-    this.deliveryAddressService.getDeliveryAddress(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
-      if (res.status == 200) {
-        this.deliveryAddressList = res.result;
-        this.deliveryAddressList$ = of(this.deliveryAddressList);
-        this.isSpinner = false;
-      } else {
-        this.deliveryAddressList = [];
-        this.deliveryAddressList$ = of(this.deliveryAddressList);
-      }
-    }, (errorResponse) => {
+    } else {
       this.isSpinner = false;
-    });
+    }
   }
 
   isOverdue(openTime, closeTime): boolean {
@@ -76,33 +73,30 @@ export class RestaurantOrderComponent implements OnInit {
     return current.isBetween(open, close);
   }
 
-  orderSuccess(): void {
-    // console.log(this.cartProductList);
-    // console.log(this.selectedDeliveryAddress);
-    // console.log(this.take, '===', this.cutlery);
-    // console.log(JSON.parse(this.cookieService.get('restaurant')));
-    // console.log(JSON.parse(this.cookieService.get('currentLocation')));
-    // let orderProduct: any = [];
-    // this.cartProductList.map(cartProduct => {
-    //   orderProduct.push({
-    //     variantId: cartProduct.product.variant_id,
-    //     productId: cartProduct.product.product_id,
-    //     productPrice: cartProduct.product.product_price,
-    //     quantity: cartProduct.product.count,
-    //     message: "",
-    //     extras: this.generateExtras(cartProduct.requiredExtra, cartProduct.optionalExtra),
-    //   })
-    // })
+  getDeliveryAddress(): void {
+    const lang = this.cookieService.get('change_lang') || 'ro';
+    this.deliveryAddressService.getDeliveryAddress(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      if (res.status == 200 && !isEmpty(res.result)) {
+        console.log('=====NONempty');
+        this.isEmptyDeliveryList = false;
+        this.deliveryAddressList = [...res.result];
+        this.deliveryAddressList$ = of(this.deliveryAddressList);
+        this.isSpinner = false;
+      } else {
+        console.log('=====empty');
+        this.isEmptyDeliveryList = true;
+        this.deliveryAddressList = [];
+        this.deliveryAddressList$ = of(this.deliveryAddressList);
+        this.isSpinner = false;
+      }
+    }, (errorResponse) => {
+      this.isSpinner = false;
+    });
+  }
 
-    const body = {
-      // "deliveryAddressId": this.selectedDeliveryAddress.id,
-      // "restaurantId": JSON.parse(this.cookieService.get('restaurant')).restaurant_id,
-      // "take": this.take ? 1 : 0,
-      // "cutlery": this.cutlery ? 0 : 1,
-      // "products": orderProduct,
-      // "messageCourier": "",
-      // "locationId": JSON.parse(this.cookieService.get('currentLocation')).id
-    }
+  orderSuccess(): void {
+    const restaurantOption = { restaurantId: JSON.parse(this.cookieService.get('restaurant')).restaurant_id };
+    const body = { ...restaurantOption, ...this.orderProductOption, ...this.deliveryAddressOption, ...this.paymentOption };
 
     this.orderService.restaurantOrder(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       if (res.status == 400) {
@@ -116,7 +110,32 @@ export class RestaurantOrderComponent implements OnInit {
     });
   }
 
+  goBack(): void {
+    const location = JSON.parse(this.cookieService.get('currentLocation')).location;
+    this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}`]);
+  }
+
   orderProductListEmitter(event: OrderProductList[]): void {
     this.orderProductList = event;
+    this.orderProductOption = { products: this.orderProductList };
+  }
+
+  loginDeliveryAddressIdEmitter(event: number): void {
+    this.loginDeliveryAddressId = event;
+    this.deliveryAddressOption = { deliveryAddressId: this.loginDeliveryAddressId };
+  }
+
+  logoutDeliveryAddressEmitter(event: DeliveryAddress): void {
+    this.deliveryAddress = event;
+    this.deliveryAddressOption = this.deliveryAddress;
+  }
+
+  noDeliveryAddressEmitter(event: DeliveryAddress): void {
+    this.deliveryAddress = event;
+    this.deliveryAddressOption = this.deliveryAddress;
+  }
+
+  paymentEventEmitter(event: Payment): void {
+    this.paymentOption = event;
   }
 }

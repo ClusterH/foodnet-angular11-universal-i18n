@@ -87,18 +87,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     });
-
-    // if (!isEmpty(JSON.parse(this.cookieService.get('cartProducts')).cartList)) {
-    //   this.countCart();
-    // }
-    // this.cartCountService.cartCount$.pipe(takeUntil(this._unsubscribeAll)).subscribe(count => {
-    //   console.log(count);
-    //   if (count == null) {
-    //   }
-
-    //   this.cartNumber = count;
-    //   this.cartNumber$ = of(count);
-    // })
   }
 
   ngOnDestroy(): void {
@@ -161,7 +149,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   countCart(): void {
     const cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList || [];
-    console.log(cartProductList);
+
     let count: number = 0;
     if (cartProductList != []) {
       cartProductList.map(product => {
@@ -171,6 +159,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.cartNumber = count;
     this.cartNumber$ = of(this.cartNumber);
+  }
+
+  goToOrder(): void {
+    if (this.cartNumber == 0) {
+      return;
+    }
+
+    const restaurant = JSON.parse(this.cookieService.get('restaurant'));
+    const location = JSON.parse(this.cookieService.get('currentLocation')).location;
+    this.router.navigate([`${location.replace(/\s/g, '-')}/${restaurant.restaurant_name.replace(/\s/g, '-')}/order`]);
   }
 }
 

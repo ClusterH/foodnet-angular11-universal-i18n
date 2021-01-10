@@ -1,27 +1,26 @@
 <main class="main_container">
-    <div class="banner">
-      <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
-      <img class="profile_img"
-        [src]="restaurant.restaurant_profileImage? 'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage : './assets/icons/shop_bag_white.svg'"
-        alt="">
-      <span class="status_badge_open" i18n="@@restaurant-profile-badge-open"
-        *ngIf="isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">open</span>
-      <span class="status_badge_close" i18n="@@restaurant-profile-badge-close"
-        *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">close</span>
-      <div class="justify-content-between align-items-center mobile_title">
-        <span class="text-white"><i class="fas fa-arrow-left"></i></span>
-        <span class="text-white">{{restaurant.restaurant_name}}</span>
-        <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt=""></span>
-      </div>
+  <div class="banner">
+    <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
+    <img class="profile_img"
+      [src]="restaurant.restaurant_profileImage? 'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage : './assets/icons/shop_bag_white.svg'"
+      alt="">
+    <span class="status_badge_open" i18n="@@restaurant-profile-badge-open"
+      *ngIf="isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">open</span>
+    <span class="status_badge_close" i18n="@@restaurant-profile-badge-close"
+      *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">close</span>
+    <div class="justify-content-between align-items-center mobile_title">
+      <span class="text-white"><i class="fas fa-arrow-left"></i></span>
+      <span class="text-white">{{restaurant.restaurant_name}}</span>
+      <span class="text-white"><img src="./assets/icons/shop_bag_white.svg" alt=""></span>
     </div>
-    <div class="top_info">
-      <h1>{{restaurant.restaurant_name}}</h1>
-    </div>
-    <div class="main_info d-flex flex-column justify-content-center align-items-center">
-      <h6 class="text-bold text-grey">congratulation</h6>
-      <h5 class="text-warning text-bold">Successful offer!</h5>
-      <p>Your order will arrive soon. We wish you a good appetite in advance!</p>
-      <button class="btn btn-warning-light shadow-none" >Go to the home page</button>
-    </div>
-  </main>
-    
+  </div>
+  <div class="top_info">
+    <h1>{{restaurant.restaurant_name}}</h1>
+  </div>
+  <div class="main_info d-flex flex-column justify-content-center align-items-center">
+    <h6 class="text-bold text-grey">congratulation</h6>
+    <h5 class="text-warning text-bold">Successful offer!</h5>
+    <p>Your order will arrive soon. We wish you a good appetite in advance!</p>
+    <button class="btn btn-warning-light shadow-none" (click)="goToHome()">Go to the home page</button>
+  </div>
+</main>

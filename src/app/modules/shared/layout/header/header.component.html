@@ -67,7 +67,7 @@
           <button class="btn btn-warning text-white" i18n="@@header-registeration-button"
             routerLink="/auth/register">Registration</button>
         </ng-template>
-        <span class="bg-warning-light notification">
+        <span class="bg-warning-light notification" (click)="goToOrder()">
           <img src="./assets/icons/shop_bag.svg" alt="">
           <span class="badge bg-warning text-white">{{cartNumber$ | async}}</span>
         </span>

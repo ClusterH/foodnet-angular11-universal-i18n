@@ -17,30 +17,33 @@
   <div class="top_info">
     <h1>{{restaurant.restaurant_name}}</h1>
   </div>
-  <div class="main_info">
+  <div class="main_info" *ngIf="!isSpinner">
     <h5 class="text-bold">Order finalization</h5>
     <h6 class="text-bold">Foods</h6>
-    <app-restaurant-order-list (orderProductListEmitter)="orderProductListEmitter()"></app-restaurant-order-list>
-    <div class="takeover_section" *ngIf="isAuth && deliveryAddressList$ | async; else nonAuth">
+    <app-restaurant-order-list (orderProductListEmitter)="orderProductListEmitter($event)"></app-restaurant-order-list>
+    <div class="takeover_section" *ngIf="isAuth; else nonAuth">
       <h5 class="text-bold">Takeover</h5>
-      <app-restaurant-order-delivery-login [deliveryAddressList]="deliveryAddressList">
-      </app-restaurant-order-delivery-login>
+      <div *ngIf="isEmptyDeliveryList; else noEmpty">
+        <app-restaurant-order-no-delivery-list (noDeliveryAddressEmitter)="noDeliveryAddressEmitter($event)">
+        </app-restaurant-order-no-delivery-list>
+      </div>
+      <ng-template #noEmpty>
+        <app-restaurant-order-delivery-login [deliveryAddressList]="deliveryAddressList"
+          (loginDeliveryAddressIdEmitter)="loginDeliveryAddressIdEmitter($event)">
+        </app-restaurant-order-delivery-login>
+      </ng-template>
     </div>
     <ng-template class="takeover_section" #nonAuth>
       <h5 class="text-bold">Takeover</h5>
-      <div *ngIf="!isAuth; else noDeliveryList">
-        <app-restaurant-order-delivery-logout></app-restaurant-order-delivery-logout>
-      </div>
-      <ng-template #noDeliveryList>
-        <app-restaurant-order-no-delivery-list></app-restaurant-order-no-delivery-list>
-      </ng-template>
+      <app-restaurant-order-delivery-logout (logoutDeliveryAddressEmitter)="logoutDeliveryAddressEmitter($event)">
+      </app-restaurant-order-delivery-logout>
     </ng-template>
-    <app-restaurant-order-payment></app-restaurant-order-payment>
+    <app-restaurant-order-payment (paymentEventEmitter)="paymentEventEmitter($event)"></app-restaurant-order-payment>
     <div class="btn_section d-flex justify-content-end align-items-center mt-5">
-      <button class="btn btn-white mr-2">Back</button>
-      <button class="btn btn-warning">Order</button>
-      <!-- <button class="btn btn-warning" type="submit"
-          [disabled]="isAuth && deliveryAddressList$? selectedDeliveryAddress : !isAuth? !selectedCity || !addressForm.valid : !selectedCity">Order</button> -->
+      <button class="btn btn-white mr-2" (click)="goBack()">Back</button>
+      <button class="btn btn-warning"
+        [disabled]="isAuth && deliveryAddressList$? loginDeliveryAddressId == -1 : deliveryAddress == null"
+        (click)="orderSuccess()">Order</button>
     </div>
   </div>
 </main>

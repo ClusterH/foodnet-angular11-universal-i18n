@@ -65,7 +65,7 @@ import { CounterComponent } from './components/counter/counter.component';
     TableModule,
     TabViewModule,
     PaginatorModule,
-    
+
     HeaderComponent,
     FooterComponent,
     CookieBarComponent,

@@ -1,0 +1,45 @@
+<div *ngIf="cartProductList$ | async as cartList">
+  <div class="cart_item" *ngFor="let product of cartList">
+    <div class="item_container d-flex flex-sm-column flex-md-row flex-lg-row justify-content-sm-start justify-content-md-between
+       justify-content-lg-between align-items-start">
+      <div class="item_content d-flex flex-column align-items-start justify-content-start">
+        <h6 class="text-bold">{{product.product.product_name}}</h6>
+        <label for="" class="ingredient_label">Ingredients</label>
+        <p class="ingredient_items">
+          <span>(Allergens: </span>
+          <span *ngFor="let allergen of product.product.allergens_name; let last=last">
+            <span *ngIf="last">{{ allergen.allergen_name }}</span>
+            <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
+          </span>
+          <span>)</span>
+        </p>
+        <div class="extra_section">
+          <span>+&nbsp;</span>
+          <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
+          <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
+        </div>
+        <label class="price_item text-warning text-bold">
+          {{product.totalPrice}} Ft
+        </label>
+      </div>
+      <div class="counter d-flex justify-content-end justify-content-sm-start">
+        <app-counter (counterEmitter)="counterChange($event, product)"
+          [counterOption]="{checkRequire: false, count: product.product.count}">
+        </app-counter>
+      </div>
+    </div>
+    <div class="item_comment">
+      <h6>Comment:</h6>
+      <p>Lorem ipsum dolor sit amet, consectetur blablabla.</p>
+    </div>
+    <hr />
+  </div>
+  <div class="total_price text-bold">
+    <h5 class="text-bold text-warning">
+      Total: {{totalPrice$ | async}} Ft
+    </h5>
+    <h5 class="text-bold">
+      With subscription: 6000 Ft
+    </h5>
+  </div>
+</div>

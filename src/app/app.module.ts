@@ -11,7 +11,9 @@ import { CookieModule, CookieService } from '@gorniv/ngx-universal';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/feature/home/pages/home.component';
 import { NotFoundComponent } from './modules/feature/not-found/not-found.component';
-import { SessionStorageService } from './modules/core/session-storage/session-storage.service';
+import { SessionStorageService } from './modules/core';
+import { CartCountService } from './modules/shared/services';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { SessionStorageService } from './modules/core/session-storage/session-st
     CoreModule,
     CookieModule.forRoot()
   ],
-  providers: [CookieService, SessionStorageService],
+  providers: [CookieService, SessionStorageService, CartCountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

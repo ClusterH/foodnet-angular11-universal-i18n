@@ -1,15 +1,17 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 
 import { CookieService } from '@gorniv/ngx-universal';
 import { isPlatformBrowser } from '@angular/common';
 import { CitySearchService } from '../../services';
 import { AuthService } from '../../../feature/auth/services/auth.service';
-import { SessionStorageService } from '../../../core/session-storage/session-storage.service';
+import { SessionStorageService } from '../../../core';
+import { CartCountService } from 'src/app/modules/shared/services';
 import * as environment from '../../../../../environments/environment';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-header',
@@ -29,6 +31,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   profileType: string;
   menuShow: boolean;
   userName: string;
+  cartNumber: number = 0;
+  cartNumber$: Observable<number>;
 
   private _unsubscribeAll: Subject<any>;
 
@@ -38,6 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private activatedroute: ActivatedRoute,
     public cookieService: CookieService,
     private citySearchService: CitySearchService,
+    public cartCountService: CartCountService,
     public authService: AuthService,
     public sessionService: SessionStorageService
   ) {
@@ -48,6 +53,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
     this.menuShow = false;
     this.userName = this.cookieService.get('auth_name');
+    this.cartCountService.getCartNumber();
+    this.cartCountService.cartCount$.pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      this.cartNumber = res;
+      this.cartNumber$ = of(this.cartNumber);
+    })
   }
 
   ngOnInit(): void {
@@ -77,6 +87,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     });
+
+    // if (!isEmpty(JSON.parse(this.cookieService.get('cartProducts')).cartList)) {
+    //   this.countCart();
+    // }
+    // this.cartCountService.cartCount$.pipe(takeUntil(this._unsubscribeAll)).subscribe(count => {
+    //   console.log(count);
+    //   if (count == null) {
+    //   }
+
+    //   this.cartNumber = count;
+    //   this.cartNumber$ = of(count);
+    // })
   }
 
   ngOnDestroy(): void {
@@ -135,6 +157,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (this.cookieService.get('currentLocation')) {
       this.cookieService.remove('currentLocation');
     }
+  }
+
+  countCart(): void {
+    const cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList || [];
+    console.log(cartProductList);
+    let count: number = 0;
+    if (cartProductList != []) {
+      cartProductList.map(product => {
+        count = count + product.product.count;
+      })
+    }
+
+    this.cartNumber = count;
+    this.cartNumber$ = of(this.cartNumber);
   }
 }
 

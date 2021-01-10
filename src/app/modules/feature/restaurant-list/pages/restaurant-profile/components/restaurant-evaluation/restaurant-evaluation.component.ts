@@ -61,9 +61,9 @@ export class RestaurantEvaluationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.restaurantReviewService.getRestaurantReviews().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+    // this.restaurantReviewService.getRestaurantReviews().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
 
-    })
+    // })
   }
 
   points(i: number) {

@@ -2,37 +2,38 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
 import { DeliveryAddressService } from 'src/app/modules/feature/profile/services';
+import { AuthService } from 'src/app/modules/feature/auth/services';
+import { RestaurantOrderService } from '../../services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { RestaurantList } from '../../../../models';
+import { OrderProductList } from '../../models';
+
 import * as moment from 'moment';
-import { RestaurantMenuComponent } from '../../components/restaurant-menu/restaurant-menu.component';
-import { takeUntil } from 'rxjs/operators';
+import { isEmpty, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-restaurant-order',
   templateUrl: './restaurant-order.component.html',
   styleUrls: ['./restaurant-order.component.scss']
 })
+
 export class RestaurantOrderComponent implements OnInit {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
   restaurant: RestaurantList;
-  counts: number;
-  cartProductList: Array<any>;
-  cartProductList$: Observable<Array<any>>;
-  totalPrice$: Observable<number>;
-  totalPrice: number = 0;
+  orderProductList: OrderProductList[];
   deliveryAddressList: Array<any>;
   deliveryAddressList$: Observable<Array<any>>;
+  isAuth: boolean = false;
   isSpinner: boolean = true;
-
-  @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     public cookieService: CookieService,
+    private orderService: RestaurantOrderService,
     private deliveryAddressService: DeliveryAddressService,
+    private authService: AuthService,
     private router: Router,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -41,25 +42,23 @@ export class RestaurantOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.cookieService.get('cartProducts')) {
-      console.log(JSON.parse(this.cookieService.get('cartProducts')));
-      this.cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList;
-      this.cartProductList$ = of(this.cartProductList);
-      this.totalPrice = JSON.parse(this.cookieService.get('cartProducts')).totalPrice;
-      this.totalPrice$ = of(this.totalPrice);
+    this.isAuth = this.authService.isAuthenticated();
+    if (this.isAuth) {
+      this.getDeliveryAddress();
     }
+  }
 
+  getDeliveryAddress(): void {
     const lang = this.cookieService.get('change_lang') || 'ro';
     this.deliveryAddressService.getDeliveryAddress(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       console.log(res);
-      if (res.status == 400) {
-        this.deliveryAddressList = [];
-        this.deliveryAddressList$ = of(this.deliveryAddressList);
-        this.isSpinner = false;
-      } else {
+      if (res.status == 200) {
         this.deliveryAddressList = res.result;
         this.deliveryAddressList$ = of(this.deliveryAddressList);
         this.isSpinner = false;
+      } else {
+        this.deliveryAddressList = [];
+        this.deliveryAddressList$ = of(this.deliveryAddressList);
       }
     }, (errorResponse) => {
       this.isSpinner = false;
@@ -77,55 +76,47 @@ export class RestaurantOrderComponent implements OnInit {
     return current.isBetween(open, close);
   }
 
-  counterChange(event, product?): void {
-    console.log(event, product, this.cartProductList);
-    this.counts = event.counts;
-    this.cartProductList.map(item => {
-      if (item.product.product_id == product.product.product_id) {
-        console.log('ddd');
-        item.product.count = this.counts;
-        item.totalPrice = this.countProductTotalPrice(item);
-      }
-
-      return item;
-    })
-
-    this.cartProductList$ = of(this.cartProductList);
-    this.totalPrice = this.countCartTotalPrice(this.cartProductList);
-    this.totalPrice$ = of(this.totalPrice);
-
-    this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
-    this.menuComponent.counterChange({ counts: this.counts }, product.product.product_id);
-  }
-
-  countProductTotalPrice(product): number {
-    console.log(product);
-    let requiredExtraTotal: number = 0;
-    product.requiredExtra.map(item => {
-      requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
-    });
-    let optionalExtraTotal: number = 0;
-    product.optionalExtra.map(item => {
-      optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
-    });
-    const total = product.product.count * product.product.product_price + product.product.count * product.product.box_price + (requiredExtraTotal + optionalExtraTotal);
-
-    return total;
-  }
-
-  countCartTotalPrice(cartList: Array<any>): number {
-    let totalPrice = 0;
-    cartList.map(item => {
-      totalPrice = totalPrice + item.totalPrice;
-    });
-
-    return totalPrice;
-  }
-
   orderSuccess(): void {
-    const location = JSON.parse(this.cookieService.get('currentLocation')).location;
-    this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/success`]);
+    // console.log(this.cartProductList);
+    // console.log(this.selectedDeliveryAddress);
+    // console.log(this.take, '===', this.cutlery);
+    // console.log(JSON.parse(this.cookieService.get('restaurant')));
+    // console.log(JSON.parse(this.cookieService.get('currentLocation')));
+    // let orderProduct: any = [];
+    // this.cartProductList.map(cartProduct => {
+    //   orderProduct.push({
+    //     variantId: cartProduct.product.variant_id,
+    //     productId: cartProduct.product.product_id,
+    //     productPrice: cartProduct.product.product_price,
+    //     quantity: cartProduct.product.count,
+    //     message: "",
+    //     extras: this.generateExtras(cartProduct.requiredExtra, cartProduct.optionalExtra),
+    //   })
+    // })
+
+    const body = {
+      // "deliveryAddressId": this.selectedDeliveryAddress.id,
+      // "restaurantId": JSON.parse(this.cookieService.get('restaurant')).restaurant_id,
+      // "take": this.take ? 1 : 0,
+      // "cutlery": this.cutlery ? 0 : 1,
+      // "products": orderProduct,
+      // "messageCourier": "",
+      // "locationId": JSON.parse(this.cookieService.get('currentLocation')).id
+    }
+
+    this.orderService.restaurantOrder(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      if (res.status == 400) {
+
+      } else if (res.status == 200) {
+        const location = JSON.parse(this.cookieService.get('currentLocation')).location;
+        this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/success`]);
+      }
+    }, (errorResponse) => {
+      this.isSpinner = false;
+    });
   }
 
-
+  orderProductListEmitter(event: OrderProductList[]): void {
+    this.orderProductList = event;
+  }
 }

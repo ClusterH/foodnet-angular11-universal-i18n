@@ -1,0 +1,71 @@
+<form class="mainForm" [formGroup]="addressForm">
+  <div class="form-group d-flex flex-column justify-content-start align-items-start">
+    <label for="city" class="text-bold">Settlement</label>
+    <p-dropdown [options]="locationList" name="selectedCity" [(ngModel)]="selectedCity"
+      [ngModelOptions]="{standalone: true}" optionLabel="cities" placeholder="Select a Settlement" required="true"
+      id="city">
+      <ng-template let-city pTemplate="item">
+        <div class="city-item">
+          {{city.cities}}
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div class="form-group">
+    <label for="street" class="text-bold"
+      [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required) ? 'text-red' : ''"
+      i18n="@@order-delivery-edit-c">Street
+      (Required)</label>
+    <input id="street" type="text" class="form-control" formControlName="street"
+      [ngClass]="(isValidInput('street') && addressForm.controls['street'].errors.required ) ? 'bd-red' : ''">
+    <div *ngIf="isValidInput('street')" class="m-0 p-0">
+      <div *ngIf="addressForm.controls['street'].errors.required">
+        <small id="streetHelp" class="text-red" i18n="@@order-delivery-edit-street-required">Street is
+          required.</small>
+      </div>
+      <div *ngIf="addressForm.controls['street'].errors.minlength">
+        <small id="streetHelp" class="text-red" i18n="@@order-delivery-edit-two-character">The
+          street must
+          be at least 2 characters long</small>
+      </div>
+      <div *ngIf="addressForm.controls['street'].errors.maxlength">
+        <small id="streetHelp" class="text-red" i18n="@@profile-delivery-edit-hundred-character">The street
+          must be maximum 100 characters long</small>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row flex_custom">
+      <div class="col">
+        <label for="houseNumber" class="text-bold"
+          [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required) ? 'text-red' : ''"
+          i18n="@@order-delivery-edit-d">House Number</label>
+        <input id="houseNumber" type="text" class="form-control" formControlName="houseNumber"
+          [ngClass]="(isValidInput('houseNumber') && addressForm.controls['houseNumber'].errors.required ) ? 'bd-red' : ''">
+        <div *ngIf="isValidInput('houseNumber')" class="m-0 p-0">
+          <div *ngIf="addressForm.controls['houseNumber'].errors.required">
+            <small id="houseNumberHelp" class="text-red" i18n="@@order-delivery-edit-housenumber-required">House
+              Number is required.</small>
+          </div>
+          <div *ngIf="addressForm.controls['houseNumber'].errors.minlength">
+            <small id="streetHelp" class="text-red" i18n="@@order-delivery-edit-one-character">The
+              house number must
+              be at least 1 characters long</small>
+          </div>
+          <div *ngIf="addressForm.controls['houseNumber'].errors.maxlength">
+            <small id="streetHelp" class="text-red" i18n="@@order-delivery-edit-twenty-character">The house number
+              must be maximum 20 characters long</small>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label for="floor" class="text-bold">Floor</label>
+        <input id="floor" type="text" class="form-control" formControlName="floor">
+      </div>
+      <div class="col">
+        <label for="door" class="text-bold">Door</label>
+        <input id="door" type="text" class="form-control" formControlName="doorNumber">
+      </div>
+    </div>
+  </div>
+</form>

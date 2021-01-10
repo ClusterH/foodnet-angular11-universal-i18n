@@ -157,8 +157,8 @@
       <textarea class="comment_content" name="" id="" cols="30" rows="4"></textarea>
     </div>
     <p-footer>
-      <button type="button" class="btn btn-warning text-white btn-expand" (click)="closeExtra()"
-        i18n="@@restaurant-profile-menu-dialog-h">Add to the
+      <button type="button" class="btn btn-warning text-white btn-expand" [disabled]="!isEnableAddCart"
+        (click)="closeExtra()" i18n="@@restaurant-profile-menu-dialog-h">Add to the
         cart</button>
     </p-footer>
   </p-dialog>

@@ -69,7 +69,7 @@
         </ng-template>
         <span class="bg-warning-light notification">
           <img src="./assets/icons/shop_bag.svg" alt="">
-          <span class="badge bg-warning text-white">9</span>
+          <span class="badge bg-warning text-white">{{cartNumber$ | async}}</span>
         </span>
       </div>
     </div>

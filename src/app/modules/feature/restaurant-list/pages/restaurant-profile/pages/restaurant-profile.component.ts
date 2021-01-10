@@ -2,8 +2,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestaurantMenuComponent } from '../components/restaurant-menu/restaurant-menu.component';
+import { HeaderComponent } from 'src/app/modules/shared/layout/header/header.component';
 import { CookieService } from '@gorniv/ngx-universal';
-import { SessionStorageService } from 'src/app/modules/core';
+import { CartCountService } from 'src/app/modules/shared/services';
 import { RestaurantMenuService } from './../services';
 import { RestaurantList, FilterOption } from '../../../models';
 import { Subject, Observable, of } from 'rxjs';
@@ -34,11 +35,13 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   isSpinner: boolean = true;
 
   @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
 
   constructor(
     @Inject(PLATFORM_ID) platformId: Object,
     private router: Router,
     public cookieService: CookieService,
+    private cartCountService: CartCountService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
@@ -112,6 +115,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
 
     this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
     this.menuComponent.counterChange({ counts: this.counts }, product.product.product_id);
+    this.cartCountService.getCartNumber();
   }
 
   orderProduct(): void {
@@ -137,9 +141,14 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     product.optionalExtra.map(item => {
       optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
     });
-    const total = product.product.count * product.product.product_price + product.product.count * product.product.box_price + (requiredExtraTotal + optionalExtraTotal);
+    let boxPrice: number = 0;
+    if (product.product.box_price) {
+      boxPrice = product.product.count * product.product.box_price;
+    }
+    const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
-    return total;
+
+    return Number(total.toFixed(2));
   }
 
   countCartTotalPrice(cartList: Array<any>): number {
@@ -157,6 +166,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       this.cartProductList$ = of(this.cartProductList);
       this.cookieService.remove('cartProducts');
       this.menuComponent.deleteFromCart(product, 'all');
+      this.cartCountService.getCartNumber();
       return;
     } else {
       console.log(this.cartProductList, product);
@@ -170,6 +180,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       this.totalPrice$ = of(this.totalPrice);
       this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
       this.menuComponent.deleteFromCart(product, 'current');
+      this.cartCountService.getCartNumber();
     }
   }
 }

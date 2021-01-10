@@ -44,21 +44,15 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.lang = this.cookieService.get('change_lang') || 'ro';
-
     this.deliveryAddressService.getLocations(this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.deliveryAddress = [...res.locations];
-
       this.initForm();
-
       this.activatedroute.queryParams.subscribe(params => {
         if (params.id) {
           this.id = params.id;
           this.title = $localize`:@@profile-delivery-update-title:Update delivery address`;
           this.deliveryAddressService.getCurrentAddress(params.id, this.lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
             if (res.status == 400) {
-
               this.isSpinner = false;
               this.router.navigate['/profile/update'];
               return

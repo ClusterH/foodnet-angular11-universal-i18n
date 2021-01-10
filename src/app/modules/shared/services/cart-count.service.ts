@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { CookieService } from '@gorniv/ngx-universal';
+
+@Injectable()
+export class CartCountService {
+  cartCount = new BehaviorSubject<number>(null);
+  cartCount$ = this.cartCount.asObservable();
+
+  constructor(private cookieService: CookieService) { }
+
+  getCartNumber(): void {
+    const cartProductList = this.cookieService.get('cartProducts') ? JSON.parse(this.cookieService.get('cartProducts')).cartList : [];
+    console.log(cartProductList);
+    let count: number = 0;
+    if (cartProductList != []) {
+      cartProductList.map(product => {
+        count = count + product.product.count;
+      })
+    }
+    console.log(count);
+    this.cartCount.next(count);
+  }
+}

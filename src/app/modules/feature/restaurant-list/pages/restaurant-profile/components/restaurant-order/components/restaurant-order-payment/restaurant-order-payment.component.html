@@ -1,0 +1,45 @@
+<div class="couponcode_section">
+  <h5 class="text-bold">Coupon code (if any)</h5>
+  <div class="input-group coupon_text">
+    <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="">
+    <span class="input-group-text btn-warning text-white" id="">Activation</span>
+  </div>
+</div>
+<div class="order_type">
+  <ul class="">
+    <li class="d-flex justify-content-start align-items-start">
+      <div class="custom_checkbox">
+        <input type="checkbox" name="order_type" id="to_go" [(ngModel)]="take" [ngModelOptions]="{standalone: true}">
+        <label for="to_go">To go</label>
+      </div>
+    </li>
+    <li class="d-flex justify-content-start align-items-start">
+      <div class="custom_checkbox">
+        <input type="checkbox" name="order_type" id="cutlery" [(ngModel)]="cutlery"
+          [ngModelOptions]="{standalone: true}">
+        <label for="cutlery">Without cutlery</label>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="comment_section">
+  <h5 class="text-bold">Comment</h5>
+  <textarea class="comment_text" name="" id="" cols="30" rows="5"></textarea>
+</div>
+<div class="payment_type">
+  <h5 class="text-bold">Payment method</h5>
+  <ul class="">
+    <li class="d-flex justify-content-start align-items-center">
+      <div class="custom_radio">
+        <input type="radio" name="payment_type" id="p_cash">
+        <label for="p_cash">Cash</label>
+      </div>
+    </li>
+    <li class="d-flex justify-content-start align-items-center">
+      <div class="custom_radio">
+        <input type="radio" name="payment_type" id="p_card">
+        <label for="p_card">Credit card</label>
+      </div>
+    </li>
+  </ul>
+</div>

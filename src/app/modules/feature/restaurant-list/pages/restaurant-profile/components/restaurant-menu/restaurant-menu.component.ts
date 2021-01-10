@@ -1,10 +1,11 @@
-import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { CookieService } from '@gorniv/ngx-universal';
 import { isEmpty } from 'lodash';
 import { forkJoin, Observable, of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Category, ProductList, SubCategory } from '../../models';
 import { RestaurantMenuService } from '../../services';
+import { CartCountService } from 'src/app/modules/shared/services';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -34,7 +35,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   selectedProduct: ProductList;
   isShownExtra: boolean = false;
   productImg: string;
-
+  isEnableAddCart: boolean = false;
   isSpinner: boolean = true;
   private _unsubscribeAll: Subject<any>;
 
@@ -42,7 +43,8 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   constructor(
     public cookieService: CookieService,
-    private restaurantMenuService: RestaurantMenuService
+    private restaurantMenuService: RestaurantMenuService,
+    private cartCountService: CartCountService
   ) {
     this._unsubscribeAll = new Subject();
     this.productImg = "./assets/images/banner.svg";
@@ -192,6 +194,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   showExtraPopup(productItem): void {
     console.log(productItem);
+    this.isEnableAddCart = false;
     const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
@@ -209,6 +212,9 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
       console.log(requiredExtraData, optionalExtraData);
       this.minRequired$ = of(requiredExtraData.minRequired);
+      if (requiredExtraData.result.length == 0) {
+        this.isEnableAddCart = true;
+      }
       this.selectedProduct = productItem;
       if (requiredExtraData.result.length == 0 && optionalExtraData.result.length == 0) {
         this.isExtra = false;
@@ -243,6 +249,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     const cartTotalPrice = this.countCartTotalPrice(this.cartProductList);
     this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: cartTotalPrice }));
     this.addCartEventEmitter.emit({ cartList: this.cartProductList, totalPrice: cartTotalPrice });
+    this.cartCountService.getCartNumber();
     this.isShownExtra = false;
   }
 
@@ -261,8 +268,11 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
         optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
       });
     }
-
-    const total = product.product.count * product.product.product_price + product.product.count * product.product.box_price + (requiredExtraTotal + optionalExtraTotal);
+    let boxPrice: number = 0;
+    if (product.product.box_price) {
+      boxPrice = product.product.count * product.product.box_price;
+    }
+    const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
     return Number(total.toFixed(2));
   }
@@ -309,6 +319,8 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       }
       return item;
     });
+
+    this.isEnableAddCart = true;
 
     this.requiredExtraList$ = of(this.requiredExtraData.result);
   }

@@ -122,7 +122,8 @@ export class RestaurantOrderComponent implements OnInit {
 
   loginDeliveryAddressIdEmitter(event: number): void {
     this.loginDeliveryAddressId = event;
-    this.deliveryAddressOption = { deliveryAddressId: this.loginDeliveryAddressId };
+    const locationId = JSON.parse(this.cookieService.get('currentLocation')).id;
+    this.deliveryAddressOption = { locationId: locationId, deliveryAddressId: this.loginDeliveryAddressId };
   }
 
   logoutDeliveryAddressEmitter(event: DeliveryAddress): void {

@@ -410,14 +410,14 @@
         <source>Opinion</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-review-create-subtitle" datatype="html">
         <source>A description that she can’t help us otherwise and falls short of the free raffle.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context>
-          <context context-type="linenumber">23,24</context>
+          <context context-type="linenumber">28,29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-title-a" datatype="html">
@@ -1238,28 +1238,28 @@
         <source>Update delivery address</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-delivery-create-title" datatype="html">
         <source>Create delivery address</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-delivery-edit-success-message" datatype="html">
         <source>Successful data modification</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-delivery-edit-failed-message" datatype="html">
         <source>A server error has occurred</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.ts</context>
-          <context context-type="linenumber">155</context>
+          <context context-type="linenumber">149</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-delivery-edit-b" datatype="html">
@@ -1680,91 +1680,91 @@
         <source>Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-tab-info" datatype="html">
         <source>INFO &amp; PROMOTIONS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-tab-review" datatype="html">
         <source>Evaluation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-a" datatype="html">
         <source>No shipping costs</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-b" datatype="html">
         <source>News</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-e" datatype="html">
         <source>Pizza</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-d" datatype="html">
         <source>Hamburger</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-g" datatype="html">
         <source>Daily Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-f" datatype="html">
         <source>Soup</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-h" datatype="html">
         <source>Salad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-i" datatype="html">
         <source>Cash</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-j" datatype="html">
         <source>Card</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-c" datatype="html">
         <source>Within 1 hour</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-badge-open" datatype="html">
@@ -1773,12 +1773,28 @@
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
           <context context-type="linenumber">9</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/restaurant-order.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-success/restaurant-success.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-badge-close" datatype="html">
         <source>close</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
           <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/restaurant-order.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-success/restaurant-success.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-a" datatype="html">
@@ -1799,14 +1815,14 @@
         <source>Comment</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="linenumber">156</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-h" datatype="html">
         <source>Add to the cart</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">156,157</context>
+          <context context-type="linenumber">161,162</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-c" datatype="html">
@@ -1820,49 +1836,49 @@
         <source>(Allergens: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-a" datatype="html">
         <source>(Allergens: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-b" datatype="html">
-        <source> Required extra(<x id="INTERPOLATION" equiv-text="-menu-dialog-b&quot; *ngIf=&quot;r"/> piece Required)</source>
+        <source> Required extra(<x id="INTERPOLATION" equiv-text="file-menu-dialog-b&quot; *ngI"/> piece Required)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">69,70</context>
+          <context context-type="linenumber">73,74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-c" datatype="html">
         <source>(Allergens: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">89</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-d" datatype="html">
         <source>Optional extra(Not required)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">106,107</context>
+          <context context-type="linenumber">112,113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-e" datatype="html">
         <source>(Allergens: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">120</context>
+          <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-dialog-f" datatype="html">
         <source>SHOW MORE</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">151</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-info-a" datatype="html">
@@ -1933,6 +1949,195 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
           <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-update-phone-d" datatype="html">
+        <source>Phone Number (Required)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-email-c" datatype="html">
+        <source>Email address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-c" datatype="html">
+        <source>Street (Required)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">80,81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-d" datatype="html">
+        <source>House Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-order-fullName-required" datatype="html">
+        <source>fullName is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-order-fullName-not-format" datatype="html">
+        <source>fullName is not a fullName format.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-order-fullName-three-character" datatype="html">
+        <source>The fullName must be at least 3 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout-order-fullName-twenty-character" datatype="html">
+        <source>The fullName must be maximum 20 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-update-phone-required" datatype="html">
+        <source>The phone is required</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-update-passwordconfirm-six-character" datatype="html">
+        <source>The phone must be at least 6 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-update-phone-thirty-character" datatype="html">
+        <source>The phone must be maximum 30 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-email-required" datatype="html">
+        <source>Email is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-email-not-format" datatype="html">
+        <source>Not an e-mail format</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-street-required" datatype="html">
+        <source>Street is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-two-character" datatype="html">
+        <source>The street must be at least 2 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">90,92</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-hundred-character" datatype="html">
+        <source>The street must be maximum 100 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-housenumber-required" datatype="html">
+        <source>House Number is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">110,111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-one-character" datatype="html">
+        <source>The house number must be at least 1 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">114,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-delivery-edit-twenty-character" datatype="html">
+        <source>The house number must be maximum 20 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>
+          <context context-type="linenumber">119,120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-c" datatype="html">
+        <source>Street</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-d" datatype="html">
+        <source>House Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-street-required" datatype="html">
+        <source>Street is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-two-character" datatype="html">
+        <source>The street must be at least 2 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-hundred-character" datatype="html">
+        <source>The street must be maximum 100 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-housenumber-required" datatype="html">
+        <source>House Number is required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-one-character" datatype="html">
+        <source>The house number must be at least 1 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="order-nodelivery-delivery-edit-twenty-character" datatype="html">
+        <source>The house number must be maximum 20 characters long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component.html</context>
+          <context context-type="linenumber">55,57</context>
         </context-group>
       </trans-unit>
     </body>

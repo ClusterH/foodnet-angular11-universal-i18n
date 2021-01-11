@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductList } from '../../models';
-
+import { OrderDetail } from '../../models';
+import { OrderListService } from '../../services';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { CookieService } from '@gorniv/ngx-universal';
 
 @Component({
   selector: 'app-order-detail',
@@ -8,76 +11,45 @@ import { ProductList } from '../../models';
   styleUrls: ['./order-detail.component.scss']
 })
 export class OrderDetailComponent implements OnInit {
-  order_Id: string;
-  order_created: string;
-  order_content: string;
-  foodList: ProductList[];
+  lang: string;
+  orderId: number;
+  orderCreatedAt: string;
+  deliveryAddress: DeliveryAddress;
+  productList: OrderDetail[];
   imgPath: string = 'https://admin.foodnet.ro/';
 
-  constructor() {
-    this.foodList = [
-      {
-        product_id: 111,
-        variant_id: 222,
-        product_name: "Pizza",
-        product_description: "This is test product",
-        product_imageUrl: "",
-        product_price: 1550,
-        allergens_name: [
-          {
-            allergen_name: "Allergén 1"
-          },
-          {
-            allergen_name: "Allergén 2"
-          },
-          {
-            allergen_name: "Allergén 3"
-          },
-        ]
-      },
-      {
-        product_id: 112,
-        variant_id: 223,
-        product_name: "Hambergur",
-        product_description: "This is test product",
-        product_imageUrl: "",
-        product_price: 1590,
-        allergens_name: [
-          {
-            allergen_name: "Allergén 1"
-          },
-          {
-            allergen_name: "Allergén 2"
-          },
-          {
-            allergen_name: "Allergén 3"
-          },
-        ]
-      },
-      {
-        product_id: 113,
-        variant_id: 224,
-        product_name: "Soup",
-        product_description: "This is test product",
-        product_imageUrl: "",
-        product_price: 1750,
-        allergens_name: [
-          {
-            allergen_name: "Allergén 1"
-          },
-          {
-            allergen_name: "Allergén 2"
-          },
-          {
-            allergen_name: "Allergén 3"
-          },
-        ]
-      },
-    ];
-    
-   }
+  isSpinner: boolean = true;
+  private _unsubscribeAll: Subject<any>;
 
-  ngOnInit(): void {
+  constructor(
+    private cookieService: CookieService,
+    private orderListService: OrderListService
+  ) {
+    this._unsubscribeAll = new Subject();
+
+    this.lang = this.cookieService.get('current_lang');
+    this.orderId = Number(this.cookieService.get('orderId'));
   }
 
+  ngOnInit(): void {
+    this.orderListService.getOrderDetail(this.lang, this.orderId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      if (res.status == 200) {
+        this.productList = [...res.result];
+        this.deliveryAddress = res.deliveryAddress[0];
+        this.orderCreatedAt = res.orderCreatedAt;
+        this.isSpinner = false;
+      } else {
+        this.productList = [];
+        this.isSpinner = false;
+      }
+    })
+  }
+}
+
+export interface DeliveryAddress {
+  door_number: string,
+  floor: string,
+  house_number: string,
+  street: string,
+  city: string
 }

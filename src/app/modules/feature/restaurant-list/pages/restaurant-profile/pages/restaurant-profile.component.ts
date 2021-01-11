@@ -10,6 +10,7 @@ import { RestaurantList, FilterOption } from '../../../models';
 import { Subject, Observable, of } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import * as moment from 'moment';
+import { isEmpty } from 'lodash';
 
 @Component({
   selector: 'app-restaurant-profile',
@@ -97,11 +98,9 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   counterChange(event, product?): void {
-
     this.counts = event.counts;
     this.cartProductList.map(item => {
       if (item.product.product_id == product.product.product_id) {
-
         item.product.count = this.counts;
         item.totalPrice = this.countProductTotalPrice(item);
       }
@@ -124,7 +123,6 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   addProductToCartEventEmitter(event): void {
-
     this.cartProductList = event.cartList;
     this.cartProductList$ = of(this.cartProductList);
     this.totalPrice = event.totalPrice;
@@ -132,24 +130,29 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
-
     let requiredExtraTotal: number = 0;
-    product.requiredExtra.map(item => {
-      requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
-    });
+    if (!isEmpty(product.requiredExtra)) {
+      product.requiredExtra.map(item => {
+        requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
+      });
+    }
+
     let optionalExtraTotal: number = 0;
-    product.optionalExtra.map(item => {
-      optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
-    });
+    if (!isEmpty(product.optionalExtra)) {
+      product.optionalExtra.map(item => {
+        optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
+      });
+    }
     let boxPrice: number = 0;
     if (product.product.box_price) {
       boxPrice = product.product.count * product.product.box_price;
     }
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
-
     return Number(total.toFixed(2));
   }
+
+
 
   countCartTotalPrice(cartList: Array<any>): number {
     let totalPrice = 0;

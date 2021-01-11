@@ -3,9 +3,13 @@ import { CookieService } from '@gorniv/ngx-universal';
 import { isEmpty } from 'lodash';
 import { forkJoin, Observable, of, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Category, ProductList, SubCategory } from '../../models';
+import { Category, ProductList, SubCategory, } from '../../models';
+import { RestaurantList } from '../../../../models';
+
 import { RestaurantMenuService } from '../../services';
 import { CartCountService } from 'src/app/modules/shared/services';
+import * as moment from 'moment';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-restaurant-menu',
@@ -14,7 +18,7 @@ import { CartCountService } from 'src/app/modules/shared/services';
 })
 
 export class RestaurantMenuComponent implements OnInit, OnDestroy {
-  @Input() restaurantId: number;
+  @Input() restaurant: RestaurantList;
   categoryList: Category[];
   subCategoryList: SubCategory[];
   translatePosition: number = 0;
@@ -35,6 +39,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   selectedProduct: ProductList;
   isShownExtra: boolean = false;
   productImg: string;
+  comment: string = '';
   isEnableAddCart: boolean = false;
   isSpinner: boolean = true;
   private _unsubscribeAll: Subject<any>;
@@ -51,7 +56,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const body = { "restaurantId": this.restaurantId, "lang": this.cookieService.get('change_lang') };
+    const body = { "restaurantId": this.restaurant.restaurant_id, "lang": this.cookieService.get('change_lang') };
     this.restaurantMenuService.getRestaurantCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.categoryList = [...res.result];
       if (isEmpty(this.categoryList)) {
@@ -69,6 +74,17 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
+  isOverdue(openTime, closeTime): boolean {
+    const format = 'hh:mm';
+    const open = moment(openTime, format);
+    const close = moment(closeTime, format);
+    const hour = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const current = moment(`${hour}:${minute}`, format);
+
+    return current.isBetween(open, close);
+  }
+  // !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)
 
   selectedItem(event): void {
     this.isSpinner = true;
@@ -85,7 +101,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   getSubCategory(categoryId: number): void {
     const body = {
       lang: this.cookieService.get('change_lang'),
-      restaurantId: this.restaurantId,
+      restaurantId: this.restaurant.restaurant_id,
       categoryId: categoryId
     }
 
@@ -104,12 +120,12 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   getProducts(subCategory: any) {
     const body = {
-      restaurantId: this.restaurantId,
+      restaurantId: this.restaurant.restaurant_id,
       lang: this.cookieService.get('change_lang'),
-      categoryId: subCategory.categoryId,
+      categoryId: this.selectedCategory.category_id,
       subcategoryId: subCategory.subcategoryId,
       propertyValTransId: subCategory.propertyValTransId,
-      searchedProduct: this.searchedProduct,
+      searchProduct: this.searchedProduct,
     };
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
@@ -185,28 +201,35 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
-
     this.isEnableAddCart = false;
-    const body = { restaurantId: this.restaurantId, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
+    const body = { restaurantId: this.restaurant.restaurant_id, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
     const optionalExtra = this.restaurantMenuService.getRestaurantOptionalExtra(body);
     forkJoin([requiredExtra, optionalExtra]).pipe(takeUntil(this._unsubscribeAll)).subscribe(([requiredExtraData, optionalExtraData]) => {
       this.requiredExtraData = requiredExtraData;
       this.optionalExtraData = optionalExtraData;
-      this.requiredExtraList$ = of(this.requiredExtraData.result.map(item => {
+      this.requiredExtraData.result.map(item => {
+        item.count = item.extra_minQuantity;
         item.checked = false;
         return item;
-      }));
+      });
       this.optionalExtraList$ = of(this.optionalExtraData.result.map(item => {
         item.checked = false;
         return item;
       }));
 
-
       this.minRequired$ = of(requiredExtraData.minRequired);
       if (requiredExtraData.result.length == 0) {
         this.isEnableAddCart = true;
+      } else {
+        this.requiredExtraData.result[0].checked = true;
+        if (requiredExtraData.result.length == 1) {
+          this.isEnableAddCart = true;
+        }
       }
+
+      this.requiredExtraList$ = of(this.requiredExtraData.result);
+
       this.selectedProduct = productItem;
       if (requiredExtraData.result.length == 0 && optionalExtraData.result.length == 0) {
         this.isExtra = false;
@@ -232,6 +255,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       product: this.selectedProduct,
       requiredExtra: this.requiredExtraData.result.filter(item => item.checked === true) || [],
       optionalExtra: this.optionalExtraData.result.filter(item => item.checked === true) || [],
+      comment: this.comment
     }
 
     const totalPrice = this.countProductTotalPrice(cartProduct);
@@ -246,7 +270,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
-
     let requiredExtraTotal: number = 0;
     if (!isEmpty(product.requiredExtra)) {
       product.requiredExtra.map(item => {
@@ -280,7 +303,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
   openExtraPopUp(event, product) {
     if (event) {
-
       this.showExtraPopup(product);
     }
   }
@@ -313,7 +335,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     });
 
     this.isEnableAddCart = true;
-
     this.requiredExtraList$ = of(this.requiredExtraData.result);
   }
 
@@ -334,5 +355,6 @@ export interface CartProduct {
   product?: ProductList,
   requiredExtra?: Array<any>,
   optionalExtra?: Array<any>,
-  totalPrice?: number
+  totalPrice?: number,
+  comment: string
 }

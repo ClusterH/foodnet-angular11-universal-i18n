@@ -32,6 +32,7 @@ export class RestaurantInfoComponent implements OnInit {
   ngOnInit(): void {
     this.restaurantInfoService.getRestaurantInfo(this.cookieService.get('change_lang'), this.restaurantId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.restaurantInfo = { ...res.result[0] };
+      this.cookieService.put('restaurant_minOrder', this.restaurantInfo.minOrder.toString());
       this.isSpinner = false;
     });
   }

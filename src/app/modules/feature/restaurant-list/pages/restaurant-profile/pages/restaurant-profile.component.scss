@@ -201,6 +201,10 @@
         }
       }
     }
+    .empty_content {
+      width: 100%;
+      margin-top: 3rem;
+    }
     @media all and (max-width: 820px) {
       display: none;
     }

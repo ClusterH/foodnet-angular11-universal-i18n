@@ -18,10 +18,10 @@ export class RestaurantOrderDeliveryLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.deliveryAddressList$ = of(this.deliveryAddressList);
+    this.selectDeliveryAddress(this.deliveryAddressList[0]);
   }
 
   selectDeliveryAddress(address): void {
-
     this.selectedDeliveryAddress = address;
     this.loginDeliveryAddressIdEmitter.emit(address.id);
   }

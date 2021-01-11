@@ -30,7 +30,7 @@
     <div class="main_info">
       <p-tabView *ngIf="isBrowser">
         <p-tabPanel [header]="header_menu">
-          <app-restaurant-menu *ngIf="restaurant" [restaurantId]="restaurant.restaurant_id"
+          <app-restaurant-menu *ngIf="restaurant" [restaurant]="restaurant"
             (addCartEventEmitter)="addProductToCartEventEmitter($event)"></app-restaurant-menu>
         </p-tabPanel>
         <p-tabPanel [header]="header_info">
@@ -85,12 +85,24 @@
       Total: {{totalPrice$ | async}} Ft
     </div>
     <div class="btn_section">
-      <button class="btn btn-warning order_btn" (click)="orderProduct()">Order</button>
+      <small id="emailHelp" class="text-red" *ngIf="totalPrice | minOrder"
+        i18n="@@restaurant-profile-minOrder-required">the minimal order amount that is required.</small>
+      <button class="btn btn-warning order_btn" (click)="orderProduct()"
+        [disabled]="totalPrice | minOrder">Order</button>
       <button class="btn btn-white delete_btn" (click)="deleteProductFromCart(null, 'all')">Delete cart
         contents</button>
     </div>
   </section>
   <section class="side_menu" *ngIf="!cartProductList">
     <h2 class="text-bold">Cart</h2>
+    <div class="empty_content d-flex justify-content-start align-items-center flex-column">
+      <h5 class="text-bold text-warning text-center">Your cart is currently empty</h5>
+      <p class="text-center text-grey mt-2">
+        But tomorrow, versatile, and mass. I hate football and a valuable asset to free macro as an integer.
+      </p>
+      <button class="btn btn-warning m-auto mt-2">
+        Look around!
+      </button>
+    </div>
   </section>
 </main>

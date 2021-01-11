@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+  padding-left: 0 !important;
+  & > li {
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media all and (max-width: 590px) {
+  ul {
+    & > li {
+      margin-bottom: 0.5rem;
+      font-size: 14px;
+    }
+  }
+}

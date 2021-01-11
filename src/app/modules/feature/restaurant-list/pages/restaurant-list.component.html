@@ -48,6 +48,21 @@
     </div>
   </div>
 </main>
+<p-dialog header="" [(visible)]="isRemovePrevOrderDialog" [style]="{width: '255px'}" [baseZIndex]="10000"
+  styleClass="custom_dialog" *ngIf="isBrowser" [modal]="true">
+  <p-header>
+    <h2 i18n="@@restaurant-list-delete-dialog-a">Already you have carts for previous restaurant.</h2>
+  </p-header>
+  <p class="text-bold text-center" i18n="@@restaurant-list-delete-dialog-b">This will cause all your previous data to be
+    lost
+    and cannot be restored.</p>
+  <p-footer>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(false)"
+      i18n="@@restaurant-list-delete-dialog-c">No</button>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(true)"
+      i18n="@@restaurant-list-delete-dialog-d">Yes</button>
+  </p-footer>
+</p-dialog>
 <div class="spinner_overlay" *ngIf="isSpinner">
   <div class="spinner_container">
     <img src="./assets/images/loading_spinner1.svg" alt="">

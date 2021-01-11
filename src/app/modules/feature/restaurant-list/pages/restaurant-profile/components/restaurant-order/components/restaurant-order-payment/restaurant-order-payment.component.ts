@@ -9,6 +9,8 @@ import { Payment } from '../../../../models';
 export class RestaurantOrderPaymentComponent implements OnInit {
   take: boolean = false;
   cutlery: boolean = false;
+  cash: boolean = true;
+  card: boolean = false;
   comment: string = '';
 
   @Output() paymentEventEmitter = new EventEmitter<Payment>()
@@ -24,8 +26,6 @@ export class RestaurantOrderPaymentComponent implements OnInit {
       cutlery: this.cutlery ? 0 : 1,
       messageCourier: this.comment
     }
-
-
 
     this.paymentEventEmitter.emit(paymentOptions);
   }

@@ -17,6 +17,7 @@ import { RestaurantOrderDeliveryLoginComponent } from './components/restaurant-o
 import { RestaurantOrderDeliveryLogoutComponent } from './components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component';
 import { RestaurantOrderNoDeliveryListComponent } from './components/restaurant-order/components/restaurant-order-no-delivery-list/restaurant-order-no-delivery-list.component';
 import { RestaurantOrderPaymentComponent } from './components/restaurant-order/components/restaurant-order-payment/restaurant-order-payment.component';
+import { MinOrderPipe } from './pipes/min-order.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { RestaurantOrderPaymentComponent } from './components/restaurant-order/c
     RestaurantOrderDeliveryLogoutComponent,
     RestaurantOrderNoDeliveryListComponent,
     RestaurantOrderPaymentComponent,
+    MinOrderPipe,
   ],
   imports: [
     CommonModule,

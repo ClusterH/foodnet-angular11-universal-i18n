@@ -1,10 +1,10 @@
-<div class="couponcode_section">
+<!-- <div class="couponcode_section">
   <h5 class="text-bold">Coupon code (if any)</h5>
   <div class="input-group coupon_text">
     <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="">
     <span class="input-group-text btn-warning text-white" id="">Activation</span>
   </div>
-</div>
+</div> -->
 <div class="order_type">
   <ul class="">
     <li class="d-flex justify-content-start align-items-start">
@@ -30,13 +30,13 @@
   <ul class="">
     <li class="d-flex justify-content-start align-items-center">
       <div class="custom_radio">
-        <input type="radio" name="payment_type" id="p_cash">
+        <input type="radio" name="payment_type" id="p_cash" [value]="true" [(ngModel)]="cash">
         <label for="p_cash">Cash</label>
       </div>
     </li>
     <li class="d-flex justify-content-start align-items-center">
       <div class="custom_radio">
-        <input type="radio" name="payment_type" id="p_card">
+        <input type="radio" name="payment_type" id="p_card" [(ngModel)]="card">
         <label for="p_card">Credit card</label>
       </div>
     </li>

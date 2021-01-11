@@ -1,7 +1,8 @@
 <ul>
-  <li class="d-flex justify-content-start align-items-start" *ngFor="let address of deliveryAddressList$ | async">
+  <li class="d-flex justify-content-start align-items-start"
+    *ngFor="let address of deliveryAddressList$ | async; let first=first">
     <div class="custom_radio">
-      <input type="radio" name="takeover" [id]="address.id" (change)="selectDeliveryAddress(address)">
+      <input type="radio" name="takeover" [id]="address.id" [checked]="first" (change)="selectDeliveryAddress(address)">
       <label [for]="address.id">{{address.houseNumber}} {{address.street}} {{address.city}}
         {{address.floor}} {{address.doorNumber}}</label>
     </div>

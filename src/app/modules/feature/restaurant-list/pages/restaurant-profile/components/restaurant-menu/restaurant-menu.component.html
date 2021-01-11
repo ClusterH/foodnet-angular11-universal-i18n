@@ -37,7 +37,8 @@
             <span class="price_item text-warning text-bold">
               {{ product.product_price }}Ft
             </span>
-            <div class="counter" [ngClass]="{'div-disabled': product.isCart}">
+            <div class="counter"
+              [ngClass]="{'div-disabled': product.isCart || !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)}">
               <app-counter (counterEmitter)="counterChange($event, product.product_id)"
                 (openExtraEmitter)="openExtraPopUp($event, product)"
                 [counterOption]="{checkRequire: true, count: product.count, statusOption: product.isCart ? 'check' : 'bag'}">
@@ -154,7 +155,7 @@
     </div>
     <div class="comments">
       <h5 class="text-bold" i18n="@@restaurant-profile-menu-dialog-g">Comment</h5>
-      <textarea class="comment_content" name="" id="" cols="30" rows="4"></textarea>
+      <textarea class="comment_content" name="" id="" cols="30" rows="4" [(ngModel)]="comment"></textarea>
     </div>
     <p-footer>
       <button type="button" class="btn btn-warning text-white btn-expand" [disabled]="!isEnableAddCart"

@@ -4,7 +4,7 @@ import { CookieService } from '@gorniv/ngx-universal';
 import { DeliveryAddressService } from 'src/app/modules/feature/profile/services';
 import { AuthService } from 'src/app/modules/feature/auth/services';
 import { RestaurantOrderService } from '../../services';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { RestaurantList } from '../../../../models';
 import { OrderProductList, DeliveryAddress, Payment } from '../../models';

@@ -28,9 +28,9 @@
         </app-counter>
       </div>
     </div>
-    <div class="item_comment">
+    <div class="item_comment" *ngIf="product.comment !== ''">
       <h6>Comment:</h6>
-      <p>Lorem ipsum dolor sit amet, consectetur blablabla.</p>
+      <p>{{product.comment}}</p>
     </div>
     <hr />
   </div>
@@ -38,8 +38,8 @@
     <h5 class="text-bold text-warning">
       Total: {{totalPrice$ | async}} Ft
     </h5>
-    <h5 class="text-bold">
+    <!-- <h5 class="text-bold">
       With subscription: 6000 Ft
-    </h5>
+    </h5> -->
   </div>
 </div>

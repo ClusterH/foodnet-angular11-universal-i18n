@@ -143,8 +143,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
         optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
       });
     }
+    console.log(product);
     let boxPrice: number = 0;
     if (product.product.box_price) {
+      console.log(product.product.box_price);
       boxPrice = product.product.count * product.product.box_price;
     }
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);

@@ -8,8 +8,7 @@ export class RestaurantReviewService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  getRestaurantReviews(): Observable<any> {
-    return this._httpClient.get<any>(`${this.apiBase}`);
+  getRestaurantReviews(restaurantId: number, rating: number): Observable<any> {
+    return this._httpClient.get<any>(`${this.apiBase}/${restaurantId}/${rating}`);
   }
-
 }

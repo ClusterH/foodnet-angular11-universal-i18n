@@ -15,7 +15,7 @@
     </li>
     <li class="d-flex justify-content-start align-items-start">
       <div class="custom_checkbox">
-        <input type="checkbox" name="order_type" id="cutlery" [(ngModel)]="cutlery">
+        <input type="checkbox" name="order_type" id="cutlery" (change)="onChangeInputs()" [(ngModel)]="cutlery">
         <label for="cutlery">Without cutlery</label>
       </div>
     </li>
@@ -23,7 +23,8 @@
 </div>
 <div class="comment_section">
   <h5 class="text-bold">Comment</h5>
-  <textarea class="comment_text" name="" id="" cols="30" rows="5" [(ngModel)]="comment"></textarea>
+  <textarea class="comment_text" name="" id="" cols="30" rows="5" [(ngModel)]="comment"
+    (change)="onChangeInputs()"></textarea>
 </div>
 <div class="payment_type">
   <h5 class="text-bold">Payment method</h5>
@@ -34,11 +35,11 @@
         <label for="p_cash">Cash</label>
       </div>
     </li>
-    <li class="d-flex justify-content-start align-items-center">
+    <!-- <li class="d-flex justify-content-start align-items-center">
       <div class="custom_radio">
         <input type="radio" name="payment_type" id="p_card" [(ngModel)]="card">
         <label for="p_card">Credit card</label>
       </div>
-    </li>
+    </li> -->
   </ul>
 </div>

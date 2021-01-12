@@ -60,7 +60,9 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   resetPWD(): void {
     this.isSpinner = true;
     this.errors = [];
+    console.log(this.resetPWDForm.value);
     this.authService.resetPWD(this.resetPWDForm.value, this.currentToken).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
+      console.log(token);
       this.isSpinner = false;
 
       this.router.navigate(['/auth/login']);

@@ -113,6 +113,9 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   closeMsg(): void {
+    if (!this.isInvalidErrors) {
+      this.initForm();
+    }
     this.isShownDig = !this.isShownDig;
   }
 }

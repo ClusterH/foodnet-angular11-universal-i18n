@@ -3,7 +3,7 @@
     <div class="item_container d-flex flex-sm-column flex-md-row flex-lg-row justify-content-sm-start justify-content-md-between
        justify-content-lg-between align-items-start">
       <div class="item_content d-flex flex-column align-items-start justify-content-start">
-        <h6 class="text-bold">{{product.product.product_name}}</h6>
+        <h6 class="text-bold">{{product.product.count}} * {{product.product.product_name}}</h6>
         <label for="" class="ingredient_label">{{product.product.product_description}}</label>
         <p class="ingredient_items">
           <span>(Allergens: </span>
@@ -14,9 +14,16 @@
           <span>)</span>
         </p>
         <div class="extra_section">
-          <span>+&nbsp;</span>
-          <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
-          <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
+          <span *ngIf="product.requiredExtra.length > 0 || product.optionalExtra.length > 0">+&nbsp;</span>
+          <span *ngFor="let extra of product.requiredExtra; let first=first">
+            <span *ngIf="first"></span>
+            <span *ngIf="!first">, </span>
+            {{extra.count}}*{{extra.extra_name}}
+          </span>
+          <span *ngFor="let extra of product.optionalExtra; let first=first">
+            <span *ngIf="first && product.requiredExtra.length == 0"></span>
+            <span *ngIf="!first || product.requiredExtra.length > 0">, </span>
+            {{extra.count}}*{{extra.extra_name}}</span>
         </div>
         <label class="price_item text-warning text-bold">
           {{product.totalPrice}} Ft

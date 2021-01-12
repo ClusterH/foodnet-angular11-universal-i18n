@@ -1388,34 +1388,6 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="profile-reviewlist-delete-dialog-a" datatype="html">
-        <source>Are you sure you want to delete current Revie?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile-reviewlist-delete-dialog-b" datatype="html">
-        <source>This will cause all your previous data to be lost and cannot be restored.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">41,43</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile-reviewlist-delete-dialog-c" datatype="html">
-        <source>No</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">46</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="profile-reviewlist-delete-dialog-d" datatype="html">
-        <source>Yes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="profile-review-list-f" datatype="html">
         <source>CREATE</source>
         <context-group purpose="location">
@@ -1708,91 +1680,91 @@
         <source>Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-tab-info" datatype="html">
         <source>INFO &amp; PROMOTIONS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-tab-review" datatype="html">
         <source>Evaluation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-a" datatype="html">
         <source>No shipping costs</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-b" datatype="html">
         <source>News</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-e" datatype="html">
         <source>Pizza</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-d" datatype="html">
         <source>Hamburger</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-g" datatype="html">
         <source>Daily Menu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-f" datatype="html">
         <source>Soup</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">58</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-h" datatype="html">
         <source>Salad</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-i" datatype="html">
         <source>Cash</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-j" datatype="html">
         <source>Card</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="profile-component-btn-c" datatype="html">
         <source>Within 1 hour</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-badge-open" datatype="html">
@@ -1829,7 +1801,35 @@
         <source>the minimal order amount that is required.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
-          <context context-type="linenumber">89</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="restaurant-profile-delete-dialog-a" datatype="html">
+        <source>Are you sure you want to delete all cart contents?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="restaurant-profile-delete-dialog-b" datatype="html">
+        <source>This will cause all your previous data to be lost and cannot be restored.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">122,124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="restaurant-profile-delete-dialog-c" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="restaurant-profile-delete-dialog-d" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">129</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-menu-a" datatype="html">
@@ -1973,17 +1973,17 @@
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-review-d" datatype="html">
-        <source>Showing 12 reviews of 24</source>
+        <source>Showing <x id="INTERPOLATION" equiv-text="rant-profile-review-d"/> reviews of <x id="INTERPOLATION_1" equiv-text="defaultShowRev"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="restaurant-profile-review-e" datatype="html">
         <source>Loading more reviews</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="order-update-phone-d" datatype="html">

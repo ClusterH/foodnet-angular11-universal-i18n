@@ -50,28 +50,27 @@ export class ReviewListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/profile/review-edit'], { queryParams: { id: reviewId } });
   }
 
-  closeMsg(isDelete: boolean): void {
-    if (isDelete) {
-      this.isSpinner = true;
-      this.reviewListService.deleteReview(this.currentReviewListId).pipe(takeUntil(this._unsubscribeAll))
-        .subscribe(res => {
+  // closeMsg(isDelete: boolean): void {
+  //   if (isDelete) {
+  //     this.isSpinner = true;
+  //     this.reviewListService.deleteReview(this.currentReviewListId).pipe(takeUntil(this._unsubscribeAll))
+  //       .subscribe(res => {
+  //         if (res.status == 200) {
+  //           this.editList = this.editList.filter(list => list.id !== this.currentReviewListId);
+  //           this.isShown = false;
+  //           this.isSpinner = false;
+  //         } else {
+  //           this.isShown = false;
+  //           this.isSpinner = false;
+  //         }
+  //       });
+  //   } else {
+  //     this.isShown = false;
+  //   }
+  // }
 
-          if (res.status == 200) {
-            this.editList = this.editList.filter(list => list.id !== this.currentReviewListId);
-            this.isShown = false;
-            this.isSpinner = false;
-          } else {
-            this.isShown = false;
-            this.isSpinner = false;
-          }
-        });
-    } else {
-      this.isShown = false;
-    }
-  }
-
-  deleteReviewList(id: number) {
-    this.isShown = true;
-    this.currentReviewListId = id;
-  }
+  // deleteReviewList(id: number) {
+  //   this.isShown = true;
+  //   this.currentReviewListId = id;
+  // }
 }

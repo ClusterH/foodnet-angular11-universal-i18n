@@ -7,7 +7,7 @@
   <h1 *ngIf="cookieService.get('change_lang') == 'hu'"><span class="text-warning text-bold">{{restaurantListLength$ |
       async}}
       éttermet</span><span class="text-bold"> találtunk számodra </span></h1>
-  <div class="main_content">
+  <div class="main_content mt-4">
     <div class="filter_section" [ngClass]="filterShow ? 'active': ''">
       <app-filter-section (selectedFilterOptions)="filterEventFromPanel($event)"
         (showFilterOptions)="filterShowEvent($event)" [filterShow]="filterShow"></app-filter-section>
@@ -20,30 +20,36 @@
           (keyup)="onKeyUpSearch()">
         <i class="fas fa-sliders-h" (click)="filterShown()"></i>
       </div>
-      <div class="result_body" *ngIf="restaurantList$ | async as restaurants">
-        <div class="card col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurants"
-          (click)="restaurantProfile(restaurant)">
-          <img class="card-img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
-            alt="Card image 1" style="width:100%">
-          <span class="badge" *ngIf="restaurant.restaurant_new == 1" i18n="@@restaurant-list-new-badge">New
-            restaurant</span>
-          <span class="badge" *ngIf="restaurant.restaurant_discount == 1"
-            i18n="@@restaurant-list-discount-badge">Special price</span>
-          <div class="overlay" *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">
-            <span i18n="@@restaurant-list-btn-close">Closed</span>
-          </div>
-          <div class="card-body"
-            [ngClass]="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close) ? 'closed' : ''">
-            <h4 class="card-title">
-              <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
-              <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0 && restaurant.restaurant_rating">
-                <i class="far fa-star text-warning"></i>
-                <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
-              </label>
-            </h4>
-            <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
+      <div class="w-100" *ngIf="restaurantList$ | async as restaurants">
+        <div class="result_body" *ngIf="restaurantListLength$ | async; else noResult">
+          <div class="card col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurants"
+            (click)="restaurantProfile(restaurant)">
+            <img class="card-img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
+              alt="Card image 1" style="width:100%">
+            <span class="badge" *ngIf="restaurant.restaurant_new == 1" i18n="@@restaurant-list-new-badge">New
+              restaurant</span>
+            <span class="badge" *ngIf="restaurant.restaurant_discount == 1"
+              i18n="@@restaurant-list-discount-badge">Special
+              price</span>
+            <div class="overlay" *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">
+              <span i18n="@@restaurant-list-btn-close">Closed</span>
+            </div>
+            <div class="card-body"
+              [ngClass]="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close) ? 'closed' : ''">
+              <h4 class="card-title">
+                <strong class="text-bold">{{restaurant.restaurant_name}}</strong>
+                <label class="rate-label" *ngIf="restaurant.restaurant_rating !== 0 && restaurant.restaurant_rating">
+                  <i class="far fa-star text-warning"></i>
+                  <span class="text-warning text-bold">{{restaurant.restaurant_rating}}/5</span>
+                </label>
+              </h4>
+              <p class="card-text block-with-text">{{restaurant.restaurant_description}}</p>
+            </div>
           </div>
         </div>
+        <ng-template #noResult>
+          <h3 class="text-red text-center mt-5">No Restaurant Found</h3>
+        </ng-template>
       </div>
     </div>
   </div>

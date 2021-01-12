@@ -39,8 +39,10 @@ export class AuthService {
   }
 
   resetPWD(userData: any, token: string): Observable<any> {
+    let UserDate = userData;
     return this._httpClient.post<any>(`${this.apiBase}/reset-password/${token}`, userData).pipe(map(res => {
-      return this.saveToken(res, true);
+      UserDate.email = res.result[0].email;
+      return this.saveToken(res, true, UserDate);
     }))
   }
 
@@ -69,6 +71,7 @@ export class AuthService {
       this.cookieService.put('stay_login', 'stayed');
       this.cookieService.put('auth_tkn', res.result[0].token);
     }
+    console.log(res.result[0].token);
     return res.result[0].token;
   }
 

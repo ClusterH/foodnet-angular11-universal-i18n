@@ -46,7 +46,7 @@
     <h2 class="text-bold">Cart</h2>
     <div class="cart_item" *ngFor="let product of cartList">
       <h5 class="item_header">
-        <span class="item_title text-bold">{{product.product.product_name}}</span>
+        <span class="item_title text-bold">{{product.product.count}} * {{product.product.product_name}}</span>
         <span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"
             (click)="deleteProductFromCart(product, 'current')"></i></span>
       </h5>
@@ -60,9 +60,16 @@
         <span>)</span>
       </p>
       <div class="extra_section">
-        <span *ngIf="product.requiredExtra != [] || product.optionalExtra != []">+&nbsp;</span>
-        <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
-        <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
+        <span *ngIf="product.requiredExtra.length > 0 || product.optionalExtra.length > 0">+&nbsp;</span>
+        <span *ngFor="let extra of product.requiredExtra; let first=first">
+          <span *ngIf="first"></span>
+          <span *ngIf="!first">, </span>
+          {{extra.count}}*{{extra.extra_name}}
+        </span>
+        <span *ngFor="let extra of product.optionalExtra; let first=first">
+          <span *ngIf="first && product.requiredExtra.length == 0"></span>
+          <span *ngIf="!first || product.requiredExtra.length > 0">, </span>
+          {{extra.count}}*{{extra.extra_name}}</span>
       </div>
       <div class="item_footer">
         <div class="price_section">

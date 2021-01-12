@@ -28,12 +28,12 @@
           <a class="text-warning text-bold edit_tag text-decoration-none" style="cursor: pointer"
             (click)="loadComponent(e_list.review_Id)" i18n="@@profile-review-list-g">EDIT</a>
         </span>
-        <span class="col" (click)="deleteReviewList(e_list.review_Id)" style="cursor: pointer"><i
-            class="far fa-trash-alt" style="color: #999;"></i></span>
+        <!-- <span class="col" (click)="deleteReviewList(e_list.review_Id)" style="cursor: pointer"><i
+            class="far fa-trash-alt" style="color: #999;"></i></span> -->
       </div>
     </li>
   </ul>
-  <p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
+  <!-- <p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
     [modal]="true">
     <p-header>
       <h2 i18n="@@profile-reviewlist-delete-dialog-a">Are you sure you want to delete current Revie?</h2>
@@ -47,7 +47,7 @@
       <button type="button" class="btn bg-grey" (click)="closeMsg(true)"
         i18n="@@profile-reviewlist-delete-dialog-d">Yes</button>
     </p-footer>
-  </p-dialog>
+  </p-dialog> -->
 </div>
 <div class="spinner_overlay" *ngIf="isSpinner">
   <div class="spinner_container">

@@ -10,7 +10,7 @@ export class RestaurantOrderPaymentComponent implements OnInit {
   take: boolean = false;
   cutlery: boolean = false;
   cash: boolean = true;
-  card: boolean = false;
+  // card: boolean = false;
   comment: string = '';
 
   @Output() paymentEventEmitter = new EventEmitter<Payment>()
@@ -23,7 +23,7 @@ export class RestaurantOrderPaymentComponent implements OnInit {
   onChangeInputs(): void {
     const paymentOptions = {
       take: this.take ? 1 : 0,
-      cutlery: this.cutlery ? 0 : 1,
+      cutlery: this.cutlery ? 1 : 0,
       messageCourier: this.comment
     }
 

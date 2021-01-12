@@ -230,10 +230,10 @@
         <target>Adatkezelési tájékoztató</target>
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/shared/layout/footer/footer.component.ts</context><context context-type="linenumber">16</context></context-group></trans-unit><trans-unit id="profile-review-create-title" datatype="html">
         <source>Opinion</source><target state="new">Véleményezés</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context><context context-type="linenumber">27</context></context-group></trans-unit><trans-unit id="profile-review-create-subtitle" datatype="html">
         <source>A description that she can’t help us otherwise and falls short of the free raffle.</source><target state="new">Leírás, hogy másként nem tud segíteni nekünk, és elmarad az ingyenes tomboláról.</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/profile.component.html</context><context context-type="linenumber">28</context></context-group></trans-unit><trans-unit id="login-title-a" datatype="html">
         <source>Login</source><target state="new">Bejelentkezés</target>
         <context-group purpose="location">
@@ -737,7 +737,7 @@
         <source>Successful data modification</source><target state="new">Sikeres adatmódosítás</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">106</context></context-group></trans-unit><trans-unit id="update-profile-failed-message" datatype="html">
-        <source>A server error has occurred</source><target state="new">Szerver hiba történt</target>
+        <source>A server error has occurred</source><target state="new">A régi jelszó nem rendben van</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/change-password/change-password.component.ts</context><context context-type="linenumber">110</context></context-group></trans-unit><trans-unit id="profile-changepwd-title-a" datatype="html">
         <source>Change password</source><target state="new">Jelszó módosítása</target>
@@ -896,7 +896,7 @@
         </context-group>
       </trans-unit><trans-unit id="profile-delivery-edit-hundred-character" datatype="html">
         <source>The password must be maximum 100 characters long</source><target state="new">Az utca legfeljebb 100 karakter hosszú lehet</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/profile/pages/delivery-edit/delivery-edit.component.html</context><context context-type="linenumber">33</context></context-group></trans-unit><trans-unit id="profile-delivery-edit-housenumber-required" datatype="html">
         <source>House Number is required.</source><target state="new">Házszám megadása kötelező.</target>
 
@@ -941,30 +941,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
           <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-a" datatype="html">
-        <source>Are you sure you want to delete current Revie?</source><target state="new">Biztosan törli az aktuális véleményt?</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">39</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-b" datatype="html">
-        <source>This will cause all your previous data to be lost and cannot be restored.</source><target state="new">Ez minden korábbi adatát elveszíti, és nem állítható vissza.</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">41,43</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-c" datatype="html">
-        <source>No</source><target state="new">Nem</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">46</context>
-        </context-group>
-      </trans-unit><trans-unit id="profile-reviewlist-delete-dialog-d" datatype="html">
-        <source>Yes</source><target state="new">Igen</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/profile/pages/review-list/review-list.component.html</context>
-          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit><trans-unit id="profile-review-list-f" datatype="html">
         <source>CREATE</source><target state="new">Létrehozás</target>
@@ -1123,53 +1099,74 @@
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/components/filter-section/filter-section.component.html</context><context context-type="linenumber">30</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-menu" datatype="html">
         <source>Menu</source><target state="new">Menü</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">49</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-info" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">50</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-info" datatype="html">
         <source>INFO &amp; PROMOTIONS</source><target state="new">INFO &amp; AKCIÓK</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">50</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-review" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">51</context></context-group></trans-unit><trans-unit id="restaurant-profile-tab-review" datatype="html">
         <source>Evaluation</source><target state="new">Értékelés</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">51</context></context-group></trans-unit><trans-unit id="profile-component-btn-a" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">52</context></context-group></trans-unit><trans-unit id="profile-component-btn-a" datatype="html">
         <source>No shipping costs</source><target state="new">Nincs szállítási költség</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">53</context></context-group></trans-unit><trans-unit id="profile-component-btn-b" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">54</context></context-group></trans-unit><trans-unit id="profile-component-btn-b" datatype="html">
         <source>News</source><target state="new">Újdonságok</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">54</context></context-group></trans-unit><trans-unit id="profile-component-btn-e" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">55</context></context-group></trans-unit><trans-unit id="profile-component-btn-e" datatype="html">
         <source>Pizza</source><target state="new">Pizza</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">55</context></context-group></trans-unit><trans-unit id="profile-component-btn-d" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">56</context></context-group></trans-unit><trans-unit id="profile-component-btn-d" datatype="html">
         <source>Hamburger</source><target state="new">Hamburger</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">56</context></context-group></trans-unit><trans-unit id="profile-component-btn-g" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="profile-component-btn-g" datatype="html">
         <source>Daily Menu</source><target state="new">Napi menü</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">57</context></context-group></trans-unit><trans-unit id="profile-component-btn-f" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">58</context></context-group></trans-unit><trans-unit id="profile-component-btn-f" datatype="html">
         <source>Soup</source><target state="new">Leves</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">58</context></context-group></trans-unit><trans-unit id="profile-component-btn-h" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">59</context></context-group></trans-unit><trans-unit id="profile-component-btn-h" datatype="html">
         <source>Salad</source><target state="new">Saláta</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">59</context></context-group></trans-unit><trans-unit id="profile-component-btn-i" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">60</context></context-group></trans-unit><trans-unit id="profile-component-btn-i" datatype="html">
         <source>Cash</source><target state="new">Készpénz</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">60</context></context-group></trans-unit><trans-unit id="profile-component-btn-j" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">61</context></context-group></trans-unit><trans-unit id="profile-component-btn-j" datatype="html">
         <source>Card</source><target state="new">Bankkártya</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">61</context></context-group></trans-unit><trans-unit id="profile-component-btn-c" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">62</context></context-group></trans-unit><trans-unit id="profile-component-btn-c" datatype="html">
         <source>Within 1 hour</source><target state="new">1 órán belül</target>
-        
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">62</context></context-group></trans-unit><trans-unit id="restaurant-profile-badge-open" datatype="html">
+
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.ts</context><context context-type="linenumber">63</context></context-group></trans-unit><trans-unit id="restaurant-profile-badge-open" datatype="html">
         <source>open</source><target state="new">nyisd ki</target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context><context context-type="linenumber">9</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/restaurant-order.component.html</context><context context-type="linenumber">8</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-success/restaurant-success.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="restaurant-profile-badge-close" datatype="html">
         <source>close</source><target state="new">Bezárás</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context><context context-type="linenumber">11</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/restaurant-order.component.html</context><context context-type="linenumber">10</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-success/restaurant-success.component.html</context><context context-type="linenumber">10</context></context-group></trans-unit><trans-unit id="restaurant-profile-minOrder-required" datatype="html">
         <source>the minimal order amount that is required.</source><target state="new">the minimal order amount that is required.</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context><context context-type="linenumber">96</context></context-group></trans-unit><trans-unit id="restaurant-profile-delete-dialog-a" datatype="html">
+        <source>Are you sure you want to delete all cart contents?</source><target state="new">Are you sure you want to delete all cart contents?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
-          <context context-type="linenumber">89</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-delete-dialog-b" datatype="html">
+        <source>This will cause all your previous data to be lost and cannot be restored.</source><target state="new">This will cause all your previous data to be lost and cannot be restored.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">122,124</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-delete-dialog-c" datatype="html">
+        <source>No</source><target state="new">No</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit><trans-unit id="restaurant-profile-delete-dialog-d" datatype="html">
+        <source>Yes</source><target state="new">Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
+          <context context-type="linenumber">129</context>
         </context-group>
       </trans-unit><trans-unit id="restaurant-profile-menu-a" datatype="html">
         <source>Menu</source><target state="new">Menü</target>
@@ -1203,13 +1200,13 @@
         </context-group>
       </trans-unit><trans-unit id="restaurant-profile-menu-d" datatype="html">
         <source>(Allergens: </source><target state="new">(Allergének: </target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-a" datatype="html">
         <source>(Allergens: </source><target state="new">(Allergének: </target>
 
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">65</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-b" datatype="html">
         <source> Required extra(<x id="INTERPOLATION" equiv-text="-menu-dialog-b&quot; *ngIf=&quot;r"/> piece Required)</source><target state="new">Szükséges extra(<x id="INTERPOLATION" equiv-text="aurant-profile-menu-dial"/> darab Kötelező)</target>
-        
+
       <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-menu/restaurant-menu.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit><trans-unit id="restaurant-profile-menu-dialog-c" datatype="html">
         <source>(Allergens: </source><target state="new">(Allergének: </target>
 
@@ -1265,12 +1262,12 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit><trans-unit id="restaurant-profile-review-d" datatype="html">
-        <source>Showing 12 reviews of 24</source><target state="new">12 értékelés megjelenítése 12-ből</target>
+        <source>Showing <x id="INTERPOLATION" equiv-text="rant-profile-review-d"/> reviews of <x id="INTERPOLATION_1" equiv-text="defaultShowRev"/></source><target state="new">12 értékelés megjelenítése 12-ből</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context><context context-type="linenumber">31</context></context-group></trans-unit><trans-unit id="restaurant-profile-review-e" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="restaurant-profile-review-e" datatype="html">
         <source>Loading more reviews</source><target state="new">További vélemények betöltése</target>
 
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context><context context-type="linenumber">37</context></context-group></trans-unit><trans-unit id="order-update-phone-d" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-evaluation/restaurant-evaluation.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="order-update-phone-d" datatype="html">
         <source>Phone Number (Required)</source><target state="new">Phone Number (Required)</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/components/restaurant-order/components/restaurant-order-delivery-logout/restaurant-order-delivery-logout.component.html</context>

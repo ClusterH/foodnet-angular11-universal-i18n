@@ -140,6 +140,7 @@ export class RestaurantOrderComponent implements OnInit {
   }
 
   paymentEventEmitter(event: Payment): void {
+    console.log(event);
     this.paymentOption = event;
   }
 }

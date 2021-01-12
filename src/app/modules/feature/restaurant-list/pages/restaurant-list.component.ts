@@ -87,6 +87,7 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     this.restaurantFilterService.getFilteredRestaurants(this.filterOption).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.restaurantList$ = of(res.result);
       this.restaurantListLength$ = of(res.result.length);
+
       this.isSpinner = false;
     },
       (errorResponse) => {

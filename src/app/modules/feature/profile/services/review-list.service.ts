@@ -10,7 +10,7 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
 })
 
 export class ReviewListService {
-  apiBase = 'https://api.foodnet.ro/api/restaurant-reviews/';
+  apiBase = 'https://api.foodnet.ro/api/restaurant-reviews';
 
   constructor(
     private _httpClient: HttpClient,
@@ -19,12 +19,12 @@ export class ReviewListService {
   ) { }
 
   getAddableReviewList(): Observable<any> {
-    return this._httpClient.get<any>(`${this.apiBase}add`);
+    return this._httpClient.get<any>(`${this.apiBase}/addition-list`);
   }
 
-  deleteReview(id): Observable<any> {
-    return this._httpClient.delete<any>(`${this.apiBase}${id}`);
-  }
+  // deleteReview(id): Observable<any> {
+  //   return this._httpClient.delete<any>(`${this.apiBase}${id}`);
+  // }
 
   createNewReview(body: any): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}`, body);
@@ -32,9 +32,9 @@ export class ReviewListService {
 
   getReviewList(id?: number): Observable<any> {
     if (id) {
-      return this._httpClient.get<any>(`${this.apiBase}${id}`);
+      return this._httpClient.get<any>(`${this.apiBase}/${id}`);
     } else {
-      return this._httpClient.get<any>(`${this.apiBase}`);
+      return this._httpClient.get<any>(`${this.apiBase}/added-list`);
     }
   }
 }

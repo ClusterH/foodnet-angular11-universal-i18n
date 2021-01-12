@@ -201,6 +201,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   showExtraPopup(productItem): void {
+    this.comment = "";
     this.isEnableAddCart = false;
     const body = { restaurantId: this.restaurant.restaurant_id, lang: this.cookieService.get('change_lang'), variantId: productItem.variant_id }
     const requiredExtra = this.restaurantMenuService.getRestaurantRequiredExtra(body);
@@ -214,6 +215,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
         return item;
       });
       this.optionalExtraList$ = of(this.optionalExtraData.result.map(item => {
+        item.count = 1;
         item.checked = false;
         return item;
       }));
@@ -270,23 +272,27 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
+    console.log(product);
     let requiredExtraTotal: number = 0;
-    if (!isEmpty(product.requiredExtra)) {
+    if (product.requiredExtra.length > 0) {
       product.requiredExtra.map(item => {
         requiredExtraTotal = requiredExtraTotal + item.count * item.extra_price;
       });
     }
 
     let optionalExtraTotal: number = 0;
-    if (!isEmpty(product.optionalExtra)) {
+    if (product.optionalExtra.length > 0) {
       product.optionalExtra.map(item => {
+        console.log(item);
         optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
       });
-    }
+    };
+
     let boxPrice: number = 0;
     if (product.product.box_price) {
       boxPrice = product.product.count * product.product.box_price;
     }
+    console.log('required==', requiredExtraTotal, 'optional==', optionalExtraTotal, 'box==', boxPrice);
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
     return Number(total.toFixed(2));
@@ -326,7 +332,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   onRequiredExtraChange(event, id) {
-
     this.requiredExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
@@ -339,14 +344,14 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   onOptionalExtraChange(event, id) {
-
+    console.log(event, id)
     this.optionalExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
       }
       return item;
     });
-
+    console.log(this.optionalExtraData);
     this.optionalExtraList$ = of(this.optionalExtraData.result);
   }
 }

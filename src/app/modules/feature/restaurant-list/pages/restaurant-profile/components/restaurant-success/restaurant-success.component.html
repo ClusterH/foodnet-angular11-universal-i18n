@@ -21,6 +21,9 @@
     <h6 class="text-bold text-grey">congratulation</h6>
     <h5 class="text-warning text-bold">Successful offer!</h5>
     <p>Your order will arrive soon. We wish you a good appetite in advance!</p>
-    <button class="btn btn-warning-light shadow-none" (click)="goToHome()">Go to the home page</button>
+    <button class="btn btn-warning-light shadow-none" (click)="goToOrderDetail()" *ngIf="isAuth">Go to Order
+      Detail</button>
+    <button class="btn btn-warning-light shadow-none" (click)="goToRestaurant()" *ngIf="!isAuth">Go to
+      Restaurant</button>
   </div>
 </main>

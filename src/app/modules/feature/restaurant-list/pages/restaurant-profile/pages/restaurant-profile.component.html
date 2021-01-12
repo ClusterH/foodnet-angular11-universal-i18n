@@ -50,7 +50,7 @@
         <span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"
             (click)="deleteProductFromCart(product, 'current')"></i></span>
       </h5>
-      <label for="" class="ingredient_label">Ingredients</label>
+      <label for="" class="ingredient_label">{{product.product.product_description}}</label>
       <p class="ingredient_items">
         <span>(Allergens: </span>
         <span *ngFor="let allergen of product.product.allergens_name; let last=last">
@@ -60,7 +60,7 @@
         <span>)</span>
       </p>
       <div class="extra_section">
-        <span>+&nbsp;</span>
+        <span *ngIf="product.requiredExtra != [] || product.optionalExtra != []">+&nbsp;</span>
         <span *ngFor="let extra of product.requiredExtra">{{extra.count}}*{{extra.extra_name}},</span>
         <span *ngFor="let extra of product.optionalExtra">{{extra.count}}*{{extra.extra_name}},</span>
       </div>
@@ -89,7 +89,7 @@
         i18n="@@restaurant-profile-minOrder-required">the minimal order amount that is required.</small>
       <button class="btn btn-warning order_btn" (click)="orderProduct()"
         [disabled]="totalPrice | minOrder">Order</button>
-      <button class="btn btn-white delete_btn" (click)="deleteProductFromCart(null, 'all')">Delete cart
+      <button class="btn btn-white delete_btn" (click)="showDeleteAllDialog()">Delete cart
         contents</button>
     </div>
   </section>
@@ -106,3 +106,19 @@
     </div>
   </section>
 </main>
+
+<p-dialog header="" [(visible)]="isDeleteAllDialog" [baseZIndex]="10000" styleClass="restaurant_profile_dialog"
+  *ngIf="isBrowser" [modal]="true" class="restaurant_profile_dialog">
+  <p-header>
+    <h2 i18n="@@restaurant-profile-delete-dialog-a">Are you sure you want to delete all cart contents?</h2>
+  </p-header>
+  <p class="text-bold text-center" i18n="@@restaurant-profile-delete-dialog-b">This will cause all your previous data to
+    be lost
+    and cannot be restored.</p>
+  <p-footer>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(false)"
+      i18n="@@restaurant-profile-delete-dialog-c">No</button>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(true)"
+      i18n="@@restaurant-profile-delete-dialog-d">Yes</button>
+  </p-footer>
+</p-dialog>

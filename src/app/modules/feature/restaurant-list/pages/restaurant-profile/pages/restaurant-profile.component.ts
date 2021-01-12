@@ -34,7 +34,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   totalPrice$: Observable<number>;
   totalPrice: number = 0;
   isSpinner: boolean = true;
-
+  isDeleteAllDialog: boolean = false;
   @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
   @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
 
@@ -152,8 +152,6 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     return Number(total.toFixed(2));
   }
 
-
-
   countCartTotalPrice(cartList: Array<any>): number {
     let totalPrice = 0;
     cartList.map(item => {
@@ -161,6 +159,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     });
 
     return totalPrice;
+  }
+
+  showDeleteAllDialog(): void {
+    this.isDeleteAllDialog = true;
   }
 
   deleteProductFromCart(product, type?: string): void {
@@ -184,6 +186,15 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
       this.menuComponent.deleteFromCart(product, 'current');
       this.cartCountService.getCartNumber();
+    }
+  }
+
+  closeMsg(isDelete: boolean): void {
+    if (isDelete) {
+      this.deleteProductFromCart(null, 'all');
+      this.isDeleteAllDialog = false;
+    } else {
+      this.isDeleteAllDialog = false;
     }
   }
 }

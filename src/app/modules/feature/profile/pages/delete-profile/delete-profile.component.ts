@@ -52,7 +52,6 @@ export class DeleteProfileComponent implements OnInit {
     } else {
       this.isShown = false;
     }
-
   }
 
   deleteProfile(): void {

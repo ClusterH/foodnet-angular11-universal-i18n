@@ -100,6 +100,11 @@ export class RestaurantOrderListComponent implements OnInit {
       totalPrice = totalPrice + item.totalPrice;
     });
 
+    const minOrder = Number(this.cookieService.get('restaurant_minOrder'));
+    if (totalPrice < minOrder) {
+      this.goToRestaurant();
+    }
+
     return totalPrice;
   }
 

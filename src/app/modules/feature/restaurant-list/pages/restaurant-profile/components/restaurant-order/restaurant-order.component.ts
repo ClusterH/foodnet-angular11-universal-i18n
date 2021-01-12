@@ -4,6 +4,7 @@ import { CookieService } from '@gorniv/ngx-universal';
 import { DeliveryAddressService } from 'src/app/modules/feature/profile/services';
 import { AuthService } from 'src/app/modules/feature/auth/services';
 import { RestaurantOrderService } from '../../services';
+import { CartCountService } from 'src/app/modules/shared/services';
 import { Router } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { RestaurantList } from '../../../../models';
@@ -41,6 +42,7 @@ export class RestaurantOrderComponent implements OnInit {
     private orderService: RestaurantOrderService,
     private deliveryAddressService: DeliveryAddressService,
     private authService: AuthService,
+    private cartCountService: CartCountService,
     private router: Router,
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -77,13 +79,11 @@ export class RestaurantOrderComponent implements OnInit {
     const lang = this.cookieService.get('change_lang') || 'ro';
     this.deliveryAddressService.getDeliveryAddress(lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       if (res.status == 200 && !isEmpty(res.result)) {
-        console.log('=====NONempty');
         this.isEmptyDeliveryList = false;
         this.deliveryAddressList = [...res.result];
         this.deliveryAddressList$ = of(this.deliveryAddressList);
         this.isSpinner = false;
       } else {
-        console.log('=====empty');
         this.isEmptyDeliveryList = true;
         this.deliveryAddressList = [];
         this.deliveryAddressList$ = of(this.deliveryAddressList);
@@ -102,6 +102,9 @@ export class RestaurantOrderComponent implements OnInit {
       if (res.status == 400) {
 
       } else if (res.status == 200) {
+        this.cookieService.remove('cartProducts');
+        this.cartCountService.getCartNumber();
+        this.cookieService.put('orderId', res.finalOrderId);
         const location = JSON.parse(this.cookieService.get('currentLocation')).location;
         this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/success`]);
       }

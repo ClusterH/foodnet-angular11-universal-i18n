@@ -4,7 +4,7 @@
        justify-content-lg-between align-items-start">
       <div class="item_content d-flex flex-column align-items-start justify-content-start">
         <h6 class="text-bold">{{product.product.product_name}}</h6>
-        <label for="" class="ingredient_label">Ingredients</label>
+        <label for="" class="ingredient_label">{{product.product.product_description}}</label>
         <p class="ingredient_items">
           <span>(Allergens: </span>
           <span *ngFor="let allergen of product.product.allergens_name; let last=last">

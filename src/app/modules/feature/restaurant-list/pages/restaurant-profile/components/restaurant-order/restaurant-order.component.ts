@@ -33,6 +33,7 @@ export class RestaurantOrderComponent implements OnInit {
   orderProductOption: any;
   deliveryAddressOption: any;
   paymentOption: Payment;
+  isOrder: boolean = false;
   isAuth: boolean = false;
   isSpinner: boolean = true;
 
@@ -56,6 +57,7 @@ export class RestaurantOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isOrder = false;
     this.isAuth = this.authService.isAuthenticated();
     if (this.isAuth) {
       this.getDeliveryAddress();
@@ -95,21 +97,22 @@ export class RestaurantOrderComponent implements OnInit {
   }
 
   orderSuccess(): void {
+    this.isOrder = true;
     const restaurantOption = { restaurantId: JSON.parse(this.cookieService.get('restaurant')).restaurant_id };
     const body = { ...restaurantOption, ...this.orderProductOption, ...this.deliveryAddressOption, ...this.paymentOption };
 
     this.orderService.restaurantOrder(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      if (res.status == 400) {
-
-      } else if (res.status == 200) {
+      if (res.status == 200) {
         this.cookieService.remove('cartProducts');
         this.cartCountService.getCartNumber();
         this.cookieService.put('orderId', res.finalOrderId);
         const location = JSON.parse(this.cookieService.get('currentLocation')).location;
         this.router.navigate([`${location.replace(/\s/g, '-')}/${this.restaurant.restaurant_name.replace(/\s/g, '-')}/success`]);
+      } else {
+        this.isOrder = false;
       }
     }, (errorResponse) => {
-      this.isSpinner = false;
+      this.isOrder = false;
     });
   }
 

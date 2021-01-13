@@ -42,7 +42,7 @@
     <div class="btn_section d-flex justify-content-end align-items-center mt-5">
       <button class="btn btn-white mr-2" (click)="goBack()">Back</button>
       <button class="btn btn-warning"
-        [disabled]="isAuth && deliveryAddressList$? loginDeliveryAddressId == -1 : deliveryAddress == null"
+        [disabled]="(isAuth && deliveryAddressList$? loginDeliveryAddressId == -1 : deliveryAddress == null) || isOrder"
         (click)="orderSuccess()">Order</button>
     </div>
   </div>

@@ -8,7 +8,6 @@ import { SessionStorageService } from '../../../core/session-storage/session-sto
   providedIn: 'root'
 })
 export class AuthService {
-  isLoggedIn: boolean = false;
 
   apiBase = 'https://api.foodnet.ro/api/auth';
 
@@ -53,7 +52,6 @@ export class AuthService {
     this.sessionService.clear();
     this.cookieService.put('authInfo', cookie_token);
     this.cookieService.put('change_lang', lang);
-    this.isLoggedIn = false;
   }
 
   private saveToken(res: any, isStay?: boolean, userData?: any): any {
@@ -78,13 +76,16 @@ export class AuthService {
   public isAuthenticated(): boolean {
     if (this.cookieService.get('stay_login') == 'stayed') {
       if (this.cookieService.get('auth_tkn')) {
-        this.isLoggedIn = true;
+        return true;
+      } else {
+        return false;
       }
     } else {
       if (this.sessionService.getItem('auth_tkn')) {
-        this.isLoggedIn = true;
+        return true;
+      } else {
+        return false;
       }
     }
-    return this.isLoggedIn;
   }
 }

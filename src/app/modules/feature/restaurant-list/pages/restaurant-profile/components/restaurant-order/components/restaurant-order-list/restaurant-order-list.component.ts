@@ -91,7 +91,7 @@ export class RestaurantOrderListComponent implements OnInit {
     }
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
-    return Number(total.toFixed(2));
+    return total;
   }
 
   countCartTotalPrice(cartList: Array<any>): number {

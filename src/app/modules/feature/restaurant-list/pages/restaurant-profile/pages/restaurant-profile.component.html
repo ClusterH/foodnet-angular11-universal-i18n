@@ -74,10 +74,10 @@
       <div class="item_footer">
         <div class="price_section">
           <span class="price_item text-warning text-bold">
-            {{product.totalPrice}} Ft
+            {{product.totalPrice | number:'1.2-2':'en'}} Ft
           </span>
           <span class="price_item text-grey text-bold" *ngIf="product.product.box_price">
-            Packing: {{product.product.count * product.product.box_price}} Ft
+            {{product.product.box_name}}: {{product.product.count * product.product.box_price}} Ft
           </span>
         </div>
         <div class="counter">
@@ -86,16 +86,19 @@
           </app-counter>
         </div>
       </div>
+      <div class="d-flex flex-column align-items-start justify-content-start mt-2" *ngIf="product.comment">
+        <label class="mb-0">Comment:</label>
+        <p class="text-grey pt-1 pb-1 mb-0">{{product.comment}}</p>
+      </div>
       <hr />
     </div>
     <div class="total_price text-warning text-bold" *ngIf="totalPrice > 0">
-      Total: {{totalPrice$ | async}} Ft
+      Total: {{totalPrice$ | async | number:'1.2-2':'en'}} Ft
     </div>
     <div class="btn_section">
-      <small id="emailHelp" class="text-red" *ngIf="totalPrice | minOrder"
-        i18n="@@restaurant-profile-minOrder-required">the minimal order amount that is required.</small>
-      <button class="btn btn-warning order_btn" (click)="orderProduct()"
-        [disabled]="totalPrice | minOrder">Order</button>
+      <button class="btn btn-warning order_btn" (click)="orderProduct()" *ngIf="totalPrice | minOrder"
+        [disabled]="true">More {{minOrderPrice - totalPrice | number:'1.2-2': 'en'}}</button>
+      <button class="btn btn-warning order_btn" (click)="orderProduct()" *ngIf="!(totalPrice | minOrder)">Order</button>
       <button class="btn btn-white delete_btn" (click)="showDeleteAllDialog()">Delete cart
         contents</button>
     </div>
@@ -108,7 +111,7 @@
         But tomorrow, versatile, and mass. I hate football and a valuable asset to free macro as an integer.
       </p>
       <button class="btn btn-warning m-auto mt-2">
-        Look around!
+        Minimum {{minOrderPrice | number:'1.2-2':'en' }}
       </button>
     </div>
   </section>

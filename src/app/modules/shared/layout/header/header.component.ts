@@ -33,7 +33,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userName: string;
   cartNumber: number = 0;
   cartNumber$: Observable<number>;
-
+  isHiddenLang: boolean = false;
+  isHiddenLang$: Observable<boolean>;
   private _unsubscribeAll: Subject<any>;
 
   constructor(
@@ -57,6 +58,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.cartCountService.cartCount$.pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.cartNumber = res;
       this.cartNumber$ = of(this.cartNumber);
+    });
+    this.cartCountService.isHiddenLang$.pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      this.isHiddenLang = res;
+      this.isHiddenLang$ = of(this.isHiddenLang);
     })
   }
 
@@ -157,7 +162,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   countCart(): void {
     const cartProductList = JSON.parse(this.cookieService.get('cartProducts')).cartList || [];
-
     let count: number = 0;
     if (cartProductList != []) {
       cartProductList.map(product => {

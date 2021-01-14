@@ -33,8 +33,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   cartProductList$: Observable<Array<any>>;
   totalPrice$: Observable<number>;
   totalPrice: number = 0;
+  minOrderPrice: number;
   isSpinner: boolean = true;
   isDeleteAllDialog: boolean = false;
+
   @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
   @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
 
@@ -62,6 +64,8 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       { name: $localize`:@@profile-component-btn-j:Card`, value: "card" },
       { name: $localize`:@@profile-component-btn-c:Within 1 hour`, value: "withinOneHour" }
     ];
+    this.minOrderPrice = Number(this.cookieService.get('restaurant_minOrder'));
+    this.cartCountService.hiddenLang(true);
   }
 
   ngOnInit(): void {
@@ -84,6 +88,9 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
+    this.cartCountService.hiddenLang(false);
   }
 
   isOverdue(openTime, closeTime): boolean {
@@ -151,7 +158,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     }
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
-    return Number(total.toFixed(2));
+    return total;
   }
 
   countCartTotalPrice(cartList: Array<any>): number {
@@ -176,7 +183,6 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
       this.cartCountService.getCartNumber();
       return;
     } else {
-
       const index = this.cartProductList.indexOf(product);
       if (index > -1) {
         this.totalPrice = this.totalPrice - product.totalPrice;

@@ -240,3 +240,37 @@ body {
 .bd-red {
   border-color: #f00 !important;
 }
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+  box-shadow: none;
+  outline: none;
+  &:hover {
+    box-shadow: 0 0 0 0.15rem rgba(252, 168, 120, 0.756);
+    border-color: #f78f1e !important;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.15rem rgba(250, 150, 93, 0.856);
+    border-color: #f78f1e !important;
+  }
+}
+
+textarea {
+  padding: 0.8rem 1rem !important;
+}
+
+p-dropdown {
+  .p-dropdown {
+    outline: none !important;
+    &:not(.p-disabled):hover {
+      &:not(.p-dropdown-open) {
+        box-shadow: 0 0 0 0.15rem rgba(252, 168, 120, 0.756) !important;
+        border-color: #f78f1e !important;
+      }
+    }
+  }
+}

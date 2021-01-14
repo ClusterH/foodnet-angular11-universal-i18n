@@ -6,6 +6,8 @@ import { CookieService } from '@gorniv/ngx-universal';
 export class CartCountService {
   cartCount = new BehaviorSubject<number>(null);
   cartCount$ = this.cartCount.asObservable();
+  isHiddenLang = new BehaviorSubject<boolean>(false);
+  isHiddenLang$ = this.isHiddenLang.asObservable();
 
   constructor(private cookieService: CookieService) { }
 
@@ -20,5 +22,9 @@ export class CartCountService {
     }
 
     this.cartCount.next(count);
+  }
+
+  hiddenLang(ishidden: boolean): void {
+    this.isHiddenLang.next(ishidden);
   }
 }

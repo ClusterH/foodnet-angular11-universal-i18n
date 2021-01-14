@@ -54,6 +54,8 @@ export class RestaurantOrderComponent implements OnInit {
       cutlery: 0,
       messageCourier: ""
     }
+
+    this.cartCountService.hiddenLang(true);
   }
 
   ngOnInit(): void {
@@ -64,6 +66,12 @@ export class RestaurantOrderComponent implements OnInit {
     } else {
       this.isSpinner = false;
     }
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
+    this.cartCountService.hiddenLang(false);
   }
 
   isOverdue(openTime, closeTime): boolean {

@@ -19,7 +19,8 @@
         </div>
       </div>
       <div class="right_section" *ngIf="isBrowser">
-        <p-dropdown [options]="languages" itemSize="30" name="selectedLanguage" [(ngModel)]="selectedLanguage">
+        <p-dropdown [options]="languages" itemSize="30" name="selectedLanguage" [(ngModel)]="selectedLanguage"
+          [hidden]="isHiddenLang$ | async">
           <ng-template let-lang pTemplate="item">
             <div class="lang-item">
               <a class="language-link" href="{{(lang.name === 'ro') ? currentUrl : '/' + lang.name + currentUrl}}"
@@ -27,6 +28,7 @@
             </div>
           </ng-template>
         </p-dropdown>
+
         <ng-container *ngIf="authService.isAuthenticated();else log_out">
           <a class="order_status text-decoration-none ml-3"><span class="mr-1" style="color: #111;">My
               orders</span><span class="text-warning">(1 active)</span></a>

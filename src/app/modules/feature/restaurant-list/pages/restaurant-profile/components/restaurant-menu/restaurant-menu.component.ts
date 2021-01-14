@@ -84,7 +84,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
     return current.isBetween(open, close);
   }
-  // !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)
 
   selectedItem(event): void {
     this.isSpinner = true;
@@ -272,7 +271,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   countProductTotalPrice(product): number {
-    console.log(product);
     let requiredExtraTotal: number = 0;
     if (product.requiredExtra.length > 0) {
       product.requiredExtra.map(item => {
@@ -283,7 +281,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     let optionalExtraTotal: number = 0;
     if (product.optionalExtra.length > 0) {
       product.optionalExtra.map(item => {
-        console.log(item);
         optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
       });
     };
@@ -292,10 +289,9 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     if (product.product.box_price) {
       boxPrice = product.product.count * product.product.box_price;
     }
-    console.log('required==', requiredExtraTotal, 'optional==', optionalExtraTotal, 'box==', boxPrice);
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
 
-    return Number(total.toFixed(2));
+    return total;
   }
 
   countCartTotalPrice(cartList: Array<any>): number {
@@ -344,14 +340,12 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   onOptionalExtraChange(event, id) {
-    console.log(event, id)
     this.optionalExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
       }
       return item;
     });
-    console.log(this.optionalExtraData);
     this.optionalExtraList$ = of(this.optionalExtraData.result);
   }
 }

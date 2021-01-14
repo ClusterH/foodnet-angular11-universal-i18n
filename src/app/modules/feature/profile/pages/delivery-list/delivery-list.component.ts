@@ -33,12 +33,13 @@ export class DeliveryListComponent implements OnInit, OnDestroy {
     this.lang = this.cookieService.get('change_lang') || 'ro';
     this.deliveryAddressService.getDeliveryAddress(this.lang).pipe(takeUntil(this._unsubscribeAll))
       .subscribe(res => {
-        if (res.status == 400) {
+        if (res.status == 200) {
+          this.deliveryList = res.result;
           this.isSpinner = false;
-          this.router.navigate['/profile/update'];
         } else {
           this.deliveryList = res.result;
           this.isSpinner = false;
+          this.router.navigate['/profile/update'];
         }
       }, (errorResponse) => {
         this.isSpinner = false;

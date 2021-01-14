@@ -35,7 +35,7 @@
           </p>
           <div class="card_footer">
             <span class="price_item text-warning text-bold">
-              {{ product.product_price }}Ft
+              {{ product.product_price | number:'1.2-2':'en'}}Ft
             </span>
             <div class="counter"
               [ngClass]="{'div-disabled': product.isCart || !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)}">

@@ -26,8 +26,11 @@
             {{extra.count}}*{{extra.extra_name}}</span>
         </div>
         <label class="price_item text-warning text-bold">
-          {{product.totalPrice}} Ft
+          {{product.totalPrice | number:'1.2-2':'en'}} Ft
         </label>
+        <span class="price_item text-grey text-bold" *ngIf="product.product.box_price">
+          {{product.product.box_name}}: {{product.product.count * product.product.box_price}} Ft
+        </span>
       </div>
       <div class="counter d-flex justify-content-end justify-content-sm-start">
         <app-counter (counterEmitter)="counterChange($event, product)"
@@ -35,7 +38,7 @@
         </app-counter>
       </div>
     </div>
-    <div class="item_comment" *ngIf="product.comment !== ''">
+    <div class="item_comment mt-3" *ngIf="product.comment !== ''">
       <h6>Comment:</h6>
       <p>{{product.comment}}</p>
     </div>
@@ -43,7 +46,7 @@
   </div>
   <div class="total_price text-bold">
     <h5 class="text-bold text-warning">
-      Total: {{totalPrice$ | async}} Ft
+      Total: {{totalPrice$ | async | number:'1.2-2':'en'}} Ft
     </h5>
     <!-- <h5 class="text-bold">
       With subscription: 6000 Ft

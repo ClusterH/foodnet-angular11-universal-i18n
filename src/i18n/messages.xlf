@@ -1797,13 +1797,6 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="restaurant-profile-minOrder-required" datatype="html">
-        <source>the minimal order amount that is required.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/feature/restaurant-list/pages/restaurant-profile/pages/restaurant-profile.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="restaurant-profile-delete-dialog-a" datatype="html">
         <source>Are you sure you want to delete all cart contents?</source>
         <context-group purpose="location">

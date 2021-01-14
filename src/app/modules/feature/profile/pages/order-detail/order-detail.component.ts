@@ -27,7 +27,7 @@ export class OrderDetailComponent implements OnInit {
   ) {
     this._unsubscribeAll = new Subject();
 
-    this.lang = this.cookieService.get('current_lang');
+    this.lang = this.cookieService.get('change_lang');
     this.orderId = Number(this.cookieService.get('orderId'));
   }
 

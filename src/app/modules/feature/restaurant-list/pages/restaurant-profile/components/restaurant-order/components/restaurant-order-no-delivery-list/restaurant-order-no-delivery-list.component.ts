@@ -59,10 +59,8 @@ export class RestaurantOrderNoDeliveryListComponent implements OnInit {
 
   formChange(): void {
     if (this.addressFormLoggedIn.valid && !isEmpty(this.selectedCity)) {
-
       this.noDeliveryAddressEmitter.emit(this.generateDeliveryAddress());
     } else {
-
       return;
     }
   }

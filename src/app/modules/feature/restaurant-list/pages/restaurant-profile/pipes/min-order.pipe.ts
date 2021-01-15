@@ -6,7 +6,7 @@ import { CookieService } from '@gorniv/ngx-universal';
 })
 export class MinOrderPipe implements PipeTransform {
   constructor(
-    public cookieService: CookieService,
+    private cookieService: CookieService,
   ) { }
   transform(total): boolean {
     const minOrder = Number(this.cookieService.get('restaurant_minOrder'));

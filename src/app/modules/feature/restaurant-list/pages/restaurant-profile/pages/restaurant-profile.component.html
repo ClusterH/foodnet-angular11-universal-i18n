@@ -1,14 +1,16 @@
-<main class="main_container">
+<main class="main_container" *ngIf="isBrowser">
   <section class="main_menu">
     <div class="banner">
-      <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
+      <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt=""
+        (load)="hideLoader()" (error)="hideLoader()">
       <img class="profile_img"
         [src]="restaurant.restaurant_profileImage? 'https://admin.foodnet.ro/' + restaurant.restaurant_profileImage : './assets/icons/shop_bag_white.svg'"
         alt="">
       <span class="status_badge_open" i18n="@@restaurant-profile-badge-open"
         *ngIf="isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">open</span>
-      <span class="status_badge_close" i18n="@@restaurant-profile-badge-close"
-        *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)">close</span>
+      <span *ngIf="!isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)" class="status_badge_close"
+        i18n="@@restaurant-profile-badge-close">close
+      </span>
       <div class="justify-content-between align-items-center mobile_title">
         <span class="text-white"><i class="fas fa-arrow-left"></i></span>
         <span class="text-white">{{restaurant.restaurant_name}}</span>
@@ -74,10 +76,11 @@
       <div class="item_footer">
         <div class="price_section">
           <span class="price_item text-warning text-bold">
-            {{product.totalPrice | number:'1.2-2':'en'}} Ft
+            {{product.totalPrice | number:'1.2-2':'en'}}&nbsp;{{'lei' | currencyUnit}}
           </span>
           <span class="price_item text-grey text-bold" *ngIf="product.product.box_price">
-            {{product.product.box_name}}: {{product.product.count * product.product.box_price}} Ft
+            {{product.product.box_name}}: {{product.product.count * product.product.box_price}}&nbsp;{{'lei' |
+            currencyUnit}}
           </span>
         </div>
         <div class="counter">
@@ -93,11 +96,12 @@
       <hr />
     </div>
     <div class="total_price text-warning text-bold" *ngIf="totalPrice > 0">
-      Total: {{totalPrice$ | async | number:'1.2-2':'en'}} Ft
+      Total: {{totalPrice$ | async | number:'1.2-2':'en'}}&nbsp;{{'lei' | currencyUnit}}
     </div>
     <div class="btn_section">
       <button class="btn btn-warning order_btn" (click)="orderProduct()" *ngIf="totalPrice | minOrder"
-        [disabled]="true">More {{minOrderPrice - totalPrice | number:'1.2-2': 'en'}}</button>
+        [disabled]="true">More {{minOrderPrice - totalPrice | number:'1.2-2': 'en'}}&nbsp;{{'lei' |
+        currencyUnit}}</button>
       <button class="btn btn-warning order_btn" (click)="orderProduct()" *ngIf="!(totalPrice | minOrder)">Order</button>
       <button class="btn btn-white delete_btn" (click)="showDeleteAllDialog()">Delete cart
         contents</button>
@@ -111,7 +115,7 @@
         But tomorrow, versatile, and mass. I hate football and a valuable asset to free macro as an integer.
       </p>
       <button class="btn btn-warning m-auto mt-2">
-        Minimum {{minOrderPrice | number:'1.2-2':'en' }}
+        Minimum {{minOrderPrice | number:'1.2-2':'en' }}&nbsp;{{'lei' | currencyUnit}}
       </button>
     </div>
   </section>
@@ -132,3 +136,9 @@
       i18n="@@restaurant-profile-delete-dialog-d">Yes</button>
   </p-footer>
 </p-dialog>
+
+<div class="spinner_overlay" *ngIf="isSpinner">
+  <div class="spinner_container">
+    <img src="./assets/images/loading_spinner1.svg" alt="">
+  </div>
+</div>

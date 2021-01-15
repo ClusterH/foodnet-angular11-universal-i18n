@@ -34,7 +34,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   totalPrice$: Observable<number>;
   totalPrice: number = 0;
   minOrderPrice: number;
-  isSpinner: boolean = true;
+  isSpinner: boolean = false;
   isDeleteAllDialog: boolean = false;
 
   @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
@@ -69,6 +69,7 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.isSpinner = true;
     if (this.cookieService.get('filter_option')) {
       const filterOption = JSON.parse(this.cookieService.get('filter_option'));
       for (let option in filterOption) {
@@ -150,10 +151,10 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
         optionalExtraTotal = optionalExtraTotal + item.count * item.extra_price;
       });
     }
-    console.log(product);
+
     let boxPrice: number = 0;
     if (product.product.box_price) {
-      console.log(product.product.box_price);
+
       boxPrice = product.product.count * product.product.box_price;
     }
     const total = product.product.count * product.product.product_price + boxPrice + (requiredExtraTotal + optionalExtraTotal);
@@ -204,5 +205,9 @@ export class RestaurantProfileComponent implements OnInit, OnDestroy {
     } else {
       this.isDeleteAllDialog = false;
     }
+  }
+
+  hideLoader(): void {
+    this.isSpinner = false;
   }
 }

@@ -7,15 +7,16 @@
         </a>
         <div class="header_search">
           <i class="fas fa-map-marker-alt marker_search"></i>
-          <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="searchCity($event)"
-            placeholder="Település" i18n="@@header-search-placeholder">
-            <ng-template let-texts pTemplate="item">
+          <p-autoComplete [(ngModel)]="selectedCity" [suggestions]="filteredCities"
+            (completeMethod)="searchCity($event)" placeholder="Település" field="cities"
+            i18n="@@header-search-placeholder">
+            <ng-template let-city pTemplate="item">
               <i class="fas fa-map-marker-alt"></i>
-              <div style="display: inline; margin-left: 10px;">{{texts}}</div>
+              <div style="display: inline; margin-left: 10px;">{{city.cities}}</div>
             </ng-template>
           </p-autoComplete>
-          <button class="btn btn-warning text-white search_btn" [disabled]="!texts" i18n="@@header-search-button"
-            (click)="getRestaurantsByLocation()">Search</button>
+          <button class="btn btn-warning text-white search_btn" [disabled]="selectedCity == null"
+            i18n="@@header-search-button" (click)="getRestaurantsByLocation()">Search</button>
         </div>
       </div>
       <div class="right_section" *ngIf="isBrowser">

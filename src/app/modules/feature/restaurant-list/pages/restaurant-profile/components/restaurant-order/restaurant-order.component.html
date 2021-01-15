@@ -1,4 +1,4 @@
-<main class="main_container">
+<main class="main_container" *ngIf="isBrowser">
   <div class="banner">
     <img class="banner_img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage" alt="">
     <img class="profile_img"

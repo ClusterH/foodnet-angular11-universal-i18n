@@ -25,8 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentUrl: string;
   languages: Lang[];
   locations: any;
-  texts: string[];
-  results: string[];
+  selectedCity: any = null;
+  filteredCities: any[];
   currentLang: string;
   profileType: string;
   menuShow: boolean;
@@ -76,6 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.selectedLanguage = this.languages.find(country => country.name === this.currentLang);
 
     this.citySearchService.getLocations(this.currentLang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+
       this.locations = res.locations;
     });
     if (this.isBrowser) {
@@ -85,10 +86,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     this.citySearchService.currentCity$.subscribe(res => {
-      this.texts = res;
-      if (this.texts == null) {
+
+      this.selectedCity = res;
+      if (this.selectedCity == null) {
         if (this.cookieService.get('currentLocation')) {
-          this.texts = JSON.parse(this.cookieService.get('currentLocation')).location;
+          this.selectedCity = this.locations.find(item => item.id === JSON.parse(this.cookieService.get('currentLocation')).id);
+          this.citySearchService.currentCity.next(this.selectedCity);
         }
       }
     });
@@ -101,22 +104,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeLanguage(language: any): void {
     this.cookieService.put('change_lang', language.name);
+    this.citySearchService.getLocations(this.currentLang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+
+      this.locations = res.locations;
+    });
   }
 
   searchCity(event) {
-    this.results = [];
+    this.filteredCities = [];
     this.locations.forEach(item => {
       if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())) {
-        this.results.push(item.cities);
+        this.filteredCities.push(item);
       }
     });
   }
 
   getRestaurantsByLocation(): void {
-    this.citySearchService.currentCity.next(this.texts);
-    const location = this.locations.find(item => item.cities === this.texts);
+
+    const location = this.locations.find(item => item.id === this.selectedCity.id);
     this.cookieService.put('currentLocation', JSON.stringify({ id: location.id, location: location.cities }));
-    this.router.navigate(['/']);
+    this.citySearchService.currentCity.next(location);
+    this.router.navigate([`/${location.cities.replace(/\s/g, '-')}`]);
   }
 
   logout(): void {
@@ -150,7 +158,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   moveToHome(): void {
-    this.texts = null;
+    this.selectedCity = null;
 
     if (this.cookieService.get('filter_option')) {
       this.cookieService.remove('filter_option');

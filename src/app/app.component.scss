@@ -188,3 +188,14 @@ p-autocomplete {
   position: fixed;
   background: rgba(0, 0, 0, 0.4);
 }
+.noscript {
+  height: calc(100vh - 384px);
+  h1 {
+    width: 50%;
+    font-size: 72px;
+  }
+  p {
+    width: 50%;
+    font-size: 28px;
+  }
+}

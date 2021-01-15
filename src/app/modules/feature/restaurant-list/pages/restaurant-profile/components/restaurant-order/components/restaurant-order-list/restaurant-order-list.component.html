@@ -26,10 +26,11 @@
             {{extra.count}}*{{extra.extra_name}}</span>
         </div>
         <label class="price_item text-warning text-bold">
-          {{product.totalPrice | number:'1.2-2':'en'}} Ft
+          {{product.totalPrice | number:'1.2-2':'en'}}&nbsp;{{'lei' | currencyUnit}}
         </label>
         <span class="price_item text-grey text-bold" *ngIf="product.product.box_price">
-          {{product.product.box_name}}: {{product.product.count * product.product.box_price}} Ft
+          {{product.product.box_name}}: {{product.product.count * product.product.box_price}}&nbsp;{{'lei' |
+          currencyUnit}}
         </span>
       </div>
       <div class="counter d-flex justify-content-end justify-content-sm-start">
@@ -46,7 +47,7 @@
   </div>
   <div class="total_price text-bold">
     <h5 class="text-bold text-warning">
-      Total: {{totalPrice$ | async | number:'1.2-2':'en'}} Ft
+      Total: {{totalPrice$ | async | number:'1.2-2':'en'}}&nbsp;{{'lei' | currencyUnit}}
     </h5>
     <!-- <h5 class="text-bold">
       With subscription: 6000 Ft

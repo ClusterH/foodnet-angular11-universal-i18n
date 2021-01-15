@@ -65,8 +65,8 @@
   <div class="form-group d-flex flex-column justify-content-start align-items-start">
     <label for="city" class="text-bold">Settlement</label>
     <p-dropdown [options]="locationList" name="selectedCity" [(ngModel)]="selectedCity"
-      [ngModelOptions]="{standalone: true}" optionLabel="cities" placeholder="Select a Settlement" required="true"
-      id="city">
+      (ngModelChange)="changeSelectedCity()" [ngModelOptions]="{standalone: true}" optionLabel="cities"
+      placeholder="Select a Settlement" required="true" id="city">
       <ng-template let-city pTemplate="item">
         <div class="city-item">
           {{city.cities}}

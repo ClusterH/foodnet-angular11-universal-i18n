@@ -1,4 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { PLATFORM_ID, Inject } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -20,10 +22,11 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   currentToken: string;
   isInvalidErrors: boolean = false;
   isSpinner: boolean = false;
-
+  public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private activatedroute: ActivatedRoute) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private fb: FormBuilder, private authService: AuthService, private router: Router, private activatedroute: ActivatedRoute) {
+    this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.isShown = false;
     this.isShownConfirm = false;
@@ -60,9 +63,9 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   resetPWD(): void {
     this.isSpinner = true;
     this.errors = [];
-    console.log(this.resetPWDForm.value);
+
     this.authService.resetPWD(this.resetPWDForm.value, this.currentToken).pipe(takeUntil(this._unsubscribeAll)).subscribe(token => {
-      console.log(token);
+
       this.isSpinner = false;
 
       this.router.navigate(['/auth/login']);

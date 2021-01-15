@@ -1,0 +1,7 @@
+<div class="w-100 d-flex position-relative">
+  <div *ngIf="isLoading" class="loading">
+    <img [src]="loader" style="width:100%" />
+  </div>
+  <img class="card_image" [src]="imageUrl" [ngStyle]="{visibility:isLoading?'hidden':''}" (load)="hideLoader()"
+    (error)="hideLoader()" />
+</div>

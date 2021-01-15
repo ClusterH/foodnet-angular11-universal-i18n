@@ -10,7 +10,7 @@
       </li>
       <li class="list_content" *ngFor="let orders of orderList; let i = index">
         <div class="text-left" style="width: 30%;">{{ orders.restaurant_name }}</div>
-        <div class="text-left" style="width: 20%;">{{ orders.total }}Ft</div>
+        <div class="text-left" style="width: 20%;">{{ orders.total }}&nbsp;{{'lei' | currencyUnit}}</div>
         <div class="text-left" style="width: 20%;">
           <a class="look_detail text-warning text-decoration-underline" (click)="takeLook(orders.order_id)">Take a
             look</a>

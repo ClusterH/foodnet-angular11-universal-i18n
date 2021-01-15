@@ -1,17 +1,17 @@
-<div class="m-0 home-banner p-0">
+<div class="m-0 home-banner p-0" *ngIf="isBrowser">
   <img class="img-fluid p-0 m-0" src="./assets/images/banner.svg" alt="Home Banner">
   <div class="banner-article">
     <h2 i18n="@@home-section1-i">Buy and enjoy the possibilities of foodnet</h2>
     <div class="autocomplet_section" *ngIf="isBrowser">
       <i class="fas fa-map-marker-alt marker_search"></i>
-      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="searchCity($event)"
-        placeholder="Település" i18n="@@home-section1-c">
-        <ng-template let-texts pTemplate="item">
+      <p-autoComplete [(ngModel)]="selectedCity" [suggestions]="filteredCities" (completeMethod)="searchCity($event)"
+        placeholder="Település" field="cities" i18n="@@home-section1-c">
+        <ng-template let-city pTemplate="item">
           <i class="fas fa-map-marker-alt"></i>
-          <div style="display: inline; margin-left: 10px;">{{texts}}</div>
+          <div style="display: inline; margin-left: 10px;">{{city.cities}}</div>
         </ng-template>
       </p-autoComplete>
-      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d" [disabled]="!texts"
+      <button class="btn btn-warning text-white search_btn" i18n="@@home-section1-d" [disabled]="selectedCity == null"
         (click)="getRestaurantsByLocation()">Search</button>
     </div>
 
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-<main class="main-content">
+<main class="main-content" *ngIf="isBrowser">
   <section class="main-card">
     <div class="card card-cascade">
       <div class="card-body">

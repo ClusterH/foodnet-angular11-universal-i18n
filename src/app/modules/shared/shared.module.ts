@@ -29,6 +29,8 @@ import { CookieBarComponent } from './components/cookiebar/cookiebar.component';
 import { CitySearchService } from './services';
 import { InlineCarouselComponent } from './components/inline-carousel/inline-carousel.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { ImageLoaderComponent } from './components/image-loader/image-loader.component';
+import { CurrencyUnitPipe } from './pipes/currency-unit.pipe';
 
 @NgModule({
   imports: [
@@ -39,7 +41,7 @@ import { CounterComponent } from './components/counter/counter.component';
     DropdownModule,
     DialogModule,
   ],
-  declarations: [HeaderComponent, FooterComponent, CookieBarComponent, InlineCarouselComponent, CounterComponent],
+  declarations: [HeaderComponent, FooterComponent, CookieBarComponent, InlineCarouselComponent, CounterComponent, ImageLoaderComponent, CurrencyUnitPipe],
   providers: [CitySearchService],
   exports: [
     CommonModule,
@@ -71,6 +73,8 @@ import { CounterComponent } from './components/counter/counter.component';
     CookieBarComponent,
     InlineCarouselComponent,
     CounterComponent,
+    ImageLoaderComponent,
+    CurrencyUnitPipe
   ]
 })
 export class ShareModule {

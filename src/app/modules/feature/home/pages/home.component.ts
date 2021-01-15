@@ -9,9 +9,9 @@ import { HomeService } from '../services/home.service';
 import { CitySearchService } from '../../../shared/services';
 
 const cityList = {
-  en: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
-  ro: ['Târgu Mureș', 'Miercurea Ciuc', 'Odorheiu Secuiesc'],
-  hu: ['Marosvásárhely', 'Csíkszereda', 'Székelyudvarhely'],
+  en: [{ "id": 1, "cities": "Târgu Mureș en" }, { "id": 2, "cities": "Miercurea Ciuc en" }, { "id": 3, "cities": "Odorheiu Secuiesc en" }],
+  ro: [{ "id": 1, "cities": "Târgu Mureș" }, { "id": 2, "cities": "Miercurea Ciuc" }, { "id": 3, "cities": "Odorheiu Secuiesc" }],
+  hu: [{ "id": 1, "cities": "Marosvásárhely" }, { "id": 2, "cities": "Csíkszereda" }, { "id": 3, "cities": "Székelyudvarhely" }],
 }
 
 @Component({
@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   strengths: any;
   slides: any;
   locations: Locations[];
-  texts: string;
-  results: string[];
+  selectedCity: any;
+  filteredCities: any[];
   display: boolean = true;
   isSpinner: boolean = false;
 
@@ -136,10 +136,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchCity(event) {
-    this.results = [];
+    this.filteredCities = [];
     this.locations.forEach(item => {
       if (item.cities.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(event.query.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())) {
-        this.results.push(item.cities);
+        this.filteredCities.push(item);
       }
     });
   }
@@ -153,15 +153,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getRestaurantsByLocation(id: number = 0): void {
     if (id == 0) {
-      const location = this.locations.find(item => item.cities === this.texts);
+      const location = this.locations.find(item => item.id === this.selectedCity.id);
       this.cookieService.put('currentLocation', JSON.stringify({ id: location.id, location: location.cities }));
-      this.citySearchService.currentCity.next(this.texts);
+      this.citySearchService.currentCity.next(location);
       this.router.navigate([`/${location.cities.replace(/\s/g, '-')}`]);
     } else {
-      this.texts = cityList[this.cookieService.get('change_lang')][id - 1];
-      this.cookieService.put('currentLocation', JSON.stringify({ id: id, location: this.texts }));
-      this.citySearchService.currentCity.next(this.texts);
-      this.router.navigate([`${this.texts.replace(/\s/g, '-')}`]);
+      this.selectedCity = cityList[this.cookieService.get('change_lang')][id - 1];
+      this.cookieService.put('currentLocation', JSON.stringify({ id: id, location: this.selectedCity.cities }));
+      this.citySearchService.currentCity.next(this.selectedCity);
+      this.router.navigate([`${this.selectedCity.cities.replace(/\s/g, '-')}`]);
     }
   }
 }

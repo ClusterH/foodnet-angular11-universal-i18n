@@ -37,29 +37,34 @@ export class RestaurantListComponent implements OnInit, OnDestroy {
     private cartCountService: CartCountService,
     private restaurantFilterService: RestaurantFilterService,
   ) {
-
     this.isBrowser = isPlatformBrowser(platformId);
     this._unsubscribeAll = new Subject();
     this.lang = this.cookieService.get('change_lang');
     this.filterOption = new FilterOption;
+    // this.cartCountService.hiddenLang(true);
   }
 
   ngOnInit(): void {
-    this.isSpinner = true;
-    this.locationId = JSON.parse(this.cookieService.get('currentLocation')).id;
-    this.restaurantFilterService.getRestaurantsByLocation(this.cookieService.get('change_lang'), this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      this.restaurantList$ = of(res.result);
-      this.restaurantListLength$ = of(res.result.length);
-      this.isSpinner = false;
-    },
-      (errorResponse) => {
+    this.activatedroute.params.subscribe(routeParams => {
+      this.isSpinner = true;
+      this.locationId = JSON.parse(this.cookieService.get('currentLocation')).id;
+      this.restaurantFilterService.getRestaurantsByLocation(this.cookieService.get('change_lang'), this.locationId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+
+        this.restaurantList$ = of(res.result);
+        this.restaurantListLength$ = of(res.result.length);
         this.isSpinner = false;
-      });
+      },
+        (errorResponse) => {
+          this.isSpinner = false;
+        });
+    });
+
   }
 
   ngOnDestroy(): void {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
+    // this.cartCountService.hiddenLang(false);
   }
 
   filterShown(): void {

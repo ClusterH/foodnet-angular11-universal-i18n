@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { CookieService } from '@gorniv/ngx-universal';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -25,8 +26,12 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
 
   constructor(@Inject(PLATFORM_ID) platformId: Object,
-    private fb: FormBuilder, private authService: AuthService,
-    private router: Router, private route: ActivatedRoute) {
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private cookieService: CookieService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this._unsubscribeAll = new Subject();
     this.isBrowser = isPlatformBrowser(platformId);
     this.isShown = false;
@@ -57,8 +62,8 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 
   sendMsg(): void {
     this.isSpinner = true;
-
-    this.authService.reset(this.lostPWForm.value).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+    const lang = this.cookieService.get('change_lang');
+    this.authService.reset(this.lostPWForm.value, lang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       if (res.status == 200) {
         this.statusIcon = "./assets/icons/success_icon.svg";
         this.statusMsg = $localize`:@@forgotten-check-email-a:Check your email account`;

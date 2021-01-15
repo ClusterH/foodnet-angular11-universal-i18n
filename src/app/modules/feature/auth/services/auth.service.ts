@@ -25,14 +25,16 @@ export class AuthService {
     }))
   }
 
-  logIn(userData: any, isStay: boolean): Observable<any> {
-    return this._httpClient.post<any>(`${this.apiBase}/login`, userData).pipe(map(res => {
+  logIn(userData: any, isStay: boolean, lang: string): Observable<any> {
+    const UserData = { ...userData, ...{ lang: lang } };
+    return this._httpClient.post<any>(`${this.apiBase}/login`, UserData).pipe(map(res => {
       return this.saveToken(res, isStay, userData);
     }))
   }
 
-  reset(userData: any): Observable<any> {
-    return this._httpClient.post<any>(`${this.apiBase}/reset`, userData).pipe(map(res => {
+  reset(userData: any, lang: string): Observable<any> {
+    const UserData = { ...userData, ...{ lang: lang } };
+    return this._httpClient.post<any>(`${this.apiBase}/reset`, UserData).pipe(map(res => {
       return res;
     }))
   }
@@ -69,7 +71,7 @@ export class AuthService {
       this.cookieService.put('stay_login', 'stayed');
       this.cookieService.put('auth_tkn', res.result[0].token);
     }
-    console.log(res.result[0].token);
+
     return res.result[0].token;
   }
 

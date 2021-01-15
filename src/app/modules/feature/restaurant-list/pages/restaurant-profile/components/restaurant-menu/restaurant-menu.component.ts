@@ -24,6 +24,8 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   translatePosition: number = 0;
   selectedCategory = new Category;
   selectedSubCategory = new SubCategory;
+  todayWeek: number = -1;
+  isTodayWeek: boolean = true;
   searchedProduct: string = '';
   productList$: Observable<ProductList[]>;
   productList: ProductList[];
@@ -41,7 +43,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   productImg: string;
   comment: string = '';
   isEnableAddCart: boolean = false;
-  isSpinner: boolean = true;
+  isSpinner: boolean = false;
   private _unsubscribeAll: Subject<any>;
 
   @Output() addCartEventEmitter = new EventEmitter<any>();
@@ -56,6 +58,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
     const body = { "restaurantId": this.restaurant.restaurant_id, "lang": this.cookieService.get('change_lang') };
     this.restaurantMenuService.getRestaurantCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.categoryList = [...res.result];
@@ -66,6 +69,12 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
 
       this.categoryList.map(item => { item.name = item.category_name; return item; });
       this.selectedCategory = this.categoryList[0];
+      if (this.selectedCategory.category_name === 'Daily menu' || this.selectedCategory.category_name === 'Meniul zilei' || this.selectedCategory.category_name === 'Napi menü') {
+        this.todayWeek = new Date().getDay();
+      } else {
+        this.todayWeek = -1;
+      }
+
       this.getSubCategory(this.categoryList[0].category_id);
     });
   }
@@ -74,6 +83,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
   }
+
   isOverdue(openTime, closeTime): boolean {
     const format = 'hh:mm';
     const open = moment(openTime, format);
@@ -86,13 +96,33 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   selectedItem(event): void {
+    this.searchedProduct = '';
     this.isSpinner = true;
     if (event.type === 'category') {
       this.selectedCategory = { ...event.param }
+      if (this.selectedCategory.category_name === 'Daily menu' || this.selectedCategory.category_name === 'Meniul zilei' || this.selectedCategory.category_name === 'Napi menü') {
+        this.todayWeek = new Date().getDay();
+      } else {
+        this.todayWeek = -1;
+        this.isTodayWeek = true;
+      }
+
       this.getSubCategory(this.selectedCategory.category_id);
       this.translatePosition = 0;
     } else if (event.type === 'subcategory') {
+      // this.isSpinner = true
       this.selectedSubCategory = { ...event.param };
+      const selectedSubCategoryInx = this.subCategoryList.findIndex(item => item.subcategories_name === this.selectedSubCategory.subcategories_name);
+      if (this.todayWeek > -1) {
+        if (selectedSubCategoryInx === this.todayWeek) {
+          this.isTodayWeek = true;
+        } else {
+          this.isTodayWeek = false;
+        }
+      } else {
+        this.isTodayWeek = true;
+      }
+
       this.getProducts(this.selectedSubCategory);
     }
   }
@@ -112,8 +142,14 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       }
 
       this.subCategoryList.map(item => { item.name = item.subcategories_name; return item; });
-      this.selectedSubCategory = this.subCategoryList[0];
-      this.getProducts(this.subCategoryList[0]);
+      if (this.todayWeek > -1) {
+        this.subCategoryList.unshift(this.subCategoryList.pop());
+        this.selectedSubCategory = this.subCategoryList[this.todayWeek];
+        this.getProducts(this.subCategoryList[this.todayWeek]);
+      } else {
+        this.selectedSubCategory = this.subCategoryList[0];
+        this.getProducts(this.subCategoryList[0]);
+      }
     });
   }
 
@@ -128,7 +164,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     };
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      this.isSpinner = false;
+      // this.isSpinner = false;
       if (isEmpty(res.result)) {
         this.productList = [];
         this.productList$ = of(this.productList);
@@ -347,6 +383,10 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       return item;
     });
     this.optionalExtraList$ = of(this.optionalExtraData.result);
+  }
+
+  hideLoader(): void {
+    this.isSpinner = false;
   }
 }
 

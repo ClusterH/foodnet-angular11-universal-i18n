@@ -1,4 +1,4 @@
-<main class="main_container" *ngIf="profileType != 'review-create'">
+<main class="main_container" *ngIf="profileType != 'review-create' && isBrowser">
   <h1 *ngIf="profileType!='order-detail'">{{cookieService.get('auth_name')}}</h1>
   <h1 *ngIf="profileType=='order-detail'">Restaurant Name</h1>
   <div class="main_content">
@@ -20,7 +20,7 @@
     </section>
   </div>
 </main>
-<main class="main_container_review" *ngIf="profileType == 'review-create'">
+<main class="main_container_review" *ngIf="profileType == 'review-create' && isBrowser">
   <div class="banner_section">
     <img class="img-fluid p-0 m-0" src="./assets/images/banner_review.svg" alt="Review Banner">
     <div class="title_section">

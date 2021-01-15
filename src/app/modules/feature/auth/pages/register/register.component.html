@@ -1,4 +1,4 @@
-<main class="main_container">
+<main class="main_container" *ngIf="isBrowser">
   <section class="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
     <h2 class="text-bold" i18n="@@register-title-a">Registration</h2>
     <form class="signin_form" [formGroup]="registerForm" (ngSubmit)="register()">

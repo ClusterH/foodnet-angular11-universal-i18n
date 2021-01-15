@@ -40,7 +40,7 @@ export class RestaurantEvaluationComponent implements OnInit {
   getReviewList(rating: number): void {
     this.isSpinner = true;
     this.restaurantReviewService.getRestaurantReviews(this.restaurantId, rating).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      console.log(res);
+
       if (res.status == 200) {
         this.reviewList = res.result[0].ratings;
         if (this.reviewList.length < 12) {

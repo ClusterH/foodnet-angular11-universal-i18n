@@ -63,16 +63,16 @@ export class RestaurantOrderDeliveryLogoutComponent implements OnInit {
 
   formChange(): void {
     if (this.addressForm.valid && !isEmpty(this.selectedCity)) {
-
       this.logoutDeliveryAddressEmitter.emit(this.generateDeliveryAddress());
     } else {
-
       return;
     }
   }
+  changeSelectedCity(): void {
+    this.formChange();
+  }
 
   generateDeliveryAddress(): DeliveryAddress {
-
     let deliveryAddress: DeliveryAddress = this.addressForm.value;
     deliveryAddress.locationId = this.selectedCity.id;
 

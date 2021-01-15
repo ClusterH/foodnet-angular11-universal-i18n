@@ -65,10 +65,13 @@ export class RestaurantOrderNoDeliveryListComponent implements OnInit {
     }
   }
 
+  changeSelectedCity(): void {
+    this.formChange();
+  }
+
   generateDeliveryAddress(): DeliveryAddress {
     let deliveryAddress: DeliveryAddress = this.addressFormLoggedIn.value;
-    deliveryAddress.locationId = this.selectedCity.locationId;
-
+    deliveryAddress.locationId = this.selectedCity.id;
     return deliveryAddress;
   }
 }

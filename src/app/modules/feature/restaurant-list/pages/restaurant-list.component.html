@@ -1,4 +1,4 @@
-<main class="main_container">
+<main class="main_container" *ngIf="isBrowser">
   <h1 *ngIf="cookieService.get('change_lang') == 'en'"><span class="text-bold">We have found&nbsp;<span
         class="text-warning text-bold">{{restaurantListLength$ | async}} Restaurants&nbsp;</span>for you</span></h1>
   <h1 *ngIf="cookieService.get('change_lang') == 'ro'"><span class="text-bold">Am găsit&nbsp;<span
@@ -17,15 +17,16 @@
       <div class="search_box">
         <i class="fas fa-search"></i>
         <input type="text" class="form-control" placeholder="Restaurant name..." [(ngModel)]="searchString"
-          (keyup)="onKeyUpSearch()">
+          (keyup)="onKeyUpSearch()" autocomplete="off">
         <i class="fas fa-sliders-h" (click)="filterShown()"></i>
       </div>
       <div class="w-100" *ngIf="restaurantList$ | async as restaurants">
         <div class="result_body" *ngIf="restaurantListLength$ | async; else noResult">
           <div class="card col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 mb-4" *ngFor="let restaurant of restaurants"
             (click)="restaurantProfile(restaurant)">
-            <img class="card-img" [src]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
-              alt="Card image 1" style="width:100%">
+            <app-image-with-loading [imageUrl]="'https://admin.foodnet.ro/' + restaurant.restaurant_coverImage"
+              [loader]="'./assets/images/loading_spinner1.svg'" class="card-img">
+            </app-image-with-loading>
             <span class="badge" *ngIf="restaurant.restaurant_new == 1" i18n="@@restaurant-list-new-badge">New
               restaurant</span>
             <span class="badge" *ngIf="restaurant.restaurant_discount == 1"
@@ -48,7 +49,7 @@
           </div>
         </div>
         <ng-template #noResult>
-          <h3 class="text-red text-center mt-5">No Restaurant Found</h3>
+          <h3 class="text-warning text-center mt-5">No Restaurant Found</h3>
         </ng-template>
       </div>
     </div>

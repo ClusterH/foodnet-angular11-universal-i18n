@@ -19,6 +19,8 @@ export class InlineCarouselComponent implements OnInit, OnChanges {
   public isBrowser: boolean;
   showIndex: number = 0;
   translateWidth: number = 0;
+  isDaily: boolean = false;
+  weekIndex: number = 0;
 
   @ViewChild('carouselContainer', { static: true }) carouselContainer: ElementRef;
   @ViewChild('carouselItems', { static: true }) carouselItems: ElementRef;
@@ -46,6 +48,14 @@ export class InlineCarouselComponent implements OnInit, OnChanges {
     if (this.translatePosition != -1) {
       this.translateWidth = this.translatePosition;
       this.carouselItems.nativeElement.style.transform = 'translate3d(' + this.translateWidth + 'px, 0px ,0px)';
+    }
+
+    if (this.itemList[0].name == "Sunday" || this.itemList[0].name == "Duminică" || this.itemList[0].name == "Vasárnap") {
+      this.isDaily = true;
+      this.weekIndex = new Date().getDay();
+    } else {
+      this.isDaily = false;
+      this.weekIndex = 0;
     }
   }
 

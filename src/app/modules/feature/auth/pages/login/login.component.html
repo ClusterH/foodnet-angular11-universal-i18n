@@ -1,7 +1,7 @@
-<main class="main_container">
+<main class="main_container" *ngIf="isBrowser">
   <section class="col-md-6 col-sm-12 d-flex flex-column justify-content-between">
     <h2 i18n="@@login-title-a">Login</h2>
-    <form class="signin_form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form class="signin_form" [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
       <div class="form-group message_section" *ngIf="isInvalidErrors">
         <p-messages severity="error">
           <ng-template pTemplate>
@@ -14,7 +14,7 @@
         <label for="email" class="text-bold"
           [ngClass]="(isValidInput('email') && (loginForm.controls['email'].errors.required || loginForm.controls['email'].errors.pattern)) ? 'text-red' :  ''"
           i18n="@@login-email-b">Email address</label>
-        <input id="email" type="email" class="form-control" formControlName="email"
+        <input id="email" type="email" class="form-control" formControlName="email" autocomplete="off"
           [ngClass]="(isValidInput('email') && (loginForm.controls['email'].errors.required || loginForm.controls['email'].errors.pattern)) ? 'bd-red' : ''">
         <div *ngIf="isValidInput('email')" class="m-0 p-0">
           <div *ngIf="loginForm.controls['email'].errors.required">

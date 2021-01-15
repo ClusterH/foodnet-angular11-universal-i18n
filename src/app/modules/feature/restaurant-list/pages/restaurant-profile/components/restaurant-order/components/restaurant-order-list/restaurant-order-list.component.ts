@@ -52,7 +52,7 @@ export class RestaurantOrderListComponent implements OnInit {
   }
 
   counterChange(event, product?): void {
-    console.log(event, product);
+
     this.counts = event.counts;
     this.cartProductList.map(item => {
       if (item.product.product_id == product.product.product_id) {

@@ -11,16 +11,16 @@
       }}
       Search</label>
     <input id="category_search" type="text" class="form-control" placeholder="{{selectedCategory.category_name}} search"
-      [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()">
+      [(ngModel)]="searchedProduct" (keyup)="onKeyUpSearch()" autocomplete="off">
   </div>
-  <div class="restaurant_content" *ngIf="products != []; else noProduct">
+  <div class="restaurant_content" *ngIf="products.length > 0; else noProduct">
     <h2><span *ngIf="selectedCategory.category_name != ''">{{ selectedCategory.category_name }}</span>
       <span *ngIf="selectedSubCategory.subcategories_name != ''">-{{selectedSubCategory.subcategories_name }}</span>
     </h2>
     <div class="prod_list">
       <div class="card col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let product of products;">
         <div class="card_img">
-          <img [src]="imgPath + product.product_imageUrl" alt="">
+          <img [src]="imgPath + product.product_imageUrl" alt="" (load)="hideLoader()" (error)="hideLoader()">
         </div>
         <div class="card_body">
           <h5>{{ product.product_name }}</h5>
@@ -35,10 +35,10 @@
           </p>
           <div class="card_footer">
             <span class="price_item text-warning text-bold">
-              {{ product.product_price | number:'1.2-2':'en'}}Ft
+              {{ product.product_price | number:'1.2-2':'en'}}&nbsp;{{'lei' | currencyUnit}}
             </span>
             <div class="counter"
-              [ngClass]="{'div-disabled': product.isCart || !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close)}">
+              [ngClass]="{'div-disabled': product.isCart || !isOverdue(restaurant.restaurant_open, restaurant.restaurant_close) || !isTodayWeek || (product.soldOut && product.soldOut == 1) || (todayWeek > -1 && !isOverdue(product.startTime, product.endTime) )}">
               <app-counter (counterEmitter)="counterChange($event, product.product_id)"
                 (openExtraEmitter)="openExtraPopUp($event, product)"
                 [counterOption]="{checkRequire: true, count: product.count, statusOption: product.isCart ? 'check' : 'bag'}">
@@ -50,13 +50,16 @@
     </div>
   </div>
   <ng-template #noProduct>
-    <p>No Product!</p>
+    <h4 class="text-center text-warning mt-5" i18n="@@restaurant-profile-no-food">Food Not Found!</h4>
   </ng-template>
 
   <p-dialog header="" [(visible)]="isShownExtra" [baseZIndex]="10000" styleClass="custom_dialog" [modal]="true"
     [dismissableMask]="true">
     <p-header *ngIf="selectedProduct">
-      <img [src]="imgPath + selectedProduct.product_imageUrl" alt="">
+      <!-- <img [src]="imgPath + selectedProduct.product_imageUrl" alt="" (load)="hideLoader()" (error)="hideLoader()"> -->
+      <app-image-with-loading [imageUrl]="imgPath + selectedProduct.product_imageUrl"
+        [loader]="'./assets/images/loading_spinner1.svg'" class="card-img">
+      </app-image-with-loading>
       <h5 class="text-bold text-center">Extras</h5>
     </p-header>
     <div class="main_info" *ngIf="selectedProduct">
@@ -84,7 +87,8 @@
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
               <span>{{extra.extra_name}}</span>
-              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}&nbsp;{{'lei' |
+                currencyUnit}}</span>
             </div>
             <div class="allergens text-left flex-wrap mb-2">
               <span i18n="@@restaurant-profile-menu-dialog-c">(Allergens: </span>
@@ -95,7 +99,7 @@
               <span>)</span>
             </div>
             <div class="mobile_counter_section" [ngClass]="{'div-disabled': !extra.checked}">
-              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}&nbsp;{{'lei' | currencyUnit}}</span>
               <app-counter (counterEmitter)="requiredExtraCounterChange($event, extra.extra_id)"
                 [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
               </app-counter>
@@ -123,7 +127,8 @@
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
               <span>{{extra.extra_name}}</span>
-              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}&nbsp;{{'lei' |
+                currencyUnit}}</span>
             </div>
             <div class="allergens text-left flex-wrap mb-2">
               <span i18n="@@restaurant-profile-menu-dialog-e">(Allergens: </span>
@@ -134,7 +139,7 @@
               <span>)</span>
             </div>
             <div class="mobile_counter_section" [ngClass]="{'div-disabled': !extra.checked}">
-              <span class="text-warning text-bold text-left">{{extra.extra_price}}Ft</span>
+              <span class="text-warning text-bold text-left">{{extra.extra_price}}&nbsp;{{'lei' | currencyUnit}}</span>
               <app-counter (counterEmitter)="optionalExtraCounterChange($event, extra.extra_id)"
                 [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
               </app-counter>
@@ -163,7 +168,6 @@
         cart</button>
     </p-footer>
   </p-dialog>
-
 </main>
 <div class="spinner_overlay" *ngIf="isSpinner">
   <div class="spinner_container">

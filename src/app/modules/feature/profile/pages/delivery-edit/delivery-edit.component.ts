@@ -126,8 +126,7 @@ export class DeliveryEditComponent implements OnInit, OnDestroy {
         this.isSpinner = false;
       }))
       .subscribe(res => {
-
-        if (res.status == 201) {
+        if (res.status == 200) {
           this.isInvalidErrors = false;
           this.showMsg(true);
         } else {

@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white">
     <div class="header_content">
       <div class="left_section">
-        <a class="navbar-brand" routerLink="/" (click)="moveToHome()">
+        <a class="navbar-brand" (click)="moveToHome()">
           <img src="./assets/icons/foodnet-logo.svg" alt="">
         </a>
         <div class="header_search">
@@ -84,3 +84,16 @@
     </div>
   </nav>
 </header>
+
+<p-dialog header="" [(visible)]="isShown" [style]="{width: '255px'}" [baseZIndex]="10000" styleClass="custom_dialog"
+  *ngIf="isBrowser" [modal]="true">
+  <p-header>
+    <h2 i18n="@@header-delete-dialog-a">Are you sure you want to go to Home?</h2>
+  </p-header>
+  <p class="text-bold text-center" i18n="@@header-delete-dialog-b">This will cause all your previous cart to be lost
+    and cannot be restored.</p>
+  <p-footer>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(false)" i18n="@@header-delete-dialog-c">No</button>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(true)" i18n="@@header-delete-dialog-d">Yes</button>
+  </p-footer>
+</p-dialog>

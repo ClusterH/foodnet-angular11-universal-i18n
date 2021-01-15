@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit, Output, EventEmitter, ViewChild } 
 import { CookieService } from '@gorniv/ngx-universal';
 import { isEmpty } from 'lodash';
 import { forkJoin, Observable, of, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { Category, ProductList, SubCategory, } from '../../models';
 import { RestaurantList } from '../../../../models';
 
@@ -34,7 +34,9 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   counts: number = 1;
   requiredExtraList$: Observable<[]>;
   requiredExtraData: any;
+  minRequired: number;
   minRequired$: Observable<number>;
+  checkedRequired: number;
   optionalExtraList$: Observable<[]>;
   optionalExtraData: any;
   isExtra: boolean = true;
@@ -58,7 +60,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
     const body = { "restaurantId": this.restaurant.restaurant_id, "lang": this.cookieService.get('change_lang') };
     this.restaurantMenuService.getRestaurantCategory(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       this.categoryList = [...res.result];
@@ -168,6 +169,7 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       if (isEmpty(res.result)) {
         this.productList = [];
         this.productList$ = of(this.productList);
+        this.isSpinner = false;
         return;
       } else {
         this.productList = [...res.result];
@@ -254,16 +256,18 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
         item.checked = false;
         return item;
       }));
+      this.minRequired = requiredExtraData.minRequired;
+      this.minRequired$ = of(this.minRequired);
+      this.checkedRequired = 0;
 
-      this.minRequired$ = of(requiredExtraData.minRequired);
       if (requiredExtraData.result.length == 0) {
         this.isEnableAddCart = true;
-      } else {
-        this.requiredExtraData.result[0].checked = true;
-        if (requiredExtraData.result.length == 1) {
-          this.isEnableAddCart = true;
-        }
       }
+      // else {
+      //   if (requiredExtraData.result.length == requiredExtraData.minRequired) {
+      //     this.isEnableAddCart = true;
+      //   }
+      // }
 
       this.requiredExtraList$ = of(this.requiredExtraData.result);
 
@@ -363,25 +367,72 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  onRequiredExtraChange(event, id) {
+  onRequiredExtraChange(id: number, event) {
+    if (event.target.checked) {
+      this.checkedRequired++;
+    } else {
+      this.checkedRequired--;
+    }
+
+    if (!(this.checkedRequired < this.minRequired)) {
+      this.isEnableAddCart = true;
+    } else {
+      this.isEnableAddCart = false;
+    }
+
     this.requiredExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
       }
+
       return item;
     });
 
-    this.isEnableAddCart = true;
     this.requiredExtraList$ = of(this.requiredExtraData.result);
   }
 
-  onOptionalExtraChange(event, id) {
+  onRequiredExtraChangeByText(id: number, isChecked: boolean) {
+    if (isChecked) {
+      this.checkedRequired--;
+    } else {
+      this.checkedRequired++;
+    }
+
+    if (!(this.checkedRequired < this.minRequired)) {
+      this.isEnableAddCart = true;
+    } else {
+      this.isEnableAddCart = false;
+    }
+
+    this.requiredExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.checked = !isChecked;
+      }
+      return item;
+    });
+
+    this.requiredExtraList$ = of(this.requiredExtraData.result);
+  }
+
+  onOptionalExtraChange(id: number, event) {
     this.optionalExtraData.result.map(item => {
       if (item.extra_id === id) {
         item.checked = event.target.checked;
       }
       return item;
     });
+
+    this.optionalExtraList$ = of(this.optionalExtraData.result);
+  }
+
+  onOptionalExtraChangeByText(id: number) {
+    this.optionalExtraData.result.map(item => {
+      if (item.extra_id === id) {
+        item.checked = !item.checked;
+      }
+      return item;
+    });
+
     this.optionalExtraList$ = of(this.optionalExtraData.result);
   }
 

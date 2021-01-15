@@ -17,7 +17,8 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
   updateForm: FormGroup;
   errors: any = [];
   isInvalidErrors: boolean;
-  isSpinner: boolean = false;
+  userPhoneNumber: string = '';
+  isSpinner: boolean = true;
   isShown: boolean;
   statusIcon: string;
   statusMsg: string;
@@ -40,7 +41,17 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initForm();
-    this.setValue();
+    this.updateService.getUserData().pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
+      if (res.status === 200) {
+        this.isSpinner = false;
+        console.log(res);
+        this.userPhoneNumber = res.result.phoneNumber;
+        this.setValue();
+      } else {
+        this.isSpinner = false;
+        this.setValue();
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -63,6 +74,7 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
     this.updateForm.patchValue({
       name: this.cookieService.get('auth_name'),
       email: this.cookieService.get('auth_email'),
+      phonenumber: this.userPhoneNumber
     });
   }
 
@@ -84,8 +96,12 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
           this.isSpinner = false;
         }))
       .subscribe(res => {
-        this.isInvalidErrors = false;
-        this.showMsg(true);
+        if (res.status == 200) {
+          this.isInvalidErrors = false;
+          this.showMsg(true);
+        } else {
+          this.showMsg(false, res.msg)
+        }
       },
         (errorResponse) => {
           this.isInvalidErrors = true;
@@ -94,7 +110,7 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
         });
   }
 
-  showMsg(status): void {
+  showMsg(status, message: string = ''): void {
     if (status) {
       this.statusIcon = "./assets/icons/success_icon.svg";
       this.statusMsg = $localize`:@@profile-update-success-message:Successful data modification`;
@@ -102,7 +118,11 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
     }
     else {
       this.statusIcon = "./assets/icons/fail_icon.svg";
-      this.statusMsg = $localize`:profile-update-failed-message:A server error has occurred`;
+      if (message === '') {
+        this.statusMsg = $localize`:profile-update-failed-message:A server error has occurred`;
+      } else {
+        this.statusMsg = message;
+      }
     }
     this.isShown = true;
   }

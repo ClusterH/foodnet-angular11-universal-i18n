@@ -25,7 +25,19 @@
         <div class="card_body">
           <h5>{{ product.product_name }}</h5>
           <p>{{ product.product_description }}</p>
-          <p class="text-grey">
+          <div *ngIf="todayWeek>-1 && product.extraNameArr">
+            <p class=""><strong
+                i18n="@@restaurant-profile-daily-soup">Soup:&nbsp;</strong>{{product.extraNameArr[0].extraNameArr}}</p>
+            <p class=""><strong i18n="@@restaurant-profile-daily-maincourse">Main
+                Course:&nbsp;</strong>{{product.extraNameArr[1].extraNameArr}}</p>
+            <p class="" *ngIf="product.extraNameArr[2]">
+              <strong
+                i18n="@@restaurant-profile-daily-dessert">Dessert:&nbsp;</strong>{{product.extraNameArr[2].extraNameArr}}
+            </p>
+            <p class=""><strong i18n="@@restaurant-profile-daily-ordertime">Order
+                Time:&nbsp;</strong>{{product.startTime}} - {{product.endTime}}</p>
+          </div>
+          <p class="text-grey" *ngIf="todayWeek == -1">
             <span i18n="@@restaurant-profile-menu-d">(Allergens: </span>
             <span *ngFor="let allergen of product.allergens_name; let last=last">
               <span *ngIf="last">{{ allergen.allergen_name }}</span>
@@ -65,7 +77,7 @@
     <div class="main_info" *ngIf="selectedProduct">
       <h2>{{selectedProduct.product_name}}</h2>
       <p>{{selectedProduct.product_description}}</p>
-      <div class="mb-4"><span i18n="@@restaurant-profile-menu-dialog-a">(Allergens: </span>
+      <div class="mb-4" *ngIf="todayWeek === -1"><span i18n="@@restaurant-profile-menu-dialog-a">(Allergens: </span>
         <span *ngFor="let allergen of selectedProduct.allergens_name; let last=last">
           <span *ngIf="last">{{ allergen.allergen_name }}</span>
           <span *ngIf="!last">{{ allergen.allergen_name }}, </span>
@@ -78,16 +90,17 @@
         Required extra({{minRequired$ | async}} piece Required)</h5>
       <ul class="required_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of requiredExtraList">
-          <div class="custom_radio">
-            <input type="radio" [id]="extra.extra_id" [(value)]="extra.checked"
-              [attr.checked]="extra.checked == true? true : null"
-              (change)="onRequiredExtraChange($event, extra.extra_id)">
+          <div class="custom_checkbox">
+            <input type="checkbox" [id]="extra.extra_id" [(ngModel)]="extra.checked"
+              (change)="onRequiredExtraChange(extra.extra_id, $event)">
             <label [for]="extra.extra_id"></label>
           </div>
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
-              <span>{{extra.extra_name}}</span>
-              <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}&nbsp;{{'lei' |
+              <span style="cursor: pointer;"
+                (click)="onRequiredExtraChangeByText(extra.extra_id, extra.checked)">{{extra.extra_name}}</span>
+              <span class="text-warning text-bold text-left mb-hidden"
+                *ngIf="todayWeek === -1">{{extra.extra_price}}&nbsp;{{'lei' |
                 currencyUnit}}</span>
             </div>
             <div class="allergens text-left flex-wrap mb-2">
@@ -99,7 +112,8 @@
               <span>)</span>
             </div>
             <div class="mobile_counter_section" [ngClass]="{'div-disabled': !extra.checked}">
-              <span class="text-warning text-bold text-left">{{extra.extra_price}}&nbsp;{{'lei' | currencyUnit}}</span>
+              <span class="text-warning text-bold text-left" *ngIf="todayWeek === -1">{{extra.extra_price}}&nbsp;{{'lei'
+                | currencyUnit}}</span>
               <app-counter (counterEmitter)="requiredExtraCounterChange($event, extra.extra_id)"
                 [counterOption]="{checkRequire: false, extra_minQuantity: extra.extra_minQuantity, extra_maxQuantity: extra.extra_maxQuantity}">
               </app-counter>
@@ -119,14 +133,14 @@
       <ul class="optional_extra_list">
         <li class="d-flex justify-content-start align-items-start" *ngFor="let extra of optionalExtraList">
           <div class="custom_checkbox">
-            <input type="checkbox" [id]="extra.extra_id" [(value)]="extra.checked"
-              [attr.checked]="extra.checked == true? true : null"
-              (change)="onOptionalExtraChange($event, extra.extra_id)">
+            <input type="checkbox" [id]="extra.extra_id" [(ngModel)]="extra.checked" binary="true"
+              (change)="onOptionalExtraChange(extra.extra_id, $event)">
             <label [for]="extra.extra_id"></label>
           </div>
           <div class="extra_content">
             <div class="extra_main_info d-flex justify-content-between align-items-start mb-2">
-              <span>{{extra.extra_name}}</span>
+              <span style="cursor: pointer;"
+                (click)="onOptionalExtraChangeByText(extra.extra_id)">{{extra.extra_name}}</span>
               <span class="text-warning text-bold text-left mb-hidden">{{extra.extra_price}}&nbsp;{{'lei' |
                 currencyUnit}}</span>
             </div>

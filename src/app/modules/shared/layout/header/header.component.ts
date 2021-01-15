@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartNumber$: Observable<number>;
   isHiddenLang: boolean = false;
   isHiddenLang$: Observable<boolean>;
+  isShown: boolean = false;
   private _unsubscribeAll: Subject<any>;
 
   constructor(
@@ -76,9 +77,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.selectedLanguage = this.languages.find(country => country.name === this.currentLang);
 
     this.citySearchService.getLocations(this.currentLang).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-
       this.locations = res.locations;
     });
+
     if (this.isBrowser) {
       window.addEventListener('click', (event) => {
         this.menuContentManage(event);
@@ -86,10 +87,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     this.citySearchService.currentCity$.subscribe(res => {
-
       this.selectedCity = res;
       if (this.selectedCity == null) {
-        if (this.cookieService.get('currentLocation')) {
+        if (this.cookieService.get('currentLocation') && this.locations) {
           this.selectedCity = this.locations.find(item => item.id === JSON.parse(this.cookieService.get('currentLocation')).id);
           this.citySearchService.currentCity.next(this.selectedCity);
         }
@@ -158,13 +158,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   moveToHome(): void {
-    this.selectedCity = null;
+    this.isShown = true;
+  }
 
-    if (this.cookieService.get('filter_option')) {
-      this.cookieService.remove('filter_option');
-    }
-    if (this.cookieService.get('currentLocation')) {
-      this.cookieService.remove('currentLocation');
+  closeMsg(isDelete: boolean): void {
+    if (isDelete) {
+      this.isShown = false;
+      this.selectedCity = null;
+
+      if (this.cookieService.get('filter_option')) {
+        this.cookieService.remove('filter_option');
+      }
+      if (this.cookieService.get('currentLocation')) {
+        this.cookieService.remove('currentLocation');
+      }
+
+      this.cookieService.remove('cartProducts');
+      this.cartCountService.getCartNumber();
+
+      this.router.navigate(['']);
+    } else {
+      this.isShown = false;
     }
   }
 

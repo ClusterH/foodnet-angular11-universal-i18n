@@ -107,7 +107,8 @@ export class RestaurantOrderComponent implements OnInit {
   orderSuccess(): void {
     this.isOrder = true;
     const restaurantOption = { restaurantId: JSON.parse(this.cookieService.get('restaurant')).restaurant_id };
-    const body = { ...{ lang: this.cookieService.get('change_lang') }, ...restaurantOption, ...this.orderProductOption, ...this.deliveryAddressOption, ...this.paymentOption };
+    const totalPrice = JSON.parse(this.cookieService.get('cartProducts')).totalPrice;
+    const body = { ...{ lang: this.cookieService.get('change_lang'), totalPrice: totalPrice }, ...restaurantOption, ...this.orderProductOption, ...this.deliveryAddressOption, ...this.paymentOption };
 
     this.orderService.restaurantOrder(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       if (res.status == 200) {

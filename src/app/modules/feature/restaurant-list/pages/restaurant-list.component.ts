@@ -18,7 +18,7 @@ import * as moment from 'moment';
 export class RestaurantListComponent implements OnInit, OnDestroy {
   public isBrowser: boolean;
   private _unsubscribeAll: Subject<any>;
-  isSpinner: boolean = true;
+  isSpinner = true;
   filterShow: boolean = false;
   filterOption: FilterOption;
   isRemovePrevOrderDialog: boolean = false;

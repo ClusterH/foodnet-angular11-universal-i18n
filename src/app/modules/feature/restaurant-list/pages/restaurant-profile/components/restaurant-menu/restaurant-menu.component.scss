@@ -226,6 +226,10 @@
           opacity: 0.5;
           background: #ccc;
         }
+        .check-disabled {
+          pointer-events: none;
+          opacity: 0.5;
+        }
         .optional_extra,
         .required_extra {
           .optional_extra_list,

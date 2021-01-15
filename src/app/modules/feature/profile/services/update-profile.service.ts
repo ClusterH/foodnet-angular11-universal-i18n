@@ -21,5 +21,9 @@ export class UpdateService {
   update(userData: any): Observable<any> {
     return this._httpClient.post<any>(`${this.apiBase}`, userData);
   }
+
+  getUserData(): Observable<any> {
+    return this._httpClient.get<any>(`${this.apiBase}`);
+  }
 }
 

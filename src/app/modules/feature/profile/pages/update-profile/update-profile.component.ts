@@ -115,6 +115,7 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
       this.statusIcon = "./assets/icons/success_icon.svg";
       this.statusMsg = $localize`:@@profile-update-success-message:Successful data modification`;
       this.cookieService.put('auth_name', this.updateForm.controls['name'].value);
+      this.cookieService.put('auth_email', this.updateForm.controls['email'].value);
     }
     else {
       this.statusIcon = "./assets/icons/fail_icon.svg";

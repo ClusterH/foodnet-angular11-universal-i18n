@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="review_list d-flex flex-row justify-content-between align-items-start flex-wrap w-100"
-    *ngIf="reviewListLength$ | async; else noResult">
+    *ngIf="reviewListLength > 0; else noResult">
     <div class="card col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mb-4" *ngFor="let review of reviewList$ | async">
       <div class="card_body d-flex flex-column align-items-start justify-content-between">
         <h5>{{ review.user_name }}</h5>
@@ -32,7 +32,7 @@
   <ng-template #noResult>
     <h3 class="text-warning text-center mt-4 mb-4 w-100">No Reviews Found</h3>
   </ng-template>
-  <div class="btn_section">
+  <div class="btn_section" *ngIf="reviewListLength > 0">
     <label class="loadStatus" i18n="@@restaurant-profile-review-d">Showing {{defaultShowReview}} reviews of
       {{totalReview}}</label>
     <div class="lineSection">

@@ -158,7 +158,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   moveToHome(): void {
-    this.isShown = true;
+    if (this.cartNumber > 0) {
+      this.isShown = true;
+    } else {
+      this.selectedCity = null;
+
+      if (this.cookieService.get('filter_option')) {
+        this.cookieService.remove('filter_option');
+      }
+      if (this.cookieService.get('currentLocation')) {
+        this.cookieService.remove('currentLocation');
+      }
+
+      this.router.navigate(['']);
+    }
   }
 
   closeMsg(isDelete: boolean): void {

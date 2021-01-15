@@ -12,12 +12,12 @@ import { CookieService } from '@gorniv/ngx-universal';
 })
 export class OrderDetailComponent implements OnInit {
   lang: string;
-  orderId: number;
+  orderId: string;
   orderCreatedAt: string;
   deliveryAddress: DeliveryAddress;
   productList: OrderDetail[];
   imgPath: string = 'https://admin.foodnet.ro/';
-
+  isEmptyExtra: boolean = false;
   isSpinner: boolean = true;
   private _unsubscribeAll: Subject<any>;
 
@@ -28,13 +28,20 @@ export class OrderDetailComponent implements OnInit {
     this._unsubscribeAll = new Subject();
 
     this.lang = this.cookieService.get('change_lang');
-    this.orderId = Number(this.cookieService.get('orderId'));
+    this.orderId = this.cookieService.get('orderId');
   }
 
   ngOnInit(): void {
     this.orderListService.getOrderDetail(this.lang, this.orderId).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
       if (res.status == 200) {
         this.productList = [...res.result];
+        this.productList.map(item => {
+          if (item.extras.length === 0 || Object.keys(item.extras[0]).length === 0) {
+            item.emptyExtra = true;
+          } else {
+            item.emptyExtra = false;
+          }
+        })
         this.deliveryAddress = res.deliveryAddress[0];
         this.orderCreatedAt = res.orderCreatedAt;
         this.isSpinner = false;

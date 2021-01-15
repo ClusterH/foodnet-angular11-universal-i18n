@@ -15,7 +15,8 @@ export interface OrderDetail {
   product_description: string,
   allergenName: Array<string>,
   product_imageUrl: string,
-  extras: Extras[]
+  extras: Extras[],
+  emptyExtra?: boolean
 }
 
 export interface Extras {

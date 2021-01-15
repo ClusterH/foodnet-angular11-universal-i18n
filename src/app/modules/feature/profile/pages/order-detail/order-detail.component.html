@@ -31,7 +31,7 @@
           </span>
           <span>)</span>
         </p>
-        <div class="extra_section" *ngIf="product.extras.length > 0">
+        <div class="extra_section" *ngIf="!product.emptyExtra">
           <span>+&nbsp;</span>
           <span *ngFor="let extra of product.extras; let last=last">
             <span *ngIf="last">{{extra.extra_quantity}}*{{extra.extra_name}}</span>

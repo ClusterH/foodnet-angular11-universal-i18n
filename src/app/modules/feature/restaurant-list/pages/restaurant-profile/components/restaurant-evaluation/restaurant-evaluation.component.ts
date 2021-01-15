@@ -16,6 +16,7 @@ export class RestaurantEvaluationComponent implements OnInit {
   evaluation: number = 0;
   reviewList: RestaurantReviewList[];
   reviewList$: Observable<RestaurantReviewList[]>;
+  reviewListLength = 0;
   reviewListLength$: Observable<number> = of(0);
   avgRating: number;
   totalReview: number;
@@ -52,6 +53,7 @@ export class RestaurantEvaluationComponent implements OnInit {
         }
 
         this.reviewList$ = of(this.reviewList.slice(0, this.defaultShowReview));
+        this.reviewListLength = this.reviewList.length;
         this.reviewListLength$ = of(this.reviewList.length);
         this.avgRating = res.result[0].AVGrating;
         this.totalReview = this.reviewList.length;

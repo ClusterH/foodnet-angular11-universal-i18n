@@ -22,7 +22,7 @@ export class OrderListService {
     return this._httpClient.get<any>(`${this.apiBase}`);
   }
 
-  getOrderDetail(lang: string, orderId: number): Observable<any> {
+  getOrderDetail(lang: string, orderId: string): Observable<any> {
     return this._httpClient.get<any>(`${this.apiBase}${lang}/${orderId}`);
   }
 }

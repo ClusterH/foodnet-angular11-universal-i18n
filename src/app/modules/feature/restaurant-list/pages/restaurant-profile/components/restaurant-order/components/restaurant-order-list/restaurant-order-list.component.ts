@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Observable, of } from 'rxjs';
 import { CookieService } from '@gorniv/ngx-universal';
 import { CartCountService } from 'src/app/modules/shared/services';
 import { OrderProductList, ExtraList } from '../../../../models';
 import { isEmpty } from 'lodash';
+import { RestaurantMenuComponent } from '../../../restaurant-menu/restaurant-menu.component';
 
 @Component({
   selector: 'app-restaurant-order-list',
@@ -18,8 +19,10 @@ export class RestaurantOrderListComponent implements OnInit {
   cartProductList$: Observable<Array<any>>;
   totalPrice$: Observable<number>;
   totalPrice: number = 0;
+  isDeleteAllDialog: boolean = false;
 
   @Output() orderProductListEmitter = new EventEmitter<OrderProductList[]>();
+  @ViewChild(RestaurantMenuComponent) menuComponent: RestaurantMenuComponent;
 
   constructor(
     private router: Router,
@@ -52,7 +55,6 @@ export class RestaurantOrderListComponent implements OnInit {
   }
 
   counterChange(event, product?): void {
-
     this.counts = event.counts;
     this.cartProductList.map(item => {
       if (item.product.product_id == product.product.product_id) {
@@ -131,7 +133,8 @@ export class RestaurantOrderListComponent implements OnInit {
         extras.push({
           id: extra.extra_id,
           quantity: extra.count,
-          extraPrice: extra.extra_price
+          extraPrice: extra.extra_price,
+          type: "req"
         })
       })
     }
@@ -141,11 +144,42 @@ export class RestaurantOrderListComponent implements OnInit {
         extras.push({
           id: extra.extra_id,
           quantity: extra.count,
-          extraPrice: extra.extra_price
+          extraPrice: extra.extra_price,
+          type: "opt"
         })
       })
     }
 
     return extras;
+  }
+
+  deleteProductFromCart(product, type?: string): void {
+    if (this.cartProductList.length === 1 || type == 'all') {
+      this.isDeleteAllDialog = true;
+    } else {
+      const index = this.cartProductList.indexOf(product);
+      if (index > -1) {
+        this.totalPrice = this.totalPrice - product.totalPrice;
+        this.cartProductList.splice(index, 1);
+      }
+
+      this.cartProductList$ = of(this.cartProductList);
+      this.totalPrice$ = of(this.totalPrice);
+      this.cookieService.put('cartProducts', JSON.stringify({ cartList: this.cartProductList, totalPrice: this.totalPrice }));
+      this.cartCountService.getCartNumber();
+    }
+  }
+
+  closeMsg(isDelete: boolean): void {
+    if (isDelete) {
+      this.cartProductList = null;
+      this.cartProductList$ = of(this.cartProductList);
+      this.cookieService.remove('cartProducts');
+      this.cartCountService.getCartNumber();
+      this.isDeleteAllDialog = false;
+      this.goToRestaurant()
+    } else {
+      this.isDeleteAllDialog = false;
+    }
   }
 }

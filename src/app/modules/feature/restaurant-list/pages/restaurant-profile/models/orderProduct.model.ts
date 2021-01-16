@@ -10,7 +10,8 @@ export interface OrderProductList {
 export interface ExtraList {
   id: number,
   quantity: number,
-  extraPrice: number
+  extraPrice: number,
+  type: string
 }
 
 export interface Payment {

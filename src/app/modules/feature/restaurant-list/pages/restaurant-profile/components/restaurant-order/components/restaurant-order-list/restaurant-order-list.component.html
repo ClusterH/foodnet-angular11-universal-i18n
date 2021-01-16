@@ -5,7 +5,7 @@
       <div class="item_content d-flex flex-column align-items-start justify-content-start">
         <h6 class="text-bold">{{product.product.count}} * {{product.product.product_name}}</h6>
         <label for="" class="ingredient_label">{{product.product.product_description}}</label>
-        <p class="ingredient_items">
+        <p class="ingredient_items" *ngIf="product.product.allergens_name && product.product.allergens_name.length > 0">
           <span>(Allergens: </span>
           <span *ngFor="let allergen of product.product.allergens_name; let last=last">
             <span *ngIf="last">{{ allergen.allergen_name }}</span>
@@ -37,6 +37,8 @@
         <app-counter (counterEmitter)="counterChange($event, product)"
           [counterOption]="{checkRequire: false, count: product.product.count}">
         </app-counter>
+        <h5 class="ml-3 pt-2"><span><i class="fas fa-trash-alt" style="color: #999; cursor: pointer;"
+              (click)="deleteProductFromCart(product, 'current')"></i></span></h5>
       </div>
     </div>
     <div class="item_comment mt-3" *ngIf="product.comment !== ''">
@@ -54,3 +56,18 @@
     </h5> -->
   </div>
 </div>
+
+<p-dialog header="" [(visible)]="isDeleteAllDialog" [baseZIndex]="10000" styleClass="restaurant_profile_dialog"
+  [modal]="true" class="restaurant_order_dialog">
+  <p-header>
+    <h2 i18n="@@restaurant-order-delete-dialog-a">Are you sure you want to delete all cart contents?</h2>
+  </p-header>
+  <p class="text-bold text-center" i18n="@@restaurant-order-delete-dialog-b">This will cause all your previous data to
+    be lost and cannot be restored.</p>
+  <p-footer>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(false)"
+      i18n="@@restaurant-order-delete-dialog-c">No</button>
+    <button type="button" class="btn bg-grey" (click)="closeMsg(true)"
+      i18n="@@restaurant-order-delete-dialog-d">Yes</button>
+  </p-footer>
+</p-dialog>

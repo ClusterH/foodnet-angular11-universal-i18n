@@ -53,7 +53,7 @@
             (click)="deleteProductFromCart(product, 'current')"></i></span>
       </h5>
       <label for="" class="ingredient_label">{{product.product.product_description}}</label>
-      <p class="ingredient_items">
+      <p class="ingredient_items" *ngIf="product.product.allergens_name && product.product.allergens_name.length > 0">
         <span>(Allergens: </span>
         <span *ngFor="let allergen of product.product.allergens_name; let last=last">
           <span *ngIf="last">{{ allergen.allergen_name }}</span>

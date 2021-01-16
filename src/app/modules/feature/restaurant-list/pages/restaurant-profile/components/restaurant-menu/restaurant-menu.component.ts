@@ -111,7 +111,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       this.getSubCategory(this.selectedCategory.category_id);
       this.translatePosition = 0;
     } else if (event.type === 'subcategory') {
-      // this.isSpinner = true
       this.selectedSubCategory = { ...event.param };
       const selectedSubCategoryInx = this.subCategoryList.findIndex(item => item.subcategories_name === this.selectedSubCategory.subcategories_name);
       if (this.todayWeek > -1) {
@@ -165,7 +164,6 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
     };
 
     this.restaurantMenuService.getRestaurantProducts(body).pipe(takeUntil(this._unsubscribeAll)).subscribe(res => {
-      // this.isSpinner = false;
       if (isEmpty(res.result)) {
         this.productList = [];
         this.productList$ = of(this.productList);
@@ -248,7 +246,12 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       this.optionalExtraData = optionalExtraData;
       this.requiredExtraData.result.map(item => {
         item.count = item.extra_minQuantity;
-        item.checked = false;
+        if (this.todayWeek > -1) {
+          item.checked = true;
+        } else {
+          item.checked = false;
+        }
+
         return item;
       });
       this.optionalExtraList$ = of(this.optionalExtraData.result.map(item => {
@@ -258,16 +261,16 @@ export class RestaurantMenuComponent implements OnInit, OnDestroy {
       }));
       this.minRequired = requiredExtraData.minRequired;
       this.minRequired$ = of(this.minRequired);
-      this.checkedRequired = 0;
+      if (this.todayWeek > -1) {
+        this.checkedRequired = this.minRequired;
+        this.isEnableAddCart = true;
+      } else {
+        this.checkedRequired = 0;
+      }
 
       if (requiredExtraData.result.length == 0) {
         this.isEnableAddCart = true;
       }
-      // else {
-      //   if (requiredExtraData.result.length == requiredExtraData.minRequired) {
-      //     this.isEnableAddCart = true;
-      //   }
-      // }
 
       this.requiredExtraList$ = of(this.requiredExtraData.result);
 
